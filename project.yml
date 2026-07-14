@@ -1,0 +1,77 @@
+name: CommonGround
+options:
+  bundleIdPrefix: com.germaind
+  deploymentTarget:
+    iOS: "18.0"
+    watchOS: "11.0"
+  xcodeVersion: "16.0"
+  generateEmptyDirectories: true
+
+packages:
+  CommonGround:
+    path: .
+
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    ENABLE_USER_SCRIPT_SANDBOXING: NO
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: "1"
+
+targets:
+  CommonGround:
+    type: application
+    platform: iOS
+    sources:
+      - path: CommonGround
+    dependencies:
+      - package: CommonGround
+        product: CommonGroundFeatures
+      - target: CommonGroundWidgets
+        embed: true
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.germaind.CommonGround
+        INFOPLIST_FILE: CommonGround/Info.plist
+        CODE_SIGN_ENTITLEMENTS: CommonGround/CommonGround.entitlements
+        TARGETED_DEVICE_FAMILY: "1,2"
+        SUPPORTS_MACCATALYST: NO
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        DEVELOPMENT_TEAM: ""
+        OTHER_LDFLAGS: $(inherited) -weak_framework FoundationModels
+    entitlements:
+      path: CommonGround/CommonGround.entitlements
+
+  CommonGroundWidgets:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: CommonGroundWidgets
+    dependencies:
+      - package: CommonGround
+        product: CommonGroundCore
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.germaind.CommonGround.widgets
+        INFOPLIST_FILE: CommonGroundWidgets/Info.plist
+        SKIP_INSTALL: YES
+
+  CommonGroundWatch:
+    type: application
+    platform: watchOS
+    sources:
+      - path: CommonGroundWatch
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.germaind.CommonGround.watchkitapp
+        INFOPLIST_FILE: CommonGroundWatch/Info.plist
+        SKIP_INSTALL: YES
+
+schemes:
+  CommonGround:
+    build:
+      targets:
+        CommonGround: all
+        CommonGroundWidgets: all
+    run:
+      config: Debug

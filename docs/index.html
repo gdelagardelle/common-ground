@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Common Ground Co-Parent</title>
+  <meta name="description" content="The native Apple co-parenting app for custody schedules, expenses, medical records, and shared family coordination.">
+  <style>
+    :root {
+      --primary: #4363eb;
+      --primary-dark: #3730a3;
+      --text: #1e293b;
+      --muted: #64748b;
+      --bg: #f8fafc;
+      --card: #ffffff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: linear-gradient(160deg, var(--bg) 0%, #eef2ff 100%);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+    header { text-align: center; margin-bottom: 2.5rem; }
+    .logo {
+      width: 88px; height: 88px; border-radius: 20px; margin: 0 auto 1.25rem;
+      background: linear-gradient(145deg, var(--primary), var(--primary-dark));
+      box-shadow: 0 12px 40px rgba(67, 99, 235, 0.35);
+    }
+    h1 { font-size: 2rem; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+    .tagline { color: var(--muted); font-size: 1.125rem; }
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 1.75rem;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+      margin-bottom: 1.25rem;
+    }
+    h2 { font-size: 1.125rem; margin-bottom: 0.75rem; }
+    p { color: var(--muted); margin-bottom: 1rem; }
+    p:last-child { margin-bottom: 0; }
+    ul { color: var(--muted); padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    nav { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    a:hover { text-decoration: underline; }
+    footer { text-align: center; margin-top: 2rem; color: var(--muted); font-size: 0.875rem; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo" aria-hidden="true"></div>
+      <h1>Common Ground Co-Parent</h1>
+      <p class="tagline">Co-parenting, coordinated — built native for Apple.</p>
+    </header>
+
+    <section class="card">
+      <h2>One shared home for your children</h2>
+      <p>Common Ground Co-Parent helps separated and divorced parents coordinate custody schedules, shared expenses, medical records, school info, and court-ready exports — with privacy and polish you expect from a native iOS app.</p>
+      <ul>
+        <li>Custody calendar with schedule builder and exchange reminders</li>
+        <li>Apple Calendar sync and optional Live Activities</li>
+        <li>Expenses, medical records, documents, and messaging</li>
+        <li>Face ID lock and local-first storage</li>
+      </ul>
+    </section>
+
+    <nav>
+      <a href="privacy/">Privacy Policy</a>
+      <a href="support/">Support</a>
+    </nav>
+
+    <footer>
+      <p>&copy; 2026 Common Ground Co-Parent. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>

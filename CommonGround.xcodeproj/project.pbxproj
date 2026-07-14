@@ -1,0 +1,608 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		16A31595E1C4FA46E7194420 /* CommonGroundCore in Frameworks */ = {isa = PBXBuildFile; productRef = 37BA920824FCEC83F2BD8E69 /* CommonGroundCore */; };
+		320649F176AFE870BF96FE10 /* CommonGroundWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = E87A48240DC02D8FBB42F5ED /* CommonGroundWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5020FF325B315FAFDE824B31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7297C9B452DC88ADFA1152A /* Assets.xcassets */; };
+		54D4A39D3044684D46F95FF6 /* ExchangeLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB27E2D7D59AAEF767808AD /* ExchangeLiveActivity.swift */; };
+		74BA437F61ABC278386FB2E1 /* CommonGroundWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D6D492143FD6C7522C70DE /* CommonGroundWidgets.swift */; };
+		9379CA6DF8817D5DF2A94C17 /* CommonGroundFeatures in Frameworks */ = {isa = PBXBuildFile; productRef = 20F7A6D0A596C8FBA900AEC5 /* CommonGroundFeatures */; };
+		A1E23B74DDC8296107896EF9 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3833E2627C7642BF68C54A20 /* LaunchScreenView.swift */; };
+		C242822F46F95358A5AA8797 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = DB3EC8EBCAE11D2D4788B2DA /* PrivacyInfo.xcprivacy */; };
+		CDED6A826BD9D696B86BFC31 /* CommonGroundApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1391B1D0495AE821B3224405 /* CommonGroundApp.swift */; };
+		CF7730E7FF5DCB6D2EF84AB2 /* CommonGroundWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD562FC332C6E32F89AB48 /* CommonGroundWatchApp.swift */; };
+		DACA728847997DEFF312D6C4 /* CommonGroundIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256056C170993207B318A47 /* CommonGroundIntents.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0A9971ADEE5120DE59BD94B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 064D32741F08E728EE992A28 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5382F54E7127F1BBC8FF0C4A;
+			remoteInfo = CommonGroundWidgets;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9A4E6E68F0EB05617CC4289C /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				320649F176AFE870BF96FE10 /* CommonGroundWidgets.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0CFBD1D38E3273A258644D6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		1013AD882C26050098572325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		1391B1D0495AE821B3224405 /* CommonGroundApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonGroundApp.swift; sourceTree = "<group>"; };
+		15A889688EEDD294984C1EB3 /* CommonGround.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CommonGround.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3833E2627C7642BF68C54A20 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
+		3D4618A1C144C394D3400111 /* CommonGround.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CommonGround.entitlements; sourceTree = "<group>"; };
+		8D5EEA171956E404969F2209 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		922A871DD394E56BD66940E3 /* Common Ground */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Common Ground"; path = .; sourceTree = SOURCE_ROOT; };
+		93C480295D7936EF836ED1F0 /* CommonGroundWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CommonGroundWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7297C9B452DC88ADFA1152A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A7D6D492143FD6C7522C70DE /* CommonGroundWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonGroundWidgets.swift; sourceTree = "<group>"; };
+		B0CD562FC332C6E32F89AB48 /* CommonGroundWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonGroundWatchApp.swift; sourceTree = "<group>"; };
+		B256056C170993207B318A47 /* CommonGroundIntents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonGroundIntents.swift; sourceTree = "<group>"; };
+		DB3EC8EBCAE11D2D4788B2DA /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		E87A48240DC02D8FBB42F5ED /* CommonGroundWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CommonGroundWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECB27E2D7D59AAEF767808AD /* ExchangeLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeLiveActivity.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B6681568A556B3348BE7FA31 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9379CA6DF8817D5DF2A94C17 /* CommonGroundFeatures in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5EB13F5345EBBD8D72C6FC6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16A31595E1C4FA46E7194420 /* CommonGroundCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1B08EABA82B140D0981BA14F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				15A889688EEDD294984C1EB3 /* CommonGround.app */,
+				93C480295D7936EF836ED1F0 /* CommonGroundWatch.app */,
+				E87A48240DC02D8FBB42F5ED /* CommonGroundWidgets.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2392C2C3FFBFE38B7C41DA35 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		4EB3FD944C92142DC981E217 /* CommonGroundWatch */ = {
+			isa = PBXGroup;
+			children = (
+				B0CD562FC332C6E32F89AB48 /* CommonGroundWatchApp.swift */,
+				8D5EEA171956E404969F2209 /* Info.plist */,
+			);
+			path = CommonGroundWatch;
+			sourceTree = "<group>";
+		};
+		68AF849A76DC669AFB41DB15 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				922A871DD394E56BD66940E3 /* Common Ground */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		8E839B3C9255BFD5CA4F6858 /* Intents */ = {
+			isa = PBXGroup;
+			children = (
+				B256056C170993207B318A47 /* CommonGroundIntents.swift */,
+			);
+			path = Intents;
+			sourceTree = "<group>";
+		};
+		940C4DF71E1E2ECAE496CA30 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				1391B1D0495AE821B3224405 /* CommonGroundApp.swift */,
+				3833E2627C7642BF68C54A20 /* LaunchScreenView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A4FF993919CBA2BD7145AD79 = {
+			isa = PBXGroup;
+			children = (
+				AB9796F24080C9432179D5E9 /* CommonGround */,
+				4EB3FD944C92142DC981E217 /* CommonGroundWatch */,
+				B0825154EC97790010B00F3A /* CommonGroundWidgets */,
+				68AF849A76DC669AFB41DB15 /* Packages */,
+				1B08EABA82B140D0981BA14F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AB9796F24080C9432179D5E9 /* CommonGround */ = {
+			isa = PBXGroup;
+			children = (
+				A7297C9B452DC88ADFA1152A /* Assets.xcassets */,
+				3D4618A1C144C394D3400111 /* CommonGround.entitlements */,
+				1013AD882C26050098572325 /* Info.plist */,
+				DB3EC8EBCAE11D2D4788B2DA /* PrivacyInfo.xcprivacy */,
+				940C4DF71E1E2ECAE496CA30 /* App */,
+				8E839B3C9255BFD5CA4F6858 /* Intents */,
+				2392C2C3FFBFE38B7C41DA35 /* Shared */,
+			);
+			path = CommonGround;
+			sourceTree = "<group>";
+		};
+		B0825154EC97790010B00F3A /* CommonGroundWidgets */ = {
+			isa = PBXGroup;
+			children = (
+				A7D6D492143FD6C7522C70DE /* CommonGroundWidgets.swift */,
+				ECB27E2D7D59AAEF767808AD /* ExchangeLiveActivity.swift */,
+				0CFBD1D38E3273A258644D6C /* Info.plist */,
+			);
+			path = CommonGroundWidgets;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		32BF7546AFAEA678068BA19A /* CommonGroundWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0974CD8D2C85F4AE205CE0A0 /* Build configuration list for PBXNativeTarget "CommonGroundWatch" */;
+			buildPhases = (
+				0BAB63D4563A874479D55AC4 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CommonGroundWatch;
+			packageProductDependencies = (
+			);
+			productName = CommonGroundWatch;
+			productReference = 93C480295D7936EF836ED1F0 /* CommonGroundWatch.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5382F54E7127F1BBC8FF0C4A /* CommonGroundWidgets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D17B0980E6D9E907FBA374C /* Build configuration list for PBXNativeTarget "CommonGroundWidgets" */;
+			buildPhases = (
+				EDC68F80F2156047BFC510D2 /* Sources */,
+				F5EB13F5345EBBD8D72C6FC6 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CommonGroundWidgets;
+			packageProductDependencies = (
+				37BA920824FCEC83F2BD8E69 /* CommonGroundCore */,
+			);
+			productName = CommonGroundWidgets;
+			productReference = E87A48240DC02D8FBB42F5ED /* CommonGroundWidgets.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		81523FB344992511EC8467E3 /* CommonGround */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A2B982EAB70E57BB42F0FD96 /* Build configuration list for PBXNativeTarget "CommonGround" */;
+			buildPhases = (
+				E1D7ACC9EE1F90DA97657903 /* Sources */,
+				ED025932AA6334191AD24921 /* Resources */,
+				B6681568A556B3348BE7FA31 /* Frameworks */,
+				9A4E6E68F0EB05617CC4289C /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				55C90048C82E372B5C140F89 /* PBXTargetDependency */,
+			);
+			name = CommonGround;
+			packageProductDependencies = (
+				20F7A6D0A596C8FBA900AEC5 /* CommonGroundFeatures */,
+			);
+			productName = CommonGround;
+			productReference = 15A889688EEDD294984C1EB3 /* CommonGround.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		064D32741F08E728EE992A28 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1600;
+			};
+			buildConfigurationList = 629721CEA8D97D2A70A17296 /* Build configuration list for PBXProject "CommonGround" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = A4FF993919CBA2BD7145AD79;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				68C42F62E4C58007D3305D77 /* XCLocalSwiftPackageReference "." */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 1B08EABA82B140D0981BA14F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				81523FB344992511EC8467E3 /* CommonGround */,
+				32BF7546AFAEA678068BA19A /* CommonGroundWatch */,
+				5382F54E7127F1BBC8FF0C4A /* CommonGroundWidgets */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ED025932AA6334191AD24921 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5020FF325B315FAFDE824B31 /* Assets.xcassets in Resources */,
+				C242822F46F95358A5AA8797 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0BAB63D4563A874479D55AC4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF7730E7FF5DCB6D2EF84AB2 /* CommonGroundWatchApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1D7ACC9EE1F90DA97657903 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDED6A826BD9D696B86BFC31 /* CommonGroundApp.swift in Sources */,
+				DACA728847997DEFF312D6C4 /* CommonGroundIntents.swift in Sources */,
+				A1E23B74DDC8296107896EF9 /* LaunchScreenView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDC68F80F2156047BFC510D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74BA437F61ABC278386FB2E1 /* CommonGroundWidgets.swift in Sources */,
+				54D4A39D3044684D46F95FF6 /* ExchangeLiveActivity.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		55C90048C82E372B5C140F89 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5382F54E7127F1BBC8FF0C4A /* CommonGroundWidgets */;
+			targetProxy = 0A9971ADEE5120DE59BD94B0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		087B7D0C91316112D6EEF68C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CommonGround/CommonGround.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 3N4Q2GQ558;
+				INFOPLIST_FILE = CommonGround/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-weak_framework",
+					FoundationModels,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.germaind.CommonGround;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2DBD1EB0408C18D39D666485 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Debug;
+		};
+		2EBF41EEA6A2C1122AC3D1C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CommonGroundWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.germaind.CommonGround.watchkitapp;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Release;
+		};
+		2F6B74FA6E6043B27AD5E952 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CommonGroundWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.germaind.CommonGround.watchkitapp;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Debug;
+		};
+		62B75071F69F81CDEA982202 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 3N4Q2GQ558;
+				INFOPLIST_FILE = CommonGroundWidgets/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.germaind.CommonGround.widgets;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9FBF7641A5FC9328E9FFDAA1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 3N4Q2GQ558;
+				INFOPLIST_FILE = CommonGroundWidgets/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.germaind.CommonGround.widgets;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B295A972DF8DF5440C8319CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Release;
+		};
+		DB6F10641A23363624E5E5D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CommonGround/CommonGround.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 3N4Q2GQ558;
+				INFOPLIST_FILE = CommonGround/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-weak_framework",
+					FoundationModels,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.germaind.CommonGround;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0974CD8D2C85F4AE205CE0A0 /* Build configuration list for PBXNativeTarget "CommonGroundWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F6B74FA6E6043B27AD5E952 /* Debug */,
+				2EBF41EEA6A2C1122AC3D1C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		629721CEA8D97D2A70A17296 /* Build configuration list for PBXProject "CommonGround" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2DBD1EB0408C18D39D666485 /* Debug */,
+				B295A972DF8DF5440C8319CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8D17B0980E6D9E907FBA374C /* Build configuration list for PBXNativeTarget "CommonGroundWidgets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9FBF7641A5FC9328E9FFDAA1 /* Debug */,
+				62B75071F69F81CDEA982202 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A2B982EAB70E57BB42F0FD96 /* Build configuration list for PBXNativeTarget "CommonGround" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				087B7D0C91316112D6EEF68C /* Debug */,
+				DB6F10641A23363624E5E5D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		68C42F62E4C58007D3305D77 /* XCLocalSwiftPackageReference "." */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = .;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		20F7A6D0A596C8FBA900AEC5 /* CommonGroundFeatures */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CommonGroundFeatures;
+		};
+		37BA920824FCEC83F2BD8E69 /* CommonGroundCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CommonGroundCore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 064D32741F08E728EE992A28 /* Project object */;
+}
