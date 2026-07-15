@@ -10,7 +10,6 @@ public enum ModelContainerFactory {
     /// Uses CloudKit when the user has opted in via SyncPreferences; otherwise local-only storage.
     public static func makePreferred() throws -> ModelContainer {
         if SyncPreferences.isCloudKitEnabled {
-            CloudKitMigrationService.migrateLocalStoreToCloudIfNeeded()
             return try makeWithCloudKitIfAvailable()
         }
         return try make()

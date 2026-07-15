@@ -159,7 +159,7 @@ public struct MoreView: View {
 
                 Section(L10n.moreAbout) {
                     LabeledContent(L10n.commonVersion, value: "1.0.0")
-                    LabeledContent(L10n.moreSync, value: SyncPreferences.isCloudKitEnabled ? L10n.moreSyncICloud : L10n.moreSyncLocal)
+                    LabeledContent(L10n.moreSync, value: SyncPreferences.isCloudSyncActive ? L10n.moreSyncICloud : L10n.moreSyncLocal)
                 }
             }
             .navigationTitle(L10n.moreTitle)

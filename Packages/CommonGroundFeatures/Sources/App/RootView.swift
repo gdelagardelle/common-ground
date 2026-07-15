@@ -34,6 +34,9 @@ public struct RootView: View {
             #if DEBUG
             applyScreenshotLaunchArguments()
             #endif
+            if SyncPreferences.isCloudKitEnabled {
+                CloudKitMigrationService.migrateLocalStoreToCloudIfNeeded(into: modelContext)
+            }
             await configureNotificationsIfNeeded()
             await performCalendarSyncIfNeeded()
             #if canImport(ActivityKit)

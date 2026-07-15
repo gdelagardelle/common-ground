@@ -42,23 +42,34 @@ public enum CloudKitMigrationService {
         set { SharedPreferences.defaults.set(newValue, forKey: migrationCompletedKey) }
     }
 
-    /// Called before opening the CloudKit store on launch.
-    public static func migrateLocalStoreToCloudIfNeeded() {
+    /// Runs after the app is using the CloudKit-backed container.
+    @MainActor
+    public static func migrateLocalStoreToCloudIfNeeded(into cloudContext: ModelContext) {
         guard SyncPreferences.isCloudKitEnabled else { return }
-        guard CloudKitCapability.isConfigured else { return }
-        guard isSignedInToiCloud else { return }
-        guard PersistencePaths.hasPrimaryStore else { return }
-
         do {
-            _ = try migrate(usingLocalContextFromApp: nil)
+            let result = try migrateFromLocalStore(into: cloudContext)
+            SyncPreferences.lastMigrationSummary = migrationSummary(for: result)
         } catch {
-            logger.error("Launch-time cloud migration failed: \(error.localizedDescription)")
+            logger.error("Cloud migration failed: \(error.localizedDescription)")
+            SyncPreferences.lastMigrationSummary = error.localizedDescription
+            SyncPreferences.isCloudKitEnabled = false
+            PersistenceReloadCoordinator.shared.requestReload()
         }
     }
 
-    /// Migrates from the active local context (settings UI) or opens a temporary local store.
+    private static func migrationSummary(for result: CloudKitMigrationResult) -> String {
+        if result.skippedBecauseAlreadyMigrated {
+            L10n.syncMigrationAlreadyDone
+        } else if result.recordsCopied > 0 {
+            L10n.format("sync.migration.success", result.recordsCopied)
+        } else {
+            L10n.syncMigrationReady
+        }
+    }
+
+    /// Migrates local on-disk data into the active CloudKit-backed store context.
     @discardableResult
-    public static func migrate(usingLocalContextFromApp localContext: ModelContext?) throws -> CloudKitMigrationResult {
+    public static func migrateFromLocalStore(into cloudContext: ModelContext) throws -> CloudKitMigrationResult {
         guard CloudKitCapability.isConfigured else {
             throw CloudKitMigrationError.cloudKitUnavailable
         }
@@ -66,27 +77,29 @@ public enum CloudKitMigrationService {
             throw CloudKitMigrationError.notSignedInToiCloud
         }
 
-        PersistenceBackupService.createBackup(label: "pre-cloud-migration")
-
-        let localContainer: ModelContainer
-        let ownsLocalContainer: Bool
-        if let localContext {
-            localContainer = localContext.container
-            ownsLocalContainer = false
-        } else {
-            localContainer = try ModelContainerFactory.openLocal()
-            ownsLocalContainer = true
+        let cloudFamilies = try cloudContext.fetch(FetchDescriptor<Family>())
+        if !cloudFamilies.isEmpty {
+            isMigrationCompleted = true
+            return CloudKitMigrationResult(recordsCopied: 0, skippedBecauseAlreadyMigrated: true)
         }
 
-        defer {
-            if ownsLocalContainer {
-                // ModelContainer cleans up on deinit
+        if isMigrationCompleted {
+            let localContainer = try ModelContainerFactory.openLocal()
+            let localFamilies = try ModelContext(localContainer).fetch(FetchDescriptor<Family>())
+            if localFamilies.isEmpty {
+                return CloudKitMigrationResult(recordsCopied: 0, skippedBecauseAlreadyMigrated: true)
             }
         }
 
-        let local = localContext ?? ModelContext(localContainer)
-        let cloudContainer = try ModelContainerFactory.openCloud()
-        let cloud = ModelContext(cloudContainer)
+        guard PersistencePaths.hasPrimaryStore else {
+            isMigrationCompleted = true
+            return CloudKitMigrationResult(recordsCopied: 0)
+        }
+
+        PersistenceBackupService.createBackup(label: "pre-cloud-migration")
+
+        let localContainer = try ModelContainerFactory.openLocal()
+        let local = ModelContext(localContainer)
 
         let localFamilies = try local.fetch(FetchDescriptor<Family>())
         guard !localFamilies.isEmpty else {
@@ -94,30 +107,24 @@ public enum CloudKitMigrationService {
             return CloudKitMigrationResult(recordsCopied: 0)
         }
 
-        let cloudFamilies = try cloud.fetch(FetchDescriptor<Family>())
-        if !cloudFamilies.isEmpty || isMigrationCompleted {
-            return CloudKitMigrationResult(recordsCopied: 0, skippedBecauseAlreadyMigrated: true)
-        }
-
         var copied = 0
-
         for family in localFamilies {
-            copied += try copy(family: family, to: cloud)
+            copied += try copy(family: family, to: cloudContext)
         }
 
         let localThreads = try local.fetch(FetchDescriptor<MessageThread>())
         for thread in localThreads {
-            copied += try copy(thread: thread, to: cloud)
+            copied += try copy(thread: thread, to: cloudContext)
         }
 
         let localChecklists = try local.fetch(FetchDescriptor<Checklist>())
         for checklist in localChecklists {
-            copied += try copy(checklist: checklist, to: cloud)
+            copied += try copy(checklist: checklist, to: cloudContext)
         }
 
-        try cloud.save()
+        try cloudContext.save()
         isMigrationCompleted = true
-        logger.info("Migrated \(copied) records to CloudKit")
+        logger.info("Migrated \(copied) records from local store into CloudKit context")
         return CloudKitMigrationResult(recordsCopied: copied)
     }
 

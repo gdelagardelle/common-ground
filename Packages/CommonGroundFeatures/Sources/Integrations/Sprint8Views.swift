@@ -481,11 +481,18 @@ public struct CloudSharingView: UIViewControllerRepresentable {
     let family: Family
     let modelContext: ModelContext
     @Binding var isPresented: Bool
+    @Binding var shareError: String?
 
-    public init(family: Family, modelContext: ModelContext, isPresented: Binding<Bool>) {
+    public init(
+        family: Family,
+        modelContext: ModelContext,
+        isPresented: Binding<Bool>,
+        shareError: Binding<String?>
+    ) {
         self.family = family
         self.modelContext = modelContext
         _isPresented = isPresented
+        _shareError = shareError
     }
 
     public func makeUIViewController(context: Context) -> UIViewController {
@@ -508,23 +515,27 @@ public struct CloudSharingView: UIViewControllerRepresentable {
                 controller.modalPresentationStyle = .formSheet
                 host.present(controller, animated: true)
             } catch {
+                shareError = error.localizedDescription
                 isPresented = false
             }
         }
     }
 
     public func makeCoordinator() -> Coordinator {
-        Coordinator(isPresented: $isPresented)
+        Coordinator(isPresented: $isPresented, shareError: $shareError)
     }
 
     public final class Coordinator: NSObject, UICloudSharingControllerDelegate {
         @Binding var isPresented: Bool
+        @Binding var shareError: String?
 
-        init(isPresented: Binding<Bool>) {
+        init(isPresented: Binding<Bool>, shareError: Binding<String?>) {
             _isPresented = isPresented
+            _shareError = shareError
         }
 
         public func cloudSharingController(_ csc: UICloudSharingController, failedToSaveShareWithError error: Error) {
+            shareError = error.localizedDescription
             isPresented = false
         }
 

@@ -342,7 +342,6 @@ public struct SyncSettingsView: View {
     @Query private var families: [Family]
 
     @State private var cloudKitEnabled = SyncPreferences.isCloudKitEnabled
-    @State private var showRestartNotice = false
     @State private var showCloudShare = false
     @State private var shareError: String?
     @State private var isMigrating = false
@@ -361,7 +360,9 @@ public struct SyncSettingsView: View {
             } footer: {
                 VStack(alignment: .leading, spacing: 4) {
                     Text(L10n.syncFooter)
-                    Text(L10n.syncMigrationFooter)
+                    if !SyncPreferences.isCloudSyncActive {
+                        Text(L10n.syncMigrationFooter)
+                    }
                 }
             }
 
@@ -384,16 +385,8 @@ public struct SyncSettingsView: View {
                 }
             }
 
-            if showRestartNotice {
-                Section {
-                    Label(L10n.syncRequiresRestart, systemImage: "arrow.clockwise")
-                        .font(.caption)
-                        .foregroundStyle(.orange)
-                }
-            }
-
             Section(L10n.syncSectionStatus) {
-                LabeledContent(L10n.syncCurrentMode, value: SyncPreferences.isCloudKitEnabled ? L10n.syncModeICloudPending : L10n.syncModeLocal)
+                LabeledContent(L10n.syncCurrentMode, value: currentModeLabel)
                 LabeledContent(L10n.syncCloudKit, value: CloudKitShareService.statusMessage)
                 if CloudKitCapability.isConfigured {
                     Label(L10n.cloudStatusCapabilityReady, systemImage: "checkmark.icloud")
@@ -444,11 +437,42 @@ public struct SyncSettingsView: View {
                 CloudSharingView(
                     family: family,
                     modelContext: modelContext,
-                    isPresented: $showCloudShare
+                    isPresented: $showCloudShare,
+                    shareError: $shareError
                 )
                 .frame(width: 0, height: 0)
             }
             #endif
+        }
+        .onAppear {
+            cloudKitEnabled = SyncPreferences.isCloudKitEnabled
+            migrationMessage = positiveMigrationSummary
+        }
+        .onChange(of: PersistenceReloadCoordinator.shared.generation) { _, _ in
+            cloudKitEnabled = SyncPreferences.isCloudKitEnabled
+            isMigrating = false
+            migrationMessage = positiveMigrationSummary
+            if !SyncPreferences.isCloudKitEnabled, let summary = SyncPreferences.lastMigrationSummary {
+                shareError = summary
+            }
+        }
+    }
+
+    private var positiveMigrationSummary: String? {
+        guard let summary = SyncPreferences.lastMigrationSummary else { return nil }
+        if summary.localizedCaseInsensitiveContains("failed") || summary.localizedCaseInsensitiveContains("fehlgeschlagen") {
+            return nil
+        }
+        return summary
+    }
+
+    private var currentModeLabel: String {
+        if SyncPreferences.isCloudSyncActive {
+            L10n.syncModeICloudActive
+        } else if SyncPreferences.isCloudKitEnabled {
+            L10n.syncModeICloudPending
+        } else {
+            L10n.syncModeLocal
         }
     }
 
@@ -456,10 +480,16 @@ public struct SyncSettingsView: View {
     private func handleCloudKitToggle(enabled: Bool) async {
         shareError = nil
         migrationMessage = nil
+        SyncPreferences.lastMigrationSummary = nil
 
         guard enabled else {
             SyncPreferences.isCloudKitEnabled = false
-            showRestartNotice = true
+            CloudKitMigrationService.isMigrationCompleted = false
+            isMigrating = true
+            PersistenceReloadCoordinator.shared.requestReload()
+            try? await Task.sleep(nanoseconds: 800_000_000)
+            isMigrating = false
+            cloudKitEnabled = false
             return
         }
 
@@ -476,24 +506,16 @@ public struct SyncSettingsView: View {
         }
 
         isMigrating = true
-        defer { isMigrating = false }
+        PersistenceBackupService.createBackup(label: "pre-cloud-toggle")
+        SyncPreferences.isCloudKitEnabled = true
+        PersistenceReloadCoordinator.shared.requestReload()
+        try? await Task.sleep(nanoseconds: 1_200_000_000)
+        isMigrating = false
+        cloudKitEnabled = SyncPreferences.isCloudKitEnabled
+        migrationMessage = positiveMigrationSummary
 
-        do {
-            let result = try CloudKitMigrationService.migrate(usingLocalContextFromApp: modelContext)
-            SyncPreferences.isCloudKitEnabled = true
-            showRestartNotice = true
-
-            if result.skippedBecauseAlreadyMigrated {
-                migrationMessage = L10n.syncMigrationAlreadyDone
-            } else if result.recordsCopied > 0 {
-                migrationMessage = L10n.format("sync.migration.success", result.recordsCopied)
-            } else {
-                migrationMessage = L10n.syncMigrationReady
-            }
-        } catch {
-            cloudKitEnabled = false
-            SyncPreferences.isCloudKitEnabled = false
-            shareError = error.localizedDescription
+        if !SyncPreferences.isCloudKitEnabled {
+            shareError = SyncPreferences.lastMigrationSummary ?? L10n.syncMigrationFailedGeneric
         }
     }
 }

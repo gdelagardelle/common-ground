@@ -33,7 +33,9 @@ public enum CloudKitShareService {
 
     public static var canShare: Bool {
         #if canImport(CloudKit)
-        return CloudKitCapability.isConfigured && isSignedInToiCloud && SyncPreferences.isCloudKitEnabled
+        return CloudKitCapability.isConfigured
+            && isSignedInToiCloud
+            && SyncPreferences.isCloudSyncActive
         #else
         return false
         #endif
@@ -49,7 +51,7 @@ public enum CloudKitShareService {
         guard SyncPreferences.isCloudKitEnabled else { throw CloudKitShareError.cloudKitDisabled }
         guard CloudKitCapability.isConfigured else { throw CloudKitShareError.sharingUnavailable }
 
-        _ = try? CloudKitMigrationService.migrate(usingLocalContextFromApp: context)
+        _ = try? CloudKitMigrationService.migrateFromLocalStore(into: context)
 
         if let existingShare {
             let container = CKContainer(identifier: AppIdentifiers.cloudKitContainer)
@@ -103,6 +105,9 @@ public enum CloudKitShareService {
         }
         if !SyncPreferences.isCloudKitEnabled {
             return L10n.cloudStatusDisabled
+        }
+        if !SyncPreferences.isCloudSyncActive {
+            return L10n.syncModeICloudPending
         }
         return L10n.cloudStatusReady
     }

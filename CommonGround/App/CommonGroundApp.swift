@@ -29,7 +29,7 @@ struct CommonGroundApp: App {
                         .preferredColorScheme(appState.preferredColorScheme)
                         .environment(\.locale, localization.locale)
                         .tint(Color("BrandPrimary", bundle: .main))
-                        .id(localization.language.rawValue)
+                        .id("\(localization.language.rawValue)-\(PersistenceReloadCoordinator.shared.generation)")
                         .onOpenURL { url in
                             deepLinks.handle(url)
                         }
@@ -45,6 +45,9 @@ struct CommonGroundApp: App {
                 if containerState.container == nil {
                     containerState.reload()
                 }
+            }
+            .onChange(of: PersistenceReloadCoordinator.shared.generation) { _, _ in
+                containerState.reload()
             }
             .onChange(of: scenePhase) { _, phase in
                 if phase == .background {

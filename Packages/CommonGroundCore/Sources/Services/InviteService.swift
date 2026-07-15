@@ -74,4 +74,15 @@ public enum SyncPreferences {
         get { SharedPreferences.defaults.object(forKey: lastCloudSyncKey) as? Date }
         set { SharedPreferences.defaults.set(newValue, forKey: lastCloudSyncKey) }
     }
+
+    private static let lastMigrationSummaryKey = "sync.lastMigrationSummary"
+
+    public static var lastMigrationSummary: String? {
+        get { SharedPreferences.defaults.string(forKey: lastMigrationSummaryKey) }
+        set { SharedPreferences.defaults.set(newValue, forKey: lastMigrationSummaryKey) }
+    }
+
+    public static var isCloudSyncActive: Bool {
+        isCloudKitEnabled && CloudKitMigrationService.isMigrationCompleted
+    }
 }

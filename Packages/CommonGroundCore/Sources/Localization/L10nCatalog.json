@@ -4710,6 +4710,13 @@
     "pt": "Falha na migração: %@",
     "lb": "Migratioun feelgeschloen: %@"
   },
+  "sync.migration.failedGeneric": {
+    "en": "Could not enable iCloud sync. Check that you are signed into iCloud and try again.",
+    "de": "iCloud-Sync konnte nicht aktiviert werden. Prüfen Sie die iCloud-Anmeldung und versuchen Sie es erneut.",
+    "fr": "Impossible d'activer la sync iCloud. Vérifiez votre connexion iCloud et réessayez.",
+    "pt": "Não foi possível ativar a sync iCloud. Verifique o iCloud e tente novamente.",
+    "lb": "iCloud-Sync konnt net aktivéiert ginn. Préift Är iCloud-Umeldung a probéiert nach eng Kéier."
+  },
   "sync.migration.footer": {
     "en": "The first time you enable sync, your existing local data is copied to iCloud before switching stores.",
     "de": "Beim ersten Aktivieren werden Ihre lokalen Daten nach iCloud kopiert, bevor der Speicher gewechselt wird.",
@@ -4730,6 +4737,13 @@
     "fr": "%d éléments copiés vers iCloud. Redémarrez l'app pour terminer l'activation.",
     "pt": "%d itens copiados para o iCloud. Reinicie a app para concluir a sincronização.",
     "lb": "%d Elementer an iCloud kopéiert. Start d'App nei fir d'Sync ofzeschléissen."
+  },
+  "sync.modeICloudActive": {
+    "en": "iCloud Sync active",
+    "de": "iCloud-Sync aktiv",
+    "fr": "Sync iCloud active",
+    "pt": "Sync iCloud ativo",
+    "lb": "iCloud-Sync aktiv"
   },
   "sync.modeICloudPending": {
     "en": "iCloud (pending restart)",

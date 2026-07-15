@@ -695,9 +695,11 @@ public enum L10n {
     public static var syncMigrating: String { tr("sync.migrating") }
     public static var syncMigrationAlreadyDone: String { tr("sync.migration.alreadyDone") }
     public static var syncMigrationFailed: String { tr("sync.migration.failed") }
+    public static var syncMigrationFailedGeneric: String { tr("sync.migration.failedGeneric") }
     public static var syncMigrationFooter: String { tr("sync.migration.footer") }
     public static var syncMigrationReady: String { tr("sync.migration.ready") }
     public static var syncMigrationSuccess: String { tr("sync.migration.success") }
+    public static var syncModeICloudActive: String { tr("sync.modeICloudActive") }
     public static var syncModeICloudPending: String { tr("sync.modeICloudPending") }
     public static var syncModeLocal: String { tr("sync.modeLocal") }
     public static var syncRequiresRestart: String { tr("sync.requiresRestart") }
