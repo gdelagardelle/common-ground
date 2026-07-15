@@ -14,11 +14,11 @@ public enum CloudKitShareError: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .notSignedIn:
-            "Sign in to iCloud in Settings to share with your co-parent."
+            L10n.cloudErrorNotSignedIn
         case .cloudKitDisabled:
-            "Enable iCloud Sync in More → iCloud Sync, then restart the app."
+            L10n.cloudErrorDisabled
         case .sharingUnavailable:
-            "CloudKit sharing requires iCloud capability in Xcode and a signed-in iCloud account."
+            L10n.cloudErrorUnavailable
         case .shareFailed(let message):
             message
         }
@@ -33,7 +33,7 @@ public enum CloudKitShareService {
 
     public static var canShare: Bool {
         #if canImport(CloudKit)
-        return isSignedInToiCloud && SyncPreferences.isCloudKitEnabled
+        return CloudKitCapability.isConfigured && isSignedInToiCloud && SyncPreferences.isCloudKitEnabled
         #else
         return false
         #endif
@@ -47,6 +47,7 @@ public enum CloudKitShareService {
     ) async throws -> (CKShare, CKContainer) {
         guard isSignedInToiCloud else { throw CloudKitShareError.notSignedIn }
         guard SyncPreferences.isCloudKitEnabled else { throw CloudKitShareError.cloudKitDisabled }
+        guard CloudKitCapability.isConfigured else { throw CloudKitShareError.sharingUnavailable }
 
         if let existingShare {
             let container = CKContainer(identifier: AppIdentifiers.cloudKitContainer)
@@ -92,13 +93,16 @@ public enum CloudKitShareService {
     #endif
 
     public static var statusMessage: String {
+        if !CloudKitCapability.isConfigured {
+            return L10n.cloudErrorUnavailable
+        }
         if !isSignedInToiCloud {
-            return "Not signed in to iCloud"
+            return L10n.cloudStatusNotSignedIn
         }
         if !SyncPreferences.isCloudKitEnabled {
-            return "iCloud sync off — enable and restart"
+            return L10n.cloudStatusDisabled
         }
-        return "Ready to share family data"
+        return L10n.cloudStatusReady
     }
 }
 

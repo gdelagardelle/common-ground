@@ -8,6 +8,9 @@ public final class Child {
     public var lastName: String
     public var dateOfBirth: Date
     public var photoData: Data?
+    /// Raw `NSAdaptiveImageGlyph.imageContent` for Apple Genmoji faces.
+    public var genmojiData: Data?
+    public var avatarEmoji: String
     public var bloodType: String?
     public var allergies: [String]
     public var clothingSize: String?
@@ -66,6 +69,7 @@ public final class Child {
         self.firstName = firstName
         self.lastName = lastName
         self.dateOfBirth = dateOfBirth
+        self.avatarEmoji = "🧒"
         self.allergies = []
         self.createdAt = Date()
         self.updatedAt = Date()
@@ -155,15 +159,15 @@ public enum TimelineCategory: String, Codable, CaseIterable, Sendable {
 
     public var displayName: String {
         switch self {
-        case .dailyUpdate: "Daily Update"
-        case .milestone: "Milestone"
-        case .medical: "Medical"
-        case .school: "School"
-        case .achievement: "Achievement"
-        case .trip: "Trip"
-        case .birthday: "Birthday"
-        case .first: "First"
-        case .other: "Other"
+        case .dailyUpdate: L10n.timelineDailyUpdate
+        case .milestone: L10n.timelineMilestone
+        case .medical: L10n.timelineMedical
+        case .school: L10n.timelineSchool
+        case .achievement: L10n.timelineAchievement
+        case .trip: L10n.timelineTrip
+        case .birthday: L10n.timelineBirthday
+        case .first: L10n.timelineFirst
+        case .other: L10n.timelineOther
         }
     }
 

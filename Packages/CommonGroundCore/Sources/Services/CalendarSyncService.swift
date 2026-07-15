@@ -15,6 +15,23 @@ public struct CalendarSyncResult: Sendable {
     }
 }
 
+public struct WritableCalendarInfo: Identifiable, Sendable, Hashable {
+    public let id: String
+    public let title: String
+    public let sourceTitle: String
+
+    public init(id: String, title: String, sourceTitle: String) {
+        self.id = id
+        self.title = title
+        self.sourceTitle = sourceTitle
+    }
+
+    public var displayTitle: String {
+        if sourceTitle.isEmpty { return title }
+        return "\(title) · \(sourceTitle)"
+    }
+}
+
 @MainActor
 public enum CalendarSyncService {
     private static let store = EKEventStore()
@@ -29,32 +46,73 @@ public enum CalendarSyncService {
         CalendarImportService.authorizationStatus()
     }
 
+    public static func writableCalendars() -> [WritableCalendarInfo] {
+        store.calendars(for: .event)
+            .filter { $0.allowsContentModifications }
+            .sorted { lhs, rhs in
+                lhs.title.localizedCaseInsensitiveCompare(rhs.title) == .orderedAscending
+            }
+            .map {
+                WritableCalendarInfo(
+                    id: $0.calendarIdentifier,
+                    title: $0.title,
+                    sourceTitle: $0.source.title
+                )
+            }
+    }
+
     public static func performFullSync(
         context: ModelContext,
         child: Child?,
         daysAhead: Int = 90
     ) async throws -> CalendarSyncResult {
+        let exported = try await exportOnly(context: context)
+        let imported = try await importOnly(context: context, child: child, daysAhead: daysAhead)
+        CalendarSyncPreferences.lastSyncDate = Date()
+        return CalendarSyncResult(
+            exported: exported.exported,
+            imported: imported.imported,
+            updated: exported.updated
+        )
+    }
+
+    public static func exportOnly(context: ModelContext) async throws -> CalendarSyncResult {
+        guard await requestAccess() else {
+            return CalendarSyncResult(exported: 0, imported: 0, updated: 0)
+        }
+        let calendar = try resolveExportCalendar()
+        let exportStats = try exportEvents(context: context, to: calendar)
+        try context.save()
+        CalendarSyncPreferences.lastSyncDate = Date()
+        return CalendarSyncResult(
+            exported: exportStats.created,
+            imported: 0,
+            updated: exportStats.updated
+        )
+    }
+
+    public static func importOnly(
+        context: ModelContext,
+        child: Child?,
+        daysAhead: Int = 90
+    ) async throws -> CalendarSyncResult {
+        guard await requestAccess() else {
+            return CalendarSyncResult(exported: 0, imported: 0, updated: 0)
+        }
         let start = Date()
         guard let end = Calendar.current.date(byAdding: .day, value: daysAhead, to: start) else {
             return CalendarSyncResult(exported: 0, imported: 0, updated: 0)
         }
-
-        let calendar = try getOrCreateCommonGroundCalendar()
-        let exportStats = try exportEvents(context: context, to: calendar)
+        let dedicated = try? getOrCreateCommonGroundCalendar()
         let importCount = try importExternalEvents(
             context: context,
             child: child,
             start: start,
             end: end,
-            excludingCalendar: calendar
+            excludingCalendar: dedicated
         )
-
         CalendarSyncPreferences.lastSyncDate = Date()
-        return CalendarSyncResult(
-            exported: exportStats.created,
-            imported: importCount,
-            updated: exportStats.updated
-        )
+        return CalendarSyncResult(exported: 0, imported: importCount, updated: 0)
     }
 
     public static func exportEventIfNeeded(_ event: CalendarEvent, context: ModelContext) async {
@@ -63,7 +121,7 @@ public enum CalendarSyncService {
         guard await requestAccess() else { return }
 
         do {
-            let calendar = try getOrCreateCommonGroundCalendar()
+            let calendar = try resolveExportCalendar()
             try upsert(event: event, in: calendar)
             try context.save()
         } catch {
@@ -72,11 +130,8 @@ public enum CalendarSyncService {
     }
 
     public static func exportPendingEvents(context: ModelContext) async throws -> Int {
-        guard await requestAccess() else { return 0 }
-        let calendar = try getOrCreateCommonGroundCalendar()
-        let stats = try exportEvents(context: context, to: calendar)
-        try context.save()
-        return stats.created + stats.updated
+        let result = try await exportOnly(context: context)
+        return result.exported + result.updated
     }
 
     // MARK: - Export
@@ -111,7 +166,8 @@ public enum CalendarSyncService {
     private static func upsert(event: CalendarEvent, in calendar: EKCalendar) throws {
         let ekEvent: EKEvent
         if let identifier = event.appleCalendarEventIdentifier,
-           let existing = store.event(withIdentifier: identifier) {
+           let existing = store.event(withIdentifier: identifier),
+           existing.calendar?.calendarIdentifier == calendar.calendarIdentifier {
             ekEvent = existing
         } else {
             ekEvent = EKEvent(eventStore: store)
@@ -125,11 +181,7 @@ public enum CalendarSyncService {
         ekEvent.location = event.location
         ekEvent.notes = formattedNotes(for: event)
 
-        if ekEvent.eventIdentifier == nil {
-            try store.save(ekEvent, span: .thisEvent, commit: true)
-        } else {
-            try store.save(ekEvent, span: .thisEvent, commit: true)
-        }
+        try store.save(ekEvent, span: .thisEvent, commit: true)
 
         event.appleCalendarEventIdentifier = ekEvent.eventIdentifier
         event.lastSyncedAt = Date()
@@ -149,7 +201,7 @@ public enum CalendarSyncService {
             parts.append(detail)
         }
         if let child = event.child {
-            parts.append("Child: \(child.firstName)")
+            parts.append("cg-child:\(child.firstName)")
         }
         return parts.joined(separator: "\n")
     }
@@ -161,7 +213,7 @@ public enum CalendarSyncService {
         child: Child?,
         start: Date,
         end: Date,
-        excludingCalendar: EKCalendar
+        excludingCalendar: EKCalendar?
     ) throws -> Int {
         let linkedIDs = Set(
             try context.fetch(FetchDescriptor<CalendarEvent>())
@@ -170,7 +222,10 @@ public enum CalendarSyncService {
 
         let predicate = store.predicateForEvents(withStart: start, end: end, calendars: nil)
         let ekEvents = store.events(matching: predicate)
-            .filter { $0.calendar?.calendarIdentifier != excludingCalendar.calendarIdentifier }
+            .filter { ek in
+                guard let excludingCalendar else { return true }
+                return ek.calendar?.calendarIdentifier != excludingCalendar.calendarIdentifier
+            }
             .sorted(by: { $0.startDate < $1.startDate })
 
         var imported = 0
@@ -180,7 +235,7 @@ public enum CalendarSyncService {
 
             let category = mapCategory(ekEvent)
             let event = CalendarEvent(
-                title: ekEvent.title ?? "Calendar Event",
+                title: ekEvent.title ?? L10n.eventAppointment,
                 startDate: ekEvent.startDate,
                 endDate: ekEvent.endDate,
                 category: category,
@@ -209,15 +264,29 @@ public enum CalendarSyncService {
 
     private static func mapCategory(_ event: EKEvent) -> EventCategory {
         let title = (event.title ?? "").lowercased()
-        if title.contains("exchange") || title.contains("custody") { return .exchange }
-        if title.contains("school") { return .school }
-        if title.contains("doctor") || title.contains("dentist") || title.contains("medical") { return .medical }
+        if title.contains("exchange") || title.contains("custody") || title.contains("iwwergab") || title.contains("garde") { return .exchange }
+        if title.contains("school") || title.contains("schule") || title.contains("schoul") || title.contains("école") { return .school }
+        if title.contains("doctor") || title.contains("dentist") || title.contains("medical") || title.contains("arzt") { return .medical }
         if title.contains("soccer") || title.contains("sport") || title.contains("practice") { return .sports }
-        if title.contains("birthday") { return .birthday }
+        if title.contains("birthday") || title.contains("geburt") || title.contains("anniversaire") { return .birthday }
         return .appointment
     }
 
     // MARK: - Calendar setup
+
+    private static func resolveExportCalendar() throws -> EKCalendar {
+        switch CalendarSyncPreferences.exportDestination {
+        case .dedicated:
+            return try getOrCreateCommonGroundCalendar()
+        case .existing:
+            guard let id = CalendarSyncPreferences.exportTargetCalendarIdentifier,
+                  let calendar = store.calendars(for: .event).first(where: { $0.calendarIdentifier == id }),
+                  calendar.allowsContentModifications else {
+                throw CalendarSyncError.calendarNotFound
+            }
+            return calendar
+        }
+    }
 
     private static func getOrCreateCommonGroundCalendar() throws -> EKCalendar {
         if let storedID = CalendarSyncPreferences.storedCalendarIdentifier,
@@ -248,11 +317,14 @@ public enum CalendarSyncService {
 
 public enum CalendarSyncError: LocalizedError {
     case noCalendarSource
+    case calendarNotFound
 
     public var errorDescription: String? {
         switch self {
         case .noCalendarSource:
-            "No calendar account is available. Add an iCloud or local calendar in Settings."
+            L10n.errorCalendarNoSource
+        case .calendarNotFound:
+            L10n.errorCalendarNotFound
         }
     }
 }

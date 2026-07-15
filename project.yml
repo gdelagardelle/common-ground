@@ -6,6 +6,12 @@ options:
     watchOS: "11.0"
   xcodeVersion: "16.0"
   generateEmptyDirectories: true
+  knownRegions:
+    - en
+    - de
+    - fr
+    - pt
+    - lb
 
 packages:
   CommonGround:
@@ -16,7 +22,7 @@ settings:
     SWIFT_VERSION: "6.0"
     ENABLE_USER_SCRIPT_SANDBOXING: NO
     MARKETING_VERSION: "1.0.0"
-    CURRENT_PROJECT_VERSION: "2"
+    CURRENT_PROJECT_VERSION: "3"
 
 targets:
   CommonGround:
@@ -54,18 +60,30 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.germaind.CommonGround.widgets
         INFOPLIST_FILE: CommonGroundWidgets/Info.plist
+        CODE_SIGN_ENTITLEMENTS: CommonGroundWidgets/CommonGroundWidgets.entitlements
+        DEVELOPMENT_TEAM: "3N4Q2GQ558"
+        CURRENT_PROJECT_VERSION: "3"
         SKIP_INSTALL: YES
+    entitlements:
+      path: CommonGroundWidgets/CommonGroundWidgets.entitlements
 
   CommonGroundWatch:
     type: application
     platform: watchOS
     sources:
       - path: CommonGroundWatch
+    dependencies:
+      - package: CommonGround
+        product: CommonGroundCore
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.germaind.CommonGround.watchkitapp
         INFOPLIST_FILE: CommonGroundWatch/Info.plist
+        CODE_SIGN_ENTITLEMENTS: CommonGroundWatch/CommonGroundWatch.entitlements
+        DEVELOPMENT_TEAM: "3N4Q2GQ558"
         SKIP_INSTALL: YES
+    entitlements:
+      path: CommonGroundWatch/CommonGroundWatch.entitlements
 
 schemes:
   CommonGround:

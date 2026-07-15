@@ -1,0 +1,7 @@
+"NSFaceIDUsageDescription" = "Common Ground utilise Face ID pour protéger les informations privées de votre famille.";
+"NSCameraUsageDescription" = "Capturez des reçus, documents et photos pour vos dossiers familiaux.";
+"NSPhotoLibraryUsageDescription" = "Ajoutez des photos à la chronologie et aux albums partagés de votre enfant.";
+"NSCalendarsFullAccessUsageDescription" = "Importez des événements de votre Calendrier Apple dans Common Ground.";
+"NSHealthShareUsageDescription" = "Importez des mesures de taille et de poids pour suivre la croissance de votre enfant.";
+"NSHealthUpdateUsageDescription" = "Common Ground n'enregistre pas de données dans Apple Santé. Cette mention est requise lorsque vous importez taille et poids pour les courbes de croissance.";
+"NSLocationWhenInUseUsageDescription" = "Partagez votre position lors des échanges de garde pour que votre co-parent sache où vous retrouver.";

@@ -15,9 +15,9 @@ public struct MessagesView: View {
                 if threads.isEmpty {
                     CGEmptyState(
                         icon: "bubble.left.and.bubble.right",
-                        title: "Secure Messaging",
-                        message: "All messages are immutable, timestamped, and court-admissible. History cannot be deleted.",
-                        actionTitle: "Start Conversation"
+                        title: L10n.messagesSecureTitle,
+                        message: L10n.messagesSecureDescription,
+                        actionTitle: L10n.messagesStartConversation
                     ) {
                         showNewThread = true
                     }
@@ -32,7 +32,7 @@ public struct MessagesView: View {
                     .listStyle(.insetGrouped)
                 }
             }
-            .navigationTitle("Messages")
+            .navigationTitle(L10n.messagesTitle)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button { showNewThread = true } label: {
@@ -130,7 +130,7 @@ public struct MessageThreadView: View {
                         HStack {
                             Image(systemName: "lock.shield.fill")
                                 .font(.caption)
-                            Text("End-to-end encrypted · Immutable history")
+                            Text(L10n.messagesEncryptedBanner)
                                 .font(.caption)
                         }
                         .foregroundStyle(.secondary)
@@ -167,13 +167,13 @@ public struct MessageThreadView: View {
 
             messageComposer
         }
-        .navigationTitle(thread.subject ?? "Messages")
+        .navigationTitle(thread.subject ?? L10n.messagesTitle)
         .navigationBarTitleDisplayMode(.inline)
     }
 
     private var messageComposer: some View {
         HStack(spacing: CGSpacing.sm) {
-            TextField("Message", text: $newMessage, axis: .vertical)
+            TextField(L10n.messagesPlaceholder, text: $newMessage, axis: .vertical)
                 .textFieldStyle(.plain)
                 .lineLimit(1...5)
                 .padding(CGSpacing.sm)
@@ -192,7 +192,7 @@ public struct MessageThreadView: View {
 
     private func sendMessage() {
         guard let sender = currentMember else {
-            errorMessage = "Could not identify your account."
+            errorMessage = L10n.messagesAccountError
             return
         }
         errorMessage = nil

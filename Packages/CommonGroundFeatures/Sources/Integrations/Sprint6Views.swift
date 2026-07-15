@@ -18,7 +18,7 @@ public struct GrowthChartView: View {
 
     public var body: some View {
         VStack(alignment: .leading, spacing: CGSpacing.md) {
-            Picker("Metric", selection: $selectedMetric) {
+            Picker(L10n.growthMetric, selection: $selectedMetric) {
                 ForEach(GrowthMetric.allCases, id: \.self) { metric in
                     Text(metric.title).tag(metric)
                 }
@@ -27,9 +27,9 @@ public struct GrowthChartView: View {
 
             if chartPoints.isEmpty {
                 ContentUnavailableView(
-                    "No Growth Data",
+                    L10n.growthEmptyTitle,
                     systemImage: "chart.line.uptrend.xyaxis",
-                    description: Text("Import from Apple Health or add measurements manually.")
+                    description: Text(L10n.growthEmptyMessage)
                 )
                 .frame(height: 220)
             } else {
@@ -76,7 +76,7 @@ public struct GrowthChartView: View {
         HStack(spacing: CGSpacing.lg) {
             if let height = measurement.heightDisplay {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("Height")
+                    Text(L10n.growthHeight)
                         .font(.caption)
                         .foregroundStyle(.secondary)
                     Text(height)
@@ -85,7 +85,7 @@ public struct GrowthChartView: View {
             }
             if let weight = measurement.weightDisplay {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("Weight")
+                    Text(L10n.growthWeight)
                         .font(.caption)
                         .foregroundStyle(.secondary)
                     Text(weight)
@@ -112,15 +112,15 @@ private enum GrowthMetric: CaseIterable {
 
     var title: String {
         switch self {
-        case .height: "Height"
-        case .weight: "Weight"
+        case .height: L10n.growthHeight
+        case .weight: L10n.growthWeight
         }
     }
 
     var axisLabel: String {
         switch self {
-        case .height: "cm"
-        case .weight: "kg"
+        case .height: L10n.growthUnitCm
+        case .weight: L10n.growthUnitKg
         }
     }
 }
@@ -143,20 +143,20 @@ public struct HealthImportView: View {
         NavigationStack {
             Form {
                 Section {
-                    Text("Import height and weight measurements from Apple Health to track growth over time. Data stays on your device.")
+                    Text(L10n.healthImportIntro)
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }
 
                 if !HealthKitService.isAvailable {
                     Section {
-                        Label("Apple Health is not available on this device.", systemImage: "heart.slash")
+                        Label(L10n.healthUnavailable, systemImage: "heart.slash")
                             .foregroundStyle(.secondary)
                     }
                 } else {
-                    Section("Import Settings") {
+                    Section(L10n.healthImportSettings) {
                         if !children.isEmpty {
-                            Picker("Child", selection: $selectedChildId) {
+                            Picker(L10n.commonChild, selection: $selectedChildId) {
                                 ForEach(children, id: \.id) { child in
                                     Text(child.firstName).tag(Optional(child.id))
                                 }
@@ -167,7 +167,7 @@ public struct HealthImportView: View {
                                 }
                             }
                         }
-                        Stepper("Past \(yearsBack) years", value: $yearsBack, in: 1...10)
+                        Stepper(L10n.format("health.pastYears", yearsBack), value: $yearsBack, in: 1...10)
                     }
 
                     Section {
@@ -179,7 +179,7 @@ public struct HealthImportView: View {
                                 if isImporting {
                                     ProgressView()
                                 } else {
-                                    Label("Import from Health", systemImage: "heart.text.square")
+                                    Label(L10n.healthImportFromHealth, systemImage: "heart.text.square")
                                 }
                                 Spacer()
                             }
@@ -188,16 +188,16 @@ public struct HealthImportView: View {
                     }
 
                     if let result {
-                        Section("Results") {
-                            LabeledContent("Imported", value: "\(result.imported)")
-                            LabeledContent("Skipped", value: "\(result.skipped)")
+                        Section(L10n.healthResults) {
+                            LabeledContent(L10n.healthImported, value: "\(result.imported)")
+                            LabeledContent(L10n.healthSkipped, value: "\(result.skipped)")
                         }
                     }
                 }
 
                 if accessDenied {
                     Section {
-                        Text("Health access was denied. Enable it in Settings → Health → Data Access → Common Ground.")
+                        Text(L10n.healthAccessDenied)
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }
@@ -209,11 +209,11 @@ public struct HealthImportView: View {
                     }
                 }
             }
-            .navigationTitle("Apple Health")
+            .navigationTitle(L10n.moreAppleHealth)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Done") { dismiss() }
+                    Button(L10n.commonDone) { dismiss() }
                 }
             }
         }
@@ -242,7 +242,7 @@ public struct HealthImportView: View {
                     yearsBack: yearsBack
                 )
             } catch {
-                errorMessage = "Import failed. Please try again."
+                errorMessage = L10n.healthImportError
             }
             isImporting = false
         }
@@ -266,21 +266,21 @@ public struct JoinFamilyView: View {
         NavigationStack {
             Form {
                 Section {
-                    Text("Enter the family code your co-parent shared with you to join their Common Ground family.")
+                    Text(L10n.joinIntro)
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }
 
-                Section("Your Info") {
-                    TextField("Your name", text: $memberName)
+                Section(L10n.joinSectionYourInfo) {
+                    TextField(L10n.onboardingYourName, text: $memberName)
                         .textContentType(.name)
-                    TextField("Email (optional)", text: $email)
+                    TextField(L10n.formEmailOptional, text: $email)
                         .keyboardType(.emailAddress)
                         .textContentType(.emailAddress)
                 }
 
-                Section("Family Code") {
-                    TextField("8-character code", text: $familyCode)
+                Section(L10n.joinSectionFamilyCode) {
+                    TextField(L10n.joinCodePlaceholder, text: $familyCode)
                         .textInputAutocapitalization(.characters)
                         .autocorrectionDisabled()
                         .monospaced()
@@ -303,7 +303,7 @@ public struct JoinFamilyView: View {
                             if isJoining {
                                 ProgressView()
                             } else {
-                                Text("Join Family")
+                                Text(L10n.moreJoinFamily)
                                     .font(.headline)
                             }
                             Spacer()
@@ -312,11 +312,11 @@ public struct JoinFamilyView: View {
                     .disabled(!canJoin || isJoining)
                 }
             }
-            .navigationTitle("Join Family")
+            .navigationTitle(L10n.moreJoinFamily)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") { dismiss() }
+                    Button(L10n.commonCancel) { dismiss() }
                 }
             }
         }

@@ -14,10 +14,12 @@
 		74BA437F61ABC278386FB2E1 /* CommonGroundWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D6D492143FD6C7522C70DE /* CommonGroundWidgets.swift */; };
 		9379CA6DF8817D5DF2A94C17 /* CommonGroundFeatures in Frameworks */ = {isa = PBXBuildFile; productRef = 20F7A6D0A596C8FBA900AEC5 /* CommonGroundFeatures */; };
 		A1E23B74DDC8296107896EF9 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3833E2627C7642BF68C54A20 /* LaunchScreenView.swift */; };
+		BE875E7DDBF4735FEA414BD4 /* CommonGroundCore in Frameworks */ = {isa = PBXBuildFile; productRef = 18DB5F69C7E88A0D72AB53C6 /* CommonGroundCore */; };
 		C242822F46F95358A5AA8797 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = DB3EC8EBCAE11D2D4788B2DA /* PrivacyInfo.xcprivacy */; };
 		CDED6A826BD9D696B86BFC31 /* CommonGroundApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1391B1D0495AE821B3224405 /* CommonGroundApp.swift */; };
 		CF7730E7FF5DCB6D2EF84AB2 /* CommonGroundWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD562FC332C6E32F89AB48 /* CommonGroundWatchApp.swift */; };
 		DACA728847997DEFF312D6C4 /* CommonGroundIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256056C170993207B318A47 /* CommonGroundIntents.swift */; };
+		EC274062EA8BC80B43303520 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E3CDEC487B1A740B2C6D737 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,15 +51,22 @@
 		1013AD882C26050098572325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1391B1D0495AE821B3224405 /* CommonGroundApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonGroundApp.swift; sourceTree = "<group>"; };
 		15A889688EEDD294984C1EB3 /* CommonGround.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = CommonGround.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		19A739E3FBF8A637A204947F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3833E2627C7642BF68C54A20 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		3D4618A1C144C394D3400111 /* CommonGround.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CommonGround.entitlements; sourceTree = "<group>"; };
+		6D4AEB446E85F7B900CCD7F6 /* lb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lb; path = lb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8524D757D096EE42FFAE6CE1 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8D5EEA171956E404969F2209 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		922A871DD394E56BD66940E3 /* Common Ground */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Common Ground"; path = .; sourceTree = SOURCE_ROOT; };
 		93C480295D7936EF836ED1F0 /* CommonGroundWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CommonGroundWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A6B8882BDA13FD10F0B87F0 /* CommonGroundWidgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CommonGroundWidgets.entitlements; sourceTree = "<group>"; };
+		A571674E52588CDACB44FE4F /* CommonGroundWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CommonGroundWatch.entitlements; sourceTree = "<group>"; };
 		A7297C9B452DC88ADFA1152A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A7D6D492143FD6C7522C70DE /* CommonGroundWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonGroundWidgets.swift; sourceTree = "<group>"; };
+		AF66FD46747F334222B032A6 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B0CD562FC332C6E32F89AB48 /* CommonGroundWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonGroundWatchApp.swift; sourceTree = "<group>"; };
 		B256056C170993207B318A47 /* CommonGroundIntents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonGroundIntents.swift; sourceTree = "<group>"; };
+		B7ADF961CA5C31245A2B319A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DB3EC8EBCAE11D2D4788B2DA /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		E87A48240DC02D8FBB42F5ED /* CommonGroundWidgets.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = CommonGroundWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECB27E2D7D59AAEF767808AD /* ExchangeLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeLiveActivity.swift; sourceTree = "<group>"; };
@@ -69,6 +78,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9379CA6DF8817D5DF2A94C17 /* CommonGroundFeatures in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D72E0B42CAC85F53136423F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE875E7DDBF4735FEA414BD4 /* CommonGroundCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +120,7 @@
 		4EB3FD944C92142DC981E217 /* CommonGroundWatch */ = {
 			isa = PBXGroup;
 			children = (
+				A571674E52588CDACB44FE4F /* CommonGroundWatch.entitlements */,
 				B0CD562FC332C6E32F89AB48 /* CommonGroundWatchApp.swift */,
 				8D5EEA171956E404969F2209 /* Info.plist */,
 			);
@@ -153,6 +171,7 @@
 				1013AD882C26050098572325 /* Info.plist */,
 				DB3EC8EBCAE11D2D4788B2DA /* PrivacyInfo.xcprivacy */,
 				940C4DF71E1E2ECAE496CA30 /* App */,
+				2E3CDEC487B1A740B2C6D737 /* InfoPlist.strings */,
 				8E839B3C9255BFD5CA4F6858 /* Intents */,
 				2392C2C3FFBFE38B7C41DA35 /* Shared */,
 			);
@@ -162,6 +181,7 @@
 		B0825154EC97790010B00F3A /* CommonGroundWidgets */ = {
 			isa = PBXGroup;
 			children = (
+				9A6B8882BDA13FD10F0B87F0 /* CommonGroundWidgets.entitlements */,
 				A7D6D492143FD6C7522C70DE /* CommonGroundWidgets.swift */,
 				ECB27E2D7D59AAEF767808AD /* ExchangeLiveActivity.swift */,
 				0CFBD1D38E3273A258644D6C /* Info.plist */,
@@ -177,6 +197,7 @@
 			buildConfigurationList = 0974CD8D2C85F4AE205CE0A0 /* Build configuration list for PBXNativeTarget "CommonGroundWatch" */;
 			buildPhases = (
 				0BAB63D4563A874479D55AC4 /* Sources */,
+				D72E0B42CAC85F53136423F2 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -184,6 +205,7 @@
 			);
 			name = CommonGroundWatch;
 			packageProductDependencies = (
+				18DB5F69C7E88A0D72AB53C6 /* CommonGroundCore */,
 			);
 			productName = CommonGroundWatch;
 			productReference = 93C480295D7936EF836ED1F0 /* CommonGroundWatch.app */;
@@ -239,6 +261,12 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
+					32BF7546AFAEA678068BA19A = {
+						DevelopmentTeam = 3N4Q2GQ558;
+					};
+					5382F54E7127F1BBC8FF0C4A = {
+						DevelopmentTeam = 3N4Q2GQ558;
+					};
 					81523FB344992511EC8467E3 = {
 						DevelopmentTeam = 3N4Q2GQ558;
 					};
@@ -249,7 +277,11 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				Base,
+				de,
 				en,
+				fr,
+				lb,
+				pt,
 			);
 			mainGroup = A4FF993919CBA2BD7145AD79;
 			minimizedProjectReferenceProxies = 1;
@@ -274,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5020FF325B315FAFDE824B31 /* Assets.xcassets in Resources */,
+				EC274062EA8BC80B43303520 /* InfoPlist.strings in Resources */,
 				C242822F46F95358A5AA8797 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,6 +350,21 @@
 			targetProxy = 0A9971ADEE5120DE59BD94B0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2E3CDEC487B1A740B2C6D737 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B7ADF961CA5C31245A2B319A /* de */,
+				19A739E3FBF8A637A204947F /* en */,
+				8524D757D096EE42FFAE6CE1 /* fr */,
+				6D4AEB446E85F7B900CCD7F6 /* lb */,
+				AF66FD46747F334222B032A6 /* pt */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		087B7D0C91316112D6EEF68C /* Debug */ = {
@@ -373,7 +421,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -409,6 +457,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CommonGroundWatch/CommonGroundWatch.entitlements;
+				DEVELOPMENT_TEAM = 3N4Q2GQ558;
 				INFOPLIST_FILE = CommonGroundWatch/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.germaind.CommonGround.watchkitapp;
 				SDKROOT = watchos;
@@ -421,6 +471,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CommonGroundWatch/CommonGroundWatch.entitlements;
+				DEVELOPMENT_TEAM = 3N4Q2GQ558;
 				INFOPLIST_FILE = CommonGroundWatch/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.germaind.CommonGround.watchkitapp;
 				SDKROOT = watchos;
@@ -432,6 +484,9 @@
 		62B75071F69F81CDEA982202 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = CommonGroundWidgets/CommonGroundWidgets.entitlements;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = 3N4Q2GQ558;
 				INFOPLIST_FILE = CommonGroundWidgets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -448,6 +503,9 @@
 		9FBF7641A5FC9328E9FFDAA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = CommonGroundWidgets/CommonGroundWidgets.entitlements;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = 3N4Q2GQ558;
 				INFOPLIST_FILE = CommonGroundWidgets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -495,7 +553,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -589,6 +647,10 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		18DB5F69C7E88A0D72AB53C6 /* CommonGroundCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CommonGroundCore;
+		};
 		20F7A6D0A596C8FBA900AEC5 /* CommonGroundFeatures */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CommonGroundFeatures;

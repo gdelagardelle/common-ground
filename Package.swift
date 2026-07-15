@@ -16,7 +16,8 @@ let package = Package(
         .target(
             name: "CommonGroundCore",
             dependencies: [],
-            path: "Packages/CommonGroundCore/Sources"
+            path: "Packages/CommonGroundCore/Sources",
+            resources: [.process("Localization/L10nCatalog.json")]
         ),
         .target(
             name: "CommonGroundDesign",

@@ -48,19 +48,19 @@ public enum CustodyPattern: String, Codable, CaseIterable, Sendable {
 
     public var displayName: String {
         switch self {
-        case .weekOnWeekOff: "Week On / Week Off"
-        case .twoTwoThree: "2-2-3 Schedule"
-        case .alternatingWeekends: "Alternating Weekends"
-        case .custom: "Custom"
+        case .weekOnWeekOff: L10n.custodyWeekOnWeekOff
+        case .twoTwoThree: L10n.custodyTwoTwoThree
+        case .alternatingWeekends: L10n.custodyAlternatingWeekends
+        case .custom: L10n.custodyCustom
         }
     }
 
     public var description: String {
         switch self {
-        case .weekOnWeekOff: "One parent has the child for a full week, then switches."
-        case .twoTwoThree: "2 days with Parent A, 2 with Parent B, 3 with Parent A, then alternates."
-        case .alternatingWeekends: "Weekdays with one parent, alternating weekends."
-        case .custom: "Define your own schedule pattern."
+        case .weekOnWeekOff: L10n.custodyDescWeekOnWeekOff
+        case .twoTwoThree: L10n.custodyDescTwoTwoThree
+        case .alternatingWeekends: L10n.custodyDescAlternatingWeekends
+        case .custom: L10n.custodyDescCustom
         }
     }
 }
@@ -133,16 +133,16 @@ public enum EventCategory: String, Codable, CaseIterable, Sendable {
 
     public var displayName: String {
         switch self {
-        case .custody: "Custody"
-        case .school: "School"
-        case .medical: "Medical"
-        case .sports: "Sports"
-        case .activities: "Activities"
-        case .birthday: "Birthday"
-        case .holiday: "Holiday"
-        case .appointment: "Appointment"
-        case .exchange: "Exchange"
-        case .other: "Other"
+        case .custody: L10n.eventCustody
+        case .school: L10n.eventSchool
+        case .medical: L10n.eventMedical
+        case .sports: L10n.eventSports
+        case .activities: L10n.eventActivities
+        case .birthday: L10n.eventBirthday
+        case .holiday: L10n.eventHoliday
+        case .appointment: L10n.eventAppointment
+        case .exchange: L10n.eventExchange
+        case .other: L10n.eventOther
         }
     }
 

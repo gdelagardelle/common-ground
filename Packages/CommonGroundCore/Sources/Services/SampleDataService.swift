@@ -23,6 +23,7 @@ public final class SampleDataService {
             components.day = 15
             return Calendar.current.date(from: components) ?? Date()
         }())
+        emma.avatarEmoji = "👧"
         emma.bloodType = "O+"
         emma.allergies = ["Peanuts", "Shellfish"]
         emma.clothingSize = "6T"

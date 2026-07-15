@@ -95,15 +95,15 @@ public enum DocumentCategory: String, Codable, CaseIterable, Sendable {
 
     public var displayName: String {
         switch self {
-        case .passport: "Passport"
-        case .birthCertificate: "Birth Certificate"
-        case .insurance: "Insurance"
-        case .schoolReport: "School Report"
-        case .medicalReport: "Medical Report"
-        case .permissionSlip: "Permission Slip"
-        case .contract: "Contract"
-        case .receipt: "Receipt"
-        case .other: "Other"
+        case .passport: L10n.documentCatPassport
+        case .birthCertificate: L10n.documentCatBirthCertificate
+        case .insurance: L10n.documentCatInsurance
+        case .schoolReport: L10n.documentCatSchoolReport
+        case .medicalReport: L10n.documentCatMedicalReport
+        case .permissionSlip: L10n.documentCatPermissionSlip
+        case .contract: L10n.documentCatContract
+        case .receipt: L10n.documentCatReceipt
+        case .other: L10n.documentCatOther
         }
     }
 

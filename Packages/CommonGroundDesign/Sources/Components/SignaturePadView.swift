@@ -2,6 +2,7 @@
 import SwiftUI
 import PencilKit
 import UIKit
+import CommonGroundCore
 
 public struct SignaturePadView: View {
     @Binding var signatureData: Data?
@@ -25,11 +26,11 @@ public struct SignaturePadView: View {
             )
 
             HStack {
-                Text("Sign above")
+                Text(L10n.signatureSignAbove)
                     .font(.caption)
                     .foregroundStyle(.secondary)
                 Spacer()
-                Button("Clear") {
+                Button(L10n.avatarGenmojiClear) {
                     canvasView.drawing = PKDrawing()
                     signatureData = nil
                 }

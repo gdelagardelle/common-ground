@@ -64,6 +64,14 @@ public enum CourtExportService {
         return Calendar.current.date(byAdding: .month, value: -months, to: Date())
     }
 
+    private static func reportDateFormatter() -> DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .short
+        formatter.locale = AppLanguagePreferences.storedLanguage.locale ?? Locale.current
+        return formatter
+    }
+
     private static func buildReportContent(
         family: Family,
         threads: [MessageThread],
@@ -71,90 +79,106 @@ public enum CourtExportService {
         options: CourtExportOptions
     ) -> (text: String, signatureHash: String) {
         var lines: [String] = []
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .short
+        let formatter = reportDateFormatter()
+        let hashPending = L10n.courtExportHashPending
 
-        lines.append("COMMON GROUND — FAMILY RECORD EXPORT")
-        lines.append("Generated: \(formatter.string(from: Date()))")
-        lines.append("Family: \(family.name)")
-        lines.append("Export hash: pending")
+        lines.append(L10n.courtExportTitle)
+        lines.append(L10n.format("courtExport.generated", formatter.string(from: Date())))
+        lines.append(L10n.format("courtExport.family", family.name))
+        lines.append(hashPending)
         lines.append(String(repeating: "─", count: 52))
         lines.append("")
 
         for child in family.children {
-            lines.append("CHILD: \(child.fullName)")
-            lines.append("Date of birth: \(formatter.string(from: child.dateOfBirth))")
+            lines.append(L10n.format("courtExport.child", child.fullName))
+            lines.append(L10n.format("courtExport.dateOfBirth", formatter.string(from: child.dateOfBirth)))
             if !child.allergies.isEmpty {
-                lines.append("Allergies: \(child.allergies.joined(separator: ", "))")
+                lines.append(L10n.format("courtExport.allergies", child.allergies.joined(separator: ", ")))
             }
             lines.append("")
 
             if options.includeCalendar {
-                lines.append("CALENDAR EVENTS")
+                lines.append(L10n.courtExportCalendarEvents)
                 let events = child.events
                     .filter { event in cutoff.map { event.startDate >= $0 } ?? true }
                     .sorted(by: { $0.startDate > $1.startDate })
                 if events.isEmpty {
-                    lines.append("  (none)")
+                    lines.append(L10n.courtExportNone)
                 } else {
                     for event in events {
-                        lines.append("  • \(formatter.string(from: event.startDate)) — \(event.title) [\(event.category.displayName)]")
+                        lines.append(L10n.format(
+                            "courtExport.eventLine",
+                            formatter.string(from: event.startDate),
+                            event.title,
+                            event.category.displayName
+                        ))
                     }
                 }
                 lines.append("")
             }
 
             if options.includeExpenses {
-                lines.append("EXPENSES")
+                lines.append(L10n.courtExportExpenses)
                 let expenses = child.expenses
                     .filter { expense in cutoff.map { expense.date >= $0 } ?? true }
                     .sorted(by: { $0.date > $1.date })
                 if expenses.isEmpty {
-                    lines.append("  (none)")
+                    lines.append(L10n.courtExportNone)
                 } else {
                     for expense in expenses {
-                        let status = expense.isReimbursed ? "Settled" : "Pending"
+                        let status = expense.isReimbursed ? L10n.courtExportExpenseSettled : L10n.courtExportExpensePending
                         let amount = NSDecimalNumber(decimal: expense.amount).doubleValue
-                        lines.append("  • \(formatter.string(from: expense.date)) — \(expense.title): $\(String(format: "%.2f", amount)) paid by \(expense.paidByName) [\(status)]")
+                        lines.append(L10n.format(
+                            "courtExport.expenseLine",
+                            formatter.string(from: expense.date),
+                            expense.title,
+                            String(format: "%.2f", amount),
+                            expense.paidByName,
+                            status
+                        ))
                     }
                 }
                 lines.append("")
             }
 
             if options.includeMedical {
-                lines.append("MEDICAL RECORDS")
+                lines.append(L10n.courtExportMedicalRecords)
                 let records = child.medicalRecords
                     .filter { record in cutoff.map { record.date >= $0 } ?? true }
                     .sorted(by: { $0.date > $1.date })
                 if records.isEmpty {
-                    lines.append("  (none)")
+                    lines.append(L10n.courtExportNone)
                 } else {
                     for record in records {
-                        lines.append("  • \(formatter.string(from: record.date)) — \(record.title) [\(record.category.displayName)]")
+                        lines.append(L10n.format(
+                            "courtExport.medicalLine",
+                            formatter.string(from: record.date),
+                            record.title,
+                            record.category.displayName
+                        ))
                     }
                 }
                 lines.append("")
 
                 let meds = child.medications.filter(\.isActive)
                 if !meds.isEmpty {
-                    lines.append("ACTIVE MEDICATIONS")
+                    lines.append(L10n.courtExportActiveMedications)
                     for med in meds {
-                        lines.append("  • \(med.name) \(med.dosage) — \(med.frequency)")
+                        lines.append(L10n.format("courtExport.medLine", med.name, med.dosage, med.frequency))
                     }
                     lines.append("")
                 }
             }
 
             if options.includeDocuments {
-                lines.append("DOCUMENTS")
+                lines.append(L10n.courtExportDocuments)
                 if child.documents.isEmpty {
-                    lines.append("  (none)")
+                    lines.append(L10n.courtExportNone)
                 } else {
                     for doc in child.documents {
-                        var line = "  • \(doc.title) [\(doc.category.displayName)]"
+                        var line = L10n.format("courtExport.docLine", doc.title, doc.category.displayName)
                         if let expiry = doc.expiryDate {
-                            line += " expires \(formatter.string(from: expiry))"
+                            line += L10n.format("courtExport.docExpires", formatter.string(from: expiry))
                         }
                         lines.append(line)
                     }
@@ -164,18 +188,23 @@ public enum CourtExportService {
         }
 
         if options.includeMessages {
-            lines.append("MESSAGES")
-            lines.append("(Immutable, timestamped records)")
+            lines.append(L10n.courtExportMessages)
+            lines.append(L10n.courtExportMessagesNote)
             let allMessages = threads.flatMap { thread in
                 thread.messages.map { (thread: thread, message: $0) }
             }.filter { item in cutoff.map { item.message.sentAt >= $0 } ?? true }
             .sorted(by: { $0.message.sentAt > $1.message.sentAt })
 
             if allMessages.isEmpty {
-                lines.append("  (none)")
+                lines.append(L10n.courtExportNone)
             } else {
                 for item in allMessages {
-                    lines.append("  • \(formatter.string(from: item.message.sentAt)) — \(item.message.senderName): \(item.message.content)")
+                    lines.append(L10n.format(
+                        "courtExport.messageLine",
+                        formatter.string(from: item.message.sentAt),
+                        item.message.senderName,
+                        item.message.content
+                    ))
                 }
             }
             lines.append("")
@@ -183,7 +212,10 @@ public enum CourtExportService {
 
         let body = lines.joined(separator: "\n")
         let hash = SHA256.hash(data: Data(body.utf8)).compactMap { String(format: "%02x", $0) }.joined()
-        let signed = body.replacingOccurrences(of: "Export hash: pending", with: "Export hash: \(hash.prefix(16))")
+        let signed = body.replacingOccurrences(
+            of: hashPending,
+            with: L10n.format("courtExport.hashValue", String(hash.prefix(16)))
+        )
         return (signed, hash)
     }
 
@@ -213,7 +245,7 @@ public enum CourtExportService {
             let textRect = CGRect(x: margin, y: y, width: pageRect.width - margin * 2, height: pageRect.height - y - 60)
             body.draw(in: textRect, withAttributes: bodyAttributes)
 
-            let footer = "SHA-256: \(signature.prefix(32))… · Generated by Common Ground"
+            let footer = L10n.format("courtExport.pdfFooter", String(signature.prefix(32)))
             footer.draw(at: CGPoint(x: margin, y: pageRect.height - 40), withAttributes: footerAttributes)
         }
     }

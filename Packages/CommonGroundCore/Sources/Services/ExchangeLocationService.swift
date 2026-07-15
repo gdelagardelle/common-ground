@@ -10,11 +10,11 @@ public enum ExchangeLocationError: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .unavailable:
-            "Location services are unavailable on this device."
+            L10n.locationErrorUnavailable
         case .denied:
-            "Location access was denied. Enable it in Settings → Common Ground → Location."
+            L10n.locationErrorDenied
         case .timedOut:
-            "Couldn't determine your location. Try again outdoors or near a window."
+            L10n.locationErrorTimedOut
         }
     }
 }

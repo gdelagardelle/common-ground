@@ -25,7 +25,7 @@ public struct CalendarView: View {
             VStack(spacing: 0) {
                 datePickerHeader
 
-                Picker("View", selection: $viewMode) {
+                Picker(L10n.calendarViewMode, selection: $viewMode) {
                     ForEach(CalendarViewMode.allCases, id: \.self) { mode in
                         Text(mode.title).tag(mode)
                     }
@@ -41,7 +41,7 @@ public struct CalendarView: View {
                 }
             }
             .background(Color(.systemGroupedBackground))
-            .navigationTitle("Calendar")
+            .navigationTitle(L10n.calendarTitle)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
@@ -49,7 +49,7 @@ public struct CalendarView: View {
                     } label: {
                         Image(systemName: "plus")
                     }
-                    .accessibilityLabel("Add event")
+                    .accessibilityLabel(L10n.calendarAddEvent)
                 }
             }
             .sheet(isPresented: $showAddEvent) {
@@ -104,9 +104,9 @@ public struct CalendarView: View {
                 if filteredEvents.isEmpty {
                     CGEmptyState(
                         icon: "calendar",
-                        title: "No Events",
-                        message: "Tap + to add a school event, appointment, or custody exchange.",
-                        actionTitle: "Add Event"
+                        title: L10n.calendarEmptyTitle,
+                        message: L10n.calendarEmptyMessage,
+                        actionTitle: L10n.calendarAddEvent
                     ) {
                         showAddEvent = true
                     }
@@ -130,9 +130,9 @@ enum CalendarViewMode: CaseIterable {
 
     var title: String {
         switch self {
-        case .month: "Month"
-        case .day: "Day"
-        case .custody: "Custody"
+        case .month: L10n.calendarMonth
+        case .day: L10n.calendarDay
+        case .custody: L10n.calendarCustody
         }
     }
 }
@@ -270,7 +270,7 @@ struct CalendarEventCard: View {
                                     .font(.caption2)
                                     .foregroundStyle(.blue)
                             } else {
-                                Text("Tap to share location")
+                                Text(L10n.calendarTapShareLocation)
                                     .font(.caption2)
                                     .foregroundStyle(.tertiary)
                             }
@@ -318,10 +318,10 @@ struct CustodyScheduleView: View {
 
                 CGCard {
                     VStack(alignment: .leading, spacing: CGSpacing.sm) {
-                        Label("Schedule changes", systemImage: "hand.draw")
+                        Label(L10n.calendarScheduleChanges, systemImage: "hand.draw")
                             .font(.caption.weight(.medium))
                             .foregroundStyle(.secondary)
-                        Text("Creating a new schedule replaces generated custody blocks for the next 12 weeks. Manual events are kept.")
+                        Text(L10n.calendarScheduleChangesNote)
                             .font(.caption)
                             .foregroundStyle(.tertiary)
                     }
@@ -348,26 +348,6 @@ struct CustodyChildCard: View {
         child.custodySchedules.first(where: \.isActive) ?? child.custodySchedules.first
     }
 
-    private var weekAssignments: [Bool] {
-        guard let schedule = activeSchedule else { return Array(repeating: false, count: 7) }
-        let calendar = Calendar.current
-        let start = calendar.startOfDay(for: Date())
-        return (0..<7).map { offset in
-            guard let day = calendar.date(byAdding: .day, value: offset, to: start) else { return false }
-            let dayIndex = calendar.dateComponents([.day], from: calendar.startOfDay(for: schedule.startDate), to: day).day ?? 0
-            switch schedule.pattern {
-            case .weekOnWeekOff:
-                let week = dayIndex / 7
-                return week.isMultiple(of: 2)
-            case .twoTwoThree:
-                let cycleDay = dayIndex % 14
-                return [0, 1, 4, 5, 6, 9, 10].contains(cycleDay)
-            case .alternatingWeekends, .custom:
-                return offset < 5
-            }
-        }
-    }
-
     private var nextExchange: CalendarEvent? {
         child.events
             .filter { $0.category == .exchange && $0.startDate >= Date() }
@@ -379,7 +359,12 @@ struct CustodyChildCard: View {
         CGCard {
             VStack(alignment: .leading, spacing: CGSpacing.sm) {
                 HStack {
-                    CGAvatar(name: child.firstName, size: 40)
+                    CGAvatar(
+                        name: child.firstName,
+                        genmojiData: child.genmojiData,
+                        emoji: child.avatarEmoji,
+                        size: 40
+                    )
                     Text(child.firstName)
                         .font(.headline)
                     Spacer()
@@ -388,46 +373,29 @@ struct CustodyChildCard: View {
                     }
                 }
 
-                if activeSchedule != nil {
-                    CustodyWeekBar(assignments: weekAssignments, parentAName: activeSchedule?.parentAName ?? "A")
+                if activeSchedule != nil, let schedule = activeSchedule {
+                    CGCustodyWeekStrip(
+                        assignments: CustodyScheduleGenerator.weekAssignments(for: schedule),
+                        parentAName: schedule.parentAName,
+                        parentBName: schedule.parentBName
+                    )
                     if let exchange = nextExchange {
-                        Text("Next exchange: \(exchange.startDate.formatted(date: .abbreviated, time: .shortened))")
+                        Text(L10n.format("calendar.nextExchange", exchange.startDate.formatted(date: .abbreviated, time: .shortened)))
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }
                 } else {
-                    Text("No custody schedule yet")
+                    Text(L10n.calendarNoCustodySchedule)
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }
 
-                Button(activeSchedule == nil ? "Set Up Schedule" : "Update Schedule") {
+                Button(activeSchedule == nil ? L10n.calendarSetupSchedule : L10n.calendarUpdateSchedule) {
                     onSetup()
                 }
                 .buttonStyle(.borderedProminent)
                 .controlSize(.small)
             }
         }
-    }
-}
-
-struct CustodyWeekBar: View {
-    let assignments: [Bool]
-    var parentAName: String = "A"
-
-    var body: some View {
-        HStack(spacing: 2) {
-            ForEach(0..<7, id: \.self) { day in
-                RoundedRectangle(cornerRadius: 4)
-                    .fill(assignments[day] ? Color.accentColor.opacity(0.75) : Color.accentColor.opacity(0.2))
-                    .frame(height: 32)
-                    .overlay {
-                        Text(["M", "T", "W", "T", "F", "S", "S"][day])
-                            .font(.caption2.weight(.bold))
-                            .foregroundStyle(assignments[day] ? .white : .secondary)
-                    }
-            }
-        }
-        .accessibilityLabel("This week with \(parentAName)")
     }
 }

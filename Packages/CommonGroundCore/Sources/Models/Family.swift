@@ -40,6 +40,8 @@ public final class FamilyMember {
     public var phone: String?
     public var role: MemberRole
     public var avatarEmoji: String
+    /// Raw `NSAdaptiveImageGlyph.imageContent` for Apple Genmoji faces.
+    public var genmojiData: Data?
     public var permissions: MemberPermissions
     public var joinedAt: Date
 
@@ -73,13 +75,13 @@ public enum MemberRole: String, Codable, CaseIterable, Sendable {
 
     public var displayName: String {
         switch self {
-        case .parent: "Parent"
-        case .stepParent: "Step Parent"
-        case .grandparent: "Grandparent"
-        case .guardian: "Guardian"
-        case .fosterParent: "Foster Parent"
-        case .caregiver: "Caregiver"
-        case .professional: "Professional"
+        case .parent: L10n.roleParent
+        case .stepParent: L10n.roleStepParent
+        case .grandparent: L10n.roleGrandparent
+        case .guardian: L10n.roleGuardian
+        case .fosterParent: L10n.roleFosterParent
+        case .caregiver: L10n.roleCaregiver
+        case .professional: L10n.roleProfessional
         }
     }
 

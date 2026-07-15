@@ -1,4 +1,5 @@
 import SwiftUI
+import CommonGroundCore
 
 @main
 struct CommonGroundWatchApp: App {
@@ -13,22 +14,22 @@ struct WatchHomeView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section("Today") {
-                    Label("With Sarah", systemImage: "house.fill")
-                    Label("Exchange in 2 days", systemImage: "arrow.left.arrow.right")
+                Section(L10n.watchToday) {
+                    Label(L10n.format("custody.withParent", "Sarah"), systemImage: "house.fill")
+                    Label(L10n.watchDemoExchangeIn, systemImage: "arrow.left.arrow.right")
                 }
 
-                Section("Reminders") {
-                    Label("Soccer practice", systemImage: "sportscourt.fill")
-                    Label("Zyrtec 5mg", systemImage: "pills.fill")
+                Section(L10n.watchReminders) {
+                    Label(L10n.watchDemoSoccer, systemImage: "sportscourt.fill")
+                    Label(L10n.watchDemoMedication, systemImage: "pills.fill")
                 }
 
                 Section {
                     NavigationLink {
-                        Text("Ask AI on iPhone for full answers.")
+                        Text(L10n.watchAskAIHint)
                             .font(.caption)
                     } label: {
-                        Label("Ask AI", systemImage: "sparkles")
+                        Label(L10n.homeActionAskAI, systemImage: "sparkles")
                     }
                 }
             }

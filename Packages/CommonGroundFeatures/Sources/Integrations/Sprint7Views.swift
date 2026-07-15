@@ -24,24 +24,24 @@ public struct SchoolPortalView: View {
     public var body: some View {
         List {
             Section {
-                Text("Connect your school's portal to pull announcements and homework into Common Ground. API integrations coming soon — sync now loads sample data for your school profile.")
+                Text(L10n.schoolPortalIntro)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
             }
 
-            Section("Portal") {
-                Picker("Service", selection: $selectedPortal) {
+            Section(L10n.schoolPortalSectionPortal) {
+                Picker(L10n.schoolPortalService, selection: $selectedPortal) {
                     ForEach(SchoolPortalType.allCases, id: \.self) { portal in
                         Label(portal.displayName, systemImage: portal.icon).tag(portal)
                     }
                 }
 
-                Button("Connect") {
+                Button(L10n.schoolPortalConnect) {
                     SchoolPortalService.connect(selectedPortal)
                 }
 
                 if SchoolPortalPreferences.connectedPortal != nil {
-                    Button("Disconnect", role: .destructive) {
+                    Button(L10n.schoolPortalDisconnect, role: .destructive) {
                         SchoolPortalService.disconnect()
                         syncResult = nil
                     }
@@ -57,7 +57,7 @@ public struct SchoolPortalView: View {
                         if isSyncing {
                             ProgressView()
                         } else {
-                            Label("Sync Now", systemImage: "arrow.triangle.2.circlepath")
+                            Label(L10n.calendarSyncSyncNow, systemImage: "arrow.triangle.2.circlepath")
                         }
                         Spacer()
                     }
@@ -66,17 +66,17 @@ public struct SchoolPortalView: View {
             }
 
             if let syncResult {
-                Section("Last Sync") {
-                    LabeledContent("Announcements", value: "\(syncResult.announcementsImported)")
-                    LabeledContent("Assignments", value: "\(syncResult.assignmentsImported)")
+                Section(L10n.calendarSyncLastSync) {
+                    LabeledContent(L10n.schoolPortalAnnouncements, value: "\(syncResult.announcementsImported)")
+                    LabeledContent(L10n.schoolPortalAssignments, value: "\(syncResult.assignmentsImported)")
                     if let date = SchoolPortalPreferences.lastSyncDate {
-                        LabeledContent("Time", value: date.formatted(date: .abbreviated, time: .shortened))
+                        LabeledContent(L10n.commonTime, value: date.formatted(date: .abbreviated, time: .shortened))
                     }
                 }
             }
 
             if !child.schoolAnnouncements.isEmpty {
-                Section("Announcements") {
+                Section(L10n.schoolPortalSectionAnnouncements) {
                     ForEach(child.schoolAnnouncements.sorted(by: { $0.publishedAt > $1.publishedAt }), id: \.id) { item in
                         VStack(alignment: .leading, spacing: 4) {
                             HStack {
@@ -103,7 +103,7 @@ public struct SchoolPortalView: View {
             }
 
             if !child.schoolAssignments.isEmpty {
-                Section("Homework") {
+                Section(L10n.schoolPortalSectionHomework) {
                     ForEach(child.schoolAssignments.sorted(by: { $0.dueDate < $1.dueDate }), id: \.id) { assignment in
                         HStack {
                             VStack(alignment: .leading, spacing: 2) {
@@ -115,13 +115,13 @@ public struct SchoolPortalView: View {
                                         .font(.caption)
                                         .foregroundStyle(.secondary)
                                 }
-                                Text("Due \(assignment.dueDate.formatted(date: .abbreviated, time: .omitted))")
+                                Text(L10n.format("schoolPortal.due", assignment.dueDate.formatted(date: .abbreviated, time: .omitted)))
                                     .font(.caption2)
                                     .foregroundStyle(.tertiary)
                             }
                             Spacer()
                             if !assignment.isCompleted {
-                                Button("Done") {
+                                Button(L10n.commonDone) {
                                     try? SchoolSetupService.markAssignmentComplete(assignment, context: modelContext)
                                 }
                                 .font(.caption.weight(.semibold))
@@ -140,7 +140,7 @@ public struct SchoolPortalView: View {
                 }
             }
         }
-        .navigationTitle("School Portal")
+        .navigationTitle(L10n.moreSchoolPortal)
         .navigationBarTitleDisplayMode(.inline)
     }
 
@@ -152,7 +152,7 @@ public struct SchoolPortalView: View {
         do {
             syncResult = try SchoolPortalService.sync(context: modelContext, child: child, portal: selectedPortal)
         } catch {
-            errorMessage = "Sync failed. Please try again."
+            errorMessage = L10n.schoolPortalSyncError
         }
         isSyncing = false
     }
@@ -185,13 +185,13 @@ public struct AddSchoolInfoView: View {
     public var body: some View {
         NavigationStack {
             Form {
-                Section("School") {
-                    TextField("School name", text: $schoolName)
-                    TextField("Grade", text: $grade)
-                    TextField("Classroom", text: $classroom)
-                    TextField("Phone", text: $phone)
+                Section(L10n.schoolSection) {
+                    TextField(L10n.schoolSchoolName, text: $schoolName)
+                    TextField(L10n.schoolGrade, text: $grade)
+                    TextField(L10n.schoolClassroom, text: $classroom)
+                    TextField(L10n.schoolPhone, text: $phone)
                         .keyboardType(.phonePad)
-                    TextField("Address", text: $address)
+                    TextField(L10n.schoolAddress, text: $address)
                 }
 
                 if let errorMessage {
@@ -200,14 +200,14 @@ public struct AddSchoolInfoView: View {
                     }
                 }
             }
-            .navigationTitle(child.schoolInfo == nil ? "Add School" : "Edit School")
+            .navigationTitle(child.schoolInfo == nil ? L10n.schoolAdd : L10n.schoolEdit)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") { dismiss() }
+                    Button(L10n.commonCancel) { dismiss() }
                 }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Save") { save() }
+                    Button(L10n.commonSave) { save() }
                         .disabled(schoolName.trimmingCharacters(in: .whitespaces).isEmpty)
                 }
             }
@@ -227,7 +227,7 @@ public struct AddSchoolInfoView: View {
             )
             dismiss()
         } catch {
-            errorMessage = "Couldn't save school info."
+            errorMessage = L10n.schoolSaveError
         }
     }
 }
@@ -253,20 +253,20 @@ public struct ExchangeLocationShareView: View {
         NavigationStack {
             Form {
                 Section {
-                    Text("Share your current location with your co-parent for this custody exchange. Location is stored locally and visible in the app.")
+                    Text(L10n.exchangeIntro)
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }
 
-                Section("Exchange") {
-                    LabeledContent("When", value: event.startDate.formatted(date: .abbreviated, time: .shortened))
+                Section(L10n.custodyExchange) {
+                    LabeledContent(L10n.exchangeWhen, value: event.startDate.formatted(date: .abbreviated, time: .shortened))
                     if let location = event.location {
-                        LabeledContent("Meet at", value: location)
+                        LabeledContent(L10n.exchangeMeetAt, value: location)
                     }
                 }
 
                 if event.hasSharedLocation, let latitude = event.latitude, let longitude = event.longitude {
-                    Section("Shared Location") {
+                    Section(L10n.exchangeSharedLocation) {
                         Map(position: $mapPosition) {
                             Marker("Exchange", coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
                         }
@@ -280,14 +280,14 @@ public struct ExchangeLocationShareView: View {
                         }
 
                         if let name = event.sharedLocationMemberName, let sharedAt = event.sharedLocationAt {
-                            Text("Shared by \(name) · \(sharedAt.formatted(date: .omitted, time: .shortened))")
+                            Text(L10n.format("exchange.sharedBy", name, sharedAt.formatted(date: .omitted, time: .shortened)))
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                         }
 
                         if let url = event.mapsURL {
                             Link(destination: url) {
-                                Label("Open in Maps", systemImage: "map")
+                                Label(L10n.exchangeOpenInMaps, systemImage: "map")
                             }
                         }
                     }
@@ -302,7 +302,7 @@ public struct ExchangeLocationShareView: View {
                             if isSharing {
                                 ProgressView()
                             } else {
-                                Label(event.hasSharedLocation ? "Update Location" : "Share My Location", systemImage: "location.fill")
+                                Label(event.hasSharedLocation ? L10n.exchangeUpdateLocation : L10n.exchangeShareMyLocation, systemImage: "location.fill")
                             }
                             Spacer()
                         }
@@ -311,12 +311,12 @@ public struct ExchangeLocationShareView: View {
                 }
 
                 Section {
-                    Toggle("Auto-share before exchanges", isOn: Binding(
+                    Toggle(L10n.exchangeAutoShare, isOn: Binding(
                         get: { ExchangeLocationPreferences.autoShareEnabled },
                         set: { ExchangeLocationPreferences.autoShareEnabled = $0 }
                     ))
                 } footer: {
-                    Text("When enabled, you'll be prompted to share location when an exchange is within 4 hours.")
+                    Text(L10n.exchangeAutoShareFooter)
                 }
 
                 if let errorMessage {
@@ -325,11 +325,11 @@ public struct ExchangeLocationShareView: View {
                     }
                 }
             }
-            .navigationTitle("Exchange Location")
+            .navigationTitle(L10n.exchangeTitle)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Done") { dismiss() }
+                    Button(L10n.commonDone) { dismiss() }
                 }
             }
         }
@@ -378,14 +378,14 @@ public struct ExchangeLocationBanner: View {
                     .foregroundStyle(.blue)
 
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("Exchange in \(event.startDate.formatted(date: .omitted, time: .shortened))")
+                    Text(L10n.format("exchange.banner.in", event.startDate.formatted(date: .omitted, time: .shortened)))
                         .font(.subheadline.weight(.semibold))
                     if event.hasSharedLocation, let name = event.sharedLocationMemberName {
-                        Text("Location shared by \(name)")
+                        Text(L10n.format("exchange.banner.sharedBy", name))
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     } else {
-                        Text("Share your location with your co-parent")
+                        Text(L10n.exchangeBannerPrompt)
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }
@@ -393,7 +393,7 @@ public struct ExchangeLocationBanner: View {
 
                 Spacer()
 
-                Button(event.hasSharedLocation ? "View" : "Share", action: onShare)
+                Button(event.hasSharedLocation ? L10n.commonView : L10n.commonShare, action: onShare)
                     .buttonStyle(.borderedProminent)
                     .controlSize(.small)
             }

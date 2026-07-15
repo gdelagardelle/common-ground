@@ -38,16 +38,16 @@ public enum MedicalCategory: String, Codable, CaseIterable, Sendable {
 
     public var displayName: String {
         switch self {
-        case .visit: "Doctor Visit"
-        case .vaccination: "Vaccination"
-        case .prescription: "Prescription"
-        case .lab: "Lab Results"
-        case .dental: "Dental"
-        case .vision: "Vision"
-        case .growth: "Growth"
-        case .allergy: "Allergy"
-        case .emergency: "Emergency"
-        case .other: "Other"
+        case .visit: L10n.medicalCatVisit
+        case .vaccination: L10n.medicalCatVaccination
+        case .prescription: L10n.medicalCatPrescription
+        case .lab: L10n.medicalCatLab
+        case .dental: L10n.medicalCatDental
+        case .vision: L10n.medicalCatVision
+        case .growth: L10n.medicalCatGrowth
+        case .allergy: L10n.medicalCatAllergy
+        case .emergency: L10n.medicalCatEmergency
+        case .other: L10n.medicalCatOther
         }
     }
 

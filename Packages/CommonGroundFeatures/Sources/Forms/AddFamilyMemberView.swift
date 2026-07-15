@@ -18,13 +18,13 @@ public struct AddFamilyMemberView: View {
     public var body: some View {
         NavigationStack {
             Form {
-                Section("Member") {
-                    TextField("Name", text: $displayName)
+                Section(L10n.memberSection) {
+                    TextField(L10n.formName, text: $displayName)
                         .textContentType(.name)
-                    TextField("Email (optional)", text: $email)
+                    TextField(L10n.formEmailOptional, text: $email)
                         .textContentType(.emailAddress)
                         .keyboardType(.emailAddress)
-                    Picker("Role", selection: $role) {
+                    Picker(L10n.formRole, selection: $role) {
                         ForEach(MemberRole.allCases, id: \.self) { role in
                             Text(role.displayName).tag(role)
                         }
@@ -39,14 +39,14 @@ public struct AddFamilyMemberView: View {
                     }
                 }
             }
-            .navigationTitle("Add Family Member")
+            .navigationTitle(L10n.memberAddTitle)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") { dismiss() }
+                    Button(L10n.commonCancel) { dismiss() }
                 }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Save") { save() }
+                    Button(L10n.commonSave) { save() }
                         .disabled(displayName.trimmingCharacters(in: .whitespaces).isEmpty)
                 }
             }
@@ -55,7 +55,7 @@ public struct AddFamilyMemberView: View {
 
     private func save() {
         guard let family = families.first else {
-            errorMessage = "No family found."
+            errorMessage = L10n.memberNoFamilyError
             return
         }
 
@@ -75,7 +75,7 @@ public struct AddFamilyMemberView: View {
         do {
             try modelContext.save()
         } catch {
-            errorMessage = "Couldn't save member."
+            errorMessage = L10n.memberSaveError
         }
     }
 }

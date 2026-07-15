@@ -9,10 +9,10 @@ public enum AgreementStatus: String, Codable, CaseIterable, Sendable {
 
     public var displayName: String {
         switch self {
-        case .draft: "Draft"
-        case .pendingSignatures: "Awaiting Signatures"
-        case .fullySigned: "Fully Signed"
-        case .archived: "Archived"
+        case .draft: L10n.agreementStatusDraft
+        case .pendingSignatures: L10n.agreementStatusPending
+        case .fullySigned: L10n.agreementStatusSigned
+        case .archived: L10n.agreementStatusArchived
         }
     }
 }

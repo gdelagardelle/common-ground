@@ -20,17 +20,17 @@ public struct AddChildView: View {
     public var body: some View {
         NavigationStack {
             Form {
-                Section("Name") {
-                    TextField("First name", text: $firstName)
+                Section(L10n.formSectionName) {
+                    TextField(L10n.onboardingFirstName, text: $firstName)
                         .textContentType(.givenName)
-                    TextField("Last name", text: $lastName)
+                    TextField(L10n.onboardingLastName, text: $lastName)
                         .textContentType(.familyName)
                 }
 
-                Section("Details") {
-                    DatePicker("Date of birth", selection: $dateOfBirth, in: ...Date(), displayedComponents: .date)
-                    TextField("Blood type (optional)", text: $bloodType)
-                    TextField("Allergies, comma separated", text: $allergiesText)
+                Section(L10n.formSectionDetails) {
+                    DatePicker(L10n.onboardingDateOfBirth, selection: $dateOfBirth, in: ...Date(), displayedComponents: .date)
+                    TextField(L10n.formBloodTypeOptional, text: $bloodType)
+                    TextField(L10n.formAllergiesCommaSeparated, text: $allergiesText)
                 }
 
                 if let errorMessage {
@@ -41,14 +41,14 @@ public struct AddChildView: View {
                     }
                 }
             }
-            .navigationTitle("Add Child")
+            .navigationTitle(L10n.childrenAddChild)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") { dismiss() }
+                    Button(L10n.commonCancel) { dismiss() }
                 }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Save") { save() }
+                    Button(L10n.commonSave) { save() }
                         .disabled(!canSave)
                 }
             }
@@ -62,7 +62,7 @@ public struct AddChildView: View {
 
     private func save() {
         guard let family = families.first else {
-            errorMessage = "Create a family first."
+            errorMessage = L10n.formCreateFamilyFirst
             return
         }
 
@@ -83,7 +83,7 @@ public struct AddChildView: View {
             )
             dismiss()
         } catch {
-            errorMessage = "Couldn't save. Please try again."
+            errorMessage = L10n.formSaveError
         }
     }
 }
@@ -113,31 +113,31 @@ public struct AddEventView: View {
     public var body: some View {
         NavigationStack {
             Form {
-                Section("Event") {
-                    TextField("Title", text: $title)
-                    Picker("Category", selection: $category) {
+                Section(L10n.formSectionEvent) {
+                    TextField(L10n.formTitle, text: $title)
+                    Picker(L10n.formCategory, selection: $category) {
                         ForEach(EventCategory.allCases, id: \.self) { cat in
                             Label(cat.displayName, systemImage: cat.icon).tag(cat)
                         }
                     }
                 }
 
-                Section("When") {
-                    Toggle("All day", isOn: $isAllDay)
-                    DatePicker("Starts", selection: $startDate, displayedComponents: isAllDay ? .date : [.date, .hourAndMinute])
-                    DatePicker("Ends", selection: $endDate, in: startDate..., displayedComponents: isAllDay ? .date : [.date, .hourAndMinute])
+                Section(L10n.formSectionWhen) {
+                    Toggle(L10n.calendarAllDay, isOn: $isAllDay)
+                    DatePicker(L10n.calendarStart, selection: $startDate, displayedComponents: isAllDay ? .date : [.date, .hourAndMinute])
+                    DatePicker(L10n.calendarEnd, selection: $endDate, in: startDate..., displayedComponents: isAllDay ? .date : [.date, .hourAndMinute])
                 }
 
-                Section("Details") {
+                Section(L10n.calendarDetails) {
                     if !children.isEmpty {
-                        Picker("Child", selection: $selectedChildId) {
-                            Text("All children").tag(UUID?.none)
+                        Picker(L10n.commonChild, selection: $selectedChildId) {
+                            Text(L10n.formAllChildren).tag(UUID?.none)
                             ForEach(children, id: \.id) { child in
                                 Text(child.fullName).tag(Optional(child.id))
                             }
                         }
                     }
-                    TextField("Location (optional)", text: $location)
+                    TextField(L10n.formLocationOptional, text: $location)
                 }
 
                 if let errorMessage {
@@ -148,14 +148,14 @@ public struct AddEventView: View {
                     }
                 }
             }
-            .navigationTitle("New Event")
+            .navigationTitle(L10n.formNewEvent)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") { dismiss() }
+                    Button(L10n.commonCancel) { dismiss() }
                 }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Add") { save() }
+                    Button(L10n.commonAdd) { save() }
                         .disabled(title.trimmingCharacters(in: .whitespaces).isEmpty)
                 }
             }
@@ -185,7 +185,7 @@ public struct AddEventView: View {
             )
             dismiss()
         } catch {
-            errorMessage = "Couldn't save event."
+            errorMessage = L10n.formEventSaveError
         }
     }
 }
@@ -220,22 +220,22 @@ public struct AddExpenseView: View {
     public var body: some View {
         NavigationStack {
             Form {
-                Section("Expense") {
-                    TextField("Description", text: $title)
-                    TextField("Amount", text: $amountText)
+                Section(L10n.formSectionExpense) {
+                    TextField(L10n.formDescription, text: $title)
+                    TextField(L10n.formAmount, text: $amountText)
                         .keyboardType(.decimalPad)
-                    Picker("Category", selection: $category) {
+                    Picker(L10n.formCategory, selection: $category) {
                         ForEach(ExpenseCategory.allCases, id: \.self) { cat in
                             Label(cat.displayName, systemImage: cat.icon).tag(cat)
                         }
                     }
-                    DatePicker("Date", selection: $date, displayedComponents: .date)
+                    DatePicker(L10n.formDate, selection: $date, displayedComponents: .date)
                 }
 
-                Section("Split") {
+                Section(L10n.formSectionSplit) {
                     if !children.isEmpty {
-                        Picker("Child", selection: $selectedChildId) {
-                            Text("General").tag(UUID?.none)
+                        Picker(L10n.commonChild, selection: $selectedChildId) {
+                            Text(L10n.formGeneral).tag(UUID?.none)
                             ForEach(children, id: \.id) { child in
                                 Text(child.firstName).tag(Optional(child.id))
                             }
@@ -243,22 +243,22 @@ public struct AddExpenseView: View {
                     }
 
                     if members.isEmpty {
-                        Text("Add a family member to track who paid.")
+                        Text(L10n.formAddMemberToTrackPaid)
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     } else {
-                        Picker("Paid by", selection: $selectedMemberId) {
+                        Picker(L10n.formPaidBy, selection: $selectedMemberId) {
                             ForEach(members, id: \.id) { member in
                                 Text(member.displayName).tag(Optional(member.id))
                             }
                         }
                     }
 
-                    Toggle("Split 50/50", isOn: $splitEvenly)
+                    Toggle(L10n.formSplit5050, isOn: $splitEvenly)
                 }
 
-                Section("Notes") {
-                    TextField("Optional notes", text: $notes, axis: .vertical)
+                Section(L10n.formSectionNotes) {
+                    TextField(L10n.formOptionalNotes, text: $notes, axis: .vertical)
                         .lineLimit(2...4)
                 }
 
@@ -270,14 +270,14 @@ public struct AddExpenseView: View {
                     }
                 }
             }
-            .navigationTitle("New Expense")
+            .navigationTitle(L10n.formNewExpense)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") { dismiss() }
+                    Button(L10n.commonCancel) { dismiss() }
                 }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Save") { save() }
+                    Button(L10n.commonSave) { save() }
                         .disabled(!canSave)
                 }
             }
@@ -322,7 +322,7 @@ public struct AddExpenseView: View {
             )
             dismiss()
         } catch {
-            errorMessage = "Couldn't save expense."
+            errorMessage = L10n.formExpenseSaveError
         }
     }
 }

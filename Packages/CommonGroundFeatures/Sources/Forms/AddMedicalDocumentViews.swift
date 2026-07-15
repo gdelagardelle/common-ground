@@ -13,12 +13,10 @@ public struct AddMedicationView: View {
 
     @State private var name = ""
     @State private var dosage = ""
-    @State private var frequency = "Once daily"
+    @State private var frequency = MedicationFrequency.onceDaily.rawValue
     @State private var prescribedBy = ""
     @State private var reminderTime = Calendar.current.date(bySettingHour: 8, minute: 0, second: 0, of: Date()) ?? Date()
     @State private var errorMessage: String?
-
-    private let frequencies = ["Once daily", "Twice daily", "Every 8 hours", "As needed"]
 
     public init(child: Child) {
         self.child = child
@@ -27,17 +25,19 @@ public struct AddMedicationView: View {
     public var body: some View {
         NavigationStack {
             Form {
-                Section("Medication") {
-                    TextField("Name", text: $name)
-                    TextField("Dosage", text: $dosage)
-                    Picker("Frequency", selection: $frequency) {
-                        ForEach(frequencies, id: \.self) { Text($0).tag($0) }
+                Section(L10n.medFormSectionMedication) {
+                    TextField(L10n.medFormName, text: $name)
+                    TextField(L10n.medFormDosage, text: $dosage)
+                    Picker(L10n.medFormFrequency, selection: $frequency) {
+                        ForEach(MedicationFrequency.allCases, id: \.rawValue) { option in
+                            Text(option.displayName).tag(option.rawValue)
+                        }
                     }
-                    TextField("Prescribed by (optional)", text: $prescribedBy)
+                    TextField(L10n.medFormPrescribedBy, text: $prescribedBy)
                 }
 
-                Section("Reminder") {
-                    DatePicker("Daily reminder", selection: $reminderTime, displayedComponents: .hourAndMinute)
+                Section(L10n.medFormSectionReminder) {
+                    DatePicker(L10n.medFormDailyReminder, selection: $reminderTime, displayedComponents: .hourAndMinute)
                 }
 
                 if let errorMessage {
@@ -46,12 +46,12 @@ public struct AddMedicationView: View {
                     }
                 }
             }
-            .navigationTitle("Add Medication")
+            .navigationTitle(L10n.medFormAddMedication)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .cancellationAction) { Button("Cancel") { dismiss() } }
+                ToolbarItem(placement: .cancellationAction) { Button(L10n.commonCancel) { dismiss() } }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Save") { save() }
+                    Button(L10n.commonSave) { save() }
                         .disabled(name.trimmingCharacters(in: .whitespaces).isEmpty || dosage.isEmpty)
                 }
             }
@@ -66,14 +66,14 @@ public struct AddMedicationView: View {
                 child: child,
                 name: name.trimmingCharacters(in: .whitespaces),
                 dosage: dosage.trimmingCharacters(in: .whitespaces),
-                frequency: frequency,
+                frequency: MedicationFrequency(rawValue: frequency)?.displayName ?? frequency,
                 prescribedBy: prescribedBy.nilIfEmpty,
                 reminderHour: components.hour ?? 8,
                 reminderMinute: components.minute ?? 0
             )
             dismiss()
         } catch {
-            errorMessage = "Couldn't save medication."
+            errorMessage = L10n.medFormSaveMedicationError
         }
     }
 }
@@ -98,30 +98,30 @@ public struct AddMedicalRecordView: View {
     public var body: some View {
         NavigationStack {
             Form {
-                Section("Record") {
-                    TextField("Title", text: $title)
-                    Picker("Category", selection: $category) {
+                Section(L10n.medFormSectionRecord) {
+                    TextField(L10n.formTitle, text: $title)
+                    Picker(L10n.formCategory, selection: $category) {
                         ForEach(MedicalCategory.allCases, id: \.self) { cat in
                             Label(cat.displayName, systemImage: cat.icon).tag(cat)
                         }
                     }
-                    DatePicker("Date", selection: $date, displayedComponents: .date)
-                    TextField("Provider (optional)", text: $provider)
+                    DatePicker(L10n.formDate, selection: $date, displayedComponents: .date)
+                    TextField(L10n.medFormProvider, text: $provider)
                 }
-                Section("Notes") {
-                    TextField("Notes", text: $notes, axis: .vertical)
+                Section(L10n.formSectionNotes) {
+                    TextField(L10n.formSectionNotes, text: $notes, axis: .vertical)
                         .lineLimit(2...5)
                 }
                 if let errorMessage {
                     Section { Text(errorMessage).font(.caption).foregroundStyle(.red) }
                 }
             }
-            .navigationTitle("Add Record")
+            .navigationTitle(L10n.medFormAddRecord)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .cancellationAction) { Button("Cancel") { dismiss() } }
+                ToolbarItem(placement: .cancellationAction) { Button(L10n.commonCancel) { dismiss() } }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Save") { save() }.disabled(title.trimmingCharacters(in: .whitespaces).isEmpty)
+                    Button(L10n.commonSave) { save() }.disabled(title.trimmingCharacters(in: .whitespaces).isEmpty)
                 }
             }
         }
@@ -140,7 +140,7 @@ public struct AddMedicalRecordView: View {
             )
             dismiss()
         } catch {
-            errorMessage = "Couldn't save record."
+            errorMessage = L10n.medFormSaveRecordError
         }
     }
 }
@@ -168,30 +168,30 @@ public struct AddDocumentView: View {
     public var body: some View {
         NavigationStack {
             Form {
-                Section("Document") {
-                    TextField("Title", text: $title)
-                    Picker("Category", selection: $category) {
+                Section(L10n.docFormSectionDocument) {
+                    TextField(L10n.formTitle, text: $title)
+                    Picker(L10n.formCategory, selection: $category) {
                         ForEach(DocumentCategory.allCases, id: \.self) { cat in
                             Label(cat.displayName, systemImage: cat.icon).tag(cat)
                         }
                     }
-                    Toggle("Has expiry date", isOn: $hasExpiry)
+                    Toggle(L10n.docFormHasExpiry, isOn: $hasExpiry)
                     if hasExpiry {
-                        DatePicker("Expires", selection: $expiryDate, displayedComponents: .date)
+                        DatePicker(L10n.docFormExpires, selection: $expiryDate, displayedComponents: .date)
                     }
                 }
 
-                Section("File") {
+                Section(L10n.docFormSectionFile) {
                     PhotosPicker(selection: $selectedPhoto, matching: .images) {
-                        Label("Choose Photo", systemImage: "photo")
+                        Label(L10n.docFormChoosePhoto, systemImage: "photo")
                     }
                     Button {
                         showFilePicker = true
                     } label: {
-                        Label("Import File", systemImage: "doc")
+                        Label(L10n.docFormImportFile, systemImage: "doc")
                     }
                     if fileName != nil {
-                        Label(fileName ?? "File attached", systemImage: "checkmark.circle.fill")
+                        Label(fileName ?? L10n.docFormFileAttached, systemImage: "checkmark.circle.fill")
                             .foregroundStyle(.green)
                     }
                 }
@@ -200,12 +200,12 @@ public struct AddDocumentView: View {
                     Section { Text(errorMessage).font(.caption).foregroundStyle(.red) }
                 }
             }
-            .navigationTitle("Add Document")
+            .navigationTitle(L10n.docFormAddDocument)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .cancellationAction) { Button("Cancel") { dismiss() } }
+                ToolbarItem(placement: .cancellationAction) { Button(L10n.commonCancel) { dismiss() } }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Save") { save() }.disabled(title.trimmingCharacters(in: .whitespaces).isEmpty)
+                    Button(L10n.commonSave) { save() }.disabled(title.trimmingCharacters(in: .whitespaces).isEmpty)
                 }
             }
             .onChange(of: selectedPhoto) { _, item in
@@ -229,7 +229,7 @@ public struct AddDocumentView: View {
                     fileData = try? Data(contentsOf: url)
                     fileName = url.lastPathComponent
                 case .failure:
-                    errorMessage = "Couldn't import file."
+                    errorMessage = L10n.docFormImportError
                 }
             }
         }
@@ -249,7 +249,23 @@ public struct AddDocumentView: View {
             )
             dismiss()
         } catch {
-            errorMessage = "Couldn't save document."
+            errorMessage = L10n.docFormSaveDocumentError
+        }
+    }
+}
+
+enum MedicationFrequency: String, CaseIterable {
+    case onceDaily = "medForm.freq.onceDaily"
+    case twiceDaily = "medForm.freq.twiceDaily"
+    case every8Hours = "medForm.freq.every8Hours"
+    case asNeeded = "medForm.freq.asNeeded"
+
+    var displayName: String {
+        switch self {
+        case .onceDaily: L10n.medFormFreqOnceDaily
+        case .twiceDaily: L10n.medFormFreqTwiceDaily
+        case .every8Hours: L10n.medFormFreqEvery8Hours
+        case .asNeeded: L10n.medFormFreqAsNeeded
         }
     }
 }

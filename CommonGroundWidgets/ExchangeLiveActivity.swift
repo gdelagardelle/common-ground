@@ -10,12 +10,12 @@ struct ExchangeLiveActivity: Widget {
                 HStack {
                     Image(systemName: "arrow.left.arrow.right.circle.fill")
                         .foregroundStyle(.blue)
-                    Text("Custody Exchange")
+                    Text(L10n.widgetLiveActivityTitle)
                         .font(.headline)
                 }
                 Text(context.attributes.childName)
                     .font(.title2.weight(.bold))
-                Text("With \(context.state.withParent)")
+                Text(L10n.format("custody.withParent", context.state.withParent))
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
                 Text(context.state.exchangeTime, style: .time)
@@ -38,7 +38,10 @@ struct ExchangeLiveActivity: Widget {
                     VStack(alignment: .leading) {
                         Text(context.attributes.childName)
                             .font(.headline)
-                        Text("Exchange at \(context.state.exchangeTime.formatted(date: .omitted, time: .shortened))")
+                        Text(L10n.format(
+                            "widget.liveActivity.exchangeAt",
+                            context.state.exchangeTime.formatted(date: .omitted, time: .shortened)
+                        ))
                             .font(.caption)
                     }
                 }

@@ -28,94 +28,94 @@ public struct MoreView: View {
     public var body: some View {
         NavigationStack {
             List {
-                Section("Family Tools") {
+                Section(L10n.moreFamilyTools) {
                     Button {
                         showAddExpense = true
                     } label: {
-                        Label("Add Expense", systemImage: "dollarsign.circle")
+                        Label(L10n.moreAddExpense, systemImage: "dollarsign.circle")
                     }
 
                     Button {
                         showAddMember = true
                     } label: {
-                        Label("Add Co-Parent", systemImage: "person.badge.plus")
+                        Label(L10n.moreAddCoParent, systemImage: "person.badge.plus")
                     }
 
                     NavigationLink { ChecklistsView(checklists: checklists) } label: {
-                        Label("Checklists", systemImage: "checklist")
+                        Label(L10n.moreChecklists, systemImage: "checklist")
                     }
                     NavigationLink { AuditLogView() } label: {
-                        Label("Audit Log", systemImage: "list.bullet.rectangle.portrait")
+                        Label(L10n.moreAuditLog, systemImage: "list.bullet.rectangle.portrait")
                     }
                     NavigationLink { ExportView() } label: {
-                        Label("Court Export", systemImage: "doc.text.magnifyingglass")
+                        Label(L10n.moreCourtExport, systemImage: "doc.text.magnifyingglass")
                     }
 
                     NavigationLink { CustodyAgreementsListView() } label: {
-                        Label("Custody Agreements", systemImage: "signature")
+                        Label(L10n.moreCustodyAgreements, systemImage: "signature")
                     }
                 }
 
-                Section("Professional Access") {
+                Section(L10n.moreProfessionalAccess) {
                     NavigationLink { ProfessionalPortalView() } label: {
-                        Label("Professional Portal", systemImage: "briefcase.fill")
+                        Label(L10n.moreProfessionalPortal, systemImage: "briefcase.fill")
                     }
-                    Text("Add an attorney or GAL as a family member with the Professional role for read-only access.")
+                    Text(L10n.moreProfessionalHint)
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
 
-                Section("Integrations") {
+                Section(L10n.moreIntegrations) {
                     Button {
                         showCalendarImport = true
                     } label: {
-                        Label("Apple Calendar Sync", systemImage: "calendar.badge.clock")
+                        Label(L10n.moreAppleCalendar, systemImage: "calendar.badge.clock")
                     }
 
                     Button {
                         showInvite = true
                     } label: {
-                        Label("Invite Co-Parent", systemImage: "person.2.badge.gearshape")
+                        Label(L10n.moreInviteCoParent, systemImage: "person.2.badge.gearshape")
                     }
 
                     Button {
                         showJoinFamily = true
                     } label: {
-                        Label("Join Family", systemImage: "person.2.fill")
+                        Label(L10n.moreJoinFamily, systemImage: "person.2.fill")
                     }
 
                     NavigationLink { SyncSettingsView() } label: {
-                        Label("iCloud Sync", systemImage: "icloud")
+                        Label(L10n.moreICloudSync, systemImage: "icloud")
                     }
 
                     Button {
                         showHealthImport = true
                     } label: {
-                        Label("Apple Health", systemImage: "heart.text.square")
+                        Label(L10n.moreAppleHealth, systemImage: "heart.text.square")
                     }
 
                     if let child = children.first {
                         NavigationLink {
                             SchoolPortalView(child: child)
                         } label: {
-                            Label("School Portal", systemImage: "building.columns.fill")
+                            Label(L10n.moreSchoolPortal, systemImage: "building.columns.fill")
                         }
                     }
                 }
 
                 Section {
                     Toggle(isOn: lockEnabledBinding) {
-                        Label("Require \(security.lockMethodDescription)", systemImage: lockIcon)
+                        Label(L10n.format("lock.require", lockMethodLabel), systemImage: lockIcon)
                     }
 
                     if security.isLockEnabled {
-                        Button("Lock Now") {
+                        Button(L10n.lockNow) {
                             security.lock()
                         }
                     }
 
                     Toggle(isOn: $notificationsEnabled) {
-                        Label("Reminders", systemImage: "bell.badge")
+                        Label(L10n.moreReminders, systemImage: "bell.badge")
                     }
                     .onChange(of: notificationsEnabled) { _, enabled in
                         Task {
@@ -130,29 +130,33 @@ public struct MoreView: View {
                     }
 
                     NavigationLink { PermissionsView() } label: {
-                        Label("Permissions", systemImage: "person.badge.shield.checkmark")
+                        Label(L10n.morePermissions, systemImage: "person.badge.shield.checkmark")
+                    }
+
+                    NavigationLink { LanguageSettingsView() } label: {
+                        Label(L10n.languageTitle, systemImage: "globe")
                     }
                 } header: {
-                    Text("Privacy & Security")
+                    Text(L10n.morePrivacySecurity)
                 } footer: {
                     VStack(alignment: .leading, spacing: 4) {
                         if security.isLockEnabled {
-                            Text("You'll be asked to unlock when opening the app and after tapping Lock Now.")
+                            Text(L10n.moreLockOnFooter)
                         } else {
-                            Text("Lock is off. Turn this on to require \(security.lockMethodDescription) before viewing family data.")
+                            Text(L10n.format("more.lockOff.footer", lockMethodLabel))
                         }
                         Text(notificationsEnabled
-                             ? "Reminders are scheduled for custody exchanges and medications."
-                             : "Enable reminders for custody exchanges and medications.")
+                             ? L10n.moreRemindersOnFooter
+                             : L10n.moreRemindersOffFooter)
                     }
                 }
 
-                Section("About") {
-                    LabeledContent("Version", value: "1.0.0")
-                    LabeledContent("Sync", value: SyncPreferences.isCloudKitEnabled ? "iCloud" : "Local")
+                Section(L10n.moreAbout) {
+                    LabeledContent(L10n.commonVersion, value: "1.0.0")
+                    LabeledContent(L10n.moreSync, value: SyncPreferences.isCloudKitEnabled ? L10n.moreSyncICloud : L10n.moreSyncLocal)
                 }
             }
-            .navigationTitle("More")
+            .navigationTitle(L10n.moreTitle)
             .sheet(isPresented: $showAddExpense) {
                 AddExpenseView()
             }
@@ -185,6 +189,14 @@ public struct MoreView: View {
         )
     }
 
+    private var lockMethodLabel: String {
+        switch security.biometricType {
+        case .faceID: L10n.lockMethodFaceID
+        case .touchID: L10n.lockMethodTouchID
+        default: L10n.lockMethodPasscode
+        }
+    }
+
     private var lockIcon: String {
         switch security.biometricType {
         case .faceID: "faceid"
@@ -208,7 +220,7 @@ struct ChecklistsView: View {
                         .frame(width: 28, height: 28)
                 }
 
-                Text("\(checklist.completedCount) of \(checklist.items.count) complete")
+                Text(L10n.format("more.checklists.complete", checklist.completedCount, checklist.items.count))
                     .font(.caption)
                     .foregroundStyle(.secondary)
 
@@ -225,17 +237,19 @@ struct ChecklistsView: View {
             }
             .padding(.vertical, CGSpacing.xxs)
         }
-        .navigationTitle("Checklists")
+        .navigationTitle(L10n.moreChecklists)
     }
 }
 
 struct AuditLogView: View {
-    private let entries = [
-        ("Message sent", "Today 2:34 PM", "Sarah"),
-        ("Expense added", "Today 10:15 AM", "Michael"),
-        ("Calendar updated", "Yesterday", "Sarah"),
-        ("Document uploaded", "Mar 10", "Sarah"),
-    ]
+    private var entries: [(String, String, String)] {
+        [
+            (L10n.auditMessageSent, L10n.auditDemoToday234, "Sarah"),
+            (L10n.auditExpenseAdded, L10n.auditDemoToday1015, "Michael"),
+            (L10n.auditCalendarUpdated, L10n.auditDemoYesterday, "Sarah"),
+            (L10n.auditDocumentUploaded, L10n.auditDemoMar10, "Sarah"),
+        ]
+    }
 
     var body: some View {
         List(entries, id: \.0) { entry in
@@ -253,7 +267,7 @@ struct AuditLogView: View {
                     .foregroundStyle(.tertiary)
             }
         }
-        .navigationTitle("Audit Log")
+        .navigationTitle(L10n.moreAuditLog)
     }
 }
 
@@ -266,17 +280,23 @@ struct PermissionsView: View {
 
     var body: some View {
         List {
-            Section("Family members") {
+            Section(L10n.permissionsMembers) {
                 if members.isEmpty {
-                    Text("Add family members from Family Tools.")
+                    Text(L10n.permissionsMembersEmpty)
                         .foregroundStyle(.secondary)
                 } else {
                     ForEach(members, id: \.id) { member in
                         NavigationLink {
                             MemberPermissionsEditorView(member: member)
                         } label: {
-                            HStack {
-                                Text(member.avatarEmoji)
+                            HStack(spacing: CGSpacing.sm) {
+                                CGAvatar(
+                                    name: member.displayName,
+                                    genmojiData: member.genmojiData,
+                                    emoji: member.avatarEmoji,
+                                    size: 36,
+                                    showGradientRing: false
+                                )
                                 VStack(alignment: .leading) {
                                     Text(member.displayName)
                                     Text(member.role.displayName)
@@ -289,13 +309,13 @@ struct PermissionsView: View {
                 }
             }
 
-            Section("Default roles") {
-                PermissionRow(role: "Parent", access: "Full view & edit")
-                PermissionRow(role: "Grandparent", access: "Calendar, timeline, school — view only")
-                PermissionRow(role: "Professional", access: "Read-only court export")
+            Section(L10n.permissionsDefaultRoles) {
+                PermissionRow(role: L10n.permissionsRoleParent, access: L10n.permissionsRoleParentAccess)
+                PermissionRow(role: L10n.permissionsRoleGrandparent, access: L10n.permissionsRoleGrandparentAccess)
+                PermissionRow(role: L10n.permissionsRoleProfessional, access: L10n.permissionsRoleProfessionalAccess)
             }
         }
-        .navigationTitle("Permissions")
+        .navigationTitle(L10n.permissionsTitle)
     }
 }
 

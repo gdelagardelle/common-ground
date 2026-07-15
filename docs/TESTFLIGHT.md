@@ -24,9 +24,10 @@ Use this guide to ship **Common Ground** build 1.0 to TestFlight.
 1. Open `CommonGround.xcodeproj`
 2. Select the **CommonGround** target → **Signing & Capabilities**
 3. Set your **Team**
-4. Optional for iCloud sync:
-   - Add **iCloud** capability → CloudKit → container `iCloud.com.germaind.CommonGround`
-   - Add **App Groups** → `group.com.germaind.CommonGround`
+4. Capabilities are preconfigured in the repo (regenerate after `project.yml` changes):
+   - **iCloud** → CloudKit → container `iCloud.com.germaind.CommonGround`
+   - **App Groups** → `group.com.germaind.CommonGround`
+   - In Xcode, open **Signing & Capabilities** and confirm both appear without errors
 5. Optional for Apple Health:
    - Add **HealthKit** capability → enable read for Height and Body Mass
 6. Regenerate project after `project.yml` changes:

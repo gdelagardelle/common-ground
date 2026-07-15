@@ -62,14 +62,14 @@ public struct HomeView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: CGSpacing.lg) {
                     greetingSection
+                    if let child = selectedChild {
+                        childHeroSection(child)
+                    }
                     quickActionsSection
                     if showExchangeBanner, let exchange = upcomingExchange {
                         ExchangeLocationBanner(event: exchange) {
                             showExchangeLocation = true
                         }
-                    }
-                    if let child = selectedChild {
-                        childSummaryCard(child)
                     }
                     dailyUpdatesSection
                     if PermissionService.canViewCalendar(currentMember) {
@@ -80,8 +80,8 @@ public struct HomeView: View {
                 .padding(.horizontal, CGSpacing.md)
                 .padding(.bottom, CGSpacing.xl)
             }
-            .background(Color(.systemGroupedBackground))
-            .navigationTitle("Home")
+            .background(CGColor.canvas)
+            .navigationTitle(L10n.homeTitle)
             .toolbar { toolbarContent }
             .sheet(isPresented: $showAddEvent) {
                 AddEventView()
@@ -108,17 +108,20 @@ public struct HomeView: View {
                 }
             }
         }
+        .tint(CGColor.primary)
     }
+
+    // MARK: - Sections
 
     private var greetingSection: some View {
         VStack(alignment: .leading, spacing: CGSpacing.xxs) {
             Text(greeting)
-                .font(.title2.weight(.semibold))
+                .font(CGTypography.title)
                 .opacity(appeared ? 1 : 0)
-                .offset(y: appeared ? 0 : 10)
+                .offset(y: appeared ? 0 : 8)
 
-            if let child = selectedChild {
-                Text("Here's what's happening with \(child.firstName) today.")
+            if let name = currentMember?.displayName.split(separator: " ").first.map(String.init) {
+                Text(L10n.format("home.subtitle", name))
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
                     .opacity(appeared ? 1 : 0)
@@ -127,80 +130,164 @@ public struct HomeView: View {
         .padding(.top, CGSpacing.sm)
     }
 
-    private var quickActionsSection: some View {
-        LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 4), spacing: CGSpacing.md) {
-            if PermissionService.canEditCalendar(currentMember) {
-                CGQuickAction(icon: "plus.circle.fill", title: "Event") {
-                    showAddEvent = true
-                }
-            }
-            if PermissionService.canPostDailyUpdate(currentMember), selectedChild != nil {
-                CGQuickAction(icon: "sun.horizon.fill", title: "Update", color: .orange) {
-                    showDailyUpdate = true
-                }
-            }
-            if PermissionService.canEditExpenses(currentMember) {
-                CGQuickAction(icon: "dollarsign.circle.fill", title: "Expense", color: .green) {
-                    showAddExpense = true
-                }
-            }
-            if PermissionService.canSendMessages(currentMember) {
-                CGQuickAction(icon: "bubble.left.fill", title: "Message", color: .blue) {
-                    appState.selectedTab = .messages
-                }
-            }
-            CGQuickAction(icon: "sparkles", title: "Ask AI", color: .purple) {
-                appState.isAIAssistantPresented = true
-            }
-        }
-        .opacity(appeared ? 1 : 0)
-        .animation(CGAnimation.smooth.delay(0.15), value: appeared)
-    }
-
-    private func childSummaryCard(_ child: Child) -> some View {
+    private func childHeroSection(_ child: Child) -> some View {
         NavigationLink {
             ChildDetailView(child: child)
         } label: {
-            CGCard {
-                HStack(spacing: CGSpacing.md) {
-                    CGAvatar(name: child.firstName, imageData: child.photoData, size: 56)
+            VStack(alignment: .leading, spacing: 0) {
+                ZStack(alignment: .bottomLeading) {
+                    CGGradient.heroHeader
+                        .frame(height: 110)
+                    CGGradient.aurora
+                        .opacity(0.12)
+                        .frame(height: 110)
+                        .blur(radius: 20)
 
-                    VStack(alignment: .leading, spacing: CGSpacing.xxs) {
-                        Text(child.fullName)
-                            .font(.headline)
-                            .foregroundStyle(.primary)
+                    HStack(alignment: .bottom, spacing: CGSpacing.md) {
+                        CGAvatar(
+                            name: child.firstName,
+                            imageData: child.photoData,
+                            genmojiData: child.genmojiData,
+                            emoji: child.avatarEmoji,
+                            size: 76
+                        )
+                            .offset(y: 20)
 
-                        Text("Age \(child.age)")
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
-
-                        if !child.allergies.isEmpty {
-                            HStack(spacing: CGSpacing.xxs) {
-                                Image(systemName: "allergens")
-                                    .font(.caption)
-                                Text(child.allergies.joined(separator: ", "))
-                                    .font(.caption)
+                        VStack(alignment: .leading, spacing: CGSpacing.xxs) {
+                            if children.count > 1 {
+                                childPicker(child)
+                            } else {
+                                Text(child.firstName)
+                                    .font(CGTypography.headline)
+                                    .foregroundStyle(.primary)
                             }
-                            .foregroundStyle(.orange)
+                            Text(L10n.format("common.age", child.age))
+                                .font(.subheadline)
+                                .foregroundStyle(.secondary)
+
+                            if let parent = parentNameToday(for: child) {
+                                Label(L10n.format("common.withToday", parent), systemImage: "house.fill")
+                                    .font(.caption.weight(.medium))
+                                    .foregroundStyle(CGColor.primary)
+                            }
                         }
+                        .padding(.bottom, CGSpacing.sm)
+
+                        Spacer()
+
+                        Image(systemName: "chevron.right")
+                            .font(.caption.weight(.semibold))
+                            .foregroundStyle(.tertiary)
+                            .padding(.bottom, CGSpacing.md)
+                    }
+                    .padding(.horizontal, CGSpacing.md)
+                }
+
+                VStack(alignment: .leading, spacing: CGSpacing.sm) {
+                    if let schedule = activeSchedule(for: child) {
+                        CGCustodyWeekStrip(
+                            assignments: CustodyScheduleGenerator.weekAssignments(for: schedule),
+                            parentAName: schedule.parentAName,
+                            parentBName: schedule.parentBName,
+                            compact: true
+                        )
                     }
 
-                    Spacer()
-
-                    Image(systemName: "chevron.right")
-                        .font(.caption.weight(.semibold))
-                        .foregroundStyle(.tertiary)
+                    if !child.allergies.isEmpty, PermissionService.canViewMedical(currentMember) {
+                        HStack(spacing: CGSpacing.xs) {
+                            Image(systemName: "allergens")
+                                .font(.caption.weight(.semibold))
+                            Text(child.allergies.joined(separator: " · "))
+                                .font(.caption)
+                                .lineLimit(1)
+                        }
+                        .foregroundStyle(CGColor.warmAmber)
+                        .padding(.horizontal, CGSpacing.sm)
+                        .padding(.vertical, CGSpacing.xxs)
+                        .background(CGColor.warmAmberSoft, in: Capsule())
+                    }
                 }
+                .padding(CGSpacing.md)
+                .padding(.top, CGSpacing.sm)
             }
+            .background(CGColor.elevatedSurface, in: RoundedRectangle(cornerRadius: CGRadius.xl, style: .continuous))
+            .overlay {
+                RoundedRectangle(cornerRadius: CGRadius.xl, style: .continuous)
+                    .strokeBorder(CGGradient.aurora.opacity(0.35), lineWidth: 1)
+            }
+            .clipShape(RoundedRectangle(cornerRadius: CGRadius.xl, style: .continuous))
+            .shadow(color: CGColor.shadow, radius: 12, y: 4)
         }
         .buttonStyle(.plain)
+        .opacity(appeared ? 1 : 0)
+        .animation(CGAnimation.smooth.delay(0.08), value: appeared)
+    }
+
+    @ViewBuilder
+    private func childPicker(_ child: Child) -> some View {
+        Menu {
+            ForEach(children, id: \.id) { option in
+                Button(option.firstName) {
+                    appState.selectedChildId = option.id
+                }
+            }
+        } label: {
+            HStack(spacing: 4) {
+                Text(child.firstName)
+                    .font(CGTypography.headline)
+                Image(systemName: "chevron.down")
+                    .font(.caption2.weight(.bold))
+            }
+            .foregroundStyle(.primary)
+        }
+    }
+
+    private var quickActionsSection: some View {
+        VStack(alignment: .leading, spacing: CGSpacing.sm) {
+            Text(L10n.homeQuickActions)
+                .font(CGTypography.captionEmphasis)
+                .foregroundStyle(.secondary)
+                .textCase(.uppercase)
+                .tracking(0.6)
+
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: CGSpacing.md) {
+                    if PermissionService.canPostDailyUpdate(currentMember), selectedChild != nil {
+                        CGQuickAction(icon: "sun.horizon.fill", title: L10n.homeActionUpdate, emphasis: .warm) {
+                            showDailyUpdate = true
+                        }
+                    }
+                    if PermissionService.canEditCalendar(currentMember) {
+                        CGQuickAction(icon: "calendar.badge.plus", title: L10n.homeActionEvent) {
+                            showAddEvent = true
+                        }
+                    }
+                    if PermissionService.canEditExpenses(currentMember) {
+                        CGQuickAction(icon: "dollarsign.circle.fill", title: L10n.homeActionExpense, emphasis: .mint) {
+                            showAddExpense = true
+                        }
+                    }
+                    if PermissionService.canSendMessages(currentMember) {
+                        CGQuickAction(icon: "bubble.left.fill", title: L10n.homeActionMessage, emphasis: .primary) {
+                            appState.selectedTab = .messages
+                        }
+                    }
+                    CGQuickAction(icon: "sparkles", title: L10n.homeActionAskAI, emphasis: .purple) {
+                        appState.isAIAssistantPresented = true
+                    }
+                }
+                .padding(.vertical, CGSpacing.xxs)
+            }
+        }
+        .opacity(appeared ? 1 : 0)
+        .animation(CGAnimation.smooth.delay(0.12), value: appeared)
     }
 
     private var dailyUpdatesSection: some View {
         Group {
             if PermissionService.canViewTimeline(currentMember) {
                 VStack(alignment: .leading, spacing: CGSpacing.sm) {
-                    CGSectionHeader("Today's Updates", action: recentDailyUpdates.isEmpty ? nil : "See All") {
+                    CGSectionHeader(L10n.homeTodaysUpdates, action: recentDailyUpdates.isEmpty ? nil : L10n.commonSeeAll) {
                         if let child = selectedChild {
                             appState.selectedChildId = child.id
                         }
@@ -208,16 +295,22 @@ public struct HomeView: View {
                     }
 
                     if recentDailyUpdates.isEmpty {
-                        CGCard {
-                            VStack(alignment: .leading, spacing: CGSpacing.xs) {
-                                Text("No updates yet today")
-                                    .font(.subheadline)
+                        CGCard(style: .warm) {
+                            VStack(alignment: .leading, spacing: CGSpacing.sm) {
+                                Label(L10n.homeUpdatePromptTitle, systemImage: "sun.horizon")
+                                    .font(.subheadline.weight(.medium))
+                                    .foregroundStyle(CGColor.warmAmber)
+
+                                Text(L10n.homeUpdatePromptBody)
+                                    .font(.caption)
                                     .foregroundStyle(.secondary)
+
                                 if PermissionService.canPostDailyUpdate(currentMember) {
-                                    Button("Share what happened") {
+                                    Button(L10n.homeShareWhatHappened) {
                                         showDailyUpdate = true
                                     }
-                                    .font(.subheadline.weight(.medium))
+                                    .font(.subheadline.weight(.semibold))
+                                    .tint(CGColor.primary)
                                 }
                             }
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -234,13 +327,13 @@ public struct HomeView: View {
 
     private var upcomingSection: some View {
         VStack(alignment: .leading, spacing: CGSpacing.sm) {
-            CGSectionHeader("Coming Up", action: "See All") {
+            CGSectionHeader(L10n.homeComingUp, action: L10n.commonSeeAll) {
                 appState.selectedTab = .calendar
             }
 
             if upcomingEvents.isEmpty {
                 CGCard {
-                    Text("No upcoming events")
+                    Text(L10n.homeNoUpcomingEvents)
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -258,24 +351,26 @@ public struct HomeView: View {
             if unpaidTotal > 0 && PermissionService.canViewExpenses(currentMember)
                 || !activeMedications.isEmpty && PermissionService.canViewMedical(currentMember)
                 || selectedChild?.emergencyInfo?.passportExpiry != nil && PermissionService.canViewEmergency(currentMember) {
-                CGSectionHeader("Needs Attention")
+                CGSectionHeader(L10n.homeNeedsAttention)
             }
 
             if unpaidTotal > 0, PermissionService.canViewExpenses(currentMember) {
                 AlertCard(
                     icon: "dollarsign.circle.fill",
-                    color: .green,
-                    title: "Outstanding Expenses",
-                    detail: "$\(formattedAmount(unpaidTotal)) pending reimbursement"
+                    color: CGColor.schoolGreen,
+                    title: L10n.homeOutstandingExpenses,
+                    detail: L10n.format("home.expensePending", formattedAmount(unpaidTotal))
                 )
             }
 
             if !activeMedications.isEmpty, PermissionService.canViewMedical(currentMember) {
                 AlertCard(
                     icon: "pills.fill",
-                    color: .red,
-                    title: "Active Medications",
-                    detail: "\(activeMedications.count) medication\(activeMedications.count == 1 ? "" : "s") with reminders"
+                    color: CGColor.medicalRed,
+                    title: L10n.homeActiveMedications,
+                    detail: activeMedications.count == 1
+                        ? L10n.format("home.medicationCount", activeMedications.count)
+                        : L10n.format("home.medicationsCount", activeMedications.count)
                 )
             }
 
@@ -284,9 +379,9 @@ public struct HomeView: View {
                expiry < Calendar.current.date(byAdding: .month, value: 6, to: Date()) ?? Date() {
                 AlertCard(
                     icon: "person.text.rectangle.fill",
-                    color: .orange,
-                    title: "Passport Expiring",
-                    detail: "Renew before \(expiry.formatted(date: .abbreviated, time: .omitted))"
+                    color: CGColor.warmAmber,
+                    title: L10n.homePassportExpiring,
+                    detail: L10n.format("home.passportRenew", expiry.formatted(date: .abbreviated, time: .omitted))
                 )
             }
         }
@@ -299,18 +394,40 @@ public struct HomeView: View {
                 appState.isAIAssistantPresented = true
             } label: {
                 Image(systemName: "sparkles")
+                    .symbolRenderingMode(.hierarchical)
+                    .foregroundStyle(CGColor.primary)
             }
-            .accessibilityLabel("AI Assistant")
+            .accessibilityLabel(L10n.homeAiAssistant)
         }
     }
+
+    // MARK: - Helpers
 
     private var greeting: String {
         let hour = Calendar.current.component(.hour, from: Date())
         switch hour {
-        case 5..<12: return "Good morning"
-        case 12..<17: return "Good afternoon"
-        default: return "Good evening"
+        case 5..<12: return L10n.homeGreetingMorning
+        case 12..<17: return L10n.homeGreetingAfternoon
+        default: return L10n.homeGreetingEvening
         }
+    }
+
+    private func activeSchedule(for child: Child) -> CustodySchedule? {
+        child.custodySchedules.first(where: \.isActive) ?? child.custodySchedules.first
+    }
+
+    private func parentNameToday(for child: Child) -> String? {
+        if let schedule = activeSchedule(for: child) {
+            return CustodyScheduleGenerator.parentName(on: Date(), schedule: schedule)
+        }
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: Date())
+        if let event = child.events.first(where: {
+            $0.category == .custody && calendar.isDate($0.startDate, inSameDayAs: today)
+        }) {
+            return event.title.replacingOccurrences(of: "With ", with: "")
+        }
+        return nil
     }
 
     private func formattedAmount(_ amount: Decimal) -> String {
@@ -321,14 +438,18 @@ public struct HomeView: View {
 struct EventRow: View {
     let event: CalendarEvent
 
+    private var categoryColor: Color {
+        CGColor.forEventCategory(event.category.color)
+    }
+
     var body: some View {
         CGCard(padding: CGSpacing.sm) {
             HStack(spacing: CGSpacing.sm) {
                 Image(systemName: event.category.icon)
                     .font(.body.weight(.semibold))
-                    .foregroundStyle(Color.accentColor)
+                    .foregroundStyle(categoryColor)
                     .frame(width: 36, height: 36)
-                    .background(Color.accentColor.opacity(0.12), in: RoundedRectangle(cornerRadius: CGRadius.sm))
+                    .background(categoryColor.opacity(0.12), in: RoundedRectangle(cornerRadius: CGRadius.sm, style: .continuous))
 
                 VStack(alignment: .leading, spacing: 2) {
                     Text(event.title)
@@ -363,6 +484,7 @@ struct AlertCard: View {
                 Image(systemName: icon)
                     .foregroundStyle(color)
                     .font(.title3)
+                    .frame(width: 36)
 
                 VStack(alignment: .leading, spacing: 2) {
                     Text(title)

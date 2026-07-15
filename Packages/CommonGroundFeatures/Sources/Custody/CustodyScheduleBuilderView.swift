@@ -30,8 +30,8 @@ public struct CustodyScheduleBuilderView: View {
     public var body: some View {
         NavigationStack {
             Form {
-                Section("Schedule") {
-                    Picker("Pattern", selection: $pattern) {
+                Section(L10n.custodySectionSchedule) {
+                    Picker(L10n.custodyPattern, selection: $pattern) {
                         ForEach(CustodyPattern.allCases.filter { $0 != .custom }, id: \.self) { item in
                             VStack(alignment: .leading) {
                                 Text(item.displayName)
@@ -44,21 +44,21 @@ public struct CustodyScheduleBuilderView: View {
                         .font(.caption)
                         .foregroundStyle(.secondary)
 
-                    DatePicker("Starts", selection: $startDate, displayedComponents: .date)
+                    DatePicker(L10n.calendarStart, selection: $startDate, displayedComponents: .date)
                 }
 
-                Section("Parents") {
+                Section(L10n.custodySectionParents) {
                     if members.count < 2 {
-                        Text("Add another parent or caregiver in family settings to build a shared schedule.")
+                        Text(L10n.custodyNeedTwoParents)
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     } else {
-                        Picker("Parent A", selection: $parentAId) {
+                        Picker(L10n.custodyParentA, selection: $parentAId) {
                             ForEach(members, id: \.id) { member in
                                 Text(member.displayName).tag(Optional(member.id))
                             }
                         }
-                        Picker("Parent B", selection: $parentBId) {
+                        Picker(L10n.custodyParentB, selection: $parentBId) {
                             ForEach(members, id: \.id) { member in
                                 Text(member.displayName).tag(Optional(member.id))
                             }
@@ -66,13 +66,13 @@ public struct CustodyScheduleBuilderView: View {
                     }
                 }
 
-                Section("Exchange") {
-                    TextField("Location (optional)", text: $exchangeLocation)
-                    DatePicker("Default time", selection: $exchangeTime, displayedComponents: .hourAndMinute)
+                Section(L10n.custodyExchange) {
+                    TextField(L10n.formLocationOptional, text: $exchangeLocation)
+                    DatePicker(L10n.custodyDefaultTime, selection: $exchangeTime, displayedComponents: .hourAndMinute)
                 }
 
                 Section {
-                    Text("Generates 12 weeks of custody blocks and exchange reminders on your calendar.")
+                    Text(L10n.custodyGenerateHint)
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
@@ -85,14 +85,14 @@ public struct CustodyScheduleBuilderView: View {
                     }
                 }
             }
-            .navigationTitle("Custody Schedule")
+            .navigationTitle(L10n.custodyScheduleTitle)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") { dismiss() }
+                    Button(L10n.commonCancel) { dismiss() }
                 }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Create") { createSchedule() }
+                    Button(L10n.commonCreate) { createSchedule() }
                         .disabled(!canSave || isSaving)
                 }
             }
@@ -150,7 +150,7 @@ public struct CustodyScheduleBuilderView: View {
 
             dismiss()
         } catch {
-            errorMessage = "Couldn't create schedule. Please try again."
+            errorMessage = L10n.custodyCreateError
             isSaving = false
         }
     }
@@ -180,13 +180,13 @@ public struct NewMessageThreadView: View {
     public var body: some View {
         NavigationStack {
             Form {
-                Section("Subject") {
-                    TextField("Optional subject", text: $subject)
+                Section(L10n.messagesSectionSubject) {
+                    TextField(L10n.messagesOptionalSubject, text: $subject)
                 }
 
-                Section("Participants") {
+                Section(L10n.messagesSectionParticipants) {
                     if members.isEmpty {
-                        Text("Invite a co-parent to start secure messaging.")
+                        Text(L10n.messagesInviteCoparent)
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     } else {
@@ -198,8 +198,8 @@ public struct NewMessageThreadView: View {
                     }
                 }
 
-                Section("First Message") {
-                    TextField("Write a message...", text: $firstMessage, axis: .vertical)
+                Section(L10n.messagesSectionFirstMessage) {
+                    TextField(L10n.messagesWritePlaceholder, text: $firstMessage, axis: .vertical)
                         .lineLimit(3...6)
                 }
 
@@ -211,14 +211,14 @@ public struct NewMessageThreadView: View {
                     }
                 }
             }
-            .navigationTitle("New Message")
+            .navigationTitle(L10n.messagesNewTitle)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") { dismiss() }
+                    Button(L10n.commonCancel) { dismiss() }
                 }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Send") { send() }
+                    Button(L10n.messagesSend) { send() }
                         .disabled(!canSend)
                 }
             }

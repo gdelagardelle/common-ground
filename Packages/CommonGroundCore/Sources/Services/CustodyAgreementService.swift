@@ -14,38 +14,17 @@ public enum CustodyAgreementError: LocalizedError {
 
     public var errorDescription: String? {
         switch self {
-        case .alreadySigned: "You have already signed this agreement."
-        case .notAuthorized: "You are not a signing party on this agreement."
-        case .emptySignature: "Please draw your signature before signing."
-        case .missingFamily: "No family found."
+        case .alreadySigned: L10n.agreementErrorAlreadySigned
+        case .notAuthorized: L10n.agreementErrorNotAuthorized
+        case .emptySignature: L10n.agreementErrorEmptySignature
+        case .missingFamily: L10n.agreementErrorMissingFamily
         }
     }
 }
 
 @MainActor
 public enum CustodyAgreementService {
-    public static let defaultTemplate = """
-    CUSTODY AND PARENTING AGREEMENT
-
-    The undersigned parents/guardians agree to cooperate in raising their child(ren) and to follow the custody schedule, exchange procedures, and communication standards documented in Common Ground.
-
-    1. CUSTODY SCHEDULE
-    The parties will follow the custody schedule maintained in Common Ground, including all exchanges, holidays, and modifications agreed in writing within the app.
-
-    2. COMMUNICATION
-    The parties will use Common Ground messaging for co-parenting communication and will respond to schedule-related messages within 24 hours when reasonably possible.
-
-    3. EXPENSES
-    Shared child-related expenses will be logged in Common Ground with receipts attached when available. Reimbursement will follow the split ratio agreed by the parties.
-
-    4. MEDICAL & SCHOOL
-    Both parties will keep medical, school, and emergency information current in Common Ground and notify the other parent of urgent medical events promptly.
-
-    5. MODIFICATIONS
-    Changes to this agreement require written consent of both parties via digital signature in Common Ground.
-
-    By signing below, each party acknowledges they have read and agree to these terms.
-    """
+    public static var defaultTemplate: String { L10n.agreementDefaultTemplateBody }
 
     @discardableResult
     public static func createAgreement(

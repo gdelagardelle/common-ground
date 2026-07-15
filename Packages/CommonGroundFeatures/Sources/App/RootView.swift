@@ -127,14 +127,14 @@ struct LockScreenView: View {
 
             Image(systemName: "lock.shield.fill")
                 .font(.system(size: 64))
-                .foregroundStyle(Color.accentColor)
+                .foregroundStyle(CGColor.primary)
                 .symbolEffect(.bounce, value: security.isUnlocked)
 
             VStack(spacing: CGSpacing.xs) {
-                Text("Common Ground")
+                Text(L10n.appName)
                     .font(.largeTitle.weight(.bold))
 
-                Text("Your family's private space")
+                Text(L10n.appTagline)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
             }
@@ -166,9 +166,9 @@ struct LockScreenView: View {
 
     private var unlockLabel: String {
         switch security.biometricType {
-        case .faceID: "Unlock with Face ID"
-        case .touchID: "Unlock with Touch ID"
-        default: "Unlock"
+        case .faceID: L10n.lockUnlockFaceID
+        case .touchID: L10n.lockUnlockTouchID
+        default: L10n.lockUnlock
         }
     }
 }
@@ -212,6 +212,7 @@ public struct MainTabView: View {
                 .tabItem { Label(AppTab.more.title, systemImage: AppTab.more.icon) }
                 .tag(AppTab.more)
         }
+        .tint(CGColor.primary)
         .environment(aiService)
         .sheet(isPresented: $state.isAIAssistantPresented) {
             AIAssistantView()

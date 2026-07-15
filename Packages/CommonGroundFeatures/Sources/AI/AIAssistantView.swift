@@ -12,7 +12,7 @@ public struct AIAssistantView: View {
 
     @State private var query = ""
     @FocusState private var isFocused: Bool
-    @State private var aiModeLabel = "Searching family data…"
+    @State private var aiModeLabel = L10n.aiSearching
 
     private var usesOnDeviceAI: Bool {
         #if canImport(FoundationModels)
@@ -23,14 +23,16 @@ public struct AIAssistantView: View {
         return false
     }
 
-    private let suggestions = [
-        "When was Emma last at the dentist?",
-        "Who paid football last year?",
-        "When is the next custody exchange?",
-        "Show all unpaid expenses.",
-        "What allergies does Emma have?",
-        "What school does Emma attend?",
-    ]
+    private var suggestions: [String] {
+        [
+            L10n.aiSuggestionDentist,
+            L10n.aiSuggestionFootballExpense,
+            L10n.aiSuggestionNextExchange,
+            L10n.aiSuggestionUnpaidExpenses,
+            L10n.aiSuggestionAllergies,
+            L10n.aiSuggestionSchool,
+        ]
+    }
 
     public init() {}
 
@@ -53,11 +55,11 @@ public struct AIAssistantView: View {
                 inputBar
             }
             .background(Color(.systemGroupedBackground))
-            .navigationTitle("Ask Anything")
+            .navigationTitle(L10n.aiTitle)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Done") {
+                    Button(L10n.commonDone) {
                         appState.isAIAssistantPresented = false
                     }
                 }
@@ -76,12 +78,10 @@ public struct AIAssistantView: View {
                         .foregroundStyle(Color.accentColor)
                         .symbolEffect(.pulse)
 
-                    Text("Your family, understood.")
+                    Text(L10n.aiTagline)
                         .font(.title3.weight(.semibold))
 
-                    Text(usesOnDeviceAI
-                         ? "Powered by on-device Apple Intelligence. Your data never leaves this device."
-                         : "Ask questions across calendar, expenses, medical records, and documents.")
+                    Text(usesOnDeviceAI ? L10n.aiPoweredOnDevice : L10n.aiFallbackDescription)
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)
@@ -152,7 +152,7 @@ public struct AIAssistantView: View {
                 if aiService.isProcessing {
                     HStack(spacing: CGSpacing.xs) {
                         ProgressView()
-                        Text(usesOnDeviceAI ? "Thinking on-device…" : aiModeLabel)
+                        Text(usesOnDeviceAI ? L10n.aiThinkingOnDevice : aiModeLabel)
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }
@@ -165,7 +165,7 @@ public struct AIAssistantView: View {
 
     private var inputBar: some View {
         HStack(spacing: CGSpacing.sm) {
-            TextField("Ask a question...", text: $query, axis: .vertical)
+            TextField(L10n.aiPlaceholder, text: $query, axis: .vertical)
                 .textFieldStyle(.plain)
                 .focused($isFocused)
                 .padding(CGSpacing.sm)

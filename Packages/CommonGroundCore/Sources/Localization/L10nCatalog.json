@@ -1,0 +1,4923 @@
+{
+  "a11y.custodyWeek": {
+    "en": "Custody schedule this week",
+    "de": "Sorgerechtsplan diese Woche",
+    "fr": "Planning de garde cette semaine",
+    "pt": "Calendário de custódia esta semana",
+    "lb": "Sorgerechtsplang dës Woch"
+  },
+  "a11y.progress": {
+    "en": "Progress",
+    "de": "Fortschritt",
+    "fr": "Progression",
+    "pt": "Progresso",
+    "lb": "Fortschrëtt"
+  },
+  "a11y.progressPercent": {
+    "en": "%d percent",
+    "de": "%d Prozent",
+    "fr": "%d pour cent",
+    "pt": "%d por cento",
+    "lb": "%d Prozent"
+  },
+  "agreement.awaitingSignature": {
+    "en": "Awaiting signature",
+    "de": "Wartet auf Unterschrift",
+    "fr": "En attente de signature",
+    "pt": "A aguardar assinatura",
+    "lb": "Waart op Ënnerschrëft"
+  },
+  "agreement.createError": {
+    "en": "Couldn't create agreement.",
+    "de": "Vereinbarung konnte nicht erstellt werden.",
+    "fr": "Impossible de créer l'accord.",
+    "pt": "Não foi possível criar o acordo.",
+    "lb": "Accord konnt net erstallt ginn."
+  },
+  "agreement.defaultTemplateBody": {
+    "en": "CUSTODY AND PARENTING AGREEMENT\n\nThe undersigned parents/guardians agree to cooperate in raising their child(ren) and to follow the custody schedule, exchange procedures, and communication standards documented in Common Ground.\n\n1. CUSTODY SCHEDULE\nThe parties will follow the custody schedule maintained in Common Ground, including all exchanges, holidays, and modifications agreed in writing within the app.\n\n2. COMMUNICATION\nThe parties will use Common Ground messaging for co-parenting communication and will respond to schedule-related messages within 24 hours when reasonably possible.\n\n3. EXPENSES\nShared child-related expenses will be logged in Common Ground with receipts attached when available. Reimbursement will follow the split ratio agreed by the parties.\n\n4. MEDICAL & SCHOOL\nBoth parties will keep medical, school, and emergency information current in Common Ground and notify the other parent of urgent medical events promptly.\n\n5. MODIFICATIONS\nChanges to this agreement require written consent of both parties via digital signature in Common Ground.\n\nBy signing below, each party acknowledges they have read and agree to these terms.",
+    "de": "SORGERECHTS- UND ERZIEHUNGSVEREINBARUNG\n\nDie unterzeichnenden Eltern/Erziehungsberechtigten verpflichten sich zur Zusammenarbeit bei der Erziehung ihrer Kinder und zur Einhaltung des in Common Ground dokumentierten Sorgerechtsplans, der Übergabeverfahren und Kommunikationsstandards.\n\n1. SORGERECHTSPLAN\nDie Parteien folgen dem in Common Ground geführten Sorgerechtsplan einschließlich aller Übergaben, Feiertage und schriftlich in der App vereinbarten Änderungen.\n\n2. KOMMUNIKATION\nDie Parteien nutzen Common Ground-Nachrichten für die Co-Eltern-Kommunikation und antworten auf terminbezogene Nachrichten innerhalb von 24 Stunden, soweit zumutbar.\n\n3. AUSGABEN\nGemeinsame kindbezogene Ausgaben werden in Common Ground erfasst, mit Belegen wenn verfügbar. Erstattung erfolgt nach dem vereinbarten Aufteilungsverhältnis.\n\n4. MEDIZIN & SCHULE\nBeide Parteien halten medizinische, schulische und Notfallinformationen in Common Ground aktuell und informieren den anderen Elternteil umgehend über dringende medizinische Ereignisse.\n\n5. ÄNDERUNGEN\nÄnderungen dieser Vereinbarung erfordern die schriftliche Zustimmung beider Parteien per digitaler Unterschrift in Common Ground.\n\nMit der Unterschrift bestätigt jede Partei, diese Bedingungen gelesen und akzeptiert zu haben.",
+    "fr": "ACCORD DE GARDE ET DE PARENTALITÉ\n\nLes parents/tuteurs soussignés s'engagent à coopérer pour élever leur(s) enfant(s) et à respecter le planning de garde, les procédures d'échange et les standards de communication documentés dans Common Ground.\n\n1. PLANNING DE GARDE\nLes parties suivront le planning de garde maintenu dans Common Ground, y compris tous les échanges, jours fériés et modifications convenues par écrit dans l'app.\n\n2. COMMUNICATION\nLes parties utiliseront la messagerie Common Ground pour la co-parentalité et répondront aux messages liés au planning dans les 24 heures lorsque c'est raisonnablement possible.\n\n3. DÉPENSES\nLes dépenses partagées liées aux enfants seront enregistrées dans Common Ground avec reçus lorsque disponibles. Le remboursement suivra le ratio convenu.\n\n4. MÉDICAL & ÉCOLE\nLes deux parties tiendront à jour les informations médicales, scolaires et d'urgence dans Common Ground et informeront l'autre parent des événements médicaux urgents.\n\n5. MODIFICATIONS\nLes modifications de cet accord requièrent le consentement écrit des deux parties via signature numérique dans Common Ground.\n\nEn signant, chaque partie reconnaît avoir lu et accepté ces conditions.",
+    "pt": "ACORDO DE CUSTÓDIA E PARENTALIDADE\n\nOs pais/responsáveis abaixo assinados concordam em cooperar na educação dos filhos e seguir o calendário de custódia, procedimentos de troca e padrões de comunicação documentados no Common Ground.\n\n1. CALENDÁRIO DE CUSTÓDIA\nAs partes seguirão o calendário mantido no Common Ground, incluindo trocas, feriados e alterações acordadas por escrito na app.\n\n2. COMUNICAÇÃO\nAs partes usarão as mensagens do Common Ground para co-parentalidade e responderão a mensagens relacionadas com o calendário em 24 horas quando razoavelmente possível.\n\n3. DESPESAS\nDespesas partilhadas relacionadas com os filhos serão registadas no Common Ground com recibos quando disponíveis. O reembolso seguirá a proporção acordada.\n\n4. MÉDICO & ESCOLA\nAmbas as partes manterão informações médicas, escolares e de emergência atualizadas no Common Ground e notificarão o outro progenitor de eventos médicos urgentes.\n\n5. ALTERAÇÕES\nAlterações a este acordo requerem consentimento escrito de ambas as partes via assinatura digital no Common Ground.\n\nAo assinar, cada parte reconhece ter lido e concordado com estes termos.",
+    "lb": "SORGERECHTS- & ERZÉIUNGSACCORD\n\nD'ënnerschreiwend Elteren/Erzéiungsberechtegt verpflichten sech zur Zesummenaarbecht bei der Erzéiung vun hire Kanner an zur Einhaltung vum Sorgerechtsplang, den Iwwergabeverfahren an de Kommunikatiounsstandarden am Common Ground.\n\n1. SORGERECHTSPLANG\nD'Parteien follegen dem am Common Ground geféierte Sorgerechtsplang inklusiv all Iwwergaben, Feierdeeg an schrëftlech an der App vereinbarten Ännerungen.\n\n2. KOMMUNIKATIOUN\nD'Parteien benotzen Common Ground-Noriichten fir Co-Elteren-Kommunikatioun a äntwerten op terminbezunn Noriichten bannent 24 Stonnen, souwäit méiglech.\n\n3. AUSGABEN\nGemeinsam kindbezunn Ausgaben ginn am Common Ground erfaasst, mat Quittungen wann disponibel. Remboursement follegt dem vereinbarten Deelungsverhältnis.\n\n4. MEDIZIN & SCHOUL\nBéid Parteien halen medizinesch, schoulesch an Noutfallinformatiounen am Common Ground aktuell an informéieren den aneren Elterendeel direkt iwwer dringend medizinesch Evenementer.\n\n5. ÄNNERUNGEN\nÄnnerungen un dësem Accord brauchen déi schrëftlech Zoustëmmung vun béide Parteien per digitaler Ënnerschrëft am Common Ground.\n\nMat der Ënnerschrëft bestätegt all Partei, dës Bedingungen gelies an akzeptéiert ze hunn."
+  },
+  "agreement.defaultTitle": {
+    "en": "Custody & Parenting Agreement",
+    "de": "Sorgerechts- & Erziehungsvereinbarung",
+    "fr": "Accord de garde et de parentalité",
+    "pt": "Acordo de custódia e parentalidade",
+    "lb": "Sorgerechts- & Erzéiungsaccord"
+  },
+  "agreement.effective": {
+    "en": "Effective %@",
+    "de": "Gültig ab %@",
+    "fr": "En vigueur le %@",
+    "pt": "Em vigor desde %@",
+    "lb": "Gülteg ab %@"
+  },
+  "agreement.effectiveDate": {
+    "en": "Effective date",
+    "de": "Gültigkeitsdatum",
+    "fr": "Date d'effet",
+    "pt": "Data de vigência",
+    "lb": "Gültegkeetsdatum"
+  },
+  "agreement.effectiveLabel": {
+    "en": "Effective",
+    "de": "Gültig ab",
+    "fr": "En vigueur",
+    "pt": "Em vigor",
+    "lb": "Aktiv"
+  },
+  "agreement.emptyMessage": {
+    "en": "Create a digital custody agreement for both parents to sign.",
+    "de": "Erstellen Sie eine digitale Sorgerechtsvereinbarung zur Unterzeichnung.",
+    "fr": "Créez un accord de garde numérique à signer par les deux parents.",
+    "pt": "Crie um acordo de custódia digital para ambos assinarem.",
+    "lb": "Erstellt en digitalen Sorgerechtsaccord fir béid Elteren ze ënnerschreiwen."
+  },
+  "agreement.emptyTitle": {
+    "en": "No Agreements",
+    "de": "Keine Vereinbarungen",
+    "fr": "Aucun accord",
+    "pt": "Sem acordos",
+    "lb": "Keng Accorden"
+  },
+  "agreement.error.alreadySigned": {
+    "en": "You have already signed this agreement.",
+    "de": "Sie haben diese Vereinbarung bereits unterschrieben.",
+    "fr": "Vous avez déjà signé cet accord.",
+    "pt": "Já assinou este acordo.",
+    "lb": "Dir hutt dësen Accord schonn ënnerschriwwen."
+  },
+  "agreement.error.emptySignature": {
+    "en": "Please draw your signature before signing.",
+    "de": "Bitte zeichnen Sie Ihre Unterschrift vor dem Signieren.",
+    "fr": "Veuillez dessiner votre signature avant de signer.",
+    "pt": "Desenhe a sua assinatura antes de assinar.",
+    "lb": "Zeecht w.e.g. Är Ënnerschrëft ier Dir ënnerschreift."
+  },
+  "agreement.error.missingFamily": {
+    "en": "No family found.",
+    "de": "Keine Familie gefunden.",
+    "fr": "Aucune famille trouvée.",
+    "pt": "Nenhuma família encontrada.",
+    "lb": "Keng Famill fonnt."
+  },
+  "agreement.error.notAuthorized": {
+    "en": "You are not a signing party on this agreement.",
+    "de": "Sie sind keine unterzeichnende Partei dieser Vereinbarung.",
+    "fr": "Vous n'êtes pas partie signataire de cet accord.",
+    "pt": "Não é parte signatária deste acordo.",
+    "lb": "Dir sidd keng ënnerschreiwend Partei vun dësem Accord."
+  },
+  "agreement.exportSignedPDF": {
+    "en": "Export Signed PDF",
+    "de": "Signiertes PDF exportieren",
+    "fr": "Exporter le PDF signé",
+    "pt": "Exportar PDF assinado",
+    "lb": "Ënnerschriwwe PDF exportéieren"
+  },
+  "agreement.integrity": {
+    "en": "Integrity",
+    "de": "Integrität",
+    "fr": "Intégrité",
+    "pt": "Integridade",
+    "lb": "Integritéit"
+  },
+  "agreement.needCoparent": {
+    "en": "Add a co-parent before creating a two-party agreement.",
+    "de": "Fügen Sie einen Co-Elternteil hinzu, bevor Sie eine Zwei-Parteien-Vereinbarung erstellen.",
+    "fr": "Ajoutez un co-parent avant de créer un accord à deux parties.",
+    "pt": "Adicione um co-pai/mãe antes de criar um acordo bilateral.",
+    "lb": "Füügt en Co-Elterendeel derbäi ier Dir en Accord mat zwou Parteien erstellt."
+  },
+  "agreement.newTitle": {
+    "en": "New Agreement",
+    "de": "Neue Vereinbarung",
+    "fr": "Nouvel accord",
+    "pt": "Novo acordo",
+    "lb": "Neien Accord"
+  },
+  "agreement.section.agreement": {
+    "en": "Agreement",
+    "de": "Vereinbarung",
+    "fr": "Accord",
+    "pt": "Acordo",
+    "lb": "Accord"
+  },
+  "agreement.section.signingParties": {
+    "en": "Signing Parties",
+    "de": "Unterzeichnende Parteien",
+    "fr": "Parties signataires",
+    "pt": "Partes signatárias",
+    "lb": "Ënnerschreiwend Parteien"
+  },
+  "agreement.section.terms": {
+    "en": "Terms",
+    "de": "Bedingungen",
+    "fr": "Conditions",
+    "pt": "Termos",
+    "lb": "Bedingungen"
+  },
+  "agreement.sign": {
+    "en": "Sign Agreement",
+    "de": "Vereinbarung unterschreiben",
+    "fr": "Signer l'accord",
+    "pt": "Assinar acordo",
+    "lb": "Accord ënnerschreiwen"
+  },
+  "agreement.signAction": {
+    "en": "Sign",
+    "de": "Unterschreiben",
+    "fr": "Signer",
+    "pt": "Assinar",
+    "lb": "Ënnerschreiwen"
+  },
+  "agreement.signDisclaimer": {
+    "en": "By signing, you agree to the terms of \"%@\". Your signature is stored securely on device.",
+    "de": "Mit Ihrer Unterschrift stimmen Sie den Bedingungen von \"%@\" zu. Ihre Unterschrift wird sicher auf dem Gerät gespeichert.",
+    "fr": "En signant, vous acceptez les conditions de « %@ ». Votre signature est stockée en sécurité sur l'appareil.",
+    "pt": "Ao assinar, concorda com os termos de \"%@\". A sua assinatura é guardada com segurança no dispositivo.",
+    "lb": "Mat der Ënnerschrëft stimmt Dir de Bedingungen vun \"%@\" zou. Är Ënnerschrëft gëtt sécher op dem Apparat gespäichert."
+  },
+  "agreement.signTitle": {
+    "en": "Sign Agreement",
+    "de": "Vereinbarung unterschreiben",
+    "fr": "Signer l'accord",
+    "pt": "Assinar acordo",
+    "lb": "Accord ënnerschreiwen"
+  },
+  "agreement.signatureRequiresIOS": {
+    "en": "Signature capture requires iOS.",
+    "de": "Unterschriftenerfassung erfordert iOS.",
+    "fr": "La capture de signature nécessite iOS.",
+    "pt": "A captura de assinatura requer iOS.",
+    "lb": "Ënnerschrëft erfuerdert iOS."
+  },
+  "agreement.signed": {
+    "en": "Signed %@",
+    "de": "Unterzeichnet %@",
+    "fr": "Signé le %@",
+    "pt": "Assinado %@",
+    "lb": "Ënnerschriwwe %@"
+  },
+  "agreement.status": {
+    "en": "Status",
+    "de": "Status",
+    "fr": "Statut",
+    "pt": "Estado",
+    "lb": "Stand"
+  },
+  "agreement.status.archived": {
+    "en": "Archived",
+    "de": "Archiviert",
+    "fr": "Archivé",
+    "pt": "Arquivado",
+    "lb": "Archivéiert"
+  },
+  "agreement.status.draft": {
+    "en": "Draft",
+    "de": "Entwurf",
+    "fr": "Brouillon",
+    "pt": "Rascunho",
+    "lb": "Entworf"
+  },
+  "agreement.status.pending": {
+    "en": "Awaiting Signatures",
+    "de": "Wartet auf Unterschriften",
+    "fr": "En attente de signatures",
+    "pt": "A aguardar assinaturas",
+    "lb": "Waart op Ënnerschrëften"
+  },
+  "agreement.status.signed": {
+    "en": "Fully Signed",
+    "de": "Vollständig unterschrieben",
+    "fr": "Entièrement signé",
+    "pt": "Totalmente assinado",
+    "lb": "Voll ënnerschriwwen"
+  },
+  "agreement.yourSignature": {
+    "en": "Your Signature",
+    "de": "Ihre Unterschrift",
+    "fr": "Votre signature",
+    "pt": "A sua assinatura",
+    "lb": "Är Ënnerschrëft"
+  },
+  "ai.answer.activeMedications": {
+    "en": "Active medications: %@.",
+    "de": "Aktive Medikamente: %@.",
+    "fr": "Médicaments actifs : %@.",
+    "pt": "Medicamentos ativos: %@.",
+    "lb": "Aktiv Medikamenter: %@."
+  },
+  "ai.answer.allergiesList": {
+    "en": "%@'s allergies: %@.",
+    "de": "Allergien von %@: %@.",
+    "fr": "Allergies de %@ : %@.",
+    "pt": "Alergias de %@: %@.",
+    "lb": "Allergien vu %@: %@."
+  },
+  "ai.answer.allergiesSource": {
+    "en": "Allergies",
+    "de": "Allergien",
+    "fr": "Allergies",
+    "pt": "Alergias",
+    "lb": "Allergien"
+  },
+  "ai.answer.attendsSchool": {
+    "en": "%@ attends %@.",
+    "de": "%@ besucht %@.",
+    "fr": "%@ fréquente %@.",
+    "pt": "%@ frequenta %@.",
+    "lb": "%@ besicht %@."
+  },
+  "ai.answer.custodyWith": {
+    "en": "%@ is scheduled with %@ starting %@.",
+    "de": "%@ ist ab %@ bei %@ eingeplant.",
+    "fr": "%@ est prévu avec %@ à partir du %@.",
+    "pt": "%@ está agendado com %@ a partir de %@.",
+    "lb": "%@ ass ab %@ mat %@ geplangt."
+  },
+  "ai.answer.dentalAt": {
+    "en": " at %@",
+    "de": " bei %@",
+    "fr": " chez %@",
+    "pt": " em %@",
+    "lb": " bei %@"
+  },
+  "ai.answer.dentalVisit": {
+    "en": "%@'s last dental visit was %@%@.",
+    "de": "Letzter Zahnarztbesuch von %@: %@%@.",
+    "fr": "Dernière visite dentaire de %@ : %@%@.",
+    "pt": "Última consulta dentária de %@: %@%@.",
+    "lb": "Leschte Zänndokterbesuch vu %@: %@%@."
+  },
+  "ai.answer.expensesSettled": {
+    "en": "All expenses are settled. No outstanding balances.",
+    "de": "Alle Ausgaben sind beglichen. Keine offenen Beträge.",
+    "fr": "Toutes les dépenses sont réglées. Aucun solde en attente.",
+    "pt": "Todas as despesas estão liquidadas. Sem saldos pendentes.",
+    "lb": "All Ausgaben sinn begluecht. Keng open Salden."
+  },
+  "ai.answer.foundIn": {
+    "en": "Found in %@: %@",
+    "de": "Gefunden in %@: %@",
+    "fr": "Trouvé dans %@ : %@",
+    "pt": "Encontrado em %@: %@",
+    "lb": "Gefonnt an %@: %@"
+  },
+  "ai.answer.foundMatches": {
+    "en": "I found %d matches:\n%@",
+    "de": "Ich habe %d Treffer gefunden:\n%@",
+    "fr": "J'ai trouvé %d correspondances :\n%@",
+    "pt": "Encontrei %d resultados:\n%@",
+    "lb": "Ech hunn %d Treffer fonnt:\n%@"
+  },
+  "ai.answer.nextExchange": {
+    "en": "Next exchange: %@ on %@.",
+    "de": "Nächste Übergabe: %@ am %@.",
+    "fr": "Prochain échange : %@ le %@.",
+    "pt": "Próxima troca: %@ em %@.",
+    "lb": "Nächst Iwwergab: %@ den %@."
+  },
+  "ai.answer.noAllergies": {
+    "en": "No allergies recorded for %@.",
+    "de": "Keine Allergien für %@ erfasst.",
+    "fr": "Aucune allergie enregistrée pour %@.",
+    "pt": "Sem alergias registadas para %@.",
+    "lb": "Keng Allergien fir %@ registréiert."
+  },
+  "ai.answer.noCustody": {
+    "en": "No custody blocks found on the calendar.",
+    "de": "Keine Sorgerechtsblöcke im Kalender gefunden.",
+    "fr": "Aucun bloc de garde trouvé dans le calendrier.",
+    "pt": "Nenhum bloco de custódia encontrado no calendário.",
+    "lb": "Keng Sorgerechtsbléck am Kalenner fonnt."
+  },
+  "ai.answer.noDental": {
+    "en": "No dental records for %@ yet.",
+    "de": "Noch keine Zahnarztunterlagen für %@.",
+    "fr": "Pas encore de dossier dentaire pour %@.",
+    "pt": "Ainda sem registos dentários para %@.",
+    "lb": "Nach keng Zänndokteropzeechnungen fir %@."
+  },
+  "ai.answer.noExchange": {
+    "en": "No upcoming custody exchanges on the calendar.",
+    "de": "Keine anstehenden Sorgerechtsübergaben im Kalender.",
+    "fr": "Aucun échange de garde à venir dans le calendrier.",
+    "pt": "Sem trocas de custódia futuras no calendário.",
+    "lb": "Keng Sorgerechtsiwwergaben am Kalenner geschitt."
+  },
+  "ai.answer.noMatch": {
+    "en": "I searched calendar, expenses, medical records, documents, messages, and timeline but couldn't find a match for \"%@\". Try being more specific — e.g. \"When is the next exchange?\" or \"Show unpaid expenses.\"",
+    "de": "Ich habe Kalender, Ausgaben, medizinische Unterlagen, Dokumente, Nachrichten und Zeitachse durchsucht, aber nichts zu \"%@\" gefunden. Versuchen Sie es spezifischer — z. B. „Wann ist die nächste Übergabe?“",
+    "fr": "J'ai cherché dans le calendrier, les dépenses, les dossiers médicaux, les documents, les messages et la chronologie sans trouver « %@ ». Soyez plus précis — ex. « Quand est le prochain échange ? »",
+    "pt": "Procurei no calendário, despesas, registos médicos, documentos, mensagens e cronologia mas não encontrei \"%@\". Seja mais específico — ex. \"Quando é a próxima troca?\"",
+    "lb": "Ech hunn am Kalenner, Ausgaben, medizinesch Ënnerlagen, Dokumenter, Noriichten a Chronologie gesicht, mee näischt zu \"%@\" fonnt. Probéiert méi spezifesch — z. B. \"Wéini ass déi nächst Iwwergab?\""
+  },
+  "ai.answer.noMedications": {
+    "en": "%@ has no active medications.",
+    "de": "%@ hat keine aktiven Medikamente.",
+    "fr": "%@ n'a pas de médicaments actifs.",
+    "pt": "%@ não tem medicamentos ativos.",
+    "lb": "%@ huet keng aktiv Medikamenter."
+  },
+  "ai.answer.noPassport": {
+    "en": "No passport on file for %@.",
+    "de": "Kein Reisepass für %@ hinterlegt.",
+    "fr": "Aucun passeport enregistré pour %@.",
+    "pt": "Sem passaporte registado para %@.",
+    "lb": "Keen Pass fir %@ registréiert."
+  },
+  "ai.answer.noSchool": {
+    "en": "No school information on file.",
+    "de": "Keine Schulinformationen hinterlegt.",
+    "fr": "Aucune information scolaire enregistrée.",
+    "pt": "Sem informações escolares registadas.",
+    "lb": "Keng Schoulinformatiounen registréiert."
+  },
+  "ai.answer.onDeviceModel": {
+    "en": "On-device model",
+    "de": "Modell auf dem Gerät",
+    "fr": "Modèle sur l'appareil",
+    "pt": "Modelo no dispositivo",
+    "lb": "Modell op dem Apparat"
+  },
+  "ai.answer.paidExpense": {
+    "en": "%@ paid $%@ for %@ on %@.",
+    "de": "%@ hat $%@ für %@ am %@ bezahlt.",
+    "fr": "%@ a payé $%@ pour %@ le %@.",
+    "pt": "%@ pagou $%@ por %@ em %@.",
+    "lb": "%@ huet $%@ fir %@ den %@ bezuelt."
+  },
+  "ai.answer.passportExpires": {
+    "en": "%@'s passport expires %@.",
+    "de": "Der Reisepass von %@ läuft ab am %@.",
+    "fr": "Le passeport de %@ expire le %@.",
+    "pt": "O passaporte de %@ expira em %@.",
+    "lb": "De Pass vu %@ laf of den %@."
+  },
+  "ai.answer.unpaidExpenses": {
+    "en": "%d unpaid expense%@ totaling $%@.",
+    "de": "%d offene Ausgabe%@ insgesamt $%@.",
+    "fr": "%d dépense%@ impayée%@ pour un total de $%@.",
+    "pt": "%d despesa%@ por pagar num total de $%@.",
+    "lb": "%d open Ausgab%@ am Ganzen $%@."
+  },
+  "ai.fallbackDescription": {
+    "en": "Ask questions across calendar, expenses, medical records, and documents.",
+    "de": "Stellen Sie Fragen zu Kalender, Ausgaben, medizinischen Aufzeichnungen und Dokumenten.",
+    "fr": "Posez des questions sur le calendrier, les dépenses, les dossiers médicaux et les documents.",
+    "pt": "Faça perguntas sobre calendário, despesas, registos médicos e documentos.",
+    "lb": "Frot iwwer Kalenner, Ausgaben, medizinesch Opzeechnungen a Dokumenter."
+  },
+  "ai.placeholder": {
+    "en": "Ask a question...",
+    "de": "Frage stellen...",
+    "fr": "Posez une question...",
+    "pt": "Faça uma pergunta...",
+    "lb": "Eng Fro stellen..."
+  },
+  "ai.poweredOnDevice": {
+    "en": "Powered by on-device Apple Intelligence. Your data never leaves this device.",
+    "de": "Unterstützt von Apple Intelligence auf dem Gerät. Ihre Daten verlassen dieses Gerät nie.",
+    "fr": "Propulsé par Apple Intelligence sur l'appareil. Vos données ne quittent jamais cet appareil.",
+    "pt": "Com Apple Intelligence no dispositivo. Os seus dados nunca saem deste dispositivo.",
+    "lb": "Mat Apple Intelligence op dem Apparat. Är Daten verloossen dësen Apparat ni."
+  },
+  "ai.searching": {
+    "en": "Searching family data…",
+    "de": "Familiendaten durchsuchen…",
+    "fr": "Recherche dans les données familiales…",
+    "pt": "A pesquisar dados da família…",
+    "lb": "Familljedaten duerchsichen…"
+  },
+  "ai.suggestion.allergies": {
+    "en": "What allergies does Emma have?",
+    "de": "Welche Allergien hat Emma?",
+    "fr": "Quelles allergies Emma a-t-elle ?",
+    "pt": "Que alergias tem a Emma?",
+    "lb": "Wéi eng Allergien huet Emma?"
+  },
+  "ai.suggestion.dentist": {
+    "en": "When was Emma last at the dentist?",
+    "de": "Wann war Emma zuletzt beim Zahnarzt?",
+    "fr": "Quand Emma est-elle allée chez le dentiste pour la dernière fois ?",
+    "pt": "Quando foi a Emma ao dentista pela última vez?",
+    "lb": "Wéini war Emma fir d'lescht beim Zänndokter?"
+  },
+  "ai.suggestion.footballExpense": {
+    "en": "Who paid football last year?",
+    "de": "Wer hat Fußball letztes Jahr bezahlt?",
+    "fr": "Qui a payé le football l'année dernière ?",
+    "pt": "Quem pagou o futebol no ano passado?",
+    "lb": "Wien huet d'Foussball lescht Joer bezuelt?"
+  },
+  "ai.suggestion.nextExchange": {
+    "en": "When is the next custody exchange?",
+    "de": "Wann ist die nächste Sorgerechtsübergabe?",
+    "fr": "Quand est le prochain échange de garde ?",
+    "pt": "Quando é a próxima troca de custódia?",
+    "lb": "Wéini ass déi nächst Sorgerechtsiwwergab?"
+  },
+  "ai.suggestion.school": {
+    "en": "What school does Emma attend?",
+    "de": "Welche Schule besucht Emma?",
+    "fr": "Quelle école Emma fréquente-t-elle ?",
+    "pt": "Que escola frequenta a Emma?",
+    "lb": "Wéi eng Schoul besicht Emma?"
+  },
+  "ai.suggestion.unpaidExpenses": {
+    "en": "Show all unpaid expenses.",
+    "de": "Alle offenen Ausgaben anzeigen.",
+    "fr": "Afficher toutes les dépenses impayées.",
+    "pt": "Mostrar todas as despesas por pagar.",
+    "lb": "All open Ausgaben weisen."
+  },
+  "ai.tagline": {
+    "en": "Your family, understood.",
+    "de": "Ihre Familie, verstanden.",
+    "fr": "Votre famille, comprise.",
+    "pt": "A sua família, compreendida.",
+    "lb": "Är Famill, verstanen."
+  },
+  "ai.thinkingOnDevice": {
+    "en": "Thinking on-device…",
+    "de": "Denke auf dem Gerät…",
+    "fr": "Réflexion sur l'appareil…",
+    "pt": "A pensar no dispositivo…",
+    "lb": "Denken op dem Apparat…"
+  },
+  "ai.title": {
+    "en": "Ask Anything",
+    "de": "Alles fragen",
+    "fr": "Demandez n'importe quoi",
+    "pt": "Pergunte qualquer coisa",
+    "lb": "Alles froen"
+  },
+  "app.name": {
+    "en": "Common Ground",
+    "de": "Common Ground",
+    "fr": "Common Ground",
+    "pt": "Common Ground",
+    "lb": "Common Ground"
+  },
+  "app.tagline": {
+    "en": "Your family's private space",
+    "de": "Der private Raum Ihrer Familie",
+    "fr": "L'espace privé de votre famille",
+    "pt": "O espaço privado da sua família",
+    "lb": "De private Raum vun ärer Famill"
+  },
+  "audit.calendarUpdated": {
+    "en": "Calendar updated",
+    "de": "Kalender aktualisiert",
+    "fr": "Calendrier mis à jour",
+    "pt": "Calendário atualizado",
+    "lb": "Kalenner aktualiséiert"
+  },
+  "audit.demo.mar10": {
+    "en": "Mar 10",
+    "de": "10. Mär.",
+    "fr": "10 mars",
+    "pt": "10 mar.",
+    "lb": "10. Mäerz"
+  },
+  "audit.demo.today1015": {
+    "en": "Today, 10:15 AM",
+    "de": "Heute, 10:15",
+    "fr": "Aujourd'hui, 10:15",
+    "pt": "Hoje, 10:15",
+    "lb": "Haut, 10:15"
+  },
+  "audit.demo.today234": {
+    "en": "Today, 2:34 PM",
+    "de": "Heute, 14:34",
+    "fr": "Aujourd'hui, 14:34",
+    "pt": "Hoje, 14:34",
+    "lb": "Haut, 14:34"
+  },
+  "audit.demo.yesterday": {
+    "en": "Yesterday",
+    "de": "Gestern",
+    "fr": "Hier",
+    "pt": "Ontem",
+    "lb": "Gëschter"
+  },
+  "audit.documentUploaded": {
+    "en": "Document uploaded",
+    "de": "Dokument hochgeladen",
+    "fr": "Document téléversé",
+    "pt": "Documento carregado",
+    "lb": "Dokument eropgelueden"
+  },
+  "audit.expenseAdded": {
+    "en": "Expense added",
+    "de": "Ausgabe hinzugefügt",
+    "fr": "Dépense ajoutée",
+    "pt": "Despesa adicionada",
+    "lb": "Ausgab derbäigesat"
+  },
+  "audit.messageSent": {
+    "en": "Message sent",
+    "de": "Nachricht gesendet",
+    "fr": "Message envoyé",
+    "pt": "Mensagem enviada",
+    "lb": "Noriicht geschéckt"
+  },
+  "avatar.choosePhoto": {
+    "en": "Choose a photo",
+    "de": "Foto auswählen",
+    "fr": "Choisir une photo",
+    "pt": "Escolher uma foto",
+    "lb": "Foto wielen"
+  },
+  "avatar.genmoji": {
+    "en": "Create or paste a Genmoji",
+    "de": "Genmoji erstellen oder einfügen",
+    "fr": "Créer ou coller un Genmoji",
+    "pt": "Criar ou colar um Genmoji",
+    "lb": "Genmoji erstellen oder afügen"
+  },
+  "avatar.genmoji.clear": {
+    "en": "Clear",
+    "de": "Löschen",
+    "fr": "Effacer",
+    "pt": "Limpar",
+    "lb": "Läschen"
+  },
+  "avatar.genmoji.sheet.hint": {
+    "en": "Tap the field below, then use the emoji keyboard to create or paste your Genmoji face.",
+    "de": "Tippen Sie unten und verwenden Sie die Emoji-Tastatur, um Ihr Genmoji-Gesicht zu erstellen oder einzufügen.",
+    "fr": "Appuyez ci-dessous, puis utilisez le clavier emoji pour créer ou coller votre visage Genmoji.",
+    "pt": "Toque abaixo e use o teclado de emojis para criar ou colar o seu rosto Genmoji.",
+    "lb": "Tippt hei drënner a benotzt d'Emoji-Tastatur fir äert Genmoji-Gesiicht ze erstellen oder anzeefügen."
+  },
+  "avatar.genmoji.sheet.title": {
+    "en": "Create a Genmoji",
+    "de": "Genmoji erstellen",
+    "fr": "Créer un Genmoji",
+    "pt": "Criar um Genmoji",
+    "lb": "E Genmoji erstellen"
+  },
+  "avatar.member.genmoji": {
+    "en": "Set Genmoji",
+    "de": "Genmoji festlegen",
+    "fr": "Définir un Genmoji",
+    "pt": "Definir Genmoji",
+    "lb": "Genmoji setzen"
+  },
+  "avatar.member.hint": {
+    "en": "Use the emoji keyboard to create a Genmoji that looks like you.",
+    "de": "Verwenden Sie die Emoji-Tastatur, um ein Genmoji zu erstellen, das wie Sie aussieht.",
+    "fr": "Utilisez le clavier emoji pour créer un Genmoji qui vous ressemble.",
+    "pt": "Use o teclado de emojis para criar um Genmoji parecido consigo.",
+    "lb": "Benotzt d'Emoji-Tastatur fir e Genmoji ze erstellen deen wie Dir ausgesäit."
+  },
+  "avatar.member.remove": {
+    "en": "Remove Genmoji",
+    "de": "Genmoji entfernen",
+    "fr": "Supprimer le Genmoji",
+    "pt": "Remover Genmoji",
+    "lb": "Genmoji ewechhuelen"
+  },
+  "avatar.pickEmoji": {
+    "en": "Or pick an emoji",
+    "de": "Oder Emoji wählen",
+    "fr": "Ou choisir un emoji",
+    "pt": "Ou escolher um emoji",
+    "lb": "Oder en Emoji wielen"
+  },
+  "avatar.remove": {
+    "en": "Remove custom face",
+    "de": "Eigenes Gesicht entfernen",
+    "fr": "Supprimer le visage personnalisé",
+    "pt": "Remover rosto personalizado",
+    "lb": "Eege Gesiicht ewechhuelen"
+  },
+  "avatar.title": {
+    "en": "Face",
+    "de": "Gesicht",
+    "fr": "Visage",
+    "pt": "Rosto",
+    "lb": "Gesiicht"
+  },
+  "calendar.addEvent": {
+    "en": "Add Event",
+    "de": "Termin hinzufügen",
+    "fr": "Ajouter un événement",
+    "pt": "Adicionar evento",
+    "lb": "Evenement derbäisetzen"
+  },
+  "calendar.allDay": {
+    "en": "All day",
+    "de": "Ganztägig",
+    "fr": "Toute la journée",
+    "pt": "Dia inteiro",
+    "lb": "Ganzen Dag"
+  },
+  "calendar.category": {
+    "en": "Category",
+    "de": "Kategorie",
+    "fr": "Catégorie",
+    "pt": "Categoria",
+    "lb": "Kategorie"
+  },
+  "calendar.custody": {
+    "en": "Custody",
+    "de": "Sorgerecht",
+    "fr": "Garde",
+    "pt": "Custódia",
+    "lb": "Sorgerecht"
+  },
+  "calendar.day": {
+    "en": "Day",
+    "de": "Tag",
+    "fr": "Jour",
+    "pt": "Dia",
+    "lb": "Dag"
+  },
+  "calendar.details": {
+    "en": "Details",
+    "de": "Details",
+    "fr": "Détails",
+    "pt": "Detalhes",
+    "lb": "Detailer"
+  },
+  "calendar.empty.message": {
+    "en": "Tap + to add a school event, appointment, or custody exchange.",
+    "de": "Tippen Sie +, um einen Schultermin, eine Verabredung oder einen Sorgerechtswechsel hinzuzufügen.",
+    "fr": "Appuyez sur + pour ajouter un événement scolaire, un rendez-vous ou un échange de garde.",
+    "pt": "Toque em + para adicionar um evento escolar, consulta ou troca de custódia.",
+    "lb": "Tippt + fir e Schoulevenement, e Rendez-vous oder eng Sorgerechtsiwwergab derbäizesetzen."
+  },
+  "calendar.empty.title": {
+    "en": "No events yet",
+    "de": "Noch keine Termine",
+    "fr": "Pas encore d'événements",
+    "pt": "Ainda sem eventos",
+    "lb": "Nach keng Evenementer"
+  },
+  "calendar.end": {
+    "en": "End",
+    "de": "Ende",
+    "fr": "Fin",
+    "pt": "Fim",
+    "lb": "Enn"
+  },
+  "calendar.eventTitle": {
+    "en": "Title",
+    "de": "Titel",
+    "fr": "Titre",
+    "pt": "Título",
+    "lb": "Titel"
+  },
+  "calendar.location": {
+    "en": "Location",
+    "de": "Ort",
+    "fr": "Lieu",
+    "pt": "Local",
+    "lb": "Plaz"
+  },
+  "calendar.month": {
+    "en": "Month",
+    "de": "Monat",
+    "fr": "Mois",
+    "pt": "Mês",
+    "lb": "Mount"
+  },
+  "calendar.nextExchange": {
+    "en": "Next exchange: %@",
+    "de": "Nächster Wechsel: %@",
+    "fr": "Prochain échange : %@",
+    "pt": "Próxima troca: %@",
+    "lb": "Nächst Iwwergab: %@"
+  },
+  "calendar.noCustodySchedule": {
+    "en": "No custody schedule yet",
+    "de": "Noch kein Sorgerechtsplan",
+    "fr": "Pas encore de planning de garde",
+    "pt": "Ainda sem calendário de custódia",
+    "lb": "Nach kee Sorgerechtsplang"
+  },
+  "calendar.reminder": {
+    "en": "Reminder",
+    "de": "Erinnerung",
+    "fr": "Rappel",
+    "pt": "Lembrete",
+    "lb": "Erënnerung"
+  },
+  "calendar.scheduleChanges": {
+    "en": "Schedule changes",
+    "de": "Planänderungen",
+    "fr": "Modifications du planning",
+    "pt": "Alterações de calendário",
+    "lb": "Plangännerungen"
+  },
+  "calendar.scheduleChanges.note": {
+    "en": "Creating a new schedule replaces generated custody blocks for the next 12 weeks. Manual events are kept.",
+    "de": "Ein neuer Plan ersetzt generierte Sorgerechtsblöcke für die nächsten 12 Wochen. Manuelle Termine bleiben erhalten.",
+    "fr": "Un nouveau planning remplace les blocs de garde générés pour les 12 prochaines semaines. Les événements manuels sont conservés.",
+    "pt": "Um novo calendário substitui os blocos de custódia gerados nas próximas 12 semanas. Eventos manuais são mantidos.",
+    "lb": "En neien Plang ersetzt generéiert Sorgerechtsbléck fir déi nächst 12 Wochen. Manuell Evenementer bleiwen."
+  },
+  "calendar.setupSchedule": {
+    "en": "Set Up Schedule",
+    "de": "Plan einrichten",
+    "fr": "Configurer le planning",
+    "pt": "Configurar calendário",
+    "lb": "Plang ariichten"
+  },
+  "calendar.start": {
+    "en": "Start",
+    "de": "Beginn",
+    "fr": "Début",
+    "pt": "Início",
+    "lb": "Ufank"
+  },
+  "calendar.tapShareLocation": {
+    "en": "Tap to share location",
+    "de": "Tippen, um Standort zu teilen",
+    "fr": "Appuyez pour partager le lieu",
+    "pt": "Toque para partilhar local",
+    "lb": "Tippt fir d'Plaz ze deelen"
+  },
+  "calendar.title": {
+    "en": "Calendar",
+    "de": "Kalender",
+    "fr": "Calendrier",
+    "pt": "Calendário",
+    "lb": "Kalenner"
+  },
+  "calendar.updateSchedule": {
+    "en": "Update Schedule",
+    "de": "Plan aktualisieren",
+    "fr": "Mettre à jour le planning",
+    "pt": "Atualizar calendário",
+    "lb": "Plang aktualiséieren"
+  },
+  "calendar.viewMode": {
+    "en": "View",
+    "de": "Ansicht",
+    "fr": "Vue",
+    "pt": "Vista",
+    "lb": "Usiicht"
+  },
+  "calendarSync.accessDenied": {
+    "en": "Calendar access was denied. Enable it in Settings → Common Ground → Calendars.",
+    "de": "Kalenderzugriff wurde verweigert. Aktivieren Sie ihn unter Einstellungen → Common Ground → Kalender.",
+    "fr": "L'accès au calendrier a été refusé. Activez-le dans Réglages → Common Ground → Calendriers.",
+    "pt": "O acesso ao calendário foi negado. Ative-o em Definições → Common Ground → Calendários.",
+    "lb": "Kalennerzougang gouf refuséiert. Aktivéiert en an den Astellungen → Common Ground → Kalenneren."
+  },
+  "calendarSync.autoSync": {
+    "en": "Auto-sync on launch",
+    "de": "Beim Start automatisch synchronisieren",
+    "fr": "Synchronisation automatique au lancement",
+    "pt": "Sincronizar automaticamente ao abrir",
+    "lb": "Beim Start automatesch synchroniséieren"
+  },
+  "calendarSync.export.choose": {
+    "en": "Choose calendar",
+    "de": "Kalender wählen",
+    "fr": "Choisir un calendrier",
+    "pt": "Escolher calendário",
+    "lb": "Kalenner wielen"
+  },
+  "calendarSync.export.dedicated": {
+    "en": "Common Ground calendar",
+    "de": "Common Ground Kalender",
+    "fr": "Calendrier Common Ground",
+    "pt": "Calendário Common Ground",
+    "lb": "Common Ground Kalenner"
+  },
+  "calendarSync.export.destination": {
+    "en": "Export destination",
+    "de": "Exportziel",
+    "fr": "Destination d'export",
+    "pt": "Destino da exportação",
+    "lb": "Exportzil"
+  },
+  "calendarSync.export.existing": {
+    "en": "Existing calendar",
+    "de": "Bestehender Kalender",
+    "fr": "Calendrier existant",
+    "pt": "Calendário existente",
+    "lb": "Bestehende Kalenner"
+  },
+  "calendarSync.export.hint": {
+    "en": "Export custody and family events into an existing Apple calendar you already use.",
+    "de": "Exportieren Sie Sorgerechts- und Familientermine in einen bestehenden Apple Kalender.",
+    "fr": "Exportez les événements de garde et familiaux vers un calendrier Apple existant.",
+    "pt": "Exporte eventos de custódia e família para um calendário Apple existente.",
+    "lb": "Exportéiert Sorgerechts- a Familljeevenementer an en existente Apple Kalenner."
+  },
+  "calendarSync.export.now": {
+    "en": "Export Now",
+    "de": "Jetzt exportieren",
+    "fr": "Exporter maintenant",
+    "pt": "Exportar agora",
+    "lb": "Elo exportéieren"
+  },
+  "calendarSync.export.title": {
+    "en": "Export to Calendar",
+    "de": "In Kalender exportieren",
+    "fr": "Exporter vers le calendrier",
+    "pt": "Exportar para calendário",
+    "lb": "An de Kalenner exportéieren"
+  },
+  "calendarSync.exportAll": {
+    "en": "Export all events",
+    "de": "Alle Termine exportieren",
+    "fr": "Exporter tous les événements",
+    "pt": "Exportar todos os eventos",
+    "lb": "All Evenementer exportéieren"
+  },
+  "calendarSync.exportAll.hint": {
+    "en": "When off, only custody and exchange events are exported.",
+    "de": "Wenn aus, werden nur Sorgerechts- und Übergabetermine exportiert.",
+    "fr": "Si désactivé, seuls les événements de garde et d'échange sont exportés.",
+    "pt": "Se desativado, apenas eventos de custódia e troca são exportados.",
+    "lb": "Wann aus, ginn nëmmen Sorgerechts- an Iwwergab-Evenementer exportéiert."
+  },
+  "calendarSync.exported": {
+    "en": "Exported",
+    "de": "Exportiert",
+    "fr": "Exportés",
+    "pt": "Exportados",
+    "lb": "Exportéiert"
+  },
+  "calendarSync.import.now": {
+    "en": "Import Now",
+    "de": "Jetzt importieren",
+    "fr": "Importer maintenant",
+    "pt": "Importar agora",
+    "lb": "Elo importéieren"
+  },
+  "calendarSync.import.title": {
+    "en": "Import from Calendar",
+    "de": "Aus Kalender importieren",
+    "fr": "Importer depuis le calendrier",
+    "pt": "Importar do calendário",
+    "lb": "Aus dem Kalenner importéieren"
+  },
+  "calendarSync.importAssign": {
+    "en": "Import assign to",
+    "de": "Import zuweisen an",
+    "fr": "Attribuer l'import à",
+    "pt": "Atribuir importação a",
+    "lb": "Import zouweisen un"
+  },
+  "calendarSync.imported": {
+    "en": "Imported",
+    "de": "Importiert",
+    "fr": "Importés",
+    "pt": "Importados",
+    "lb": "Importéiert"
+  },
+  "calendarSync.intro": {
+    "en": "Keep custody schedules in sync with Apple Calendar. Common Ground can export your events and import new ones from your other calendars.",
+    "de": "Halten Sie Sorgerechtspläne mit dem Apple Kalender synchron. Common Ground kann Ihre Termine exportieren und neue aus anderen Kalendern importieren.",
+    "fr": "Gardez les plannings de garde synchronisés avec le Calendrier Apple. Common Ground peut exporter vos événements et en importer de nouveaux depuis vos autres calendriers.",
+    "pt": "Mantenha os calendários de custódia sincronizados com o Calendário Apple. O Common Ground pode exportar os seus eventos e importar novos dos seus outros calendários.",
+    "lb": "Hält Sorgerechtspläng mat dem Apple Kalenner synchron. Common Ground kann Är Evenementer exportéieren an nei aus anere Kalenneren importéieren."
+  },
+  "calendarSync.lastSync": {
+    "en": "Last Sync",
+    "de": "Letzte Synchronisation",
+    "fr": "Dernière synchronisation",
+    "pt": "Última sincronização",
+    "lb": "Lescht Synchronisatioun"
+  },
+  "calendarSync.noCalendars": {
+    "en": "No writable calendars found. Add a calendar account in Settings.",
+    "de": "Keine beschreibbaren Kalender gefunden. Fügen Sie ein Kalenderkonto in den Einstellungen hinzu.",
+    "fr": "Aucun calendrier accessible en écriture. Ajoutez un compte calendrier dans les Réglages.",
+    "pt": "Nenhum calendário gravável encontrado. Adicione uma conta de calendário nas Definições.",
+    "lb": "Keng beschreifbar Kalenneren fonnt. Füügt e Kalennerkont an den Astellungen derbäi."
+  },
+  "calendarSync.noChild": {
+    "en": "No specific child",
+    "de": "Kein bestimmtes Kind",
+    "fr": "Aucun enfant spécifique",
+    "pt": "Nenhuma criança específica",
+    "lb": "Keent bestëmmt Kand"
+  },
+  "calendarSync.settings": {
+    "en": "Sync Settings",
+    "de": "Sync-Einstellungen",
+    "fr": "Paramètres de synchronisation",
+    "pt": "Definições de sincronização",
+    "lb": "Sync-Astellungen"
+  },
+  "calendarSync.syncNow": {
+    "en": "Sync Now",
+    "de": "Jetzt synchronisieren",
+    "fr": "Synchroniser maintenant",
+    "pt": "Sincronizar agora",
+    "lb": "Elo synchroniséieren"
+  },
+  "calendarSync.syncWindow": {
+    "en": "Sync window: %d days",
+    "de": "Sync-Fenster: %d Tage",
+    "fr": "Fenêtre de sync : %d jours",
+    "pt": "Janela de sincronização: %d dias",
+    "lb": "Sync-Fënster: %d Deeg"
+  },
+  "calendarSync.time": {
+    "en": "Time",
+    "de": "Zeit",
+    "fr": "Heure",
+    "pt": "Hora",
+    "lb": "Zäit"
+  },
+  "calendarSync.title": {
+    "en": "Apple Calendar",
+    "de": "Apple Kalender",
+    "fr": "Calendrier Apple",
+    "pt": "Calendário Apple",
+    "lb": "Apple Kalenner"
+  },
+  "calendarSync.updated": {
+    "en": "Updated",
+    "de": "Aktualisiert",
+    "fr": "Mis à jour",
+    "pt": "Atualizados",
+    "lb": "Aktualiséiert"
+  },
+  "children.addChild": {
+    "en": "Add Child",
+    "de": "Kind hinzufügen",
+    "fr": "Ajouter un enfant",
+    "pt": "Adicionar criança",
+    "lb": "Kand derbäisetzen"
+  },
+  "children.addFirst.message": {
+    "en": "Create a profile to track health, school, expenses, and milestones.",
+    "de": "Erstellen Sie ein Profil für Gesundheit, Schule, Ausgaben und Meilensteine.",
+    "fr": "Créez un profil pour suivre la santé, l'école, les dépenses et les étapes.",
+    "pt": "Crie um perfil para acompanhar saúde, escola, despesas e marcos.",
+    "lb": "Erstellt e Profil fir Gesondheet, Schoul, Ausgaben a Meilesteng."
+  },
+  "children.addFirst.title": {
+    "en": "Add Your First Child",
+    "de": "Erstes Kind hinzufügen",
+    "fr": "Ajoutez votre premier enfant",
+    "pt": "Adicione o seu primeiro filho",
+    "lb": "Füügt äert éischt Kand derbäi"
+  },
+  "children.allergies": {
+    "en": "Allergies",
+    "de": "Allergien",
+    "fr": "Allergies",
+    "pt": "Alergias",
+    "lb": "Allergien"
+  },
+  "children.bloodType": {
+    "en": "Blood Type",
+    "de": "Blutgruppe",
+    "fr": "Groupe sanguin",
+    "pt": "Tipo sanguíneo",
+    "lb": "Bluttgrupp"
+  },
+  "children.born": {
+    "en": "Born %@",
+    "de": "Geboren %@",
+    "fr": "Né(e) le %@",
+    "pt": "Nascido(a) em %@",
+    "lb": "Gebuer den %@"
+  },
+  "children.clothing": {
+    "en": "Clothing",
+    "de": "Kleidung",
+    "fr": "Vêtements",
+    "pt": "Roupa",
+    "lb": "Kleedung"
+  },
+  "children.module.documents": {
+    "en": "Documents",
+    "de": "Dokumente",
+    "fr": "Documents",
+    "pt": "Documentos",
+    "lb": "Dokumenter"
+  },
+  "children.module.emergency": {
+    "en": "Emergency",
+    "de": "Notfall",
+    "fr": "Urgence",
+    "pt": "Emergência",
+    "lb": "Noutfall"
+  },
+  "children.module.expenses": {
+    "en": "Expenses",
+    "de": "Ausgaben",
+    "fr": "Dépenses",
+    "pt": "Despesas",
+    "lb": "Ausgaben"
+  },
+  "children.module.medical": {
+    "en": "Medical",
+    "de": "Medizinisch",
+    "fr": "Médical",
+    "pt": "Médico",
+    "lb": "Medizinesch"
+  },
+  "children.module.school": {
+    "en": "School",
+    "de": "Schule",
+    "fr": "École",
+    "pt": "Escola",
+    "lb": "Schoul"
+  },
+  "children.module.timeline": {
+    "en": "Timeline",
+    "de": "Zeitleiste",
+    "fr": "Chronologie",
+    "pt": "Cronologia",
+    "lb": "Zäitlinn"
+  },
+  "children.shoes": {
+    "en": "Shoes",
+    "de": "Schuhe",
+    "fr": "Chaussures",
+    "pt": "Sapatos",
+    "lb": "Schong"
+  },
+  "children.tapGenmoji": {
+    "en": "Tap to set Genmoji or photo",
+    "de": "Tippen für Genmoji oder Foto",
+    "fr": "Appuyez pour définir un Genmoji ou une photo",
+    "pt": "Toque para definir Genmoji ou foto",
+    "lb": "Tippt fir Genmoji oder Foto"
+  },
+  "children.title": {
+    "en": "Children",
+    "de": "Kinder",
+    "fr": "Enfants",
+    "pt": "Crianças",
+    "lb": "Kanner"
+  },
+  "children.vitals": {
+    "en": "Vitals",
+    "de": "Vitaldaten",
+    "fr": "Signes vitaux",
+    "pt": "Dados vitais",
+    "lb": "Vitaldaten"
+  },
+  "cloud.error.disabled": {
+    "en": "Enable iCloud Sync in More → iCloud Sync, then restart the app.",
+    "de": "Aktivieren Sie iCloud-Sync unter Mehr → iCloud-Sync und starten Sie neu.",
+    "fr": "Activez la sync iCloud dans Plus → Sync iCloud, puis redémarrez.",
+    "pt": "Ative a sincronização iCloud em Mais → iCloud Sync e reinicie.",
+    "lb": "Aktivéiert iCloud-Sync an Méi → iCloud-Sync a start nei."
+  },
+  "cloud.error.notSignedIn": {
+    "en": "Sign in to iCloud in Settings to share with your co-parent.",
+    "de": "Melden Sie sich in den Einstellungen bei iCloud an.",
+    "fr": "Connectez-vous à iCloud dans Réglages pour partager.",
+    "pt": "Inicie sessão no iCloud nas Definições para partilhar.",
+    "lb": "Mellt Iech an den Astellungen bei iCloud un."
+  },
+  "cloud.error.unavailable": {
+    "en": "CloudKit is not available on this device.",
+    "de": "CloudKit ist auf diesem Gerät nicht verfügbar.",
+    "fr": "CloudKit n'est pas disponible sur cet appareil.",
+    "pt": "CloudKit não está disponível neste dispositivo.",
+    "lb": "CloudKit ass op dësem Apparat net disponibel."
+  },
+  "cloud.status.capabilityReady": {
+    "en": "CloudKit configured",
+    "de": "CloudKit konfiguriert",
+    "fr": "CloudKit configuré",
+    "pt": "CloudKit configurado",
+    "lb": "CloudKit konfiguréiert"
+  },
+  "cloud.status.disabled": {
+    "en": "iCloud sync off — enable and restart",
+    "de": "iCloud-Sync aus — aktivieren und neu starten",
+    "fr": "Sync iCloud désactivée — activez et redémarrez",
+    "pt": "Sync iCloud desativada — ative e reinicie",
+    "lb": "iCloud-Sync aus — aktivéieren a nei starten"
+  },
+  "cloud.status.notSignedIn": {
+    "en": "Not signed in to iCloud",
+    "de": "Nicht bei iCloud angemeldet",
+    "fr": "Non connecté à iCloud",
+    "pt": "Sem sessão no iCloud",
+    "lb": "Net bei iCloud ugemellt"
+  },
+  "cloud.status.ready": {
+    "en": "Ready to share family data",
+    "de": "Bereit, Familiendaten zu teilen",
+    "fr": "Prêt à partager les données familiales",
+    "pt": "Pronto para partilhar dados familiares",
+    "lb": "Prett fir Familljedaten ze deelen"
+  },
+  "common.add": {
+    "en": "Add",
+    "de": "Hinzufügen",
+    "fr": "Ajouter",
+    "pt": "Adicionar",
+    "lb": "Derbäisetzen"
+  },
+  "common.age": {
+    "en": "Age %d",
+    "de": "Alter %d",
+    "fr": "Âge %d",
+    "pt": "Idade %d",
+    "lb": "Alter %d"
+  },
+  "common.back": {
+    "en": "Back",
+    "de": "Zurück",
+    "fr": "Retour",
+    "pt": "Voltar",
+    "lb": "Zréck"
+  },
+  "common.cancel": {
+    "en": "Cancel",
+    "de": "Abbrechen",
+    "fr": "Annuler",
+    "pt": "Cancelar",
+    "lb": "Ofbriechen"
+  },
+  "common.child": {
+    "en": "Child",
+    "de": "Kind",
+    "fr": "Enfant",
+    "pt": "Criança",
+    "lb": "Kand"
+  },
+  "common.clearSearch": {
+    "en": "Clear search",
+    "de": "Suche löschen",
+    "fr": "Effacer la recherche",
+    "pt": "Limpar pesquisa",
+    "lb": "Sich läschen"
+  },
+  "common.continue": {
+    "en": "Continue",
+    "de": "Weiter",
+    "fr": "Continuer",
+    "pt": "Continuar",
+    "lb": "Weider"
+  },
+  "common.create": {
+    "en": "Create",
+    "de": "Erstellen",
+    "fr": "Créer",
+    "pt": "Criar",
+    "lb": "Erstellen"
+  },
+  "common.delete": {
+    "en": "Delete",
+    "de": "Löschen",
+    "fr": "Supprimer",
+    "pt": "Eliminar",
+    "lb": "Läschen"
+  },
+  "common.done": {
+    "en": "Done",
+    "de": "Fertig",
+    "fr": "Terminé",
+    "pt": "Concluído",
+    "lb": "Fäerdeg"
+  },
+  "common.edit": {
+    "en": "Edit",
+    "de": "Bearbeiten",
+    "fr": "Modifier",
+    "pt": "Editar",
+    "lb": "Beaarbechten"
+  },
+  "common.error": {
+    "en": "Error",
+    "de": "Fehler",
+    "fr": "Erreur",
+    "pt": "Erro",
+    "lb": "Feeler"
+  },
+  "common.getStarted": {
+    "en": "Get Started",
+    "de": "Loslegen",
+    "fr": "Commencer",
+    "pt": "Começar",
+    "lb": "Ufänken"
+  },
+  "common.loading": {
+    "en": "Loading…",
+    "de": "Laden…",
+    "fr": "Chargement…",
+    "pt": "A carregar…",
+    "lb": "Lueden…"
+  },
+  "common.no": {
+    "en": "No",
+    "de": "Nein",
+    "fr": "Non",
+    "pt": "Não",
+    "lb": "Nee"
+  },
+  "common.none": {
+    "en": "None",
+    "de": "Keine",
+    "fr": "Aucun",
+    "pt": "Nenhum",
+    "lb": "Keen"
+  },
+  "common.ok": {
+    "en": "OK",
+    "de": "OK",
+    "fr": "OK",
+    "pt": "OK",
+    "lb": "OK"
+  },
+  "common.post": {
+    "en": "Post",
+    "de": "Veröffentlichen",
+    "fr": "Publier",
+    "pt": "Publicar",
+    "lb": "Verëffentlechen"
+  },
+  "common.save": {
+    "en": "Save",
+    "de": "Sichern",
+    "fr": "Enregistrer",
+    "pt": "Guardar",
+    "lb": "Späicheren"
+  },
+  "common.search": {
+    "en": "Search",
+    "de": "Suchen",
+    "fr": "Rechercher",
+    "pt": "Pesquisar",
+    "lb": "Sichen"
+  },
+  "common.seeAll": {
+    "en": "See All",
+    "de": "Alle anzeigen",
+    "fr": "Tout voir",
+    "pt": "Ver tudo",
+    "lb": "Alles weisen"
+  },
+  "common.share": {
+    "en": "Share",
+    "de": "Teilen",
+    "fr": "Partager",
+    "pt": "Partilhar",
+    "lb": "Deelen"
+  },
+  "common.time": {
+    "en": "Time",
+    "de": "Zeit",
+    "fr": "Heure",
+    "pt": "Hora",
+    "lb": "Zäit"
+  },
+  "common.version": {
+    "en": "Version",
+    "de": "Version",
+    "fr": "Version",
+    "pt": "Versão",
+    "lb": "Versioun"
+  },
+  "common.view": {
+    "en": "View",
+    "de": "Anzeigen",
+    "fr": "Voir",
+    "pt": "Ver",
+    "lb": "Kucken"
+  },
+  "common.withToday": {
+    "en": "With %@ today",
+    "de": "Heute bei %@",
+    "fr": "Avec %@ aujourd'hui",
+    "pt": "Com %@ hoje",
+    "lb": "Haut mat %@"
+  },
+  "common.yes": {
+    "en": "Yes",
+    "de": "Ja",
+    "fr": "Oui",
+    "pt": "Sim",
+    "lb": "Jo"
+  },
+  "common.you": {
+    "en": "You",
+    "de": "Sie",
+    "fr": "Vous",
+    "pt": "Você",
+    "lb": "Dir"
+  },
+  "courtExport.activeMedications": {
+    "en": "ACTIVE MEDICATIONS",
+    "de": "AKTIVE MEDIKAMENTE",
+    "fr": "MÉDICAMENTS ACTIFS",
+    "pt": "MEDICAMENTOS ATIVOS",
+    "lb": "AKTIV MEDIKAMENTER"
+  },
+  "courtExport.allergies": {
+    "en": "Allergies: %@",
+    "de": "Allergien: %@",
+    "fr": "Allergies : %@",
+    "pt": "Alergias: %@",
+    "lb": "Allergien: %@"
+  },
+  "courtExport.calendarEvents": {
+    "en": "CALENDAR EVENTS",
+    "de": "KALENDEREREIGNISSE",
+    "fr": "ÉVÉNEMENTS DU CALENDRIER",
+    "pt": "EVENTOS DO CALENDÁRIO",
+    "lb": "KALENNEREVENEMENTER"
+  },
+  "courtExport.child": {
+    "en": "CHILD: %@",
+    "de": "KIND: %@",
+    "fr": "ENFANT : %@",
+    "pt": "CRIANÇA: %@",
+    "lb": "KAND: %@"
+  },
+  "courtExport.dateOfBirth": {
+    "en": "Date of birth: %@",
+    "de": "Geburtsdatum: %@",
+    "fr": "Date de naissance : %@",
+    "pt": "Data de nascimento: %@",
+    "lb": "Gebuertsdatum: %@"
+  },
+  "courtExport.docExpires": {
+    "en": " expires %@",
+    "de": " läuft ab %@",
+    "fr": " expire le %@",
+    "pt": " expira em %@",
+    "lb": " laf of %@"
+  },
+  "courtExport.docLine": {
+    "en": "  • %@ [%@]",
+    "de": "  • %@ [%@]",
+    "fr": "  • %@ [%@]",
+    "pt": "  • %@ [%@]",
+    "lb": "  • %@ [%@]"
+  },
+  "courtExport.documents": {
+    "en": "DOCUMENTS",
+    "de": "DOKUMENTE",
+    "fr": "DOCUMENTS",
+    "pt": "DOCUMENTOS",
+    "lb": "DOKUMENTER"
+  },
+  "courtExport.eventLine": {
+    "en": "  • %@ — %@ [%@]",
+    "de": "  • %@ — %@ [%@]",
+    "fr": "  • %@ — %@ [%@]",
+    "pt": "  • %@ — %@ [%@]",
+    "lb": "  • %@ — %@ [%@]"
+  },
+  "courtExport.expenseLine": {
+    "en": "  • %@ — %@: $%@ paid by %@ [%@]",
+    "de": "  • %@ — %@: $%@ bezahlt von %@ [%@]",
+    "fr": "  • %@ — %@ : $%@ payé par %@ [%@]",
+    "pt": "  • %@ — %@: $%@ pago por %@ [%@]",
+    "lb": "  • %@ — %@: $%@ bezuelt vun %@ [%@]"
+  },
+  "courtExport.expensePending": {
+    "en": "Pending",
+    "de": "Ausstehend",
+    "fr": "En attente",
+    "pt": "Pendente",
+    "lb": "Ausstoend"
+  },
+  "courtExport.expenseSettled": {
+    "en": "Settled",
+    "de": "Beglichen",
+    "fr": "Réglé",
+    "pt": "Liquidado",
+    "lb": "Beglued"
+  },
+  "courtExport.expenses": {
+    "en": "EXPENSES",
+    "de": "AUSGABEN",
+    "fr": "DÉPENSES",
+    "pt": "DESPESAS",
+    "lb": "AUSGABEN"
+  },
+  "courtExport.family": {
+    "en": "Family: %@",
+    "de": "Familie: %@",
+    "fr": "Famille : %@",
+    "pt": "Família: %@",
+    "lb": "Famill: %@"
+  },
+  "courtExport.generated": {
+    "en": "Generated: %@",
+    "de": "Erstellt: %@",
+    "fr": "Généré le : %@",
+    "pt": "Gerado: %@",
+    "lb": "Erstallt: %@"
+  },
+  "courtExport.hashPending": {
+    "en": "Export hash: pending",
+    "de": "Export-Hash: ausstehend",
+    "fr": "Hash d'export : en attente",
+    "pt": "Hash de exportação: pendente",
+    "lb": "Export-Hash: ausstoend"
+  },
+  "courtExport.hashValue": {
+    "en": "Export hash: %@",
+    "de": "Export-Hash: %@",
+    "fr": "Hash d'export : %@",
+    "pt": "Hash de exportação: %@",
+    "lb": "Export-Hash: %@"
+  },
+  "courtExport.medLine": {
+    "en": "  • %@ %@ — %@",
+    "de": "  • %@ %@ — %@",
+    "fr": "  • %@ %@ — %@",
+    "pt": "  • %@ %@ — %@",
+    "lb": "  • %@ %@ — %@"
+  },
+  "courtExport.medicalLine": {
+    "en": "  • %@ — %@ [%@]",
+    "de": "  • %@ — %@ [%@]",
+    "fr": "  • %@ — %@ [%@]",
+    "pt": "  • %@ — %@ [%@]",
+    "lb": "  • %@ — %@ [%@]"
+  },
+  "courtExport.medicalRecords": {
+    "en": "MEDICAL RECORDS",
+    "de": "MEDIZINISCHE UNTERLAGEN",
+    "fr": "DOSSIERS MÉDICAUX",
+    "pt": "REGISTOS MÉDICOS",
+    "lb": "MEDIZINESCH ËNNERLAGEN"
+  },
+  "courtExport.messageLine": {
+    "en": "  • %@ — %@: %@",
+    "de": "  • %@ — %@: %@",
+    "fr": "  • %@ — %@ : %@",
+    "pt": "  • %@ — %@: %@",
+    "lb": "  • %@ — %@: %@"
+  },
+  "courtExport.messages": {
+    "en": "MESSAGES",
+    "de": "NACHRICHTEN",
+    "fr": "MESSAGES",
+    "pt": "MENSAGENS",
+    "lb": "NORIICHTEN"
+  },
+  "courtExport.messagesNote": {
+    "en": "(Immutable, timestamped records)",
+    "de": "(Unveränderliche, zeitgestempelte Aufzeichnungen)",
+    "fr": "(Enregistrements horodatés immuables)",
+    "pt": "(Registos com carimbo de data/hora imutáveis)",
+    "lb": "(Onverännerlech, mat Zäitstempel markéiert Opzeechnungen)"
+  },
+  "courtExport.none": {
+    "en": "  (none)",
+    "de": "  (keine)",
+    "fr": "  (aucun)",
+    "pt": "  (nenhum)",
+    "lb": "  (keen)"
+  },
+  "courtExport.pdfFooter": {
+    "en": "SHA-256: %@… · Generated by Common Ground",
+    "de": "SHA-256: %@… · Erstellt von Common Ground",
+    "fr": "SHA-256 : %@… · Généré par Common Ground",
+    "pt": "SHA-256: %@… · Gerado pelo Common Ground",
+    "lb": "SHA-256: %@… · Erstallt vu Common Ground"
+  },
+  "courtExport.title": {
+    "en": "COMMON GROUND — FAMILY RECORD EXPORT",
+    "de": "COMMON GROUND — FAMILIENEXPORT",
+    "fr": "COMMON GROUND — EXPORT FAMILIAL",
+    "pt": "COMMON GROUND — EXPORTAÇÃO FAMILIAR",
+    "lb": "COMMON GROUND — FAMILLJENEXPORT"
+  },
+  "custody.alternatingWeekends": {
+    "en": "Alternating Weekends",
+    "de": "Wechselnde Wochenenden",
+    "fr": "Week-ends alternés",
+    "pt": "Fins de semana alternados",
+    "lb": "Wiesselnd Weekender"
+  },
+  "custody.createError": {
+    "en": "Couldn't create schedule. Please try again.",
+    "de": "Plan konnte nicht erstellt werden. Bitte erneut versuchen.",
+    "fr": "Impossible de créer le planning. Veuillez réessayer.",
+    "pt": "Não foi possível criar o calendário. Tente novamente.",
+    "lb": "Plang konnt net erstallt ginn. Probéiert w.e.g. nach eng Kéier."
+  },
+  "custody.custom": {
+    "en": "Custom",
+    "de": "Benutzerdefiniert",
+    "fr": "Personnalisé",
+    "pt": "Personalizado",
+    "lb": "Personaliséiert"
+  },
+  "custody.defaultTime": {
+    "en": "Default time",
+    "de": "Standardzeit",
+    "fr": "Heure par défaut",
+    "pt": "Hora predefinida",
+    "lb": "Standardzäit"
+  },
+  "custody.desc.alternatingWeekends": {
+    "en": "Weekdays with one parent, alternating weekends.",
+    "de": "Wochentage bei einem Elternteil, abwechselnde Wochenenden.",
+    "fr": "Semaine chez un parent, week-ends alternés.",
+    "pt": "Dias úteis com um pai/mãe, fins de semana alternados.",
+    "lb": "Wochendeeg mat engem Elterendeel, wiesselnd Weekender."
+  },
+  "custody.desc.custom": {
+    "en": "Define your own schedule pattern.",
+    "de": "Eigenen Plan definieren.",
+    "fr": "Définissez votre propre planning.",
+    "pt": "Defina o seu próprio calendário.",
+    "lb": "Definéiert ären eegen Plang."
+  },
+  "custody.desc.twoTwoThree": {
+    "en": "2 days with Parent A, 2 with Parent B, 3 with Parent A, then alternates.",
+    "de": "2 Tage bei Elternteil A, 2 bei B, 3 bei A, dann alternierend.",
+    "fr": "2 jours chez le parent A, 2 chez B, 3 chez A, puis alternance.",
+    "pt": "2 dias com o pai/mãe A, 2 com B, 3 com A, depois alterna.",
+    "lb": "2 Deeg mat Elterendeel A, 2 mat B, 3 mat A, da wiesselt et."
+  },
+  "custody.desc.weekOnWeekOff": {
+    "en": "One parent has the child for a full week, then switches.",
+    "de": "Ein Elternteil hat das Kind eine volle Woche, dann wechselt es.",
+    "fr": "Un parent a l'enfant une semaine entière, puis on alterne.",
+    "pt": "Um dos pais fica com a criança uma semana inteira, depois alterna.",
+    "lb": "Een Elterendeel huet d'Kand eng ganz Woch, da wiesselt et."
+  },
+  "custody.exchange": {
+    "en": "Custody Exchange",
+    "de": "Sorgerechtsübergabe",
+    "fr": "Échange de garde",
+    "pt": "Troca de custódia",
+    "lb": "Sorgerechtsiwwergab"
+  },
+  "custody.generateHint": {
+    "en": "Generates 12 weeks of custody blocks and exchange reminders on your calendar.",
+    "de": "Erstellt 12 Wochen Sorgerechtsblöcke und Übergabeerinnerungen in Ihrem Kalender.",
+    "fr": "Génère 12 semaines de blocs de garde et rappels d'échange dans votre calendrier.",
+    "pt": "Gera 12 semanas de blocos de custódia e lembretes de troca no seu calendário.",
+    "lb": "Generéiert 12 Wochen Sorgerechtsbléck an Iwwergab-Erënnerungen an ärem Kalenner."
+  },
+  "custody.needTwoParents": {
+    "en": "Add another parent or caregiver in family settings to build a shared schedule.",
+    "de": "Fügen Sie einen weiteren Elternteil oder Betreuer in den Familieneinstellungen hinzu.",
+    "fr": "Ajoutez un autre parent ou aidant dans les paramètres familiaux.",
+    "pt": "Adicione outro pai/mãe ou cuidador nas definições da família.",
+    "lb": "Füügt en aneren Elterendeel oder Betreier an den Familljastellungen derbäi."
+  },
+  "custody.parentA": {
+    "en": "Parent A",
+    "de": "Elternteil A",
+    "fr": "Parent 1",
+    "pt": "Pai/Mãe A",
+    "lb": "Elterendeel A"
+  },
+  "custody.parentB": {
+    "en": "Parent B",
+    "de": "Elternteil B",
+    "fr": "Parent 2",
+    "pt": "Pai/Mãe B",
+    "lb": "Elterendeel B"
+  },
+  "custody.pattern": {
+    "en": "Pattern",
+    "de": "Muster",
+    "fr": "Modèle",
+    "pt": "Padrão",
+    "lb": "Muster"
+  },
+  "custody.scheduleTitle": {
+    "en": "Custody Schedule",
+    "de": "Sorgerechtsplan",
+    "fr": "Planning de garde",
+    "pt": "Calendário de custódia",
+    "lb": "Sorgerechtsplang"
+  },
+  "custody.section.parents": {
+    "en": "Parents",
+    "de": "Eltern",
+    "fr": "Parents",
+    "pt": "Pais",
+    "lb": "Elteren"
+  },
+  "custody.section.schedule": {
+    "en": "Schedule",
+    "de": "Plan",
+    "fr": "Planning",
+    "pt": "Calendário",
+    "lb": "Plang"
+  },
+  "custody.twoTwoThree": {
+    "en": "2-2-3 Schedule",
+    "de": "2-2-3 Plan",
+    "fr": "Planning 2-2-3",
+    "pt": "Calendário 2-2-3",
+    "lb": "2-2-3 Plang"
+  },
+  "custody.weekLabel": {
+    "en": "Custody schedule this week",
+    "de": "Sorgerechtsplan diese Woche",
+    "fr": "Planning de garde cette semaine",
+    "pt": "Calendário de custódia esta semana",
+    "lb": "Sorgerechtsplang dës Woch"
+  },
+  "custody.weekOnWeekOff": {
+    "en": "Week On / Week Off",
+    "de": "Woche an / Woche aus",
+    "fr": "Semaine chez l'un / semaine chez l'autre",
+    "pt": "Semana sim / semana não",
+    "lb": "Woch un / Woch aus"
+  },
+  "custody.withParent": {
+    "en": "With %@",
+    "de": "Bei %@",
+    "fr": "Avec %@",
+    "pt": "Com %@",
+    "lb": "Mat %@"
+  },
+  "daily.details": {
+    "en": "Details (optional)",
+    "de": "Details (optional)",
+    "fr": "Détails (facultatif)",
+    "pt": "Detalhes (opcional)",
+    "lb": "Detailer (optional)"
+  },
+  "daily.headline": {
+    "en": "Headline",
+    "de": "Überschrift",
+    "fr": "Titre",
+    "pt": "Título",
+    "lb": "Iwwerschrëft"
+  },
+  "daily.intro": {
+    "en": "Share what happened today so your co-parent stays informed — without a long chat.",
+    "de": "Teilen Sie, was heute passiert ist, damit Ihr Co-Elternteil informiert bleibt — ohne langen Chat.",
+    "fr": "Partagez ce qui s'est passé aujourd'hui pour informer votre co-parent — sans longue conversation.",
+    "pt": "Partilhe o que aconteceu hoje para manter o co-pai/mãe informado — sem conversa longa.",
+    "lb": "Deelt wat haut geschitt ass fir ären Co-Elterendeel informéiert ze halen — ouni laangen Chat."
+  },
+  "daily.preset.absence": {
+    "en": "Couldn't attend",
+    "de": "Konnte nicht teilnehmen",
+    "fr": "N'a pas pu assister",
+    "pt": "Não pôde comparecer",
+    "lb": "Konnt net deelhuelen"
+  },
+  "daily.preset.absence.suggested": {
+    "en": "Update — I wasn't there",
+    "de": "Update — Ich war nicht da",
+    "fr": "Mise à jour — Je n'étais pas là",
+    "pt": "Atualização — Não estive lá",
+    "lb": "Update — Ech war net do"
+  },
+  "daily.preset.activity": {
+    "en": "Activity / sport",
+    "de": "Aktivität / Sport",
+    "fr": "Activité / sport",
+    "pt": "Atividade / desporto",
+    "lb": "Aktivitéit / Sport"
+  },
+  "daily.preset.activity.suggested": {
+    "en": "%@'s activity",
+    "de": "Aktivität von %@",
+    "fr": "Activité de %@",
+    "pt": "Atividade de %@",
+    "lb": "Aktivitéit vun %@"
+  },
+  "daily.preset.general": {
+    "en": "General update",
+    "de": "Allgemeines Update",
+    "fr": "Mise à jour générale",
+    "pt": "Atualização geral",
+    "lb": "Allgemengen Update"
+  },
+  "daily.preset.general.suggested": {
+    "en": "%@'s day",
+    "de": "Tag von %@",
+    "fr": "Journée de %@",
+    "pt": "Dia de %@",
+    "lb": "Dag vun %@"
+  },
+  "daily.preset.handoff": {
+    "en": "Handoff note",
+    "de": "Übergabenotiz",
+    "fr": "Note de transfert",
+    "pt": "Nota de entrega",
+    "lb": "Iwwergabnotiz"
+  },
+  "daily.preset.handoff.suggested": {
+    "en": "Handoff for %@",
+    "de": "Übergabe für %@",
+    "fr": "Transfert pour %@",
+    "pt": "Entrega para %@",
+    "lb": "Iwwergab fir %@"
+  },
+  "daily.preset.school": {
+    "en": "School day",
+    "de": "Schultag",
+    "fr": "Journée d'école",
+    "pt": "Dia de escola",
+    "lb": "Schouldag"
+  },
+  "daily.preset.school.suggested": {
+    "en": "School update for %@",
+    "de": "Schulupdate für %@",
+    "fr": "Mise à jour scolaire pour %@",
+    "pt": "Atualização escolar para %@",
+    "lb": "Schoulupdate fir %@"
+  },
+  "daily.saveError": {
+    "en": "Couldn't save update. Please try again.",
+    "de": "Update konnte nicht gespeichert werden. Bitte erneut versuchen.",
+    "fr": "Impossible d'enregistrer la mise à jour. Veuillez réessayer.",
+    "pt": "Não foi possível guardar a atualização. Tente novamente.",
+    "lb": "Update konnt net gespäichert ginn. Probéiert w.e.g. nach eng Kéier."
+  },
+  "daily.template": {
+    "en": "Template",
+    "de": "Vorlage",
+    "fr": "Modèle",
+    "pt": "Modelo",
+    "lb": "Schabloun"
+  },
+  "daily.templates": {
+    "en": "Quick templates",
+    "de": "Schnellvorlagen",
+    "fr": "Modèles rapides",
+    "pt": "Modelos rápidos",
+    "lb": "Séier Schablounen"
+  },
+  "daily.title": {
+    "en": "Daily Update",
+    "de": "Tägliches Update",
+    "fr": "Mise à jour quotidienne",
+    "pt": "Atualização diária",
+    "lb": "Deeglechen Update"
+  },
+  "daily.update": {
+    "en": "Update",
+    "de": "Update",
+    "fr": "Mise à jour",
+    "pt": "Atualização",
+    "lb": "Mise à jour"
+  },
+  "docForm.addDocument": {
+    "en": "Add Document",
+    "de": "Dokument hinzufügen",
+    "fr": "Ajouter un document",
+    "pt": "Adicionar documento",
+    "lb": "Dokument derbäisetzen"
+  },
+  "docForm.choosePhoto": {
+    "en": "Choose Photo",
+    "de": "Foto auswählen",
+    "fr": "Choisir une photo",
+    "pt": "Escolher foto",
+    "lb": "Foto wielen"
+  },
+  "docForm.expires": {
+    "en": "Expires",
+    "de": "Läuft ab",
+    "fr": "Expire",
+    "pt": "Expira",
+    "lb": "Laf of"
+  },
+  "docForm.fileAttached": {
+    "en": "File attached",
+    "de": "Datei angehängt",
+    "fr": "Fichier joint",
+    "pt": "Ficheiro anexado",
+    "lb": "Fichier ugehaangen"
+  },
+  "docForm.hasExpiry": {
+    "en": "Has expiry date",
+    "de": "Hat Ablaufdatum",
+    "fr": "A une date d'expiration",
+    "pt": "Tem data de validade",
+    "lb": "Huet en Oflafdatum"
+  },
+  "docForm.importError": {
+    "en": "Couldn't import file.",
+    "de": "Datei konnte nicht importiert werden.",
+    "fr": "Impossible d'importer le fichier.",
+    "pt": "Não foi possível importar o ficheiro.",
+    "lb": "Fichier konnt net importéiert ginn."
+  },
+  "docForm.importFile": {
+    "en": "Import File",
+    "de": "Datei importieren",
+    "fr": "Importer un fichier",
+    "pt": "Importar ficheiro",
+    "lb": "Fichier importéieren"
+  },
+  "docForm.saveDocumentError": {
+    "en": "Couldn't save document.",
+    "de": "Dokument konnte nicht gespeichert werden.",
+    "fr": "Impossible d'enregistrer le document.",
+    "pt": "Não foi possível guardar o documento.",
+    "lb": "Dokument konnt net gespäichert ginn."
+  },
+  "docForm.section.document": {
+    "en": "Document",
+    "de": "Dokument",
+    "fr": "Document",
+    "pt": "Documento",
+    "lb": "Dokument"
+  },
+  "docForm.section.file": {
+    "en": "File",
+    "de": "Datei",
+    "fr": "Fichier",
+    "pt": "Ficheiro",
+    "lb": "Fichier"
+  },
+  "document.cat.birthCertificate": {
+    "en": "Birth Certificate",
+    "de": "Geburtsurkunde",
+    "fr": "Acte de naissance",
+    "pt": "Certidão de nascimento",
+    "lb": "Gebuertsurkund"
+  },
+  "document.cat.contract": {
+    "en": "Contract",
+    "de": "Vertrag",
+    "fr": "Contrat",
+    "pt": "Contrato",
+    "lb": "Kontrakt"
+  },
+  "document.cat.insurance": {
+    "en": "Insurance",
+    "de": "Versicherung",
+    "fr": "Assurance",
+    "pt": "Seguro",
+    "lb": "Versécherung"
+  },
+  "document.cat.medicalReport": {
+    "en": "Medical Report",
+    "de": "Arztbericht",
+    "fr": "Rapport médical",
+    "pt": "Relatório médico",
+    "lb": "Medizinesche Bericht"
+  },
+  "document.cat.other": {
+    "en": "Other",
+    "de": "Sonstiges",
+    "fr": "Autre",
+    "pt": "Outro",
+    "lb": "Aneres"
+  },
+  "document.cat.passport": {
+    "en": "Passport",
+    "de": "Reisepass",
+    "fr": "Passeport",
+    "pt": "Passaporte",
+    "lb": "Pass"
+  },
+  "document.cat.permissionSlip": {
+    "en": "Permission Slip",
+    "de": "Einverständniserklärung",
+    "fr": "Autorisation",
+    "pt": "Autorização",
+    "lb": "Erlabnes"
+  },
+  "document.cat.receipt": {
+    "en": "Receipt",
+    "de": "Quittung",
+    "fr": "Reçu",
+    "pt": "Recibo",
+    "lb": "Quittung"
+  },
+  "document.cat.schoolReport": {
+    "en": "School Report",
+    "de": "Schulzeugnis",
+    "fr": "Bulletin scolaire",
+    "pt": "Relatório escolar",
+    "lb": "Schoulzeugnis"
+  },
+  "documents.empty": {
+    "en": "No documents yet",
+    "de": "Noch keine Dokumente",
+    "fr": "Pas encore de documents",
+    "pt": "Ainda sem documentos",
+    "lb": "Nach keng Dokumenter"
+  },
+  "documents.expiring": {
+    "en": "Expiring",
+    "de": "Läuft ab",
+    "fr": "Expire",
+    "pt": "A expirar",
+    "lb": "Laf of"
+  },
+  "documents.fileAttached": {
+    "en": "File attached",
+    "de": "Datei angehängt",
+    "fr": "Fichier joint",
+    "pt": "Ficheiro anexado",
+    "lb": "Fichier ugehaangen"
+  },
+  "documents.noMatches": {
+    "en": "No matches",
+    "de": "Keine Treffer",
+    "fr": "Aucun résultat",
+    "pt": "Sem correspondências",
+    "lb": "Keng Treffer"
+  },
+  "documents.searchPrompt": {
+    "en": "Search documents",
+    "de": "Dokumente suchen",
+    "fr": "Rechercher des documents",
+    "pt": "Pesquisar documentos",
+    "lb": "Dokumenter sichen"
+  },
+  "emergency.country": {
+    "en": "Country",
+    "de": "Land",
+    "fr": "Pays",
+    "pt": "País",
+    "lb": "Land"
+  },
+  "emergency.expires": {
+    "en": "Expires",
+    "de": "Läuft ab",
+    "fr": "Expire",
+    "pt": "Expira",
+    "lb": "Laf of"
+  },
+  "emergency.insuranceProvider": {
+    "en": "Provider",
+    "de": "Anbieter",
+    "fr": "Fournisseur",
+    "pt": "Fornecedor",
+    "lb": "Ubidder"
+  },
+  "emergency.pediatrician": {
+    "en": "Pediatrician",
+    "de": "Kinderarzt",
+    "fr": "Pédiatre",
+    "pt": "Pediatra",
+    "lb": "Kannerdokter"
+  },
+  "emergency.policy": {
+    "en": "Policy",
+    "de": "Police",
+    "fr": "Police",
+    "pt": "Apólice",
+    "lb": "Police"
+  },
+  "emergency.preferredHospital": {
+    "en": "Preferred Hospital",
+    "de": "Bevorzugtes Krankenhaus",
+    "fr": "Hôpital préféré",
+    "pt": "Hospital preferido",
+    "lb": "Bevorzugt Spidol"
+  },
+  "emergency.section.contacts": {
+    "en": "Emergency Contacts",
+    "de": "Notfallkontakte",
+    "fr": "Contacts d'urgence",
+    "pt": "Contactos de emergência",
+    "lb": "Noutfallkontakter"
+  },
+  "emergency.section.insurance": {
+    "en": "Insurance",
+    "de": "Versicherung",
+    "fr": "Assurance",
+    "pt": "Seguro",
+    "lb": "Versécherung"
+  },
+  "emergency.section.passport": {
+    "en": "Passport",
+    "de": "Reisepass",
+    "fr": "Passeport",
+    "pt": "Passaporte",
+    "lb": "Pass"
+  },
+  "emergency.title": {
+    "en": "Emergency Info",
+    "de": "Notfallinfo",
+    "fr": "Infos d'urgence",
+    "pt": "Informação de emergência",
+    "lb": "Noutfallinfo"
+  },
+  "error.calendar.noSource": {
+    "en": "No calendar account is available. Add an iCloud or local calendar in Settings.",
+    "de": "Kein Kalenderkonto verfügbar. Fügen Sie einen iCloud- oder lokalen Kalender in den Einstellungen hinzu.",
+    "fr": "Aucun compte calendrier disponible. Ajoutez un calendrier iCloud ou local dans les Réglages.",
+    "pt": "Nenhuma conta de calendário disponível. Adicione um calendário iCloud ou local nas Definições.",
+    "lb": "Keen Kalennerkont disponibel. Füügt en iCloud- oder lokalen Kalenner an den Astellungen derbäi."
+  },
+  "error.calendar.notFound": {
+    "en": "The selected calendar could not be found.",
+    "de": "Der ausgewählte Kalender wurde nicht gefunden.",
+    "fr": "Le calendrier sélectionné est introuvable.",
+    "pt": "O calendário selecionado não foi encontrado.",
+    "lb": "Den gewielte Kalenner gouf net fonnt."
+  },
+  "event.activities": {
+    "en": "Activities",
+    "de": "Aktivitäten",
+    "fr": "Activités",
+    "pt": "Atividades",
+    "lb": "Aktivitéiten"
+  },
+  "event.appointment": {
+    "en": "Appointment",
+    "de": "Termin",
+    "fr": "Rendez-vous",
+    "pt": "Consulta",
+    "lb": "Rendez-vous"
+  },
+  "event.birthday": {
+    "en": "Birthday",
+    "de": "Geburtstag",
+    "fr": "Anniversaire",
+    "pt": "Aniversário",
+    "lb": "Gebuertsdag"
+  },
+  "event.custody": {
+    "en": "Custody",
+    "de": "Sorgerecht",
+    "fr": "Garde",
+    "pt": "Custódia",
+    "lb": "Sorgerecht"
+  },
+  "event.exchange": {
+    "en": "Exchange",
+    "de": "Übergabe",
+    "fr": "Échange",
+    "pt": "Troca",
+    "lb": "Iwwergab"
+  },
+  "event.holiday": {
+    "en": "Holiday",
+    "de": "Feiertag",
+    "fr": "Vacances",
+    "pt": "Feriado",
+    "lb": "Feierdag"
+  },
+  "event.medical": {
+    "en": "Medical",
+    "de": "Medizinisch",
+    "fr": "Médical",
+    "pt": "Médico",
+    "lb": "Medizinesch"
+  },
+  "event.other": {
+    "en": "Other",
+    "de": "Sonstiges",
+    "fr": "Autre",
+    "pt": "Outro",
+    "lb": "Aneres"
+  },
+  "event.school": {
+    "en": "School",
+    "de": "Schule",
+    "fr": "École",
+    "pt": "Escola",
+    "lb": "Schoul"
+  },
+  "event.sports": {
+    "en": "Sports",
+    "de": "Sport",
+    "fr": "Sports",
+    "pt": "Desporto",
+    "lb": "Sport"
+  },
+  "exchange.autoShare": {
+    "en": "Auto-share before exchanges",
+    "de": "Vor Übergaben automatisch teilen",
+    "fr": "Partage auto avant les échanges",
+    "pt": "Partilhar automaticamente antes das trocas",
+    "lb": "Virun Iwwergaben automatesch deelen"
+  },
+  "exchange.autoShareFooter": {
+    "en": "When enabled, you'll be prompted to share location when an exchange is within 4 hours.",
+    "de": "Wenn aktiviert, werden Sie aufgefordert, den Standort zu teilen, wenn eine Übergabe in 4 Stunden ansteht.",
+    "fr": "Si activé, vous serez invité à partager votre position quand un échange est dans les 4 heures.",
+    "pt": "Se ativado, será solicitado a partilhar a localização quando uma troca estiver nas próximas 4 horas.",
+    "lb": "Wann aktivéiert, gitt Dir opgefuerdert d'Plaz ze deelen wann eng Iwwergab bannent 4 Stonne ass."
+  },
+  "exchange.banner.in": {
+    "en": "Exchange in %@",
+    "de": "Übergabe in %@",
+    "fr": "Échange dans %@",
+    "pt": "Troca em %@",
+    "lb": "Iwwergab an %@"
+  },
+  "exchange.banner.prompt": {
+    "en": "Share your location with your co-parent",
+    "de": "Standort mit Co-Elternteil teilen",
+    "fr": "Partagez votre position avec votre co-parent",
+    "pt": "Partilhe a localização com o co-pai/mãe",
+    "lb": "Deelt Är Plaz mat ärem Co-Elterendeel"
+  },
+  "exchange.banner.sharedBy": {
+    "en": "Location shared by %@",
+    "de": "Standort geteilt von %@",
+    "fr": "Position partagée par %@",
+    "pt": "Localização partilhada por %@",
+    "lb": "Plaz gedeelt vun %@"
+  },
+  "exchange.intro": {
+    "en": "Share your current location with your co-parent for this custody exchange. Location is stored locally and visible in the app.",
+    "de": "Teilen Sie Ihren aktuellen Standort für diese Sorgerechtsübergabe. Der Standort wird lokal gespeichert.",
+    "fr": "Partagez votre position actuelle pour cet échange de garde. La position est stockée localement.",
+    "pt": "Partilhe a sua localização atual para esta troca de custódia. A localização fica armazenada localmente.",
+    "lb": "Deelt Är aktuell Plaz fir dës Sorgerechtsiwwergab. D'Plaz gëtt lokal gespäichert."
+  },
+  "exchange.meetAt": {
+    "en": "Meet at",
+    "de": "Treffen bei",
+    "fr": "Rendez-vous à",
+    "pt": "Encontro em",
+    "lb": "Treffen op"
+  },
+  "exchange.openInMaps": {
+    "en": "Open in Maps",
+    "de": "In Karten öffnen",
+    "fr": "Ouvrir dans Plans",
+    "pt": "Abrir no Mapas",
+    "lb": "An de Kaarten opmaachen"
+  },
+  "exchange.shareMyLocation": {
+    "en": "Share My Location",
+    "de": "Meinen Standort teilen",
+    "fr": "Partager ma position",
+    "pt": "Partilhar a minha localização",
+    "lb": "Meng Plaz deelen"
+  },
+  "exchange.sharedBy": {
+    "en": "Shared by %@ · %@",
+    "de": "Geteilt von %@ · %@",
+    "fr": "Partagé par %@ · %@",
+    "pt": "Partilhado por %@ · %@",
+    "lb": "Gedeelt vun %@ · %@"
+  },
+  "exchange.sharedLocation": {
+    "en": "Shared Location",
+    "de": "Geteilter Standort",
+    "fr": "Position partagée",
+    "pt": "Localização partilhada",
+    "lb": "Gedeelt Plaz"
+  },
+  "exchange.title": {
+    "en": "Exchange Location",
+    "de": "Übergabeort",
+    "fr": "Lieu d'échange",
+    "pt": "Local de troca",
+    "lb": "Iwwergabplaz"
+  },
+  "exchange.updateLocation": {
+    "en": "Update Location",
+    "de": "Standort aktualisieren",
+    "fr": "Mettre à jour la position",
+    "pt": "Atualizar localização",
+    "lb": "Plaz aktualiséieren"
+  },
+  "exchange.when": {
+    "en": "When",
+    "de": "Wann",
+    "fr": "Quand",
+    "pt": "Quando",
+    "lb": "Wéini"
+  },
+  "expense.activities": {
+    "en": "Activities",
+    "de": "Aktivitäten",
+    "fr": "Activités",
+    "pt": "Atividades",
+    "lb": "Aktivitéiten"
+  },
+  "expense.allowance": {
+    "en": "Allowance",
+    "de": "Taschengeld",
+    "fr": "Argent de poche",
+    "pt": "Mesada",
+    "lb": "Taschegeld"
+  },
+  "expense.childcare": {
+    "en": "Childcare",
+    "de": "Kinderbetreuung",
+    "fr": "Garde d'enfants",
+    "pt": "Cuidados infantis",
+    "lb": "Kannerbetreiung"
+  },
+  "expense.clothing": {
+    "en": "Clothing",
+    "de": "Kleidung",
+    "fr": "Vêtements",
+    "pt": "Roupa",
+    "lb": "Kleedung"
+  },
+  "expense.education": {
+    "en": "Education",
+    "de": "Bildung",
+    "fr": "Éducation",
+    "pt": "Educação",
+    "lb": "Bildung"
+  },
+  "expense.food": {
+    "en": "Food",
+    "de": "Essen",
+    "fr": "Alimentation",
+    "pt": "Alimentação",
+    "lb": "Iessen"
+  },
+  "expense.markUnpaid": {
+    "en": "Mark Unpaid",
+    "de": "Als unbezahlt markieren",
+    "fr": "Marquer comme impayé",
+    "pt": "Marcar como não pago",
+    "lb": "Als onbezuelt markéieren"
+  },
+  "expense.medical": {
+    "en": "Medical",
+    "de": "Medizinisch",
+    "fr": "Médical",
+    "pt": "Médico",
+    "lb": "Medizinesch"
+  },
+  "expense.other": {
+    "en": "Other",
+    "de": "Sonstiges",
+    "fr": "Autre",
+    "pt": "Outro",
+    "lb": "Aneres"
+  },
+  "expense.outstandingBalance": {
+    "en": "Outstanding Balance",
+    "de": "Offener Saldo",
+    "fr": "Solde en attente",
+    "pt": "Saldo pendente",
+    "lb": "Open Saldo"
+  },
+  "expense.paidBy": {
+    "en": "Paid by %@",
+    "de": "Bezahlt von %@",
+    "fr": "Payé par %@",
+    "pt": "Pago por %@",
+    "lb": "Bezuelt vun %@"
+  },
+  "expense.pending": {
+    "en": "Pending",
+    "de": "Ausstehend",
+    "fr": "En attente",
+    "pt": "Pendente",
+    "lb": "Ausstoend"
+  },
+  "expense.school": {
+    "en": "School",
+    "de": "Schule",
+    "fr": "École",
+    "pt": "Escola",
+    "lb": "Schoul"
+  },
+  "expense.section.all": {
+    "en": "All Expenses",
+    "de": "Alle Ausgaben",
+    "fr": "Toutes les dépenses",
+    "pt": "Todas as despesas",
+    "lb": "All Ausgaben"
+  },
+  "expense.settle": {
+    "en": "Settle",
+    "de": "Begleichen",
+    "fr": "Régler",
+    "pt": "Liquidar",
+    "lb": "Begleichen"
+  },
+  "expense.settleAll": {
+    "en": "Settle All",
+    "de": "Alle begleichen",
+    "fr": "Tout régler",
+    "pt": "Liquidar tudo",
+    "lb": "Alles begleichen"
+  },
+  "expense.settleAllConfirm": {
+    "en": "Settle all %d unpaid expenses?",
+    "de": "Alle %d offenen Ausgaben begleichen?",
+    "fr": "Régler les %d dépenses impayées ?",
+    "pt": "Liquidar todas as %d despesas pendentes?",
+    "lb": "All %d open Ausgaben begleichen?"
+  },
+  "expense.settleAllMessage": {
+    "en": "This marks $%@ as reimbursed.",
+    "de": "Dies markiert $%@ als erstattet.",
+    "fr": "Cela marque $%@ comme remboursé.",
+    "pt": "Isto marca $%@ como reembolsado.",
+    "lb": "Dëst markéiert $%@ als rembourséiert."
+  },
+  "expense.settleUp": {
+    "en": "Settle Up",
+    "de": "Ausgleichen",
+    "fr": "Régler",
+    "pt": "Liquidar",
+    "lb": "Ausgläichen"
+  },
+  "expense.settled": {
+    "en": "Settled",
+    "de": "Beglichen",
+    "fr": "Réglé",
+    "pt": "Liquidado",
+    "lb": "Begluecht"
+  },
+  "expense.sports": {
+    "en": "Sports",
+    "de": "Sport",
+    "fr": "Sports",
+    "pt": "Desporto",
+    "lb": "Sport"
+  },
+  "expense.transport": {
+    "en": "Transport",
+    "de": "Transport",
+    "fr": "Transport",
+    "pt": "Transporte",
+    "lb": "Transport"
+  },
+  "expense.travel": {
+    "en": "Travel",
+    "de": "Reisen",
+    "fr": "Voyage",
+    "pt": "Viagem",
+    "lb": "Reesen"
+  },
+  "export.generatePDF": {
+    "en": "Generate PDF Report",
+    "de": "PDF-Bericht erstellen",
+    "fr": "Générer un rapport PDF",
+    "pt": "Gerar relatório PDF",
+    "lb": "PDF-Bericht erstellen"
+  },
+  "export.include.calendar": {
+    "en": "Calendar",
+    "de": "Kalender",
+    "fr": "Calendrier",
+    "pt": "Calendário",
+    "lb": "Kalenner"
+  },
+  "export.include.documents": {
+    "en": "Documents",
+    "de": "Dokumente",
+    "fr": "Documents",
+    "pt": "Documentos",
+    "lb": "Dokumenter"
+  },
+  "export.include.expenses": {
+    "en": "Expenses",
+    "de": "Ausgaben",
+    "fr": "Dépenses",
+    "pt": "Despesas",
+    "lb": "Ausgaben"
+  },
+  "export.include.medical": {
+    "en": "Medical Records",
+    "de": "Medizinische Aufzeichnungen",
+    "fr": "Dossiers médicaux",
+    "pt": "Registos médicos",
+    "lb": "Medizinesch Opzeechnungen"
+  },
+  "export.include.messages": {
+    "en": "Messages",
+    "de": "Nachrichten",
+    "fr": "Messages",
+    "pt": "Mensagens",
+    "lb": "Noriichten"
+  },
+  "export.integrityFooter": {
+    "en": "PDF exports include a SHA-256 integrity hash for court admissibility. All records are timestamped and immutable.",
+    "de": "PDF-Exporte enthalten einen SHA-256-Integritäts-Hash für Gerichtsfestigkeit. Alle Einträge sind zeitgestempelt und unveränderlich.",
+    "fr": "Les exports PDF incluent un hash SHA-256 pour recevabilité judiciaire. Tous les enregistrements sont horodatés et immuables.",
+    "pt": "As exportações PDF incluem um hash SHA-256 para admissibilidade judicial. Todos os registos têm carimbo temporal e são imutáveis.",
+    "lb": "PDF-Exporte enthalen e SHA-256-Integritéits-Hash fir d'Gericht. All Opzeechnungen sinn mat Zäitstempel a onverännerlech."
+  },
+  "export.jsonError": {
+    "en": "JSON export failed.",
+    "de": "JSON-Export fehlgeschlagen.",
+    "fr": "Échec de l'export JSON.",
+    "pt": "Falha na exportação JSON.",
+    "lb": "JSON-Export feelgeschloen."
+  },
+  "export.pdfError": {
+    "en": "PDF export failed.",
+    "de": "PDF-Export fehlgeschlagen.",
+    "fr": "Échec de l'export PDF.",
+    "pt": "Falha na exportação PDF.",
+    "lb": "PDF-Export feelgeschloen."
+  },
+  "export.range.12months": {
+    "en": "Last 12 months",
+    "de": "Letzte 12 Monate",
+    "fr": "12 derniers mois",
+    "pt": "Últimos 12 meses",
+    "lb": "Lescht 12 Méint"
+  },
+  "export.range.3months": {
+    "en": "Last 3 months",
+    "de": "Letzte 3 Monate",
+    "fr": "3 derniers mois",
+    "pt": "Últimos 3 meses",
+    "lb": "Lescht 3 Méint"
+  },
+  "export.range.allTime": {
+    "en": "All time",
+    "de": "Gesamter Zeitraum",
+    "fr": "Tout",
+    "pt": "Todo o período",
+    "lb": "Ganzen Zäitraum"
+  },
+  "export.rangeLabel": {
+    "en": "Range",
+    "de": "Bereich",
+    "fr": "Période",
+    "pt": "Intervalo",
+    "lb": "Beräich"
+  },
+  "export.rawJSON": {
+    "en": "Export Raw Data (JSON)",
+    "de": "Rohdaten exportieren (JSON)",
+    "fr": "Exporter les données brutes (JSON)",
+    "pt": "Exportar dados brutos (JSON)",
+    "lb": "Roudaten exportéieren (JSON)"
+  },
+  "export.section.include": {
+    "en": "Include",
+    "de": "Einschließen",
+    "fr": "Inclure",
+    "pt": "Incluir",
+    "lb": "Abegraffen"
+  },
+  "export.section.range": {
+    "en": "Export Range",
+    "de": "Exportbereich",
+    "fr": "Période d'export",
+    "pt": "Intervalo de exportação",
+    "lb": "Exportberäich"
+  },
+  "familyJoin.error.alreadyMember": {
+    "en": "You're already part of this family.",
+    "de": "Sie sind bereits Teil dieser Familie.",
+    "fr": "Vous faites déjà partie de cette famille.",
+    "pt": "Já faz parte desta família.",
+    "lb": "Dir sidd schonn Deel vun dëser Famill."
+  },
+  "familyJoin.error.emptyName": {
+    "en": "Enter your name so your co-parent knows who joined.",
+    "de": "Geben Sie Ihren Namen ein, damit Ihr Co-Elternteil weiß, wer beigetreten ist.",
+    "fr": "Entrez votre nom pour que votre co-parent sache qui a rejoint.",
+    "pt": "Introduza o seu nome para o co-pai/mãe saber quem entrou.",
+    "lb": "Gitt Ären Numm an, fir datt Ären Co-Elterendeel weess, wien bäigetrueden ass."
+  },
+  "familyJoin.error.invalidCode": {
+    "en": "Enter the 8-character family code from your co-parent's invite.",
+    "de": "Geben Sie den 8-stelligen Familiencode aus der Einladung ein.",
+    "fr": "Entrez le code famille à 8 caractères de l'invitation.",
+    "pt": "Introduza o código de família de 8 caracteres do convite.",
+    "lb": "Gitt de 8-stellege Familljencode aus der Invitatioun an."
+  },
+  "familyJoin.error.notFound": {
+    "en": "No family matches that code. Check the code and try again.",
+    "de": "Keine Familie mit diesem Code. Prüfen Sie den Code und versuchen Sie es erneut.",
+    "fr": "Aucune famille ne correspond à ce code. Vérifiez le code et réessayez.",
+    "pt": "Nenhuma família corresponde a esse código. Verifique e tente novamente.",
+    "lb": "Keng Famill passt zu dësem Code. Kontrolléiert a probéiert nach eng Kéier."
+  },
+  "form.addMemberToTrackPaid": {
+    "en": "Add a family member to track who paid.",
+    "de": "Fügen Sie ein Familienmitglied hinzu, um zu verfolgen, wer bezahlt hat.",
+    "fr": "Ajoutez un membre de la famille pour suivre qui a payé.",
+    "pt": "Adicione um membro da família para acompanhar quem pagou.",
+    "lb": "Füügt e Familljemember derbäi fir ze verfollegen wien bezuelt huet."
+  },
+  "form.allChildren": {
+    "en": "All children",
+    "de": "Alle Kinder",
+    "fr": "Tous les enfants",
+    "pt": "Todas as crianças",
+    "lb": "All Kanner"
+  },
+  "form.allergiesCommaSeparated": {
+    "en": "Allergies, comma separated",
+    "de": "Allergien, kommagetrennt",
+    "fr": "Allergies, séparées par des virgules",
+    "pt": "Alergias, separadas por vírgulas",
+    "lb": "Allergien, mat Komma getrennt"
+  },
+  "form.amount": {
+    "en": "Amount",
+    "de": "Betrag",
+    "fr": "Montant",
+    "pt": "Montante",
+    "lb": "Betrag"
+  },
+  "form.bloodTypeOptional": {
+    "en": "Blood type (optional)",
+    "de": "Blutgruppe (optional)",
+    "fr": "Groupe sanguin (facultatif)",
+    "pt": "Tipo sanguíneo (opcional)",
+    "lb": "Bluttgrupp (optional)"
+  },
+  "form.category": {
+    "en": "Category",
+    "de": "Kategorie",
+    "fr": "Catégorie",
+    "pt": "Categoria",
+    "lb": "Kategorie"
+  },
+  "form.createFamilyFirst": {
+    "en": "Create a family first.",
+    "de": "Erstellen Sie zuerst eine Familie.",
+    "fr": "Créez d'abord une famille.",
+    "pt": "Crie primeiro uma família.",
+    "lb": "Erstellt fir d'éischt eng Famill."
+  },
+  "form.date": {
+    "en": "Date",
+    "de": "Datum",
+    "fr": "Date",
+    "pt": "Data",
+    "lb": "Datum"
+  },
+  "form.description": {
+    "en": "Description",
+    "de": "Beschreibung",
+    "fr": "Description",
+    "pt": "Descrição",
+    "lb": "Beschreiwung"
+  },
+  "form.emailOptional": {
+    "en": "Email (optional)",
+    "de": "E-Mail (optional)",
+    "fr": "E-mail (facultatif)",
+    "pt": "E-mail (opcional)",
+    "lb": "E-Mail (optional)"
+  },
+  "form.eventSaveError": {
+    "en": "Couldn't save event.",
+    "de": "Termin konnte nicht gespeichert werden.",
+    "fr": "Impossible d'enregistrer l'événement.",
+    "pt": "Não foi possível guardar o evento.",
+    "lb": "Evenement konnt net gespäichert ginn."
+  },
+  "form.expenseSaveError": {
+    "en": "Couldn't save expense.",
+    "de": "Ausgabe konnte nicht gespeichert werden.",
+    "fr": "Impossible d'enregistrer la dépense.",
+    "pt": "Não foi possível guardar a despesa.",
+    "lb": "Ausgab konnt net gespäichert ginn."
+  },
+  "form.general": {
+    "en": "General",
+    "de": "Allgemein",
+    "fr": "Général",
+    "pt": "Geral",
+    "lb": "Allgemeng"
+  },
+  "form.locationOptional": {
+    "en": "Location (optional)",
+    "de": "Ort (optional)",
+    "fr": "Lieu (facultatif)",
+    "pt": "Local (opcional)",
+    "lb": "Plaz (optional)"
+  },
+  "form.name": {
+    "en": "Name",
+    "de": "Name",
+    "fr": "Nom",
+    "pt": "Nome",
+    "lb": "Numm"
+  },
+  "form.newEvent": {
+    "en": "New Event",
+    "de": "Neuer Termin",
+    "fr": "Nouvel événement",
+    "pt": "Novo evento",
+    "lb": "Neit Evenement"
+  },
+  "form.newExpense": {
+    "en": "New Expense",
+    "de": "Neue Ausgabe",
+    "fr": "Nouvelle dépense",
+    "pt": "Nova despesa",
+    "lb": "Nei Ausgab"
+  },
+  "form.optionalNotes": {
+    "en": "Optional notes",
+    "de": "Optionale Notizen",
+    "fr": "Notes facultatives",
+    "pt": "Notas opcionais",
+    "lb": "Optional Notizen"
+  },
+  "form.paidBy": {
+    "en": "Paid by",
+    "de": "Bezahlt von",
+    "fr": "Payé par",
+    "pt": "Pago por",
+    "lb": "Bezuelt vun"
+  },
+  "form.role": {
+    "en": "Role",
+    "de": "Rolle",
+    "fr": "Rôle",
+    "pt": "Função",
+    "lb": "Roll"
+  },
+  "form.saveError": {
+    "en": "Couldn't save. Please try again.",
+    "de": "Speichern fehlgeschlagen. Bitte erneut versuchen.",
+    "fr": "Enregistrement impossible. Veuillez réessayer.",
+    "pt": "Não foi possível guardar. Tente novamente.",
+    "lb": "Späicheren feelgeschloen. Probéiert w.e.g. nach eng Kéier."
+  },
+  "form.section.details": {
+    "en": "Details",
+    "de": "Details",
+    "fr": "Détails",
+    "pt": "Detalhes",
+    "lb": "Detailer"
+  },
+  "form.section.event": {
+    "en": "Event",
+    "de": "Termin",
+    "fr": "Événement",
+    "pt": "Evento",
+    "lb": "Evenement"
+  },
+  "form.section.expense": {
+    "en": "Expense",
+    "de": "Ausgabe",
+    "fr": "Dépense",
+    "pt": "Despesa",
+    "lb": "Ausgab"
+  },
+  "form.section.name": {
+    "en": "Name",
+    "de": "Name",
+    "fr": "Nom",
+    "pt": "Nome",
+    "lb": "Numm"
+  },
+  "form.section.notes": {
+    "en": "Notes",
+    "de": "Notizen",
+    "fr": "Notes",
+    "pt": "Notas",
+    "lb": "Notizen"
+  },
+  "form.section.split": {
+    "en": "Split",
+    "de": "Aufteilung",
+    "fr": "Répartition",
+    "pt": "Divisão",
+    "lb": "Opdeelung"
+  },
+  "form.section.when": {
+    "en": "When",
+    "de": "Wann",
+    "fr": "Quand",
+    "pt": "Quando",
+    "lb": "Wéini"
+  },
+  "form.split5050": {
+    "en": "Split 50/50",
+    "de": "50/50 aufteilen",
+    "fr": "Répartir 50/50",
+    "pt": "Dividir 50/50",
+    "lb": "50/50 opdeelen"
+  },
+  "form.title": {
+    "en": "Title",
+    "de": "Titel",
+    "fr": "Titre",
+    "pt": "Título",
+    "lb": "Titel"
+  },
+  "growth.emptyMessage": {
+    "en": "Import from Apple Health or add measurements manually.",
+    "de": "Aus Apple Health importieren oder Messungen manuell hinzufügen.",
+    "fr": "Importez depuis Apple Santé ou ajoutez des mesures manuellement.",
+    "pt": "Importe do Apple Health ou adicione medições manualmente.",
+    "lb": "Aus Apple Health importéieren oder Messungen manuell derbäisetzen."
+  },
+  "growth.emptyTitle": {
+    "en": "No Growth Data",
+    "de": "Keine Wachstumsdaten",
+    "fr": "Pas de données de croissance",
+    "pt": "Sem dados de crescimento",
+    "lb": "Keng Wuesstemdaten"
+  },
+  "growth.height": {
+    "en": "Height",
+    "de": "Größe",
+    "fr": "Taille",
+    "pt": "Altura",
+    "lb": "Gréisst"
+  },
+  "growth.metric": {
+    "en": "Metric",
+    "de": "Metrik",
+    "fr": "Mesure",
+    "pt": "Métrica",
+    "lb": "Metrik"
+  },
+  "growth.unit.cm": {
+    "en": "cm",
+    "de": "cm",
+    "fr": "cm",
+    "pt": "cm",
+    "lb": "cm"
+  },
+  "growth.unit.kg": {
+    "en": "kg",
+    "de": "kg",
+    "fr": "kg",
+    "pt": "kg",
+    "lb": "kg"
+  },
+  "growth.weight": {
+    "en": "Weight",
+    "de": "Gewicht",
+    "fr": "Poids",
+    "pt": "Peso",
+    "lb": "Gewiicht"
+  },
+  "health.accessDenied": {
+    "en": "Health access was denied. Enable it in Settings → Health → Data Access → Common Ground.",
+    "de": "Health-Zugriff verweigert. Aktivieren Sie ihn unter Einstellungen → Health → Datenzugriff → Common Ground.",
+    "fr": "Accès Santé refusé. Activez-le dans Réglages → Santé → Accès aux données → Common Ground.",
+    "pt": "Acesso ao Health negado. Ative em Definições → Saúde → Acesso a Dados → Common Ground.",
+    "lb": "Health-Zougang refuséiert. Aktivéiert en an den Astellungen → Health → Datenzougang → Common Ground."
+  },
+  "health.importError": {
+    "en": "Import failed. Please try again.",
+    "de": "Import fehlgeschlagen. Bitte erneut versuchen.",
+    "fr": "Échec de l'import. Veuillez réessayer.",
+    "pt": "Falha na importação. Tente novamente.",
+    "lb": "Import feelgeschloen. Probéiert w.e.g. nach eng Kéier."
+  },
+  "health.importFromHealth": {
+    "en": "Import from Health",
+    "de": "Aus Health importieren",
+    "fr": "Importer depuis Santé",
+    "pt": "Importar do Health",
+    "lb": "Aus Health importéieren"
+  },
+  "health.importIntro": {
+    "en": "Import height and weight measurements from Apple Health to track growth over time. Data stays on your device.",
+    "de": "Größe und Gewicht aus Apple Health importieren, um Wachstum zu verfolgen. Daten bleiben auf Ihrem Gerät.",
+    "fr": "Importez taille et poids depuis Apple Santé pour suivre la croissance. Les données restent sur votre appareil.",
+    "pt": "Importe altura e peso do Apple Health para acompanhar o crescimento. Os dados ficam no seu dispositivo.",
+    "lb": "Gréisst a Gewiicht aus Apple Health importéieren. Daten bleiwen op ärem Apparat."
+  },
+  "health.importSettings": {
+    "en": "Import Settings",
+    "de": "Importeinstellungen",
+    "fr": "Paramètres d'import",
+    "pt": "Definições de importação",
+    "lb": "Import-Astellungen"
+  },
+  "health.imported": {
+    "en": "Imported",
+    "de": "Importiert",
+    "fr": "Importés",
+    "pt": "Importados",
+    "lb": "Importéiert"
+  },
+  "health.pastYears": {
+    "en": "Past %d years",
+    "de": "Letzte %d Jahre",
+    "fr": "%d dernières années",
+    "pt": "Últimos %d anos",
+    "lb": "Lescht %d Joer"
+  },
+  "health.results": {
+    "en": "Results",
+    "de": "Ergebnisse",
+    "fr": "Résultats",
+    "pt": "Resultados",
+    "lb": "Resultater"
+  },
+  "health.skipped": {
+    "en": "Skipped",
+    "de": "Übersprungen",
+    "fr": "Ignorés",
+    "pt": "Ignorados",
+    "lb": "Iwwersprongen"
+  },
+  "health.unavailable": {
+    "en": "Apple Health is not available on this device.",
+    "de": "Apple Health ist auf diesem Gerät nicht verfügbar.",
+    "fr": "Apple Santé n'est pas disponible sur cet appareil.",
+    "pt": "Apple Health não está disponível neste dispositivo.",
+    "lb": "Apple Health ass op dësem Apparat net disponibel."
+  },
+  "home.action.askAI": {
+    "en": "Ask AI",
+    "de": "KI fragen",
+    "fr": "Demander à l'IA",
+    "pt": "Perguntar à IA",
+    "lb": "KI froen"
+  },
+  "home.action.event": {
+    "en": "Event",
+    "de": "Termin",
+    "fr": "Événement",
+    "pt": "Evento",
+    "lb": "Evenement"
+  },
+  "home.action.expense": {
+    "en": "Expense",
+    "de": "Ausgabe",
+    "fr": "Dépense",
+    "pt": "Despesa",
+    "lb": "Ausgab"
+  },
+  "home.action.message": {
+    "en": "Message",
+    "de": "Nachricht",
+    "fr": "Message",
+    "pt": "Mensagem",
+    "lb": "Noriicht"
+  },
+  "home.action.update": {
+    "en": "Update",
+    "de": "Update",
+    "fr": "Mise à jour",
+    "pt": "Atualização",
+    "lb": "Mise à jour"
+  },
+  "home.activeMedications": {
+    "en": "Active Medications",
+    "de": "Aktive Medikamente",
+    "fr": "Médicaments actifs",
+    "pt": "Medicamentos ativos",
+    "lb": "Aktiv Medikamenter"
+  },
+  "home.aiAssistant": {
+    "en": "AI Assistant",
+    "de": "KI-Assistent",
+    "fr": "Assistant IA",
+    "pt": "Assistente de IA",
+    "lb": "KI-Assistent"
+  },
+  "home.comingUp": {
+    "en": "Coming Up",
+    "de": "Demnächst",
+    "fr": "À venir",
+    "pt": "A seguir",
+    "lb": "Geschitt"
+  },
+  "home.expensePending": {
+    "en": "$%@ pending reimbursement",
+    "de": "$%@ Erstattung ausstehend",
+    "fr": "$%@ remboursement en attente",
+    "pt": "$%@ reembolso pendente",
+    "lb": "$%@ Remboursement ausstoend"
+  },
+  "home.greeting.afternoon": {
+    "en": "Good afternoon",
+    "de": "Guten Tag",
+    "fr": "Bon après-midi",
+    "pt": "Boa tarde",
+    "lb": "Gudde Mëtteg"
+  },
+  "home.greeting.evening": {
+    "en": "Good evening",
+    "de": "Guten Abend",
+    "fr": "Bonsoir",
+    "pt": "Boa noite",
+    "lb": "Gudden Owend"
+  },
+  "home.greeting.morning": {
+    "en": "Good morning",
+    "de": "Guten Morgen",
+    "fr": "Bonjour",
+    "pt": "Bom dia",
+    "lb": "Gudde Moien"
+  },
+  "home.medicationCount": {
+    "en": "%d medication with reminders",
+    "de": "%d Medikament mit Erinnerungen",
+    "fr": "%d médicament avec rappels",
+    "pt": "%d medicamento com lembretes",
+    "lb": "%d Medikament mat Erënnerungen"
+  },
+  "home.medicationsCount": {
+    "en": "%d medications with reminders",
+    "de": "%d Medikamente mit Erinnerungen",
+    "fr": "%d médicaments avec rappels",
+    "pt": "%d medicamentos com lembretes",
+    "lb": "%d Medikamenter mat Erënnerungen"
+  },
+  "home.needsAttention": {
+    "en": "Needs Attention",
+    "de": "Erfordert Aufmerksamkeit",
+    "fr": "Nécessite une attention",
+    "pt": "Precisa de atenção",
+    "lb": "Brauch Opmierksamkeet"
+  },
+  "home.noUpcomingEvents": {
+    "en": "No upcoming events",
+    "de": "Keine anstehenden Termine",
+    "fr": "Aucun événement à venir",
+    "pt": "Sem eventos futuros",
+    "lb": "Keng evenementer geschitt"
+  },
+  "home.noUpdates": {
+    "en": "No updates yet today",
+    "de": "Noch keine Updates heute",
+    "fr": "Pas encore de mises à jour aujourd'hui",
+    "pt": "Ainda sem atualizações hoje",
+    "lb": "Nach keng Updates haut"
+  },
+  "home.outstandingExpenses": {
+    "en": "Outstanding Expenses",
+    "de": "Offene Ausgaben",
+    "fr": "Dépenses en attente",
+    "pt": "Despesas pendentes",
+    "lb": "Open Ausgaben"
+  },
+  "home.passportExpiring": {
+    "en": "Passport Expiring",
+    "de": "Reisepass läuft ab",
+    "fr": "Passeport expirant",
+    "pt": "Passaporte a expirar",
+    "lb": "Pass laf of"
+  },
+  "home.passportRenew": {
+    "en": "Renew before %@",
+    "de": "Erneuern vor %@",
+    "fr": "Renouveler avant %@",
+    "pt": "Renovar antes de %@",
+    "lb": "Erneieren virun %@"
+  },
+  "home.quickActions": {
+    "en": "Quick actions",
+    "de": "Schnellaktionen",
+    "fr": "Actions rapides",
+    "pt": "Ações rápidas",
+    "lb": "Séier Aktiounen"
+  },
+  "home.shareWhatHappened": {
+    "en": "Share what happened",
+    "de": "Teilen, was passiert ist",
+    "fr": "Partager ce qui s'est passé",
+    "pt": "Partilhar o que aconteceu",
+    "lb": "Deelen wat geschitt ass"
+  },
+  "home.subtitle": {
+    "en": "Here's what's happening with your family today, %@.",
+    "de": "Das passiert heute in Ihrer Familie, %@.",
+    "fr": "Voici ce qui se passe dans votre famille aujourd'hui, %@.",
+    "pt": "Isto é o que acontece com a sua família hoje, %@.",
+    "lb": "Sou ass et haut an ärer Famill ausgesäit, %@."
+  },
+  "home.title": {
+    "en": "Home",
+    "de": "Start",
+    "fr": "Accueil",
+    "pt": "Início",
+    "lb": "Doheem"
+  },
+  "home.todaysUpdates": {
+    "en": "Today's Updates",
+    "de": "Heutige Updates",
+    "fr": "Mises à jour du jour",
+    "pt": "Atualizações de hoje",
+    "lb": "Updates vun haut"
+  },
+  "home.updatePrompt.body": {
+    "en": "Share a short note about school, activities, or how the day went — no long chat required.",
+    "de": "Teilen Sie eine kurze Notiz über Schule, Aktivitäten oder den Tagesverlauf — kein langer Chat nötig.",
+    "fr": "Partagez une courte note sur l'école, les activités ou la journée — pas besoin d'une longue conversation.",
+    "pt": "Partilhe uma nota curta sobre a escola, atividades ou o dia — sem conversa longa.",
+    "lb": "Deelt eng kuerz Notiz iwwer Schoul, Aktivitéiten oder de Dag — kee laangen Chat néideg."
+  },
+  "home.updatePrompt.title": {
+    "en": "A calm check-in for your co-parent",
+    "de": "Ein ruhiger Check-in für Ihren Co-Elternteil",
+    "fr": "Un point calme pour votre co-parent",
+    "pt": "Um check-in tranquilo para o seu co-pai/mãe",
+    "lb": "E rouegen Check-in fir ären Co-Elterendeel"
+  },
+  "invite.coParentEmail": {
+    "en": "Co-parent email (optional)",
+    "de": "E-Mail des Co-Elternteils (optional)",
+    "fr": "E-mail du co-parent (facultatif)",
+    "pt": "E-mail do co-pai/mãe (opcional)",
+    "lb": "E-Mail vum Co-Elterendeel (optional)"
+  },
+  "invite.defaultBody": {
+    "en": "Join me on Common Ground for co-parenting.",
+    "de": "Begleiten Sie mich auf Common Ground für Co-Parenting.",
+    "fr": "Rejoignez-moi sur Common Ground pour la co-parentalité.",
+    "pt": "Junte-se a mim no Common Ground para co-parentalidade.",
+    "lb": "Kommt mat mir op Common Ground fir Co-Parenting."
+  },
+  "invite.emailSubject": {
+    "en": "Join our family on Common Ground",
+    "de": "Treten Sie unserer Familie auf Common Ground bei",
+    "fr": "Rejoignez notre famille sur Common Ground",
+    "pt": "Junte-se à nossa família no Common Ground",
+    "lb": "Kommt zu eiser Famill op Common Ground"
+  },
+  "invite.familyCodeHint": {
+    "en": "Your co-parent can enter this code when they sign up.",
+    "de": "Ihr Co-Elternteil kann diesen Code bei der Anmeldung eingeben.",
+    "fr": "Votre co-parent peut entrer ce code lors de l'inscription.",
+    "pt": "O seu co-pai/mãe pode introduzir este código ao registar-se.",
+    "lb": "Ären Co-Elterendeel kann dëse Code bei der Umeldung aginn."
+  },
+  "invite.intro": {
+    "en": "Invite your co-parent to share custody schedules, expenses, and messages.",
+    "de": "Laden Sie Ihren Co-Elternteil ein, Sorgerechtspläne, Ausgaben und Nachrichten zu teilen.",
+    "fr": "Invitez votre co-parent à partager plannings, dépenses et messages.",
+    "pt": "Convide o seu co-pai/mãe a partilhar calendários, despesas e mensagens.",
+    "lb": "Invitéiert ären Co-Elterendeel fir Pläng, Ausgaben a Noriichten ze deelen."
+  },
+  "invite.message": {
+    "en": "%@ invited you to join \"%@\" on Common Ground — the shared app for co-parenting.\n\nDownload Common Ground and use this family code to connect:\n%@\n\nCommon Ground keeps custody schedules, expenses, medical records, and messages in one secure place.",
+    "de": "%@ hat Sie eingeladen, \"%@\" auf Common Ground beizutreten — der gemeinsamen App für Co-Parenting.\n\nLaden Sie Common Ground herunter und verwenden Sie diesen Familiencode:\n%@\n\nCommon Ground bündelt Sorgerechtspläne, Ausgaben, medizinische Unterlagen und Nachrichten an einem sicheren Ort.",
+    "fr": "%@ vous a invité à rejoindre « %@ » sur Common Ground — l'application partagée pour la co-parentalité.\n\nTéléchargez Common Ground et utilisez ce code famille :\n%@\n\nCommon Ground regroupe plannings de garde, dépenses, dossiers médicaux et messages en un seul endroit sécurisé.",
+    "pt": "%@ convidou-o a juntar-se a \"%@\" no Common Ground — a app partilhada para co-parentalidade.\n\nDescarregue o Common Ground e use este código de família:\n%@\n\nO Common Ground reúne calendários de custódia, despesas, registos médicos e mensagens num só local seguro.",
+    "lb": "%@ huet Iech invitéiert \"%@\" op Common Ground bäizetrieden — der gedeelter App fir Co-Parenting.\n\nLuet Common Ground erof a benotzt dëse Familljencode:\n%@\n\nCommon Ground bündelt Sorgerechtspläng, Ausgaben, medizinesch Ënnerlagen a Noriichten op enger sécherer Plaz."
+  },
+  "invite.section.familyCode": {
+    "en": "Family Code",
+    "de": "Familiencode",
+    "fr": "Code famille",
+    "pt": "Código da família",
+    "lb": "Familljencode"
+  },
+  "invite.section.sendInvite": {
+    "en": "Send Invite",
+    "de": "Einladung senden",
+    "fr": "Envoyer l'invitation",
+    "pt": "Enviar convite",
+    "lb": "Invitatioun schécken"
+  },
+  "invite.sendEmail": {
+    "en": "Send Email",
+    "de": "E-Mail senden",
+    "fr": "Envoyer un e-mail",
+    "pt": "Enviar e-mail",
+    "lb": "E-Mail schécken"
+  },
+  "invite.shareInvite": {
+    "en": "Share Invite",
+    "de": "Einladung teilen",
+    "fr": "Partager l'invitation",
+    "pt": "Partilhar convite",
+    "lb": "Invitatioun deelen"
+  },
+  "invite.title": {
+    "en": "Invite Co-Parent",
+    "de": "Co-Elternteil einladen",
+    "fr": "Inviter le co-parent",
+    "pt": "Convidar co-pai/mãe",
+    "lb": "Co-Elterendeel invitéieren"
+  },
+  "join.codePlaceholder": {
+    "en": "8-character code",
+    "de": "8-stelliger Code",
+    "fr": "Code à 8 caractères",
+    "pt": "Código de 8 caracteres",
+    "lb": "8-stellege Code"
+  },
+  "join.intro": {
+    "en": "Enter the family code your co-parent shared with you to join their Common Ground family.",
+    "de": "Geben Sie den Familiencode ein, den Ihr Co-Elternteil geteilt hat.",
+    "fr": "Entrez le code famille partagé par votre co-parent.",
+    "pt": "Introduza o código da família partilhado pelo seu co-pai/mãe.",
+    "lb": "Gitt de Familljencode an deen ären Co-Elterendeel mat Iech gedeelt huet."
+  },
+  "join.section.familyCode": {
+    "en": "Family Code",
+    "de": "Familiencode",
+    "fr": "Code famille",
+    "pt": "Código da família",
+    "lb": "Familljencode"
+  },
+  "join.section.yourInfo": {
+    "en": "Your Info",
+    "de": "Ihre Daten",
+    "fr": "Vos informations",
+    "pt": "As suas informações",
+    "lb": "Är Informatiounen"
+  },
+  "keychain.error.delete": {
+    "en": "Failed to delete secure value.",
+    "de": "Sicherer Wert konnte nicht gelöscht werden.",
+    "fr": "Impossible de supprimer la valeur sécurisée.",
+    "pt": "Não foi possível eliminar o valor seguro.",
+    "lb": "Séchere Wäert konnt net geläscht ginn."
+  },
+  "keychain.error.retrieve": {
+    "en": "Failed to retrieve secure value.",
+    "de": "Sicherer Wert konnte nicht abgerufen werden.",
+    "fr": "Impossible de récupérer la valeur sécurisée.",
+    "pt": "Não foi possível obter o valor seguro.",
+    "lb": "Séchere Wäert konnt net ofgeruff ginn."
+  },
+  "keychain.error.store": {
+    "en": "Failed to store secure value.",
+    "de": "Sicherer Wert konnte nicht gespeichert werden.",
+    "fr": "Impossible d'enregistrer la valeur sécurisée.",
+    "pt": "Não foi possível guardar o valor seguro.",
+    "lb": "Séchere Wäert konnt net gespäichert ginn."
+  },
+  "language.footer": {
+    "en": "Choose the language for all buttons, labels, and messages in Common Ground.",
+    "de": "Wählen Sie die Sprache für alle Schaltflächen, Beschriftungen und Nachrichten in Common Ground.",
+    "fr": "Choisissez la langue de tous les boutons, libellés et messages dans Common Ground.",
+    "pt": "Escolha o idioma de todos os botões, etiquetas e mensagens no Common Ground.",
+    "lb": "Wielt d'Sprooch fir all Knäppercher, Beschriftungen a Messagen am Common Ground."
+  },
+  "language.system": {
+    "en": "System Language",
+    "de": "Systemsprache",
+    "fr": "Langue du système",
+    "pt": "Idioma do sistema",
+    "lb": "Systemsprooch"
+  },
+  "language.title": {
+    "en": "Language",
+    "de": "Sprache",
+    "fr": "Langue",
+    "pt": "Idioma",
+    "lb": "Sprooch"
+  },
+  "location.error.denied": {
+    "en": "Location access was denied. Enable it in Settings → Common Ground → Location.",
+    "de": "Standortzugriff wurde verweigert. Aktivieren Sie ihn unter Einstellungen → Common Ground → Ort.",
+    "fr": "L'accès à la position a été refusé. Activez-le dans Réglages → Common Ground → Localisation.",
+    "pt": "O acesso à localização foi negado. Ative-o em Definições → Common Ground → Localização.",
+    "lb": "Standuertzougang gouf refuséiert. Aktivéiert en an den Astellungen → Common Ground → Standuert."
+  },
+  "location.error.timedOut": {
+    "en": "Couldn't determine your location. Try again outdoors or near a window.",
+    "de": "Standort konnte nicht ermittelt werden. Versuchen Sie es draußen oder am Fenster.",
+    "fr": "Impossible de déterminer votre position. Réessayez dehors ou près d'une fenêtre.",
+    "pt": "Não foi possível determinar a localização. Tente novamente ao ar livre ou perto de uma janela.",
+    "lb": "Standuert konnt net ermëttelt ginn. Probéiert baussen oder no bei engem Fënster."
+  },
+  "location.error.unavailable": {
+    "en": "Location services are unavailable on this device.",
+    "de": "Standortdienste sind auf diesem Gerät nicht verfügbar.",
+    "fr": "Les services de localisation ne sont pas disponibles sur cet appareil.",
+    "pt": "Os serviços de localização não estão disponíveis neste dispositivo.",
+    "lb": "Standuertservicer sinn op dësem Apparat net disponibel."
+  },
+  "lock.method.devicePasscode": {
+    "en": "Device Passcode",
+    "de": "Gerätecode",
+    "fr": "Code de l'appareil",
+    "pt": "Código do dispositivo",
+    "lb": "Apparat-Code"
+  },
+  "lock.method.faceID": {
+    "en": "Face ID",
+    "de": "Face ID",
+    "fr": "Face ID",
+    "pt": "Face ID",
+    "lb": "Face ID"
+  },
+  "lock.method.opticID": {
+    "en": "Optic ID",
+    "de": "Optic ID",
+    "fr": "Optic ID",
+    "pt": "Optic ID",
+    "lb": "Optic ID"
+  },
+  "lock.method.passcode": {
+    "en": "Passcode",
+    "de": "Code",
+    "fr": "Code",
+    "pt": "Código",
+    "lb": "Code"
+  },
+  "lock.method.touchID": {
+    "en": "Touch ID",
+    "de": "Touch ID",
+    "fr": "Touch ID",
+    "pt": "Touch ID",
+    "lb": "Touch ID"
+  },
+  "lock.now": {
+    "en": "Lock Now",
+    "de": "Jetzt sperren",
+    "fr": "Verrouiller maintenant",
+    "pt": "Bloquear agora",
+    "lb": "Elo spären"
+  },
+  "lock.require": {
+    "en": "Require %@",
+    "de": "%@ erforderlich",
+    "fr": "Exiger %@",
+    "pt": "Exigir %@",
+    "lb": "%@ erfuerderen"
+  },
+  "lock.unlock": {
+    "en": "Unlock",
+    "de": "Entsperren",
+    "fr": "Déverrouiller",
+    "pt": "Desbloquear",
+    "lb": "Entspären"
+  },
+  "lock.unlockFaceID": {
+    "en": "Unlock with Face ID",
+    "de": "Mit Face ID entsperren",
+    "fr": "Déverrouiller avec Face ID",
+    "pt": "Desbloquear com Face ID",
+    "lb": "Mat Face ID entspären"
+  },
+  "lock.unlockTouchID": {
+    "en": "Unlock with Touch ID",
+    "de": "Mit Touch ID entsperren",
+    "fr": "Déverrouiller avec Touch ID",
+    "pt": "Desbloquear com Touch ID",
+    "lb": "Mat Touch ID entspären"
+  },
+  "medForm.addMedication": {
+    "en": "Add Medication",
+    "de": "Medikament hinzufügen",
+    "fr": "Ajouter un médicament",
+    "pt": "Adicionar medicamento",
+    "lb": "Medikament derbäisetzen"
+  },
+  "medForm.addRecord": {
+    "en": "Add Record",
+    "de": "Eintrag hinzufügen",
+    "fr": "Ajouter un dossier",
+    "pt": "Adicionar registo",
+    "lb": "Eintrag derbäisetzen"
+  },
+  "medForm.dailyReminder": {
+    "en": "Daily reminder",
+    "de": "Tägliche Erinnerung",
+    "fr": "Rappel quotidien",
+    "pt": "Lembrete diário",
+    "lb": "Deeglech Erënnerung"
+  },
+  "medForm.dosage": {
+    "en": "Dosage",
+    "de": "Dosierung",
+    "fr": "Dosage",
+    "pt": "Dosagem",
+    "lb": "Dosis"
+  },
+  "medForm.freq.asNeeded": {
+    "en": "As needed",
+    "de": "Bei Bedarf",
+    "fr": "Au besoin",
+    "pt": "Conforme necessário",
+    "lb": "Bei Bedarf"
+  },
+  "medForm.freq.every8Hours": {
+    "en": "Every 8 hours",
+    "de": "Alle 8 Stunden",
+    "fr": "Toutes les 8 heures",
+    "pt": "A cada 8 horas",
+    "lb": "All 8 Stonnen"
+  },
+  "medForm.freq.onceDaily": {
+    "en": "Once daily",
+    "de": "Einmal täglich",
+    "fr": "Une fois par jour",
+    "pt": "Uma vez por dia",
+    "lb": "Eemol deeglech"
+  },
+  "medForm.freq.twiceDaily": {
+    "en": "Twice daily",
+    "de": "Zweimal täglich",
+    "fr": "Deux fois par jour",
+    "pt": "Duas vezes por dia",
+    "lb": "Zweemol deeglech"
+  },
+  "medForm.frequency": {
+    "en": "Frequency",
+    "de": "Häufigkeit",
+    "fr": "Fréquence",
+    "pt": "Frequência",
+    "lb": "Frequenz"
+  },
+  "medForm.name": {
+    "en": "Name",
+    "de": "Name",
+    "fr": "Nom",
+    "pt": "Nome",
+    "lb": "Numm"
+  },
+  "medForm.prescribedBy": {
+    "en": "Prescribed by (optional)",
+    "de": "Verschrieben von (optional)",
+    "fr": "Prescrit par (facultatif)",
+    "pt": "Prescrito por (opcional)",
+    "lb": "Verschriwwe vun (optional)"
+  },
+  "medForm.provider": {
+    "en": "Provider (optional)",
+    "de": "Arzt/Anbieter (optional)",
+    "fr": "Praticien (facultatif)",
+    "pt": "Profissional (opcional)",
+    "lb": "Dokter/Provider (optional)"
+  },
+  "medForm.saveMedicationError": {
+    "en": "Couldn't save medication.",
+    "de": "Medikament konnte nicht gespeichert werden.",
+    "fr": "Impossible d'enregistrer le médicament.",
+    "pt": "Não foi possível guardar o medicamento.",
+    "lb": "Medikament konnt net gespäichert ginn."
+  },
+  "medForm.saveRecordError": {
+    "en": "Couldn't save record.",
+    "de": "Eintrag konnte nicht gespeichert werden.",
+    "fr": "Impossible d'enregistrer le dossier.",
+    "pt": "Não foi possível guardar o registo.",
+    "lb": "Eintrag konnt net gespäichert ginn."
+  },
+  "medForm.section.medication": {
+    "en": "Medication",
+    "de": "Medikament",
+    "fr": "Médicament",
+    "pt": "Medicamento",
+    "lb": "Medikament"
+  },
+  "medForm.section.record": {
+    "en": "Record",
+    "de": "Eintrag",
+    "fr": "Dossier",
+    "pt": "Registo",
+    "lb": "Eintrag"
+  },
+  "medForm.section.reminder": {
+    "en": "Reminder",
+    "de": "Erinnerung",
+    "fr": "Rappel",
+    "pt": "Lembrete",
+    "lb": "Erënnerung"
+  },
+  "medical.active": {
+    "en": "Active",
+    "de": "Aktiv",
+    "fr": "Actif",
+    "pt": "Ativo",
+    "lb": "Aktiv"
+  },
+  "medical.addMedication": {
+    "en": "Add Medication",
+    "de": "Medikament hinzufügen",
+    "fr": "Ajouter un médicament",
+    "pt": "Adicionar medicamento",
+    "lb": "Medikament derbäisetzen"
+  },
+  "medical.addRecord": {
+    "en": "Add Record",
+    "de": "Eintrag hinzufügen",
+    "fr": "Ajouter un dossier",
+    "pt": "Adicionar registo",
+    "lb": "Eintrag derbäisetzen"
+  },
+  "medical.cat.allergy": {
+    "en": "Allergy",
+    "de": "Allergie",
+    "fr": "Allergie",
+    "pt": "Alergia",
+    "lb": "Allergien"
+  },
+  "medical.cat.dental": {
+    "en": "Dental",
+    "de": "Zahnmedizin",
+    "fr": "Dentaire",
+    "pt": "Dentário",
+    "lb": "Zännmedezin"
+  },
+  "medical.cat.emergency": {
+    "en": "Emergency",
+    "de": "Notfall",
+    "fr": "Urgence",
+    "pt": "Emergência",
+    "lb": "Noutfall"
+  },
+  "medical.cat.growth": {
+    "en": "Growth",
+    "de": "Wachstum",
+    "fr": "Croissance",
+    "pt": "Crescimento",
+    "lb": "Wuesstem"
+  },
+  "medical.cat.lab": {
+    "en": "Lab Results",
+    "de": "Laborergebnisse",
+    "fr": "Résultats de laboratoire",
+    "pt": "Resultados de laboratório",
+    "lb": "Laborresultater"
+  },
+  "medical.cat.other": {
+    "en": "Other",
+    "de": "Sonstiges",
+    "fr": "Autre",
+    "pt": "Outro",
+    "lb": "Aneres"
+  },
+  "medical.cat.prescription": {
+    "en": "Prescription",
+    "de": "Rezept",
+    "fr": "Ordonnance",
+    "pt": "Receita",
+    "lb": "Rezept"
+  },
+  "medical.cat.vaccination": {
+    "en": "Vaccination",
+    "de": "Impfung",
+    "fr": "Vaccination",
+    "pt": "Vacinação",
+    "lb": "Impfung"
+  },
+  "medical.cat.vision": {
+    "en": "Vision",
+    "de": "Sehkraft",
+    "fr": "Vue",
+    "pt": "Visão",
+    "lb": "Gesiicht"
+  },
+  "medical.cat.visit": {
+    "en": "Doctor Visit",
+    "de": "Arztbesuch",
+    "fr": "Visite médicale",
+    "pt": "Consulta médica",
+    "lb": "Dokterbesuch"
+  },
+  "medical.emptyRecords": {
+    "en": "No medical records yet",
+    "de": "Noch keine medizinischen Aufzeichnungen",
+    "fr": "Pas encore de dossiers médicaux",
+    "pt": "Ainda sem registos médicos",
+    "lb": "Nach keng medizinesch Opzeechnungen"
+  },
+  "medical.prescribedBy": {
+    "en": "Prescribed by %@",
+    "de": "Verschrieben von %@",
+    "fr": "Prescrit par %@",
+    "pt": "Prescrito por %@",
+    "lb": "Verschriwwe vun %@"
+  },
+  "medical.section.growth": {
+    "en": "Growth",
+    "de": "Wachstum",
+    "fr": "Croissance",
+    "pt": "Crescimento",
+    "lb": "Wuesstem"
+  },
+  "medical.section.records": {
+    "en": "Records",
+    "de": "Aufzeichnungen",
+    "fr": "Dossiers",
+    "pt": "Registos",
+    "lb": "Opzeechnungen"
+  },
+  "medical.stop": {
+    "en": "Stop",
+    "de": "Stoppen",
+    "fr": "Arrêter",
+    "pt": "Parar",
+    "lb": "Stoppen"
+  },
+  "member.addTitle": {
+    "en": "Add Family Member",
+    "de": "Familienmitglied hinzufügen",
+    "fr": "Ajouter un membre",
+    "pt": "Adicionar membro da família",
+    "lb": "Familljemember derbäisetzen"
+  },
+  "member.noFamilyError": {
+    "en": "No family found.",
+    "de": "Keine Familie gefunden.",
+    "fr": "Aucune famille trouvée.",
+    "pt": "Nenhuma família encontrada.",
+    "lb": "Keng Famill fonnt."
+  },
+  "member.saveError": {
+    "en": "Couldn't save member.",
+    "de": "Mitglied konnte nicht gespeichert werden.",
+    "fr": "Impossible d'enregistrer le membre.",
+    "pt": "Não foi possível guardar o membro.",
+    "lb": "Member konnt net gespäichert ginn."
+  },
+  "member.section": {
+    "en": "Member",
+    "de": "Mitglied",
+    "fr": "Membre",
+    "pt": "Membro",
+    "lb": "Matglid"
+  },
+  "messages.accountError": {
+    "en": "Could not identify your account.",
+    "de": "Konto konnte nicht identifiziert werden.",
+    "fr": "Impossible d'identifier votre compte.",
+    "pt": "Não foi possível identificar a sua conta.",
+    "lb": "Kont konnt net identifizéiert ginn."
+  },
+  "messages.conversation": {
+    "en": "Conversation",
+    "de": "Unterhaltung",
+    "fr": "Conversation",
+    "pt": "Conversa",
+    "lb": "Gespréich"
+  },
+  "messages.empty": {
+    "en": "No messages yet",
+    "de": "Noch keine Nachrichten",
+    "fr": "Pas encore de messages",
+    "pt": "Ainda sem mensagens",
+    "lb": "Nach keng Noriichten"
+  },
+  "messages.encryptedBanner": {
+    "en": "End-to-end encrypted · Immutable history",
+    "de": "Ende-zu-Ende verschlüsselt · Unveränderlicher Verlauf",
+    "fr": "Chiffré de bout en bout · Historique immuable",
+    "pt": "Encriptação ponta a ponta · Histórico imutável",
+    "lb": "Enn-zu-Enn verschlësselt · Onverännerlechen Historique"
+  },
+  "messages.inviteCoparent": {
+    "en": "Invite a co-parent to start secure messaging.",
+    "de": "Laden Sie einen Co-Elternteil ein, um sichere Nachrichten zu starten.",
+    "fr": "Invitez un co-parent pour démarrer la messagerie sécurisée.",
+    "pt": "Convide um co-pai/mãe para iniciar mensagens seguras.",
+    "lb": "Invitéiert en Co-Elterendeel fir sécher Noriichten ze starten."
+  },
+  "messages.newTitle": {
+    "en": "New Message",
+    "de": "Neue Nachricht",
+    "fr": "Nouveau message",
+    "pt": "Nova mensagem",
+    "lb": "Nei Noriicht"
+  },
+  "messages.optionalSubject": {
+    "en": "Optional subject",
+    "de": "Betreff (optional)",
+    "fr": "Objet (facultatif)",
+    "pt": "Assunto (opcional)",
+    "lb": "Sujet (optional)"
+  },
+  "messages.placeholder": {
+    "en": "Message",
+    "de": "Nachricht",
+    "fr": "Message",
+    "pt": "Mensagem",
+    "lb": "Noriicht"
+  },
+  "messages.section.firstMessage": {
+    "en": "First Message",
+    "de": "Erste Nachricht",
+    "fr": "Premier message",
+    "pt": "Primeira mensagem",
+    "lb": "Éischt Noriicht"
+  },
+  "messages.section.participants": {
+    "en": "Participants",
+    "de": "Teilnehmer",
+    "fr": "Participants",
+    "pt": "Participantes",
+    "lb": "Participanten"
+  },
+  "messages.section.subject": {
+    "en": "Subject",
+    "de": "Betreff",
+    "fr": "Objet",
+    "pt": "Assunto",
+    "lb": "Sujet"
+  },
+  "messages.secureDescription": {
+    "en": "All messages are immutable, timestamped, and court-admissible. History cannot be deleted.",
+    "de": "Alle Nachrichten sind unveränderlich, zeitgestempelt und gerichtsfest. Verlauf kann nicht gelöscht werden.",
+    "fr": "Tous les messages sont immuables, horodatés et recevables en justice. L'historique ne peut pas être supprimé.",
+    "pt": "Todas as mensagens são imutáveis, com carimbo temporal e admissíveis em tribunal. O histórico não pode ser eliminado.",
+    "lb": "All Noriichten sinn onverännerlech, mat Zäitstempel a gerichtsfest. Historique kann net geläscht ginn."
+  },
+  "messages.secureTitle": {
+    "en": "Secure Messaging",
+    "de": "Sichere Nachrichten",
+    "fr": "Messagerie sécurisée",
+    "pt": "Mensagens seguras",
+    "lb": "Sécher Noriichten"
+  },
+  "messages.send": {
+    "en": "Send",
+    "de": "Senden",
+    "fr": "Envoyer",
+    "pt": "Enviar",
+    "lb": "Schécken"
+  },
+  "messages.startConversation": {
+    "en": "Start Conversation",
+    "de": "Unterhaltung starten",
+    "fr": "Démarrer une conversation",
+    "pt": "Iniciar conversa",
+    "lb": "Gespréich ufänken"
+  },
+  "messages.title": {
+    "en": "Messages",
+    "de": "Nachrichten",
+    "fr": "Messages",
+    "pt": "Mensagens",
+    "lb": "Noriichten"
+  },
+  "messages.writePlaceholder": {
+    "en": "Write a message...",
+    "de": "Nachricht schreiben...",
+    "fr": "Écrire un message...",
+    "pt": "Escrever uma mensagem...",
+    "lb": "Noriicht schreiwen..."
+  },
+  "messaging.error.empty": {
+    "en": "Message cannot be empty.",
+    "de": "Nachricht darf nicht leer sein.",
+    "fr": "Le message ne peut pas être vide.",
+    "pt": "A mensagem não pode estar vazia.",
+    "lb": "D'Noriicht däerf net eidel sinn."
+  },
+  "messaging.error.noSender": {
+    "en": "Could not identify the sender.",
+    "de": "Absender konnte nicht ermittelt werden.",
+    "fr": "Impossible d'identifier l'expéditeur.",
+    "pt": "Não foi possível identificar o remetente.",
+    "lb": "Ofsender konnt net identifizéiert ginn."
+  },
+  "more.about": {
+    "en": "About",
+    "de": "Über",
+    "fr": "À propos",
+    "pt": "Sobre",
+    "lb": "Iwwer"
+  },
+  "more.addCoParent": {
+    "en": "Add Co-Parent",
+    "de": "Co-Elternteil hinzufügen",
+    "fr": "Ajouter un co-parent",
+    "pt": "Adicionar co-pai/mãe",
+    "lb": "Co-Elterendeel derbäisetzen"
+  },
+  "more.addExpense": {
+    "en": "Add Expense",
+    "de": "Ausgabe hinzufügen",
+    "fr": "Ajouter une dépense",
+    "pt": "Adicionar despesa",
+    "lb": "Ausgab derbäisetzen"
+  },
+  "more.appleCalendar": {
+    "en": "Apple Calendar Sync",
+    "de": "Apple Kalender Sync",
+    "fr": "Sync Calendrier Apple",
+    "pt": "Sincronização Calendário Apple",
+    "lb": "Apple Kalenner Sync"
+  },
+  "more.appleHealth": {
+    "en": "Apple Health",
+    "de": "Apple Health",
+    "fr": "Apple Santé",
+    "pt": "Apple Saúde",
+    "lb": "Apple Health"
+  },
+  "more.auditLog": {
+    "en": "Audit Log",
+    "de": "Audit-Protokoll",
+    "fr": "Journal d'audit",
+    "pt": "Registo de auditoria",
+    "lb": "Audit-Log"
+  },
+  "more.checklists": {
+    "en": "Checklists",
+    "de": "Checklisten",
+    "fr": "Listes de contrôle",
+    "pt": "Listas de verificação",
+    "lb": "Checklisten"
+  },
+  "more.checklists.complete": {
+    "en": "%d of %d complete",
+    "de": "%d von %d erledigt",
+    "fr": "%d sur %d terminés",
+    "pt": "%d de %d concluídos",
+    "lb": "%d vu(n) %d fäerdeg"
+  },
+  "more.courtExport": {
+    "en": "Court Export",
+    "de": "Gerichtsexport",
+    "fr": "Export judiciaire",
+    "pt": "Exportação judicial",
+    "lb": "Gerichtsexport"
+  },
+  "more.custodyAgreements": {
+    "en": "Custody Agreements",
+    "de": "Sorgerechtsvereinbarungen",
+    "fr": "Accords de garde",
+    "pt": "Acordos de custódia",
+    "lb": "Sorgerechtsaccorden"
+  },
+  "more.familyTools": {
+    "en": "Family Tools",
+    "de": "Familienwerkzeuge",
+    "fr": "Outils familiaux",
+    "pt": "Ferramentas familiares",
+    "lb": "Familljetools"
+  },
+  "more.iCloudSync": {
+    "en": "iCloud Sync",
+    "de": "iCloud Sync",
+    "fr": "Sync iCloud",
+    "pt": "Sincronização iCloud",
+    "lb": "iCloud Sync"
+  },
+  "more.integrations": {
+    "en": "Integrations",
+    "de": "Integrationen",
+    "fr": "Intégrations",
+    "pt": "Integrações",
+    "lb": "Integratiounen"
+  },
+  "more.inviteCoParent": {
+    "en": "Invite Co-Parent",
+    "de": "Co-Elternteil einladen",
+    "fr": "Inviter le co-parent",
+    "pt": "Convidar co-pai/mãe",
+    "lb": "Co-Elterendeel invitéieren"
+  },
+  "more.joinFamily": {
+    "en": "Join Family",
+    "de": "Familie beitreten",
+    "fr": "Rejoindre la famille",
+    "pt": "Entrar na família",
+    "lb": "Famill bäitrieden"
+  },
+  "more.lockOff.footer": {
+    "en": "Lock is off. Turn this on to require %@ before viewing family data.",
+    "de": "Sperre ist aus. Aktivieren Sie sie, um %@ vor dem Anzeigen von Familiendaten zu verlangen.",
+    "fr": "Le verrouillage est désactivé. Activez-le pour exiger %@ avant d'afficher les données familiales.",
+    "pt": "O bloqueio está desativado. Ative-o para exigir %@ antes de ver dados familiares.",
+    "lb": "Spär ass aus. Aktivéiert en fir %@ ze verlaangen ier Dir Familljedaten gesitt."
+  },
+  "more.lockOn.footer": {
+    "en": "You'll be asked to unlock when opening the app and after tapping Lock Now.",
+    "de": "Sie werden beim Öffnen der App und nach Tippen auf Jetzt sperren aufgefordert, zu entsperren.",
+    "fr": "Vous devrez déverrouiller à l'ouverture de l'app et après avoir appuyé sur Verrouiller maintenant.",
+    "pt": "Será solicitado a desbloquear ao abrir a app e após tocar em Bloquear agora.",
+    "lb": "Dir gitt beim Oppen vun der App an nom Tippe op Elo spären opgefuerdert ze entspären."
+  },
+  "more.permissions": {
+    "en": "Permissions",
+    "de": "Berechtigungen",
+    "fr": "Autorisations",
+    "pt": "Permissões",
+    "lb": "Berechtegungen"
+  },
+  "more.privacySecurity": {
+    "en": "Privacy & Security",
+    "de": "Datenschutz & Sicherheit",
+    "fr": "Confidentialité et sécurité",
+    "pt": "Privacidade e segurança",
+    "lb": "Dateschutz & Sécherheet"
+  },
+  "more.professional.hint": {
+    "en": "Add an attorney or GAL as a family member with the Professional role for read-only access.",
+    "de": "Fügen Sie einen Anwalt oder GAL als Familienmitglied mit der Rolle Professional für Nur-Lese-Zugriff hinzu.",
+    "fr": "Ajoutez un avocat ou un GAL comme membre de la famille avec le rôle Professionnel en lecture seule.",
+    "pt": "Adicione um advogado ou GAL como membro da família com a função Profissional para acesso só de leitura.",
+    "lb": "Füügt en Affekot oder GAL als Familljemember mat der Roll Professionell fir Lies-Zougang derbäi."
+  },
+  "more.professionalAccess": {
+    "en": "Professional Access",
+    "de": "Professioneller Zugang",
+    "fr": "Accès professionnel",
+    "pt": "Acesso profissional",
+    "lb": "Professionellen Zougang"
+  },
+  "more.professionalPortal": {
+    "en": "Professional Portal",
+    "de": "Professionelles Portal",
+    "fr": "Portail professionnel",
+    "pt": "Portal profissional",
+    "lb": "Professionellt Portal"
+  },
+  "more.reminders": {
+    "en": "Reminders",
+    "de": "Erinnerungen",
+    "fr": "Rappels",
+    "pt": "Lembretes",
+    "lb": "Erënnerungen"
+  },
+  "more.remindersOff.footer": {
+    "en": "Enable reminders for custody exchanges and medications.",
+    "de": "Aktivieren Sie Erinnerungen für Sorgerechtswechsel und Medikamente.",
+    "fr": "Activez les rappels pour les échanges de garde et les médicaments.",
+    "pt": "Ative lembretes para trocas de custódia e medicamentos.",
+    "lb": "Aktivéiert Erënnerungen fir Sorgerechtsiwwergaben a Medikamenter."
+  },
+  "more.remindersOn.footer": {
+    "en": "Reminders are scheduled for custody exchanges and medications.",
+    "de": "Erinnerungen sind für Sorgerechtswechsel und Medikamente geplant.",
+    "fr": "Des rappels sont programmés pour les échanges de garde et les médicaments.",
+    "pt": "Lembretes estão agendados para trocas de custódia e medicamentos.",
+    "lb": "Erënnerungen sinn fir Sorgerechtsiwwergaben a Medikamenter geplangt."
+  },
+  "more.schoolPortal": {
+    "en": "School Portal",
+    "de": "Schulportal",
+    "fr": "Portail scolaire",
+    "pt": "Portal escolar",
+    "lb": "Schoulportal"
+  },
+  "more.sync": {
+    "en": "Sync",
+    "de": "Synchronisierung",
+    "fr": "Synchronisation",
+    "pt": "Sincronização",
+    "lb": "Synchronisatioun"
+  },
+  "more.sync.iCloud": {
+    "en": "iCloud",
+    "de": "iCloud",
+    "fr": "iCloud",
+    "pt": "iCloud",
+    "lb": "iCloud"
+  },
+  "more.sync.local": {
+    "en": "Local",
+    "de": "Lokal",
+    "fr": "Local",
+    "pt": "Local",
+    "lb": "Lokal"
+  },
+  "more.title": {
+    "en": "More",
+    "de": "Mehr",
+    "fr": "Plus",
+    "pt": "Mais",
+    "lb": "Méi"
+  },
+  "notification.childFallback": {
+    "en": "your child",
+    "de": "Ihr Kind",
+    "fr": "votre enfant",
+    "pt": "a sua criança",
+    "lb": "äert Kand"
+  },
+  "notification.exchange.body": {
+    "en": "%@: %@ at %@",
+    "de": "%@: %@ um %@",
+    "fr": "%@ : %@ à %@",
+    "pt": "%@: %@ às %@",
+    "lb": "%@: %@ um %@"
+  },
+  "notification.exchange.title": {
+    "en": "Custody Exchange Today",
+    "de": "Sorgerechtsübergabe heute",
+    "fr": "Échange de garde aujourd'hui",
+    "pt": "Troca de custódia hoje",
+    "lb": "Sorgerechtsiwwergab haut"
+  },
+  "notification.medication.body": {
+    "en": "Give %@ %@ (%@)",
+    "de": "%@ %@ geben (%@)",
+    "fr": "Donner à %@ %@ (%@)",
+    "pt": "Dar a %@ %@ (%@)",
+    "lb": "%@ %@ ginn (%@)"
+  },
+  "notification.medication.title": {
+    "en": "Medication Reminder",
+    "de": "Medikamentenerinnerung",
+    "fr": "Rappel de médicament",
+    "pt": "Lembrete de medicamento",
+    "lb": "Medikamentenerënnerung"
+  },
+  "onboarding.aboutYou": {
+    "en": "About You",
+    "de": "Über Sie",
+    "fr": "À propos de vous",
+    "pt": "Sobre si",
+    "lb": "Iwwer Iech"
+  },
+  "onboarding.aboutYou.footer": {
+    "en": "This is how you'll appear to your co-parent and family.",
+    "de": "So erscheinen Sie bei Ihrem Co-Elternteil und Ihrer Familie.",
+    "fr": "C'est ainsi que vous apparaîtrez auprès de votre co-parent et de votre famille.",
+    "pt": "É assim que aparecerá ao seu co-pai/mãe e à família.",
+    "lb": "Sou erschéngt Dir bei ärem Co-Elterendeel an der Famill."
+  },
+  "onboarding.child": {
+    "en": "Child",
+    "de": "Kind",
+    "fr": "Enfant",
+    "pt": "Criança",
+    "lb": "Kand"
+  },
+  "onboarding.coParentName": {
+    "en": "Co-parent name (optional)",
+    "de": "Name des Co-Elternteils (optional)",
+    "fr": "Nom du co-parent (facultatif)",
+    "pt": "Nome do co-pai/mãe (opcional)",
+    "lb": "Numm vum Co-Elterendeel (optional)"
+  },
+  "onboarding.createFamily": {
+    "en": "Create a Family",
+    "de": "Familie erstellen",
+    "fr": "Créer une famille",
+    "pt": "Criar uma família",
+    "lb": "Eng Famill erstellen"
+  },
+  "onboarding.dateOfBirth": {
+    "en": "Date of birth",
+    "de": "Geburtsdatum",
+    "fr": "Date de naissance",
+    "pt": "Data de nascimento",
+    "lb": "Gebuertsdatum"
+  },
+  "onboarding.defaultFamilyName": {
+    "en": "%@ Family",
+    "de": "%@-Familie",
+    "fr": "Famille %@",
+    "pt": "Família %@",
+    "lb": "%@-Famill"
+  },
+  "onboarding.exploreDemo": {
+    "en": "Explore with demo data",
+    "de": "Mit Demodaten erkunden",
+    "fr": "Explorer avec des données de démo",
+    "pt": "Explorar com dados de demonstração",
+    "lb": "Mat Demodaten entdecken"
+  },
+  "onboarding.family": {
+    "en": "Family",
+    "de": "Familie",
+    "fr": "Famille",
+    "pt": "Família",
+    "lb": "Famill"
+  },
+  "onboarding.familyName": {
+    "en": "Family name (optional)",
+    "de": "Familienname (optional)",
+    "fr": "Nom de famille (facultatif)",
+    "pt": "Nome da família (opcional)",
+    "lb": "Familljennumm (optional)"
+  },
+  "onboarding.firstName": {
+    "en": "First name",
+    "de": "Vorname",
+    "fr": "Prénom",
+    "pt": "Nome próprio",
+    "lb": "Virnumm"
+  },
+  "onboarding.joinFamily": {
+    "en": "Join with Family Code",
+    "de": "Mit Familiencode beitreten",
+    "fr": "Rejoindre avec le code famille",
+    "pt": "Entrar com código da família",
+    "lb": "Mat Familljencode bäitrieden"
+  },
+  "onboarding.lastName": {
+    "en": "Last name",
+    "de": "Nachname",
+    "fr": "Nom",
+    "pt": "Apelido",
+    "lb": "Familljennumm"
+  },
+  "onboarding.saveError": {
+    "en": "Couldn't save your family. Please try again.",
+    "de": "Familie konnte nicht gespeichert werden. Bitte erneut versuchen.",
+    "fr": "Impossible d'enregistrer votre famille. Veuillez réessayer.",
+    "pt": "Não foi possível guardar a sua família. Tente novamente.",
+    "lb": "Famill konnt net gespäichert ginn. Probéiert w.e.g. nach eng Kéier."
+  },
+  "onboarding.subtitle": {
+    "en": "The calm, shared home for raising your children across households.",
+    "de": "Das ruhige, gemeinsame Zuhause für die Erziehung Ihrer Kinder über Haushalte hinweg.",
+    "fr": "Le foyer calme et partagé pour élever vos enfants entre foyers.",
+    "pt": "O lar calmo e partilhado para criar os seus filhos entre lares.",
+    "lb": "Den rouegen, gedeelten Doheem fir Är Kanner iwwer Haushalter ze erzéien."
+  },
+  "onboarding.trust.coparent.detail": {
+    "en": "Daily updates, custody, and expenses in one place.",
+    "de": "Tägliche Updates, Sorgerecht und Ausgaben an einem Ort.",
+    "fr": "Mises à jour quotidiennes, garde et dépenses en un seul endroit.",
+    "pt": "Atualizações diárias, custódia e despesas num só lugar.",
+    "lb": "Deeglech Updates, Sorgerecht an Ausgaben op enger Plaz."
+  },
+  "onboarding.trust.coparent.title": {
+    "en": "Built for co-parents",
+    "de": "Für Co-Eltern gemacht",
+    "fr": "Conçu pour les co-parents",
+    "pt": "Feito para co-pais",
+    "lb": "Fir Co-Elteren gebaut"
+  },
+  "onboarding.trust.private.detail": {
+    "en": "Your family data stays on your devices.",
+    "de": "Ihre Familiendaten bleiben auf Ihren Geräten.",
+    "fr": "Les données de votre famille restent sur vos appareils.",
+    "pt": "Os dados da sua família ficam nos seus dispositivos.",
+    "lb": "Är Familljendaten bleiwen op ären Apparater."
+  },
+  "onboarding.trust.private.title": {
+    "en": "Private by design",
+    "de": "Privat by Design",
+    "fr": "Privé par conception",
+    "pt": "Privado por conceção",
+    "lb": "Privat no Design"
+  },
+  "onboarding.welcome": {
+    "en": "Welcome to\nCommon Ground",
+    "de": "Willkommen bei\nCommon Ground",
+    "fr": "Bienvenue sur\nCommon Ground",
+    "pt": "Bem-vindo ao\nCommon Ground",
+    "lb": "Wëllkomm bei\nCommon Ground"
+  },
+  "onboarding.yourName": {
+    "en": "Your name",
+    "de": "Ihr Name",
+    "fr": "Votre nom",
+    "pt": "O seu nome",
+    "lb": "Ären Numm"
+  },
+  "permissions.accessTitle": {
+    "en": "Access",
+    "de": "Zugriff",
+    "fr": "Accès",
+    "pt": "Acesso",
+    "lb": "Zougang"
+  },
+  "permissions.addExpenses": {
+    "en": "Add expenses",
+    "de": "Ausgaben hinzufügen",
+    "fr": "Ajouter des dépenses",
+    "pt": "Adicionar despesas",
+    "lb": "Ausgaben derbäisetzen"
+  },
+  "permissions.courtExport": {
+    "en": "Court export",
+    "de": "Gerichtsexport",
+    "fr": "Export judiciaire",
+    "pt": "Exportação judicial",
+    "lb": "Gerichtsexport"
+  },
+  "permissions.defaultRoles": {
+    "en": "Default roles",
+    "de": "Standardrollen",
+    "fr": "Rôles par défaut",
+    "pt": "Funções predefinidas",
+    "lb": "Standardrollen"
+  },
+  "permissions.editCalendar": {
+    "en": "Edit calendar",
+    "de": "Kalender bearbeiten",
+    "fr": "Modifier le calendrier",
+    "pt": "Editar calendário",
+    "lb": "Kalenner beaarbechten"
+  },
+  "permissions.editMedical": {
+    "en": "Edit medical",
+    "de": "Medizinisch bearbeiten",
+    "fr": "Modifier le médical",
+    "pt": "Editar médico",
+    "lb": "Medizinesch beaarbechten"
+  },
+  "permissions.footer": {
+    "en": "Hide modules a grandparent or caregiver shouldn't see. View access must be on before edit access.",
+    "de": "Module ausblenden, die ein Großelternteil oder Betreuer nicht sehen sollte. Lesezugriff muss vor Bearbeitungszugriff aktiviert sein.",
+    "fr": "Masquez les modules qu'un grand-parent ou aidant ne devrait pas voir. L'accès en lecture doit être activé avant l'édition.",
+    "pt": "Oculte módulos que um avô/avó ou cuidador não deva ver. O acesso de visualização deve estar ativo antes da edição.",
+    "lb": "Verstoppt Moduler déi en Grousselterendeel oder Betreier net gesinn soll. Lies-Zougang muss virun der Beaarbechtung un sinn."
+  },
+  "permissions.genmoji": {
+    "en": "Genmoji",
+    "de": "Genmoji",
+    "fr": "Genmoji",
+    "pt": "Genmoji",
+    "lb": "Genmoji"
+  },
+  "permissions.members": {
+    "en": "Family members",
+    "de": "Familienmitglieder",
+    "fr": "Membres de la famille",
+    "pt": "Membros da família",
+    "lb": "Familljemembere"
+  },
+  "permissions.members.empty": {
+    "en": "Add family members from Family Tools.",
+    "de": "Fügen Sie Familienmitglieder über Familienwerkzeuge hinzu.",
+    "fr": "Ajoutez des membres depuis Outils familiaux.",
+    "pt": "Adicione membros em Ferramentas familiares.",
+    "lb": "Füügt Familljemembere iwwer Familljetools derbäi."
+  },
+  "permissions.resetDefaults": {
+    "en": "Reset to %@ defaults",
+    "de": "Auf %@-Standard zurücksetzen",
+    "fr": "Réinitialiser aux valeurs %@ par défaut",
+    "pt": "Repor para predefinições de %@",
+    "lb": "Op %@-Standard zrécksetzen"
+  },
+  "permissions.role.grandparent": {
+    "en": "Grandparent",
+    "de": "Großelternteil",
+    "fr": "Grand-parent",
+    "pt": "Avô/Avó",
+    "lb": "Grousselterendeel"
+  },
+  "permissions.role.grandparent.access": {
+    "en": "Calendar, timeline, school — view only",
+    "de": "Kalender, Zeitleiste, Schule — nur ansehen",
+    "fr": "Calendrier, chronologie, école — lecture seule",
+    "pt": "Calendário, cronologia, escola — só visualização",
+    "lb": "Kalenner, Zäitlinn, Schoul — nëmmen kucken"
+  },
+  "permissions.role.parent": {
+    "en": "Parent",
+    "de": "Elternteil",
+    "fr": "Parent",
+    "pt": "Pai/Mãe",
+    "lb": "Elterendeel"
+  },
+  "permissions.role.parent.access": {
+    "en": "Full view & edit",
+    "de": "Voller Zugriff & Bearbeitung",
+    "fr": "Vue et modification complètes",
+    "pt": "Visualização e edição completas",
+    "lb": "Voll Zougang & Beaarbechtung"
+  },
+  "permissions.role.professional": {
+    "en": "Professional",
+    "de": "Professionell",
+    "fr": "Professionnel",
+    "pt": "Profissional",
+    "lb": "Professionell"
+  },
+  "permissions.role.professional.access": {
+    "en": "Read-only court export",
+    "de": "Gerichtsexport nur lesen",
+    "fr": "Export judiciaire en lecture seule",
+    "pt": "Exportação judicial só de leitura",
+    "lb": "Gerichtsexport nëmmen liesen"
+  },
+  "permissions.saved": {
+    "en": "Permissions saved",
+    "de": "Berechtigungen gespeichert",
+    "fr": "Autorisations enregistrées",
+    "pt": "Permissões guardadas",
+    "lb": "Berechtegungen gespäichert"
+  },
+  "permissions.sendMessages": {
+    "en": "Send messages",
+    "de": "Nachrichten senden",
+    "fr": "Envoyer des messages",
+    "pt": "Enviar mensagens",
+    "lb": "Noriichten schécken"
+  },
+  "permissions.title": {
+    "en": "Permissions",
+    "de": "Berechtigungen",
+    "fr": "Autorisations",
+    "pt": "Permissões",
+    "lb": "Berechtegungen"
+  },
+  "permissions.whatTheyChange": {
+    "en": "What they can change",
+    "de": "Was sie ändern können",
+    "fr": "Ce qu'ils peuvent modifier",
+    "pt": "O que podem alterar",
+    "lb": "Wat si änneren kënnen"
+  },
+  "permissions.whatTheySee": {
+    "en": "What they can see",
+    "de": "Was sie sehen können",
+    "fr": "Ce qu'ils peuvent voir",
+    "pt": "O que podem ver",
+    "lb": "Wat si gesinn kënnen"
+  },
+  "professional.activeSchedules": {
+    "en": "Active schedules",
+    "de": "Aktive Pläne",
+    "fr": "Plannings actifs",
+    "pt": "Calendários ativos",
+    "lb": "Aktiv Pläng"
+  },
+  "professional.childSummary": {
+    "en": "Age %d · %d upcoming events · %d documents",
+    "de": "Alter %d · %d anstehende Termine · %d Dokumente",
+    "fr": "Âge %d · %d événements à venir · %d documents",
+    "pt": "Idade %d · %d eventos futuros · %d documentos",
+    "lb": "Alter %d · %d evenementer geschitt · %d Dokumenter"
+  },
+  "professional.family": {
+    "en": "Family",
+    "de": "Familie",
+    "fr": "Famille",
+    "pt": "Família",
+    "lb": "Famill"
+  },
+  "professional.familyOverview": {
+    "en": "Family Overview",
+    "de": "Familienübersicht",
+    "fr": "Aperçu de la famille",
+    "pt": "Visão geral da família",
+    "lb": "Familljeniwwersiicht"
+  },
+  "professional.members": {
+    "en": "Members",
+    "de": "Mitglieder",
+    "fr": "Membres",
+    "pt": "Membros",
+    "lb": "Memberen"
+  },
+  "professional.messagesReadOnly": {
+    "en": "Messages (read-only)",
+    "de": "Nachrichten (nur lesen)",
+    "fr": "Messages (lecture seule)",
+    "pt": "Mensagens (só leitura)",
+    "lb": "Noriichten (nëmmen liesen)"
+  },
+  "professional.noThreads": {
+    "en": "No message threads",
+    "de": "Keine Nachrichtenverläufe",
+    "fr": "Pas de fils de discussion",
+    "pt": "Sem conversas",
+    "lb": "Keng Noriichtenverlaf"
+  },
+  "professional.readOnly": {
+    "en": "Read-only professional access",
+    "de": "Professioneller Nur-Lese-Zugriff",
+    "fr": "Accès professionnel en lecture seule",
+    "pt": "Acesso profissional só de leitura",
+    "lb": "Professionellen Lies-Zougang"
+  },
+  "professional.section.records": {
+    "en": "Records",
+    "de": "Aufzeichnungen",
+    "fr": "Dossiers",
+    "pt": "Registos",
+    "lb": "Opzeechnungen"
+  },
+  "professional.upcomingCustody": {
+    "en": "Upcoming Custody & Exchanges",
+    "de": "Anstehende Sorgerecht & Übergaben",
+    "fr": "Garde et échanges à venir",
+    "pt": "Custódia e trocas futuras",
+    "lb": "Geschitt Sorgerecht & Iwwergaben"
+  },
+  "role.caregiver": {
+    "en": "Caregiver",
+    "de": "Betreuer",
+    "fr": "Aidant",
+    "pt": "Cuidador",
+    "lb": "Betreier"
+  },
+  "role.fosterParent": {
+    "en": "Foster Parent",
+    "de": "Pflegeelternteil",
+    "fr": "Parent d'accueil",
+    "pt": "Pai/Mãe de acolhimento",
+    "lb": "Pleegelterendeel"
+  },
+  "role.grandparent": {
+    "en": "Grandparent",
+    "de": "Großelternteil",
+    "fr": "Grand-parent",
+    "pt": "Avô/Avó",
+    "lb": "Grousselterendeel"
+  },
+  "role.guardian": {
+    "en": "Guardian",
+    "de": "Vormund",
+    "fr": "Tuteur",
+    "pt": "Tutor",
+    "lb": "Virmond"
+  },
+  "role.parent": {
+    "en": "Parent",
+    "de": "Elternteil",
+    "fr": "Parent",
+    "pt": "Pai/Mãe",
+    "lb": "Elterendeel"
+  },
+  "role.professional": {
+    "en": "Professional",
+    "de": "Professionell",
+    "fr": "Professionnel",
+    "pt": "Profissional",
+    "lb": "Professionell"
+  },
+  "role.stepParent": {
+    "en": "Step Parent",
+    "de": "Stiefelternteil",
+    "fr": "Beau-parent",
+    "pt": "Padrasto/Madrasta",
+    "lb": "Stiefelterendeel"
+  },
+  "school.add": {
+    "en": "Add School",
+    "de": "Schule hinzufügen",
+    "fr": "Ajouter l'école",
+    "pt": "Adicionar escola",
+    "lb": "Schoul derbäisetzen"
+  },
+  "school.address": {
+    "en": "Address",
+    "de": "Adresse",
+    "fr": "Adresse",
+    "pt": "Morada",
+    "lb": "Adress"
+  },
+  "school.announcements": {
+    "en": "Announcements",
+    "de": "Ankündigungen",
+    "fr": "Annonces",
+    "pt": "Anúncios",
+    "lb": "Ukënnegungen"
+  },
+  "school.announcementsUnread": {
+    "en": "%d unread",
+    "de": "%d ungelesen",
+    "fr": "%d non lus",
+    "pt": "%d por ler",
+    "lb": "%d ongelies"
+  },
+  "school.classroom": {
+    "en": "Classroom",
+    "de": "Klassenzimmer",
+    "fr": "Salle de classe",
+    "pt": "Sala de aula",
+    "lb": "Klassenzëmmer"
+  },
+  "school.edit": {
+    "en": "Edit School",
+    "de": "Schule bearbeiten",
+    "fr": "Modifier l'école",
+    "pt": "Editar escola",
+    "lb": "Schoul beaarbechten"
+  },
+  "school.editInfo": {
+    "en": "Edit School Info",
+    "de": "Schulinfo bearbeiten",
+    "fr": "Modifier les infos scolaires",
+    "pt": "Editar informação escolar",
+    "lb": "Schoulinfo beaarbechten"
+  },
+  "school.emptyMessage": {
+    "en": "Add school details and connect your school portal.",
+    "de": "Schuldetails hinzufügen und Schulportal verbinden.",
+    "fr": "Ajoutez les détails scolaires et connectez le portail.",
+    "pt": "Adicione detalhes escolares e ligue o portal escolar.",
+    "lb": "Füügt Schouldetailer derbäi a verbënnt de Schoulportal."
+  },
+  "school.emptyTitle": {
+    "en": "No School Info",
+    "de": "Keine Schulinfo",
+    "fr": "Pas d'info scolaire",
+    "pt": "Sem informação escolar",
+    "lb": "Keng Schoulinfo"
+  },
+  "school.grade": {
+    "en": "Grade",
+    "de": "Klasse",
+    "fr": "Niveau",
+    "pt": "Ano",
+    "lb": "Klass"
+  },
+  "school.homeworkDue": {
+    "en": "Homework due",
+    "de": "Hausaufgaben fällig",
+    "fr": "Devoirs à rendre",
+    "pt": "Trabalhos de casa",
+    "lb": "Hausaufgaben fälleg"
+  },
+  "school.name": {
+    "en": "Name",
+    "de": "Name",
+    "fr": "Nom",
+    "pt": "Nome",
+    "lb": "Numm"
+  },
+  "school.phone": {
+    "en": "Phone",
+    "de": "Telefon",
+    "fr": "Téléphone",
+    "pt": "Telefone",
+    "lb": "Telefon"
+  },
+  "school.saveError": {
+    "en": "Couldn't save school info.",
+    "de": "Schulinfo konnte nicht gespeichert werden.",
+    "fr": "Impossible d'enregistrer les infos scolaires.",
+    "pt": "Não foi possível guardar a informação escolar.",
+    "lb": "Schoulinfo konnt net gespäichert ginn."
+  },
+  "school.schoolName": {
+    "en": "School name",
+    "de": "Schulname",
+    "fr": "Nom de l'école",
+    "pt": "Nome da escola",
+    "lb": "Schoulnumm"
+  },
+  "school.section": {
+    "en": "School",
+    "de": "Schule",
+    "fr": "École",
+    "pt": "Escola",
+    "lb": "Schoul"
+  },
+  "school.teachersContacts": {
+    "en": "Teachers & Contacts",
+    "de": "Lehrer & Kontakte",
+    "fr": "Enseignants et contacts",
+    "pt": "Professores e contactos",
+    "lb": "Léierer & Kontakter"
+  },
+  "schoolPortal.announcements": {
+    "en": "Announcements",
+    "de": "Ankündigungen",
+    "fr": "Annonces",
+    "pt": "Anúncios",
+    "lb": "Ukënnegungen"
+  },
+  "schoolPortal.assignments": {
+    "en": "Assignments",
+    "de": "Aufgaben",
+    "fr": "Devoirs",
+    "pt": "Trabalhos",
+    "lb": "Aufgaben"
+  },
+  "schoolPortal.connect": {
+    "en": "Connect",
+    "de": "Verbinden",
+    "fr": "Connecter",
+    "pt": "Ligar",
+    "lb": "Verbannen"
+  },
+  "schoolPortal.disconnect": {
+    "en": "Disconnect",
+    "de": "Trennen",
+    "fr": "Déconnecter",
+    "pt": "Desligar",
+    "lb": "Trennen"
+  },
+  "schoolPortal.due": {
+    "en": "Due %@",
+    "de": "Fällig %@",
+    "fr": "À rendre le %@",
+    "pt": "Entrega %@",
+    "lb": "Fälleg %@"
+  },
+  "schoolPortal.intro": {
+    "en": "Connect your school's portal to pull announcements and homework into Common Ground. API integrations coming soon — sync now loads sample data for your school profile.",
+    "de": "Verbinden Sie das Schulportal, um Ankündigungen und Hausaufgaben zu importieren. API-Integrationen folgen bald.",
+    "fr": "Connectez le portail scolaire pour récupérer annonces et devoirs. Les intégrations API arrivent bientôt.",
+    "pt": "Ligue o portal escolar para obter anúncios e trabalhos de casa. Integrações API em breve.",
+    "lb": "Verbënnt de Schoulportal fir Ukënnegungen a Hausaufgaben ze importéieren. API-Integratiounen kommen geschwënn."
+  },
+  "schoolPortal.section.announcements": {
+    "en": "Announcements",
+    "de": "Ankündigungen",
+    "fr": "Annonces",
+    "pt": "Anúncios",
+    "lb": "Ukënnegungen"
+  },
+  "schoolPortal.section.homework": {
+    "en": "Homework",
+    "de": "Hausaufgaben",
+    "fr": "Devoirs",
+    "pt": "Trabalhos de casa",
+    "lb": "Hausaufgaben"
+  },
+  "schoolPortal.section.portal": {
+    "en": "Portal",
+    "de": "Portal",
+    "fr": "Portail",
+    "pt": "Portal",
+    "lb": "Portail"
+  },
+  "schoolPortal.service": {
+    "en": "Service",
+    "de": "Dienst",
+    "fr": "Service",
+    "pt": "Serviço",
+    "lb": "Déngscht"
+  },
+  "schoolPortal.syncError": {
+    "en": "Sync failed. Please try again.",
+    "de": "Synchronisation fehlgeschlagen. Bitte erneut versuchen.",
+    "fr": "Échec de la synchronisation. Veuillez réessayer.",
+    "pt": "Falha na sincronização. Tente novamente.",
+    "lb": "Synchronisatioun feelgeschloen. Probéiert w.e.g. nach eng Kéier."
+  },
+  "security.unlockReason": {
+    "en": "Unlock Common Ground to access your family's information.",
+    "de": "Entsperren Sie Common Ground, um auf Ihre Familieninformationen zuzugreifen.",
+    "fr": "Déverrouillez Common Ground pour accéder aux informations de votre famille.",
+    "pt": "Desbloqueie o Common Ground para aceder às informações da sua família.",
+    "lb": "Entspäert Common Ground fir Zougang zu Ärer Famillinformatioun."
+  },
+  "share.familyTitle": {
+    "en": "Common Ground Family",
+    "de": "Common Ground Familie",
+    "fr": "Famille Common Ground",
+    "pt": "Família Common Ground",
+    "lb": "Common Ground Famill"
+  },
+  "signature.signAbove": {
+    "en": "Sign above",
+    "de": "Oben unterschreiben",
+    "fr": "Signez ci-dessus",
+    "pt": "Assine acima",
+    "lb": "Hei uewen ënnerschreiwen"
+  },
+  "sync.cloudKit": {
+    "en": "CloudKit",
+    "de": "CloudKit",
+    "fr": "CloudKit",
+    "pt": "CloudKit",
+    "lb": "CloudKit"
+  },
+  "sync.currentMode": {
+    "en": "Current Mode",
+    "de": "Aktueller Modus",
+    "fr": "Mode actuel",
+    "pt": "Modo atual",
+    "lb": "Aktuelle Modus"
+  },
+  "sync.enableFirst": {
+    "en": "Enable iCloud Sync above and restart the app before sharing.",
+    "de": "Aktivieren Sie iCloud-Sync oben und starten Sie die App neu.",
+    "fr": "Activez la sync iCloud ci-dessus et redémarrez l'app.",
+    "pt": "Ative a sincronização iCloud acima e reinicie a app.",
+    "lb": "Aktivéiert iCloud-Sync uewen a start d'App nei."
+  },
+  "sync.familyCodeNote": {
+    "en": "Family code join works on the same device. iCloud sharing syncs across devices in real time when CloudKit is enabled in Xcode.",
+    "de": "Familiencode funktioniert auf demselben Gerät. iCloud-Freigabe synchronisiert geräteübergreifend in Echtzeit.",
+    "fr": "Le code famille fonctionne sur le même appareil. Le partage iCloud synchronise en temps réel entre appareils.",
+    "pt": "O código da família funciona no mesmo dispositivo. A partilha iCloud sincroniza entre dispositivos em tempo real.",
+    "lb": "Familljencode funktionéiert op deem selwechten Apparat. iCloud-Deelen synchroniséiert iwwer Apparater an Echtzäit."
+  },
+  "sync.footer": {
+    "en": "Sync family data across your devices via iCloud. Requires an iCloud account and app restart.",
+    "de": "Synchronisieren Sie Familiendaten über iCloud. Erfordert iCloud-Konto und App-Neustart.",
+    "fr": "Synchronisez les données familiales via iCloud. Nécessite un compte iCloud et un redémarrage.",
+    "pt": "Sincronize dados da família via iCloud. Requer conta iCloud e reinício da app.",
+    "lb": "Synchroniséiert Familljedaten iwwer iCloud. Brauch iCloud-Kont an App-Neistart."
+  },
+  "sync.inviteAppleID": {
+    "en": "Invite your co-parent's Apple ID. They'll see family data sync in their Common Ground app.",
+    "de": "Laden Sie die Apple-ID Ihres Co-Elternteils ein. Die Familiendaten werden in ihrer Common Ground-App synchronisiert.",
+    "fr": "Invitez l'Apple ID de votre co-parent. Les données se synchroniseront dans son app Common Ground.",
+    "pt": "Convide o Apple ID do co-pai/mãe. Os dados sincronizarão na app Common Ground dele.",
+    "lb": "Invitéiert d'Apple ID vun ärem Co-Elterendeel. Familljedaten synchroniséieren an hirer Common Ground-App."
+  },
+  "sync.migrating": {
+    "en": "Copying your data to iCloud…",
+    "de": "Daten werden nach iCloud kopiert…",
+    "fr": "Copie de vos données vers iCloud…",
+    "pt": "A copiar os seus dados para o iCloud…",
+    "lb": "Är Donnéeë ginn an iCloud kopéiert…"
+  },
+  "sync.migration.alreadyDone": {
+    "en": "Your data is already in iCloud. Restart the app to use sync.",
+    "de": "Ihre Daten sind bereits in iCloud. Starten Sie die App neu.",
+    "fr": "Vos données sont déjà dans iCloud. Redémarrez l'app.",
+    "pt": "Os seus dados já estão no iCloud. Reinicie a app.",
+    "lb": "Är Donnéeë sinn schonn an iCloud. Start d'App nei."
+  },
+  "sync.migration.failed": {
+    "en": "Migration failed: %@",
+    "de": "Migration fehlgeschlagen: %@",
+    "fr": "Échec de la migration : %@",
+    "pt": "Falha na migração: %@",
+    "lb": "Migratioun feelgeschloen: %@"
+  },
+  "sync.migration.footer": {
+    "en": "The first time you enable sync, your existing local data is copied to iCloud before switching stores.",
+    "de": "Beim ersten Aktivieren werden Ihre lokalen Daten nach iCloud kopiert, bevor der Speicher gewechselt wird.",
+    "fr": "Lors de la première activation, vos données locales sont copiées vers iCloud avant le changement de stockage.",
+    "pt": "Na primeira ativação, os dados locais são copiados para o iCloud antes de mudar o armazenamento.",
+    "lb": "Beim éischten Aktivéieren ginn lokal Donnéeë an iCloud kopéiert, ier de Späicher gewiesselt gëtt."
+  },
+  "sync.migration.ready": {
+    "en": "iCloud sync is ready. Restart the app to finish.",
+    "de": "iCloud-Sync ist bereit. Starten Sie die App neu.",
+    "fr": "La sync iCloud est prête. Redémarrez l'app.",
+    "pt": "A sincronização iCloud está pronta. Reinicie a app.",
+    "lb": "iCloud-Sync ass prett. Start d'App nei."
+  },
+  "sync.migration.success": {
+    "en": "Copied %d items to iCloud. Restart the app to finish enabling sync.",
+    "de": "%d Einträge nach iCloud kopiert. Starten Sie die App neu, um die Synchronisierung abzuschließen.",
+    "fr": "%d éléments copiés vers iCloud. Redémarrez l'app pour terminer l'activation.",
+    "pt": "%d itens copiados para o iCloud. Reinicie a app para concluir a sincronização.",
+    "lb": "%d Elementer an iCloud kopéiert. Start d'App nei fir d'Sync ofzeschléissen."
+  },
+  "sync.modeICloudPending": {
+    "en": "iCloud (pending restart)",
+    "de": "iCloud (Neustart ausstehend)",
+    "fr": "iCloud (redémarrage requis)",
+    "pt": "iCloud (reinício pendente)",
+    "lb": "iCloud (Neistart ausstoend)"
+  },
+  "sync.modeLocal": {
+    "en": "Local only",
+    "de": "Nur lokal",
+    "fr": "Local uniquement",
+    "pt": "Apenas local",
+    "lb": "Nëmmen lokal"
+  },
+  "sync.requiresRestart": {
+    "en": "iCloud sync will take effect the next time you open the app.",
+    "de": "iCloud-Sync wird beim nächsten App-Start wirksam.",
+    "fr": "La sync iCloud prendra effet au prochain lancement de l'app.",
+    "pt": "A sincronização iCloud terá efeito na próxima abertura da app.",
+    "lb": "iCloud-Sync gëtt beim nächsten App-Start aktiv."
+  },
+  "sync.section.coParentSharing": {
+    "en": "Co-Parent Sharing",
+    "de": "Co-Eltern-Freigabe",
+    "fr": "Partage co-parent",
+    "pt": "Partilha com co-pai/mãe",
+    "lb": "Co-Elteren-Deelen"
+  },
+  "sync.section.status": {
+    "en": "Status",
+    "de": "Status",
+    "fr": "Statut",
+    "pt": "Estado",
+    "lb": "Status"
+  },
+  "sync.shareFamily": {
+    "en": "Share Family via iCloud",
+    "de": "Familie über iCloud teilen",
+    "fr": "Partager la famille via iCloud",
+    "pt": "Partilhar família via iCloud",
+    "lb": "Famill iwwer iCloud deelen"
+  },
+  "sync.signInRequired": {
+    "en": "Sign in to iCloud to share with your co-parent in real time.",
+    "de": "Melden Sie sich bei iCloud an, um in Echtzeit mit Ihrem Co-Elternteil zu teilen.",
+    "fr": "Connectez-vous à iCloud pour partager en temps réel avec votre co-parent.",
+    "pt": "Inicie sessão no iCloud para partilhar em tempo real com o co-pai/mãe.",
+    "lb": "Mellt Iech bei iCloud un fir an Echtzäit mat ärem Co-Elterendeel ze deelen."
+  },
+  "tab.calendar": {
+    "en": "Calendar",
+    "de": "Kalender",
+    "fr": "Calendrier",
+    "pt": "Calendário",
+    "lb": "Kalenner"
+  },
+  "tab.children": {
+    "en": "Children",
+    "de": "Kinder",
+    "fr": "Enfants",
+    "pt": "Crianças",
+    "lb": "Kanner"
+  },
+  "tab.home": {
+    "en": "Home",
+    "de": "Start",
+    "fr": "Accueil",
+    "pt": "Início",
+    "lb": "Doheem"
+  },
+  "tab.messages": {
+    "en": "Messages",
+    "de": "Nachrichten",
+    "fr": "Messages",
+    "pt": "Mensagens",
+    "lb": "Noriichten"
+  },
+  "tab.more": {
+    "en": "More",
+    "de": "Mehr",
+    "fr": "Plus",
+    "pt": "Mais",
+    "lb": "Méi"
+  },
+  "timeline.achievement": {
+    "en": "Achievement",
+    "de": "Erfolg",
+    "fr": "Réussite",
+    "pt": "Conquista",
+    "lb": "Erfolleg"
+  },
+  "timeline.birthday": {
+    "en": "Birthday",
+    "de": "Geburtstag",
+    "fr": "Anniversaire",
+    "pt": "Aniversário",
+    "lb": "Gebuertsdag"
+  },
+  "timeline.byAuthor": {
+    "en": "by %@",
+    "de": "von %@",
+    "fr": "par %@",
+    "pt": "por %@",
+    "lb": "vun %@"
+  },
+  "timeline.dailyBadge": {
+    "en": "Daily",
+    "de": "Täglich",
+    "fr": "Quotidien",
+    "pt": "Diário",
+    "lb": "Deeglech"
+  },
+  "timeline.dailyUpdate": {
+    "en": "Daily Update",
+    "de": "Tägliches Update",
+    "fr": "Mise à jour quotidienne",
+    "pt": "Atualização diária",
+    "lb": "Deeglechen Update"
+  },
+  "timeline.emptyMessage": {
+    "en": "Post daily updates and milestones so everyone stays in the loop.",
+    "de": "Tägliche Updates und Meilensteine teilen, damit alle informiert bleiben.",
+    "fr": "Publiez des mises à jour quotidiennes et des étapes pour que tout le monde reste informé.",
+    "pt": "Publique atualizações diárias e marcos para manter todos informados.",
+    "lb": "Deelt deeglech Updates a Meilesteng fir jiddereen informéiert ze bleiwen."
+  },
+  "timeline.emptyTitle": {
+    "en": "No updates yet",
+    "de": "Noch keine Updates",
+    "fr": "Pas encore de mises à jour",
+    "pt": "Ainda sem atualizações",
+    "lb": "Nach keng Updates"
+  },
+  "timeline.first": {
+    "en": "First",
+    "de": "Erstes Mal",
+    "fr": "Première fois",
+    "pt": "Primeira vez",
+    "lb": "Éischte Kéier"
+  },
+  "timeline.medical": {
+    "en": "Medical",
+    "de": "Medizinisch",
+    "fr": "Médical",
+    "pt": "Médico",
+    "lb": "Medizinesch"
+  },
+  "timeline.milestone": {
+    "en": "Milestone",
+    "de": "Meilenstein",
+    "fr": "Étape",
+    "pt": "Marco",
+    "lb": "Meilesteen"
+  },
+  "timeline.other": {
+    "en": "Other",
+    "de": "Sonstiges",
+    "fr": "Autre",
+    "pt": "Outro",
+    "lb": "Aneres"
+  },
+  "timeline.school": {
+    "en": "School",
+    "de": "Schule",
+    "fr": "École",
+    "pt": "Escola",
+    "lb": "Schoul"
+  },
+  "timeline.trip": {
+    "en": "Trip",
+    "de": "Reise",
+    "fr": "Voyage",
+    "pt": "Viagem",
+    "lb": "Rees"
+  },
+  "watch.askAIHint": {
+    "en": "Ask AI on iPhone for full answers.",
+    "de": "Stellen Sie KI-Fragen auf dem iPhone für vollständige Antworten.",
+    "fr": "Posez vos questions à l'IA sur l'iPhone pour des réponses complètes.",
+    "pt": "Pergunte à IA no iPhone para respostas completas.",
+    "lb": "Frot KI-Froen op dem iPhone fir vollstänneg Äntwerten."
+  },
+  "watch.demo.exchangeIn": {
+    "en": "Exchange in 2 days",
+    "de": "Übergabe in 2 Tagen",
+    "fr": "Échange dans 2 jours",
+    "pt": "Troca em 2 dias",
+    "lb": "Iwwergab an 2 Deeg"
+  },
+  "watch.demo.medication": {
+    "en": "Zyrtec 5mg",
+    "de": "Zyrtec 5mg",
+    "fr": "Zyrtec 5 mg",
+    "pt": "Zyrtec 5 mg",
+    "lb": "Zyrtec 5mg"
+  },
+  "watch.demo.soccer": {
+    "en": "Soccer practice",
+    "de": "Fußballtraining",
+    "fr": "Entraînement de foot",
+    "pt": "Treino de futebol",
+    "lb": "Foussballtraining"
+  },
+  "watch.reminders": {
+    "en": "Reminders",
+    "de": "Erinnerungen",
+    "fr": "Rappels",
+    "pt": "Lembretes",
+    "lb": "Erënnerungen"
+  },
+  "watch.today": {
+    "en": "Today",
+    "de": "Heute",
+    "fr": "Aujourd'hui",
+    "pt": "Hoje",
+    "lb": "Haut"
+  },
+  "widget.custody.description": {
+    "en": "See who has custody and upcoming exchanges.",
+    "de": "Sehen Sie, wer das Sorgerecht hat und anstehende Übergaben.",
+    "fr": "Voir qui a la garde et les échanges à venir.",
+    "pt": "Veja quem tem a custódia e as trocas futuras.",
+    "lb": "Gesinn wien d'Sorgerecht huet an geschitt Iwwergaben."
+  },
+  "widget.custody.name": {
+    "en": "Custody",
+    "de": "Sorgerecht",
+    "fr": "Garde",
+    "pt": "Custódia",
+    "lb": "Sorgerecht"
+  },
+  "widget.exchangeRelative": {
+    "en": "Exchange %@",
+    "de": "Übergabe %@",
+    "fr": "Échange %@",
+    "pt": "Troca %@",
+    "lb": "Iwwergab %@"
+  },
+  "widget.liveActivity.exchangeAt": {
+    "en": "Exchange at %@",
+    "de": "Übergabe um %@",
+    "fr": "Échange à %@",
+    "pt": "Troca às %@",
+    "lb": "Iwwergab um %@"
+  },
+  "widget.liveActivity.title": {
+    "en": "Custody Exchange",
+    "de": "Sorgerechtsübergabe",
+    "fr": "Échange de garde",
+    "pt": "Troca de custódia",
+    "lb": "Sorgerechtsiwwergab"
+  },
+  "widget.nextExchange": {
+    "en": "Next Exchange",
+    "de": "Nächste Übergabe",
+    "fr": "Prochain échange",
+    "pt": "Próxima troca",
+    "lb": "Nächst Iwwergab"
+  },
+  "widget.upcoming": {
+    "en": "Upcoming",
+    "de": "Demnächst",
+    "fr": "À venir",
+    "pt": "A seguir",
+    "lb": "Geschitt"
+  }
+}

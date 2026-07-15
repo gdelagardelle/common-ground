@@ -4,12 +4,8 @@ import CommonGroundDesign
 struct LaunchScreenView: View {
     var body: some View {
         ZStack {
-            LinearGradient(
-                colors: [Color("BrandPrimary", bundle: .main), Color("BrandSecondary", bundle: .main)],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-            .ignoresSafeArea()
+            CGGradient.brandSplash
+                .ignoresSafeArea()
 
             VStack(spacing: 16) {
                 Image(systemName: "figure.2.and.child.holdinghands")
@@ -18,7 +14,7 @@ struct LaunchScreenView: View {
                     .symbolEffect(.pulse)
 
                 Text("Common Ground")
-                    .font(.largeTitle.weight(.bold))
+                    .font(.system(.largeTitle, design: .rounded).weight(.bold))
                     .foregroundStyle(.white)
             }
         }

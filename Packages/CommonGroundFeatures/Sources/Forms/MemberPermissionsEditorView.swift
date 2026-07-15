@@ -19,8 +19,12 @@ public struct MemberPermissionsEditorView: View {
         Form {
             Section {
                 HStack(spacing: CGSpacing.md) {
-                    Text(member.avatarEmoji)
-                        .font(.largeTitle)
+                    CGAvatar(
+                        name: member.displayName,
+                        genmojiData: member.genmojiData,
+                        emoji: member.avatarEmoji,
+                        size: 52
+                    )
                     VStack(alignment: .leading) {
                         Text(member.displayName)
                             .font(.headline)
@@ -28,10 +32,17 @@ public struct MemberPermissionsEditorView: View {
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                     }
+                    Spacer()
+                    NavigationLink {
+                        MemberAvatarEditorView(member: member)
+                    } label: {
+                        Text(L10n.permissionsGenmoji)
+                            .font(.caption.weight(.medium))
+                    }
                 }
             }
 
-            Section("What they can see") {
+            Section(L10n.permissionsWhatTheySee) {
                 moduleToggle(.calendar, keyPath: \.canViewCalendar)
                 moduleToggle(.expenses, keyPath: \.canViewExpenses)
                 moduleToggle(.medical, keyPath: \.canViewMedical)
@@ -42,30 +53,30 @@ public struct MemberPermissionsEditorView: View {
                 moduleToggle(.emergency, keyPath: \.canViewEmergency)
             }
 
-            Section("What they can change") {
-                editToggle("Edit calendar", icon: "calendar.badge.plus", enabled: permissions.canViewCalendar, keyPath: \.canEditCalendar)
-                editToggle("Add expenses", icon: "dollarsign.circle", enabled: permissions.canViewExpenses, keyPath: \.canEditExpenses)
-                editToggle("Edit medical", icon: "cross.case", enabled: permissions.canViewMedical, keyPath: \.canEditMedical)
-                editToggle("Send messages", icon: "bubble.left", enabled: permissions.canViewMessages, keyPath: \.canSendMessages)
+            Section(L10n.permissionsWhatTheyChange) {
+                editToggle(L10n.permissionsEditCalendar, icon: "calendar.badge.plus", enabled: permissions.canViewCalendar, keyPath: \.canEditCalendar)
+                editToggle(L10n.permissionsAddExpenses, icon: "dollarsign.circle", enabled: permissions.canViewExpenses, keyPath: \.canEditExpenses)
+                editToggle(L10n.permissionsEditMedical, icon: "cross.case", enabled: permissions.canViewMedical, keyPath: \.canEditMedical)
+                editToggle(L10n.permissionsSendMessages, icon: "bubble.left", enabled: permissions.canViewMessages, keyPath: \.canSendMessages)
                 Toggle(isOn: $permissions.canExportRecords) {
-                    Label("Court export", systemImage: "doc.richtext")
+                    Label(L10n.permissionsCourtExport, systemImage: "doc.richtext")
                 }
             }
 
             Section {
-                Button("Reset to \(member.role.displayName) defaults") {
+                Button(L10n.format("permissions.resetDefaults", member.role.displayName)) {
                     permissions = MemberPermissions.default(for: member.role)
                     persist()
                 }
             }
 
             Section {
-                Text("Hide modules a grandparent or caregiver shouldn't see. View access must be on before edit access.")
+                Text(L10n.permissionsFooter)
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
         }
-        .navigationTitle("Access")
+        .navigationTitle(L10n.permissionsAccessTitle)
         .navigationBarTitleDisplayMode(.inline)
         .onChange(of: permissions) { old, new in
             guard old != new else { return }

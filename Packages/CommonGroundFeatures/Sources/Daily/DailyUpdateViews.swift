@@ -23,13 +23,13 @@ public struct AddDailyUpdateView: View {
         NavigationStack {
             Form {
                 Section {
-                    Text("Share what happened today so your co-parent stays informed — without a long chat.")
+                    Text(L10n.dailyIntro)
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }
 
-                Section("Quick templates") {
-                    Picker("Template", selection: $selectedPreset) {
+                Section(L10n.dailyTemplates) {
+                    Picker(L10n.dailyTemplate, selection: $selectedPreset) {
                         ForEach(DailyUpdatePreset.allCases, id: \.self) { preset in
                             Text(preset.title).tag(preset)
                         }
@@ -41,9 +41,9 @@ public struct AddDailyUpdateView: View {
                     }
                 }
 
-                Section("Update") {
-                    TextField("Headline", text: $title)
-                    TextField("Details (optional)", text: $detail, axis: .vertical)
+                Section(L10n.dailyUpdate) {
+                    TextField(L10n.dailyHeadline, text: $title)
+                    TextField(L10n.dailyDetails, text: $detail, axis: .vertical)
                         .lineLimit(4...8)
                 }
 
@@ -55,14 +55,14 @@ public struct AddDailyUpdateView: View {
                     }
                 }
             }
-            .navigationTitle("Daily Update")
+            .navigationTitle(L10n.dailyTitle)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") { dismiss() }
+                    Button(L10n.commonCancel) { dismiss() }
                 }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Post") { save() }
+                    Button(L10n.commonPost) { save() }
                         .disabled(title.trimmingCharacters(in: .whitespaces).isEmpty)
                 }
             }
@@ -86,7 +86,7 @@ public struct AddDailyUpdateView: View {
             )
             dismiss()
         } catch {
-            errorMessage = "Couldn't save update. Please try again."
+            errorMessage = L10n.dailySaveError
         }
     }
 }
@@ -100,21 +100,21 @@ enum DailyUpdatePreset: String, CaseIterable {
 
     var title: String {
         switch self {
-        case .general: "General update"
-        case .schoolDay: "School day"
-        case .activity: "Activity / sport"
-        case .absence: "Couldn't attend"
-        case .handoff: "Handoff note"
+        case .general: L10n.dailyPresetGeneral
+        case .schoolDay: L10n.dailyPresetSchool
+        case .activity: L10n.dailyPresetActivity
+        case .absence: L10n.dailyPresetAbsence
+        case .handoff: L10n.dailyPresetHandoff
         }
     }
 
     func suggestedTitle(childName: String) -> String {
         switch self {
-        case .general: "\(childName)'s day"
-        case .schoolDay: "School update for \(childName)"
-        case .activity: "\(childName)'s activity"
-        case .absence: "Update — I wasn't there"
-        case .handoff: "Handoff for \(childName)"
+        case .general: L10n.format("daily.preset.general.suggested", childName)
+        case .schoolDay: L10n.format("daily.preset.school.suggested", childName)
+        case .activity: L10n.format("daily.preset.activity.suggested", childName)
+        case .absence: L10n.format("daily.preset.absence.suggested")
+        case .handoff: L10n.format("daily.preset.handoff.suggested", childName)
         }
     }
 }
@@ -127,19 +127,22 @@ public struct DailyUpdateCard: View {
     }
 
     public var body: some View {
-        CGCard(padding: CGSpacing.sm) {
+        CGCard(padding: CGSpacing.sm, style: .warm) {
             VStack(alignment: .leading, spacing: CGSpacing.xs) {
                 HStack {
                     Image(systemName: "sun.horizon.fill")
-                        .foregroundStyle(.orange)
+                        .foregroundStyle(CGColor.warmAmber)
                     Text(entry.date.formatted(date: .abbreviated, time: .shortened))
                         .font(.caption)
                         .foregroundStyle(.secondary)
                     Spacer()
                     if let author = entry.authorName {
                         Text(author)
-                            .font(.caption2)
-                            .foregroundStyle(.tertiary)
+                            .font(.caption2.weight(.medium))
+                            .foregroundStyle(CGColor.primary.opacity(0.7))
+                            .padding(.horizontal, CGSpacing.xs)
+                            .padding(.vertical, 2)
+                            .background(CGColor.primary.opacity(0.08), in: Capsule())
                     }
                 }
 

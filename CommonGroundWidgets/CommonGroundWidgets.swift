@@ -1,7 +1,8 @@
 import WidgetKit
 import SwiftUI
+import CommonGroundCore
 
-struct CustodyWidgetEntry: TimelineEntry {
+struct CustodyWidgetEntry: WidgetKit.TimelineEntry {
     let date: Date
     let childName: String
     let currentParent: String
@@ -51,7 +52,7 @@ struct CustodyWidgetView: View {
             HStack {
                 Image(systemName: "figure.2.and.child.holdinghands")
                     .font(.caption.weight(.bold))
-                Text("Common Ground")
+                Text(L10n.appName)
                     .font(.caption.weight(.semibold))
                 Spacer()
             }
@@ -60,7 +61,7 @@ struct CustodyWidgetView: View {
             Text(entry.childName)
                 .font(.title2.weight(.bold))
 
-            Label("With \(entry.currentParent)", systemImage: "house.fill")
+            Label(L10n.format("custody.withParent", entry.currentParent), systemImage: "house.fill")
                 .font(.subheadline)
                 .foregroundStyle(.blue)
 
@@ -68,7 +69,7 @@ struct CustodyWidgetView: View {
 
             HStack {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("Next Exchange")
+                    Text(L10n.widgetNextExchange)
                         .font(.caption2)
                         .foregroundStyle(.secondary)
                     Text(entry.nextExchange, style: .relative)
@@ -76,7 +77,7 @@ struct CustodyWidgetView: View {
                 }
                 Spacer()
                 VStack(alignment: .trailing, spacing: 2) {
-                    Text("Upcoming")
+                    Text(L10n.widgetUpcoming)
                         .font(.caption2)
                         .foregroundStyle(.secondary)
                     Text(entry.nextEvent)
@@ -106,7 +107,10 @@ struct CustodyWidgetView: View {
             VStack(alignment: .leading) {
                 Text("\(entry.childName) · \(entry.currentParent)")
                     .font(.headline)
-                Text("Exchange \(entry.nextExchange, style: .relative)")
+                Text(L10n.format(
+                    "widget.exchangeRelative",
+                    entry.nextExchange.formatted(.relative(presentation: .named))
+                ))
                     .font(.caption)
             }
         }
@@ -121,8 +125,8 @@ struct CustodyWidget: Widget {
         StaticConfiguration(kind: kind, provider: CustodyWidgetProvider()) { entry in
             CustodyWidgetView(entry: entry)
         }
-        .configurationDisplayName("Custody")
-        .description("See who has custody and upcoming exchanges.")
+        .configurationDisplayName(L10n.widgetCustodyName)
+        .description(L10n.widgetCustodyDescription)
         .supportedFamilies([.systemSmall, .systemMedium, .accessoryCircular, .accessoryRectangular])
     }
 }

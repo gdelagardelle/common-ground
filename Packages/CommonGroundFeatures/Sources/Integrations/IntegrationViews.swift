@@ -12,7 +12,12 @@ public struct CalendarSyncView: View {
     @State private var daysAhead = 90
     @State private var autoSync = CalendarSyncPreferences.isAutoSyncEnabled
     @State private var exportAllEvents = CalendarSyncPreferences.exportAllEvents
+    @State private var exportDestination = CalendarSyncPreferences.exportDestination
+    @State private var exportTargetId = CalendarSyncPreferences.exportTargetCalendarIdentifier
+    @State private var writableCalendars: [WritableCalendarInfo] = []
     @State private var isSyncing = false
+    @State private var isExporting = false
+    @State private var isImporting = false
     @State private var syncResult: CalendarSyncResult?
     @State private var accessDenied = false
     @State private var errorMessage: String?
@@ -23,38 +28,102 @@ public struct CalendarSyncView: View {
         NavigationStack {
             Form {
                 Section {
-                    Text("Keep custody schedules in sync with Apple Calendar. Common Ground creates a dedicated calendar and exports your events while importing new ones from your other calendars.")
+                    Text(L10n.calendarSyncIntro)
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }
 
-                Section("Sync Settings") {
-                    Toggle("Auto-sync on launch", isOn: $autoSync)
+                Section(L10n.calendarSyncSettings) {
+                    Toggle(L10n.calendarSyncAutoSync, isOn: $autoSync)
                         .onChange(of: autoSync) { _, value in
                             CalendarSyncPreferences.isAutoSyncEnabled = value
                         }
 
-                    Toggle("Export all events", isOn: $exportAllEvents)
+                    Toggle(L10n.calendarSyncExportAll, isOn: $exportAllEvents)
                         .onChange(of: exportAllEvents) { _, value in
                             CalendarSyncPreferences.exportAllEvents = value
                         }
 
                     if !exportAllEvents {
-                        Text("When off, only custody and exchange events are exported.")
+                        Text(L10n.calendarSyncExportAllHint)
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }
 
                     if !children.isEmpty {
-                        Picker("Import assign to", selection: $selectedChildId) {
-                            Text("No specific child").tag(UUID?.none)
+                        Picker(L10n.calendarSyncImportAssign, selection: $selectedChildId) {
+                            Text(L10n.calendarSyncNoChild).tag(UUID?.none)
                             ForEach(children, id: \.id) { child in
                                 Text(child.firstName).tag(Optional(child.id))
                             }
                         }
                     }
 
-                    Stepper("Sync window: \(daysAhead) days", value: $daysAhead, in: 30...180, step: 30)
+                    Stepper(L10n.format("calendarSync.syncWindow", daysAhead), value: $daysAhead, in: 30...180, step: 30)
+                }
+
+                Section(L10n.calendarSyncExportTitle) {
+                    Text(L10n.calendarSyncExportHint)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+
+                    Picker(L10n.calendarSyncExportDestination, selection: $exportDestination) {
+                        Text(L10n.calendarSyncExportDedicated).tag(CalendarExportDestination.dedicated)
+                        Text(L10n.calendarSyncExportExisting).tag(CalendarExportDestination.existing)
+                    }
+                    .onChange(of: exportDestination) { _, value in
+                        CalendarSyncPreferences.exportDestination = value
+                    }
+
+                    if exportDestination == .existing {
+                        if writableCalendars.isEmpty {
+                            Text(L10n.calendarSyncNoCalendars)
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        } else {
+                            Picker(L10n.calendarSyncExportChoose, selection: $exportTargetId) {
+                                Text(L10n.commonNone).tag(String?.none)
+                                ForEach(writableCalendars) { calendar in
+                                    Text(calendar.displayTitle).tag(Optional(calendar.id))
+                                }
+                            }
+                            .onChange(of: exportTargetId) { _, value in
+                                CalendarSyncPreferences.exportTargetCalendarIdentifier = value
+                            }
+                        }
+                    }
+
+                    Button {
+                        exportNow()
+                    } label: {
+                        HStack {
+                            Spacer()
+                            if isExporting {
+                                ProgressView()
+                            } else {
+                                Label(L10n.calendarSyncExportNow, systemImage: "square.and.arrow.up")
+                            }
+                            Spacer()
+                        }
+                    }
+                    .disabled(isExporting || (exportDestination == .existing && exportTargetId == nil))
+                }
+
+                Section(L10n.calendarSyncImportTitle) {
+                    Button {
+                        importNow()
+                    } label: {
+                        HStack {
+                            Spacer()
+                            if isImporting {
+                                ProgressView()
+                            } else {
+                                Label(L10n.calendarSyncImportNow, systemImage: "square.and.arrow.down")
+                            }
+                            Spacer()
+                        }
+                    }
+                    .disabled(isImporting)
                 }
 
                 Section {
@@ -66,7 +135,7 @@ public struct CalendarSyncView: View {
                             if isSyncing {
                                 ProgressView()
                             } else {
-                                Label("Sync Now", systemImage: "arrow.triangle.2.circlepath")
+                                Label(L10n.calendarSyncSyncNow, systemImage: "arrow.triangle.2.circlepath")
                             }
                             Spacer()
                         }
@@ -75,19 +144,19 @@ public struct CalendarSyncView: View {
                 }
 
                 if let syncResult {
-                    Section("Last Sync") {
-                        LabeledContent("Exported", value: "\(syncResult.exported)")
-                        LabeledContent("Updated", value: "\(syncResult.updated)")
-                        LabeledContent("Imported", value: "\(syncResult.imported)")
+                    Section(L10n.calendarSyncLastSync) {
+                        LabeledContent(L10n.calendarSyncExported, value: "\(syncResult.exported)")
+                        LabeledContent(L10n.calendarSyncUpdated, value: "\(syncResult.updated)")
+                        LabeledContent(L10n.calendarSyncImported, value: "\(syncResult.imported)")
                         if let lastSync = CalendarSyncPreferences.lastSyncDate {
-                            LabeledContent("Time", value: lastSync.formatted(date: .abbreviated, time: .shortened))
+                            LabeledContent(L10n.calendarSyncTime, value: lastSync.formatted(date: .abbreviated, time: .shortened))
                         }
                     }
                 }
 
                 if accessDenied {
                     Section {
-                        Text("Calendar access was denied. Enable it in Settings → Common Ground → Calendars.")
+                        Text(L10n.calendarSyncAccessDenied)
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }
@@ -99,46 +168,91 @@ public struct CalendarSyncView: View {
                     }
                 }
             }
-            .navigationTitle("Apple Calendar")
+            .navigationTitle(L10n.calendarSyncTitle)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Done") { dismiss() }
+                    Button(L10n.commonDone) { dismiss() }
                 }
+            }
+            .task {
+                await refreshCalendars()
             }
         }
     }
 
+    private func refreshCalendars() async {
+        guard await CalendarSyncService.requestAccess() else { return }
+        writableCalendars = CalendarSyncService.writableCalendars()
+        if exportTargetId == nil {
+            exportTargetId = writableCalendars.first?.id
+            CalendarSyncPreferences.exportTargetCalendarIdentifier = exportTargetId
+        }
+    }
+
     private func syncNow() {
-        isSyncing = true
+        runTask(flag: .sync) {
+            syncResult = try await CalendarSyncService.performFullSync(
+                context: modelContext,
+                child: children.first { $0.id == selectedChildId },
+                daysAhead: daysAhead
+            )
+        }
+    }
+
+    private func exportNow() {
+        runTask(flag: .export) {
+            syncResult = try await CalendarSyncService.exportOnly(context: modelContext)
+        }
+    }
+
+    private func importNow() {
+        runTask(flag: .importing) {
+            syncResult = try await CalendarSyncService.importOnly(
+                context: modelContext,
+                child: children.first { $0.id == selectedChildId },
+                daysAhead: daysAhead
+            )
+        }
+    }
+
+    private enum TaskFlag { case sync, export, importing }
+
+    private func runTask(flag: TaskFlag, operation: @escaping () async throws -> Void) {
         errorMessage = nil
-        syncResult = nil
         accessDenied = false
+        switch flag {
+        case .sync: isSyncing = true
+        case .export: isExporting = true
+        case .importing: isImporting = true
+        }
 
         Task {
             let granted = await CalendarSyncService.requestAccess()
             guard granted else {
                 accessDenied = true
                 isSyncing = false
+                isExporting = false
+                isImporting = false
                 return
             }
 
-            let child = children.first { $0.id == selectedChildId }
+            if flag == .export || flag == .sync {
+                writableCalendars = CalendarSyncService.writableCalendars()
+            }
+
             do {
-                syncResult = try await CalendarSyncService.performFullSync(
-                    context: modelContext,
-                    child: child,
-                    daysAhead: daysAhead
-                )
+                try await operation()
             } catch {
                 errorMessage = error.localizedDescription
             }
             isSyncing = false
+            isExporting = false
+            isImporting = false
         }
     }
 }
 
-// Backward-compatible alias
 public typealias CalendarImportView = CalendarSyncView
 
 public struct InviteCoParentView: View {
@@ -155,7 +269,7 @@ public struct InviteCoParentView: View {
 
     private var inviteBody: String {
         guard let family, let inviter = family.members.first(where: { $0.id == appState.currentMemberId }) ?? family.members.first else {
-            return "Join me on Common Ground for co-parenting."
+            return L10n.inviteDefaultBody
         }
         return InviteService.inviteMessage(
             familyName: family.name,
@@ -168,50 +282,50 @@ public struct InviteCoParentView: View {
         NavigationStack {
             Form {
                 Section {
-                    Text("Invite your co-parent to share custody schedules, expenses, and messages.")
+                    Text(L10n.inviteIntro)
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }
 
                 if let family {
-                    Section("Family Code") {
+                    Section(L10n.inviteSectionFamilyCode) {
                         Text(String(family.id.uuidString.prefix(8)).uppercased())
                             .font(.title2.weight(.bold))
                             .monospaced()
                             .frame(maxWidth: .infinity, alignment: .center)
-                        Text("Your co-parent can enter this code when they sign up.")
+                        Text(L10n.inviteFamilyCodeHint)
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }
                 }
 
-                Section("Send Invite") {
-                    TextField("Co-parent email (optional)", text: $coParentEmail)
+                Section(L10n.inviteSectionSendInvite) {
+                    TextField(L10n.inviteCoParentEmail, text: $coParentEmail)
                         .keyboardType(.emailAddress)
                         .textContentType(.emailAddress)
 
                     Button {
                         showShare = true
                     } label: {
-                        Label("Share Invite", systemImage: "square.and.arrow.up")
+                        Label(L10n.inviteShareInvite, systemImage: "square.and.arrow.up")
                     }
 
                     if !coParentEmail.isEmpty, let url = InviteService.mailtoURL(
                         email: coParentEmail,
-                        subject: "Join our family on Common Ground",
+                        subject: L10n.inviteEmailSubject,
                         body: inviteBody
                     ) {
                         Link(destination: url) {
-                            Label("Send Email", systemImage: "envelope")
+                            Label(L10n.inviteSendEmail, systemImage: "envelope")
                         }
                     }
                 }
             }
-            .navigationTitle("Invite Co-Parent")
+            .navigationTitle(L10n.inviteTitle)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Done") { dismiss() }
+                    Button(L10n.commonDone) { dismiss() }
                 }
             }
             #if canImport(UIKit)
@@ -231,52 +345,81 @@ public struct SyncSettingsView: View {
     @State private var showRestartNotice = false
     @State private var showCloudShare = false
     @State private var shareError: String?
+    @State private var isMigrating = false
+    @State private var migrationMessage: String?
 
     public init() {}
 
     public var body: some View {
         Form {
             Section {
-                Toggle("iCloud Sync", isOn: $cloudKitEnabled)
+                Toggle(L10n.moreICloudSync, isOn: $cloudKitEnabled)
+                    .disabled(isMigrating)
                     .onChange(of: cloudKitEnabled) { _, newValue in
-                        SyncPreferences.isCloudKitEnabled = newValue
-                        showRestartNotice = true
+                        Task { await handleCloudKitToggle(enabled: newValue) }
                     }
             } footer: {
-                Text("Sync family data across your devices via iCloud. Requires an iCloud account and app restart.")
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(L10n.syncFooter)
+                    Text(L10n.syncMigrationFooter)
+                }
+            }
+
+            if isMigrating {
+                Section {
+                    HStack(spacing: 12) {
+                        ProgressView()
+                        Text(L10n.syncMigrating)
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+            }
+
+            if let migrationMessage {
+                Section {
+                    Label(migrationMessage, systemImage: "checkmark.icloud")
+                        .font(.caption)
+                        .foregroundStyle(.green)
+                }
             }
 
             if showRestartNotice {
                 Section {
-                    Label(SyncPreferences.requiresRestartMessage, systemImage: "arrow.clockwise")
+                    Label(L10n.syncRequiresRestart, systemImage: "arrow.clockwise")
                         .font(.caption)
                         .foregroundStyle(.orange)
                 }
             }
 
-            Section("Status") {
-                LabeledContent("Current Mode", value: SyncPreferences.isCloudKitEnabled ? "iCloud (pending restart)" : "Local only")
-                LabeledContent("CloudKit", value: CloudKitShareService.statusMessage)
+            Section(L10n.syncSectionStatus) {
+                LabeledContent(L10n.syncCurrentMode, value: SyncPreferences.isCloudKitEnabled ? L10n.syncModeICloudPending : L10n.syncModeLocal)
+                LabeledContent(L10n.syncCloudKit, value: CloudKitShareService.statusMessage)
+                if CloudKitCapability.isConfigured {
+                    Label(L10n.cloudStatusCapabilityReady, systemImage: "checkmark.icloud")
+                        .font(.caption)
+                        .foregroundStyle(.green)
+                }
             }
 
-            Section("Co-Parent Sharing") {
+            Section(L10n.syncSectionCoParentSharing) {
                 Button {
                     showCloudShare = true
                 } label: {
-                    Label("Share Family via iCloud", systemImage: "person.2.crop.square.stack")
+                    Label(L10n.syncShareFamily, systemImage: "person.2.crop.square.stack")
                 }
                 .disabled(families.isEmpty || !CloudKitShareService.canShare)
 
                 if !CloudKitShareService.isSignedInToiCloud {
-                    Text("Sign in to iCloud to share with your co-parent in real time.")
+                    Text(L10n.syncSignInRequired)
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 } else if !SyncPreferences.isCloudKitEnabled {
-                    Text("Enable iCloud Sync above and restart the app before sharing.")
+                    Text(L10n.syncEnableFirst)
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 } else {
-                    Text("Invite your co-parent's Apple ID. They'll see family data sync in their Common Ground app.")
+                    Text(L10n.syncInviteAppleID)
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
@@ -289,12 +432,12 @@ public struct SyncSettingsView: View {
             }
 
             Section {
-                Text("Family code join works on the same device. iCloud sharing syncs across devices in real time when CloudKit is enabled in Xcode.")
+                Text(L10n.syncFamilyCodeNote)
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
         }
-        .navigationTitle("Sync")
+        .navigationTitle(L10n.moreSync)
         .background {
             #if canImport(CloudKit) && canImport(UIKit)
             if let family = families.first {
@@ -306,6 +449,51 @@ public struct SyncSettingsView: View {
                 .frame(width: 0, height: 0)
             }
             #endif
+        }
+    }
+
+    @MainActor
+    private func handleCloudKitToggle(enabled: Bool) async {
+        shareError = nil
+        migrationMessage = nil
+
+        guard enabled else {
+            SyncPreferences.isCloudKitEnabled = false
+            showRestartNotice = true
+            return
+        }
+
+        guard CloudKitCapability.isConfigured else {
+            cloudKitEnabled = false
+            shareError = L10n.cloudErrorUnavailable
+            return
+        }
+
+        guard CloudKitShareService.isSignedInToiCloud else {
+            cloudKitEnabled = false
+            shareError = L10n.cloudErrorNotSignedIn
+            return
+        }
+
+        isMigrating = true
+        defer { isMigrating = false }
+
+        do {
+            let result = try CloudKitMigrationService.migrate(usingLocalContextFromApp: modelContext)
+            SyncPreferences.isCloudKitEnabled = true
+            showRestartNotice = true
+
+            if result.skippedBecauseAlreadyMigrated {
+                migrationMessage = L10n.syncMigrationAlreadyDone
+            } else if result.recordsCopied > 0 {
+                migrationMessage = L10n.format("sync.migration.success", result.recordsCopied)
+            } else {
+                migrationMessage = L10n.syncMigrationReady
+            }
+        } catch {
+            cloudKitEnabled = false
+            SyncPreferences.isCloudKitEnabled = false
+            shareError = error.localizedDescription
         }
     }
 }

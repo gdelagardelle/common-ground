@@ -54,7 +54,7 @@ public struct OnboardingView: View {
         HStack(spacing: CGSpacing.xs) {
             ForEach(0..<3, id: \.self) { index in
                 Capsule()
-                    .fill(index <= step ? Color.accentColor : Color.secondary.opacity(0.2))
+                    .fill(index <= step ? CGColor.primary : Color.secondary.opacity(0.2))
                     .frame(height: 4)
             }
         }
@@ -65,17 +65,27 @@ public struct OnboardingView: View {
         VStack(spacing: CGSpacing.lg) {
             Spacer()
 
-            Image(systemName: "figure.2.and.child.holdinghands")
-                .font(.system(size: 72))
-                .foregroundStyle(Color.accentColor)
-                .symbolEffect(.bounce, value: step)
+            ZStack {
+                Circle()
+                    .fill(CGGradient.aurora.opacity(0.28))
+                    .frame(width: 150, height: 150)
+                Circle()
+                    .fill(CGGradient.sunset.opacity(0.18))
+                    .frame(width: 120, height: 120)
+                    .blur(radius: 8)
+
+                Image(systemName: "figure.2.and.child.holdinghands")
+                    .font(.system(size: 56, weight: .medium))
+                    .foregroundStyle(CGColor.primary)
+                    .symbolEffect(.bounce, value: step)
+            }
 
             VStack(spacing: CGSpacing.sm) {
-                Text("Welcome to\nCommon Ground")
-                    .font(.largeTitle.weight(.bold))
+                Text(L10n.onboardingWelcome)
+                    .font(CGTypography.display)
                     .multilineTextAlignment(.center)
 
-                Text("The shared home for raising your children across households.")
+                Text(L10n.onboardingSubtitle)
                     .font(.body)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
@@ -83,19 +93,34 @@ public struct OnboardingView: View {
             }
 
             VStack(spacing: CGSpacing.sm) {
+                CGTrustBadge(
+                    icon: "lock.shield.fill",
+                    title: L10n.onboardingTrustPrivateTitle,
+                    detail: L10n.onboardingTrustPrivateDetail
+                )
+                CGTrustBadge(
+                    icon: "heart.text.square.fill",
+                    title: L10n.onboardingTrustCoparentTitle,
+                    detail: L10n.onboardingTrustCoparentDetail
+                )
+            }
+            .padding(.horizontal, CGSpacing.xl)
+
+            VStack(spacing: CGSpacing.sm) {
                 Button {
                     withAnimation(CGAnimation.quick) { step = 1 }
                 } label: {
-                    Label("Create a Family", systemImage: "plus.circle.fill")
+                    Label(L10n.onboardingCreateFamily, systemImage: "plus.circle.fill")
                         .frame(maxWidth: .infinity)
                 }
                 .buttonStyle(.borderedProminent)
+                .tint(CGColor.primary)
                 .controlSize(.large)
 
                 Button {
                     showJoinFamily = true
                 } label: {
-                    Label("Join with Family Code", systemImage: "person.2.fill")
+                    Label(L10n.onboardingJoinFamily, systemImage: "person.2.fill")
                         .frame(maxWidth: .infinity)
                 }
                 .buttonStyle(.bordered)
@@ -110,19 +135,19 @@ public struct OnboardingView: View {
     private var parentStep: some View {
         Form {
             Section {
-                TextField("Your name", text: $parentName)
+                TextField(L10n.onboardingYourName, text: $parentName)
                     .textContentType(.name)
                     .autocorrectionDisabled()
             } header: {
-                Text("About You")
+                Text(L10n.onboardingAboutYou)
             } footer: {
-                Text("This is how you'll appear to your co-parent and family.")
+                Text(L10n.onboardingAboutYouFooter)
             }
 
-            Section("Family") {
-                TextField("Family name (optional)", text: $familyName)
+            Section(L10n.onboardingFamily) {
+                TextField(L10n.onboardingFamilyName, text: $familyName)
                     .autocorrectionDisabled()
-                TextField("Co-parent name (optional)", text: $coParentName)
+                TextField(L10n.onboardingCoParentName, text: $coParentName)
                     .textContentType(.name)
             }
         }
@@ -130,12 +155,12 @@ public struct OnboardingView: View {
 
     private var childStep: some View {
         Form {
-            Section("Child") {
-                TextField("First name", text: $childFirstName)
+            Section(L10n.onboardingChild) {
+                TextField(L10n.onboardingFirstName, text: $childFirstName)
                     .textContentType(.givenName)
-                TextField("Last name", text: $childLastName)
+                TextField(L10n.onboardingLastName, text: $childLastName)
                     .textContentType(.familyName)
-                DatePicker("Date of birth", selection: $dateOfBirth, in: ...Date(), displayedComponents: .date)
+                DatePicker(L10n.onboardingDateOfBirth, selection: $dateOfBirth, in: ...Date(), displayedComponents: .date)
             }
 
             if let errorMessage {
@@ -158,7 +183,7 @@ public struct OnboardingView: View {
                         ProgressView()
                             .tint(.white)
                     } else {
-                        Text(step == 2 ? "Get Started" : "Continue")
+                        Text(step == 2 ? L10n.commonGetStarted : L10n.commonContinue)
                             .font(.headline)
                     }
                 }
@@ -169,14 +194,14 @@ public struct OnboardingView: View {
             .disabled(!canContinue || isSaving)
 
             if step > 0 {
-                Button("Back") {
+                Button(L10n.commonBack) {
                     withAnimation(CGAnimation.quick) { step -= 1 }
                 }
                 .font(.subheadline)
             }
 
             #if DEBUG
-            Button("Explore with demo data") {
+            Button(L10n.onboardingExploreDemo) {
                 loadDemoData()
             }
             .font(.caption)
@@ -211,7 +236,7 @@ public struct OnboardingView: View {
         errorMessage = nil
 
         let resolvedFamilyName = familyName.trimmingCharacters(in: .whitespaces).nilIfEmpty
-            ?? "\(childLastName.trimmingCharacters(in: .whitespaces)) Family"
+            ?? L10n.format("onboarding.defaultFamilyName", childLastName.trimmingCharacters(in: .whitespaces))
 
         do {
             let (_, parent, child) = try FamilySetupService.createFamilyWithFirstChild(
@@ -232,7 +257,7 @@ public struct OnboardingView: View {
                 showInvite = true
             }
         } catch {
-            errorMessage = "Couldn't save your family. Please try again."
+            errorMessage = L10n.onboardingSaveError
             isSaving = false
         }
     }

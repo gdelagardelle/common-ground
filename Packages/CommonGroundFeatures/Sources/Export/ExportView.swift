@@ -23,20 +23,20 @@ public struct ExportView: View {
 
     public var body: some View {
         Form {
-            Section("Export Range") {
-                Picker("Range", selection: $dateRange) {
-                    Text("Last 3 months").tag("Last 3 months")
-                    Text("Last 12 months").tag("Last 12 months")
-                    Text("All time").tag("All time")
+            Section(L10n.exportSectionRange) {
+                Picker(L10n.exportRangeLabel, selection: $dateRange) {
+                    Text(L10n.exportRange3months).tag("Last 3 months")
+                    Text(L10n.exportRange12months).tag("Last 12 months")
+                    Text(L10n.exportRangeAllTime).tag("All time")
                 }
             }
 
-            Section("Include") {
-                Toggle("Messages", isOn: $includeMessages)
-                Toggle("Expenses", isOn: $includeExpenses)
-                Toggle("Calendar", isOn: $includeCalendar)
-                Toggle("Medical Records", isOn: $includeMedical)
-                Toggle("Documents", isOn: $includeDocuments)
+            Section(L10n.exportSectionInclude) {
+                Toggle(L10n.exportIncludeMessages, isOn: $includeMessages)
+                Toggle(L10n.exportIncludeExpenses, isOn: $includeExpenses)
+                Toggle(L10n.exportIncludeCalendar, isOn: $includeCalendar)
+                Toggle(L10n.exportIncludeMedical, isOn: $includeMedical)
+                Toggle(L10n.exportIncludeDocuments, isOn: $includeDocuments)
             }
 
             Section {
@@ -48,7 +48,7 @@ public struct ExportView: View {
                         if isExporting {
                             ProgressView()
                         } else {
-                            Label("Generate PDF Report", systemImage: "doc.richtext")
+                            Label(L10n.exportGeneratePDF, systemImage: "doc.richtext")
                         }
                         Spacer()
                     }
@@ -60,7 +60,7 @@ public struct ExportView: View {
                 } label: {
                     HStack {
                         Spacer()
-                        Label("Export Raw Data (JSON)", systemImage: "curlybraces")
+                        Label(L10n.exportRawJSON, systemImage: "curlybraces")
                         Spacer()
                     }
                 }
@@ -76,12 +76,12 @@ public struct ExportView: View {
             }
 
             Section {
-                Text("PDF exports include a SHA-256 integrity hash for court admissibility. All records are timestamped and immutable.")
+                Text(L10n.exportIntegrityFooter)
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
         }
-        .navigationTitle("Court Export")
+        .navigationTitle(L10n.moreCourtExport)
         #if canImport(UIKit)
         .sheet(isPresented: $showShare) {
             if let exportURL {
@@ -123,7 +123,7 @@ public struct ExportView: View {
             )
             showShare = true
         } catch {
-            errorMessage = "PDF export failed."
+            errorMessage = L10n.exportPdfError
         }
         isExporting = false
     }
@@ -140,7 +140,7 @@ public struct ExportView: View {
             )
             showShare = true
         } catch {
-            errorMessage = "JSON export failed."
+            errorMessage = L10n.exportJsonError
         }
         isExporting = false
     }

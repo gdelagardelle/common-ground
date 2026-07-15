@@ -63,16 +63,16 @@ public enum ExpenseCategory: String, Codable, CaseIterable, Sendable {
 
     public var displayName: String {
         switch self {
-        case .school: "School"
-        case .medical: "Medical"
-        case .sports: "Sports"
-        case .activities: "Activities"
-        case .clothing: "Clothing"
-        case .allowance: "Allowance"
-        case .childcare: "Childcare"
-        case .travel: "Travel"
-        case .food: "Food"
-        case .other: "Other"
+        case .school: L10n.expenseSchool
+        case .medical: L10n.expenseMedical
+        case .sports: L10n.expenseSports
+        case .activities: L10n.expenseActivities
+        case .clothing: L10n.expenseClothing
+        case .allowance: L10n.expenseAllowance
+        case .childcare: L10n.expenseChildcare
+        case .travel: L10n.expenseTravel
+        case .food: L10n.expenseFood
+        case .other: L10n.expenseOther
         }
     }
 

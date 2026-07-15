@@ -10,13 +10,13 @@ public enum FamilyJoinError: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .invalidCode:
-            "Enter the 8-character family code from your co-parent's invite."
+            L10n.familyJoinErrorInvalidCode
         case .familyNotFound:
-            "No family matches that code. Check the code and try again."
+            L10n.familyJoinErrorNotFound
         case .alreadyMember:
-            "You're already part of this family."
+            L10n.familyJoinErrorAlreadyMember
         case .emptyName:
-            "Enter your name so your co-parent knows who joined."
+            L10n.familyJoinErrorEmptyName
         }
     }
 }

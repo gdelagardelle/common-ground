@@ -17,7 +17,7 @@ public struct MedicalView: View {
     public var body: some View {
         List {
             if !child.growthMeasurements.isEmpty {
-                Section("Growth") {
+                Section(L10n.medicalSectionGrowth) {
                     GrowthChartView(child: child)
                         .listRowInsets(EdgeInsets())
                         .listRowBackground(Color.clear)
@@ -25,11 +25,11 @@ public struct MedicalView: View {
             }
 
             if !child.medications.filter(\.isActive).isEmpty {
-                Section("Active Medications") {
+                Section(L10n.medicalActive) {
                     ForEach(child.medications.filter(\.isActive), id: \.id) { med in
                         MedicationRow(medication: med)
                             .swipeActions {
-                                Button("Stop", role: .destructive) {
+                                Button(L10n.medicalStop, role: .destructive) {
                                     try? MedicalSetupService.deactivateMedication(med, context: modelContext)
                                 }
                             }
@@ -37,9 +37,9 @@ public struct MedicalView: View {
                 }
             }
 
-            Section("Records") {
+            Section(L10n.medicalSectionRecords) {
                 if child.medicalRecords.isEmpty {
-                    Text("No medical records yet")
+                    Text(L10n.medicalEmptyRecords)
                         .foregroundStyle(.secondary)
                 } else {
                     ForEach(child.medicalRecords.sorted(by: { $0.date > $1.date }), id: \.id) { record in
@@ -49,7 +49,7 @@ public struct MedicalView: View {
             }
 
             if !child.allergies.isEmpty {
-                Section("Allergies") {
+                Section(L10n.childrenAllergies) {
                     ForEach(child.allergies, id: \.self) { allergy in
                         Label(allergy, systemImage: "allergens")
                             .foregroundStyle(.orange)
@@ -57,20 +57,20 @@ public struct MedicalView: View {
                 }
             }
         }
-        .navigationTitle("Medical")
+        .navigationTitle(L10n.childrenModuleMedical)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Menu {
                     Button { showAddMedication = true } label: {
-                        Label("Add Medication", systemImage: "pills")
+                        Label(L10n.medicalAddMedication, systemImage: "pills")
                     }
                     Button { showAddRecord = true } label: {
-                        Label("Add Record", systemImage: "cross.case")
+                        Label(L10n.medicalAddRecord, systemImage: "cross.case")
                     }
                     NavigationLink {
                         HealthImportView()
                     } label: {
-                        Label("Import from Health", systemImage: "heart.text.square")
+                        Label(L10n.healthImportFromHealth, systemImage: "heart.text.square")
                     }
                 } label: {
                     Image(systemName: "plus")
@@ -95,13 +95,13 @@ struct MedicationRow: View {
                 Text(medication.name)
                     .font(.headline)
                 Spacer()
-                CGBadge("Active", color: .green)
+                CGBadge(L10n.medicalActive, color: .green)
             }
             Text("\(medication.dosage) · \(medication.frequency)")
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
             if let doctor = medication.prescribedBy {
-                Text("Prescribed by \(doctor)")
+                Text(L10n.format("medical.prescribedBy", doctor))
                     .font(.caption)
                     .foregroundStyle(.tertiary)
             }
@@ -151,23 +151,23 @@ public struct SchoolView: View {
     public var body: some View {
         List {
             if let school = child.schoolInfo {
-                Section("School") {
-                    LabeledContent("Name", value: school.schoolName)
+                Section(L10n.schoolSection) {
+                    LabeledContent(L10n.schoolName, value: school.schoolName)
                     if let grade = school.grade {
-                        LabeledContent("Grade", value: grade)
+                        LabeledContent(L10n.schoolGrade, value: grade)
                     }
                     if let classroom = school.classroom {
-                        LabeledContent("Classroom", value: classroom)
+                        LabeledContent(L10n.schoolClassroom, value: classroom)
                     }
                     if let phone = school.schoolPhone {
-                        LabeledContent("Phone", value: phone)
+                        LabeledContent(L10n.schoolPhone, value: phone)
                     }
                     if let address = school.schoolAddress {
-                        LabeledContent("Address", value: address)
+                        LabeledContent(L10n.schoolAddress, value: address)
                     }
                 }
 
-                Section("Teachers & Contacts") {
+                Section(L10n.schoolTeachersContacts) {
                     ForEach(school.teachers, id: \.id) { contact in
                         ContactRow(contact: contact)
                     }
@@ -177,35 +177,35 @@ public struct SchoolView: View {
                     NavigationLink {
                         SchoolPortalView(child: child)
                     } label: {
-                        Label("School Portal", systemImage: "building.columns.fill")
+                        Label(L10n.moreSchoolPortal, systemImage: "building.columns.fill")
                     }
 
                     if !child.schoolAnnouncements.isEmpty {
-                        LabeledContent("Announcements", value: "\(child.schoolAnnouncements.filter { !$0.isRead }.count) unread")
+                        LabeledContent(L10n.schoolAnnouncements, value: L10n.format("school.announcementsUnread", child.schoolAnnouncements.filter { !$0.isRead }.count))
                     }
                     if !child.schoolAssignments.isEmpty {
-                        LabeledContent("Homework due", value: "\(child.schoolAssignments.filter { !$0.isCompleted }.count)")
+                        LabeledContent(L10n.schoolHomeworkDue, value: "\(child.schoolAssignments.filter { !$0.isCompleted }.count)")
                     }
                 }
 
                 Section {
-                    Button("Edit School Info") {
+                    Button(L10n.schoolEditInfo) {
                         showAddSchool = true
                     }
                 }
             } else {
                 CGEmptyState(
                     icon: "book.fill",
-                    title: "No School Info",
-                    message: "Add school details and connect your school portal.",
-                    actionTitle: "Add School"
+                    title: L10n.schoolEmptyTitle,
+                    message: L10n.schoolEmptyMessage,
+                    actionTitle: L10n.schoolAdd
                 ) {
                     showAddSchool = true
                 }
                 .listRowBackground(Color.clear)
             }
         }
-        .navigationTitle("School")
+        .navigationTitle(L10n.childrenModuleSchool)
         .sheet(isPresented: $showAddSchool) {
             AddSchoolInfoView(child: child)
         }
@@ -258,7 +258,7 @@ public struct ExpensesView: View {
                 Section {
                     HStack {
                         VStack(alignment: .leading) {
-                            Text("Outstanding Balance")
+                            Text(L10n.expenseOutstandingBalance)
                                 .font(.subheadline)
                                 .foregroundStyle(.secondary)
                             Text("$\(String(format: "%.2f", NSDecimalNumber(decimal: totalOwed).doubleValue))")
@@ -266,7 +266,7 @@ public struct ExpensesView: View {
                                 .foregroundStyle(.green)
                         }
                         Spacer()
-                        Button("Settle Up") {
+                        Button(L10n.expenseSettleUp) {
                             showSettleConfirm = true
                         }
                         .buttonStyle(.borderedProminent)
@@ -275,12 +275,12 @@ public struct ExpensesView: View {
                 }
             }
 
-            Section("All Expenses") {
+            Section(L10n.expenseSectionAll) {
                 ForEach(child.expenses.sorted(by: { $0.date > $1.date }), id: \.id) { expense in
                     ExpenseRow(expense: expense)
                         .swipeActions(edge: .leading) {
                             if expense.isReimbursed {
-                                Button("Mark Unpaid") {
+                                Button(L10n.expenseMarkUnpaid) {
                                     try? ExpenseService.unsettle(expense, context: modelContext)
                                 }
                                 .tint(.orange)
@@ -288,7 +288,7 @@ public struct ExpensesView: View {
                         }
                         .swipeActions(edge: .trailing) {
                             if !expense.isReimbursed {
-                                Button("Settle") {
+                                Button(L10n.expenseSettle) {
                                     try? ExpenseService.markReimbursed(expense, context: modelContext)
                                 }
                                 .tint(.green)
@@ -297,7 +297,7 @@ public struct ExpensesView: View {
                 }
             }
         }
-        .navigationTitle("Expenses")
+        .navigationTitle(L10n.childrenModuleExpenses)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button { showAddExpense = true } label: { Image(systemName: "plus") }
@@ -307,16 +307,16 @@ public struct ExpensesView: View {
             AddExpenseView(preselectedChild: child)
         }
         .confirmationDialog(
-            "Settle all \(unpaid.count) unpaid expenses?",
+            L10n.format("expense.settleAllConfirm", unpaid.count),
             isPresented: $showSettleConfirm,
             titleVisibility: .visible
         ) {
-            Button("Settle All") {
+            Button(L10n.expenseSettleAll) {
                 try? ExpenseService.settleAll(unpaid: unpaid, context: modelContext)
             }
-            Button("Cancel", role: .cancel) {}
+            Button(L10n.commonCancel, role: .cancel) {}
         } message: {
-            Text("This marks $\(String(format: "%.2f", NSDecimalNumber(decimal: totalOwed).doubleValue)) as reimbursed.")
+            Text(L10n.format("expense.settleAllMessage", String(format: "%.2f", NSDecimalNumber(decimal: totalOwed).doubleValue)))
         }
     }
 }
@@ -333,7 +333,7 @@ struct ExpenseRow: View {
             VStack(alignment: .leading, spacing: 2) {
                 Text(expense.title)
                     .font(.subheadline.weight(.medium))
-                Text("Paid by \(expense.paidByName)")
+                Text(L10n.format("expense.paidBy", expense.paidByName))
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
@@ -344,9 +344,9 @@ struct ExpenseRow: View {
                 Text("$\(String(format: "%.2f", NSDecimalNumber(decimal: expense.amount).doubleValue))")
                     .font(.subheadline.weight(.semibold))
                 if expense.isReimbursed {
-                    CGBadge("Settled", color: .green)
+                    CGBadge(L10n.expenseSettled, color: .green)
                 } else {
-                    CGBadge("Pending", color: .orange)
+                    CGBadge(L10n.expensePending, color: .orange)
                 }
             }
         }
@@ -374,7 +374,7 @@ public struct DocumentsView: View {
     public var body: some View {
         List {
             if filteredDocuments.isEmpty {
-                Text(searchText.isEmpty ? "No documents yet" : "No matches")
+                Text(searchText.isEmpty ? L10n.documentsEmpty : L10n.documentsNoMatches)
                     .foregroundStyle(.secondary)
             } else {
                 ForEach(filteredDocuments, id: \.id) { doc in
@@ -390,7 +390,7 @@ public struct DocumentsView: View {
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                             if doc.fileData != nil {
-                                Text("File attached")
+                                Text(L10n.documentsFileAttached)
                                     .font(.caption2)
                                     .foregroundStyle(.tertiary)
                             }
@@ -399,7 +399,7 @@ public struct DocumentsView: View {
                         Spacer()
 
                         if doc.isExpiringSoon {
-                            CGBadge("Expiring", color: .orange)
+                            CGBadge(L10n.documentsExpiring, color: .orange)
                         }
 
                         Image(systemName: "lock.fill")
@@ -409,8 +409,8 @@ public struct DocumentsView: View {
                 }
             }
         }
-        .navigationTitle("Documents")
-        .searchable(text: $searchText, prompt: "Search documents")
+        .navigationTitle(L10n.childrenModuleDocuments)
+        .searchable(text: $searchText, prompt: L10n.documentsSearchPrompt)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button { showAddDocument = true } label: { Image(systemName: "plus") }
@@ -445,9 +445,9 @@ public struct TimelineView: View {
             if entries.isEmpty {
                 CGEmptyState(
                     icon: "sun.horizon.fill",
-                    title: "No updates yet",
-                    message: "Post daily updates and milestones so everyone stays in the loop.",
-                    actionTitle: PermissionService.canPostDailyUpdate(currentMember) ? "Daily Update" : nil
+                    title: L10n.timelineEmptyTitle,
+                    message: L10n.timelineEmptyMessage,
+                    actionTitle: PermissionService.canPostDailyUpdate(currentMember) ? L10n.dailyTitle : nil
                 ) {
                     showAddDailyUpdate = true
                 }
@@ -462,7 +462,7 @@ public struct TimelineView: View {
             }
         }
         .background(Color(.systemGroupedBackground))
-        .navigationTitle("Timeline")
+        .navigationTitle(L10n.childrenModuleTimeline)
         .toolbar {
             if PermissionService.canPostDailyUpdate(currentMember) {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -501,7 +501,7 @@ struct TimelineEntryView: View {
                         .font(.caption.weight(.medium))
                         .foregroundStyle(.secondary)
                     if entry.category == .dailyUpdate {
-                        Text("Daily")
+                        Text(L10n.timelineDailyBadge)
                             .font(.caption2.weight(.semibold))
                             .padding(.horizontal, 6)
                             .padding(.vertical, 2)
@@ -514,7 +514,7 @@ struct TimelineEntryView: View {
                     .font(.subheadline.weight(.semibold))
 
                 if let author = entry.authorName, entry.category == .dailyUpdate {
-                    Text("by \(author)")
+                    Text(L10n.format("timeline.byAuthor", author))
                         .font(.caption2)
                         .foregroundStyle(.tertiary)
                 }
@@ -540,7 +540,7 @@ public struct EmergencyView: View {
     public var body: some View {
         List {
             if let info = child.emergencyInfo {
-                Section("Emergency Contacts") {
+                Section(L10n.emergencySectionContacts) {
                     if let name = info.primaryContactName, let phone = info.primaryContactPhone {
                         LabeledContent(name, value: phone)
                     }
@@ -549,37 +549,37 @@ public struct EmergencyView: View {
                     }
                 }
 
-                Section("Medical") {
+                Section(L10n.childrenModuleMedical) {
                     if let doc = info.pediatricianName {
-                        LabeledContent("Pediatrician", value: doc)
+                        LabeledContent(L10n.emergencyPediatrician, value: doc)
                     }
                     if let phone = info.pediatricianPhone {
-                        LabeledContent("Phone", value: phone)
+                        LabeledContent(L10n.schoolPhone, value: phone)
                     }
                     if let hospital = info.hospitalPreference {
-                        LabeledContent("Preferred Hospital", value: hospital)
+                        LabeledContent(L10n.emergencyPreferredHospital, value: hospital)
                     }
                 }
 
-                Section("Insurance") {
+                Section(L10n.emergencySectionInsurance) {
                     if let provider = info.insuranceProvider {
-                        LabeledContent("Provider", value: provider)
+                        LabeledContent(L10n.emergencyInsuranceProvider, value: provider)
                     }
                     if let policy = info.insurancePolicyNumber {
-                        LabeledContent("Policy", value: policy)
+                        LabeledContent(L10n.emergencyPolicy, value: policy)
                     }
                 }
 
-                Section("Passport") {
+                Section(L10n.emergencySectionPassport) {
                     if let country = info.passportCountry {
-                        LabeledContent("Country", value: country)
+                        LabeledContent(L10n.emergencyCountry, value: country)
                     }
                     if let expiry = info.passportExpiry {
-                        LabeledContent("Expires", value: expiry.formatted(date: .long, time: .omitted))
+                        LabeledContent(L10n.emergencyExpires, value: expiry.formatted(date: .long, time: .omitted))
                     }
                 }
             }
         }
-        .navigationTitle("Emergency Info")
+        .navigationTitle(L10n.emergencyTitle)
     }
 }

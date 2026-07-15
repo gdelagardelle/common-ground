@@ -28,11 +28,11 @@ public enum AppTab: String, CaseIterable, Identifiable, Sendable {
 
     public var title: String {
         switch self {
-        case .home: "Home"
-        case .calendar: "Calendar"
-        case .children: "Children"
-        case .messages: "Messages"
-        case .more: "More"
+        case .home: L10n.tabHome
+        case .calendar: L10n.tabCalendar
+        case .children: L10n.tabChildren
+        case .messages: L10n.tabMessages
+        case .more: L10n.tabMore
         }
     }
 

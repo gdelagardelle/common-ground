@@ -23,7 +23,7 @@ public enum CustodyScheduleGenerator {
             let parentName = parent.id == schedule.parentAId ? schedule.parentAName : schedule.parentBName
 
             let custody = CalendarEvent(
-                title: "With \(parentName)",
+                title: L10n.format("custody.withParent", parentName),
                 startDate: day,
                 endDate: day,
                 category: .custody,
@@ -39,7 +39,7 @@ public enum CustodyScheduleGenerator {
             if shouldCreateExchange(on: day, schedule: schedule, calendar: calendar, start: start, dayOffset: dayOffset) {
                 let exchangeDate = exchangeDate(for: day, schedule: schedule, calendar: calendar)
                 let exchange = CalendarEvent(
-                    title: "Custody Exchange",
+                    title: L10n.custodyExchange,
                     startDate: exchangeDate,
                     endDate: calendar.date(byAdding: .minute, value: 30, to: exchangeDate) ?? exchangeDate,
                     category: .exchange
@@ -76,6 +76,28 @@ public enum CustodyScheduleGenerator {
 
     private struct ParentRef {
         let id: UUID
+    }
+
+    public static func isParentA(on day: Date, schedule: CustodySchedule, calendar: Calendar = .current) -> Bool {
+        let start = calendar.startOfDay(for: schedule.startDate)
+        let parent = assignedParent(for: calendar.startOfDay(for: day), schedule: schedule, calendar: calendar, start: start)
+        return parent.id == schedule.parentAId
+    }
+
+    public static func parentName(on day: Date, schedule: CustodySchedule, calendar: Calendar = .current) -> String {
+        isParentA(on: day, schedule: schedule, calendar: calendar) ? schedule.parentAName : schedule.parentBName
+    }
+
+    public static func weekAssignments(
+        for schedule: CustodySchedule,
+        from startDate: Date = Date(),
+        calendar: Calendar = .current
+    ) -> [Bool] {
+        let start = calendar.startOfDay(for: startDate)
+        return (0..<7).map { offset in
+            guard let day = calendar.date(byAdding: .day, value: offset, to: start) else { return false }
+            return isParentA(on: day, schedule: schedule, calendar: calendar)
+        }
     }
 
     private static func assignedParent(

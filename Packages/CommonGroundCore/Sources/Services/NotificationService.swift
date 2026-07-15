@@ -34,8 +34,13 @@ public enum NotificationService {
         guard event.category == .exchange else { return }
 
         let content = UNMutableNotificationContent()
-        content.title = "Custody Exchange Today"
-        content.body = "\(childName): \(event.title) at \(event.startDate.formatted(date: .omitted, time: .shortened))"
+        content.title = L10n.notificationExchangeTitle
+        content.body = L10n.format(
+            "notification.exchange.body",
+            childName,
+            event.title,
+            event.startDate.formatted(date: .omitted, time: .shortened)
+        )
         content.sound = .default
 
         let triggerDate = Calendar.current.date(byAdding: .hour, value: -1, to: event.startDate) ?? event.startDate
@@ -54,8 +59,13 @@ public enum NotificationService {
 
     public static func scheduleMedicationReminder(for medication: Medication, childName: String) {
         let content = UNMutableNotificationContent()
-        content.title = "Medication Reminder"
-        content.body = "Give \(childName) \(medication.name) (\(medication.dosage))"
+        content.title = L10n.notificationMedicationTitle
+        content.body = L10n.format(
+            "notification.medication.body",
+            childName,
+            medication.name,
+            medication.dosage
+        )
         content.sound = .default
 
         if medication.reminderTimes.isEmpty {
@@ -88,11 +98,11 @@ public enum NotificationService {
         let medications = (try? context.fetch(FetchDescriptor<Medication>())) ?? []
 
         for event in events where event.category == .exchange && event.startDate > Date() {
-            scheduleExchangeReminder(for: event, childName: event.child?.firstName ?? "your child")
+            scheduleExchangeReminder(for: event, childName: event.child?.firstName ?? L10n.notificationChildFallback)
         }
 
         for medication in medications where medication.isActive {
-            scheduleMedicationReminder(for: medication, childName: medication.child?.firstName ?? "your child")
+            scheduleMedicationReminder(for: medication, childName: medication.child?.firstName ?? L10n.notificationChildFallback)
         }
     }
 }

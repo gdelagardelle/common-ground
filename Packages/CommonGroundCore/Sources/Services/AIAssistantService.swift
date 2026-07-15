@@ -60,7 +60,7 @@ public final class AIAssistantService {
                 let answer = try await OnDeviceAIService.answer(query: query, contextSummary: summary)
                 return AIQueryResult(
                     answer: answer,
-                    sources: [AISource(title: "On-device model", category: "Apple Intelligence", date: nil)],
+                    sources: [AISource(title: L10n.aiAnswerOnDeviceModel, category: "Apple Intelligence", date: nil)],
                     confidence: 0.92
                 )
             } catch {
@@ -83,7 +83,7 @@ public final class AIAssistantService {
         }
 
         return AIQueryResult(
-            answer: "I searched calendar, expenses, medical records, documents, messages, and timeline but couldn't find a match for \"\(query)\". Try being more specific — e.g. \"When is the next exchange?\" or \"Show unpaid expenses.\"",
+            answer: L10n.format("ai.answer.noMatch", query),
             confidence: 0.4
         )
     }
@@ -140,7 +140,7 @@ public final class AIAssistantService {
         formatter.dateStyle = .medium
 
         if best.count == 1, let item = best.first {
-            var answer = "Found in \(item.category): \(item.title)"
+            var answer = L10n.format("ai.answer.foundIn", item.category, item.title)
             if let detail = item.detail, !detail.isEmpty { answer += " — \(detail)" }
             if let date = item.date { answer += " (\(formatter.string(from: date)))" }
             return AIQueryResult(
@@ -158,7 +158,7 @@ public final class AIAssistantService {
         }.joined(separator: "\n")
 
         return AIQueryResult(
-            answer: "I found \(best.count) matches:\n\(summary)",
+            answer: L10n.format("ai.answer.foundMatches", best.count, summary),
             sources: best.prefix(5).map { AISource(title: $0.title, category: $0.category, date: $0.date) },
             confidence: 0.75
         )
@@ -167,24 +167,26 @@ public final class AIAssistantService {
     private static func dentalAnswer(context: AIContext) -> AIQueryResult {
         if let record = context.medicalRecords.filter({ $0.category == .dental }).sorted(by: { $0.date > $1.date }).first {
             let f = DateFormatter(); f.dateStyle = .medium
+            let providerSuffix = record.provider.map { L10n.format("ai.answer.dentalAt", $0) } ?? ""
             return AIQueryResult(
-                answer: "\(context.childName)'s last dental visit was \(f.string(from: record.date))\(record.provider.map { " at \($0)" } ?? "").",
+                answer: L10n.format("ai.answer.dentalVisit", context.childName, f.string(from: record.date), providerSuffix),
                 sources: [AISource(title: record.title, category: "Medical", date: record.date)],
                 confidence: 0.95
             )
         }
-        return AIQueryResult(answer: "No dental records for \(context.childName) yet.", confidence: 0.9)
+        return AIQueryResult(answer: L10n.format("ai.answer.noDental", context.childName), confidence: 0.9)
     }
 
     private static func unpaidAnswer(context: AIContext) -> AIQueryResult {
         let unpaid = context.expenses.filter { !$0.isReimbursed }
         let total = unpaid.reduce(Decimal.zero) { $0 + $1.owedAmount }
         if unpaid.isEmpty {
-            return AIQueryResult(answer: "All expenses are settled. No outstanding balances.", confidence: 1.0)
+            return AIQueryResult(answer: L10n.aiAnswerExpensesSettled, confidence: 1.0)
         }
         let formatted = String(format: "%.2f", NSDecimalNumber(decimal: total).doubleValue)
+        let plural = unpaid.count == 1 ? "" : "s"
         return AIQueryResult(
-            answer: "\(unpaid.count) unpaid expense\(unpaid.count == 1 ? "" : "s") totaling $\(formatted).",
+            answer: L10n.format("ai.answer.unpaidExpenses", unpaid.count, plural, formatted),
             sources: unpaid.map { AISource(title: $0.title, category: "Expense", date: $0.date) },
             confidence: 0.98
         )
@@ -194,46 +196,51 @@ public final class AIAssistantService {
         if let event = context.upcomingEvents.first(where: { $0.category == .exchange }) {
             let f = DateFormatter(); f.dateStyle = .full; f.timeStyle = .short
             return AIQueryResult(
-                answer: "Next exchange: \(event.title) on \(f.string(from: event.startDate)).",
+                answer: L10n.format("ai.answer.nextExchange", event.title, f.string(from: event.startDate)),
                 sources: [AISource(title: event.title, category: "Calendar", date: event.startDate)],
                 confidence: 0.92
             )
         }
-        return AIQueryResult(answer: "No upcoming custody exchanges on the calendar.", confidence: 0.85)
+        return AIQueryResult(answer: L10n.aiAnswerNoExchange, confidence: 0.85)
     }
 
     private static func custodyAnswer(context: AIContext) -> AIQueryResult {
         if let event = context.upcomingEvents.first(where: { $0.category == .custody }) {
             let f = DateFormatter(); f.dateStyle = .medium
             return AIQueryResult(
-                answer: "\(context.childName) is scheduled with \(event.title.replacingOccurrences(of: "With ", with: "")) starting \(f.string(from: event.startDate)).",
+                answer: L10n.format(
+                    "ai.answer.custodyWith",
+                    context.childName,
+                    event.title.replacingOccurrences(of: "With ", with: ""),
+                    f.string(from: event.startDate)
+                ),
                 sources: [AISource(title: event.title, category: "Custody", date: event.startDate)],
                 confidence: 0.88
             )
         }
-        return AIQueryResult(answer: "No custody blocks found on the calendar.", confidence: 0.8)
+        return AIQueryResult(answer: L10n.aiAnswerNoCustody, confidence: 0.8)
     }
 
     private static func passportAnswer(context: AIContext) -> AIQueryResult {
         if let passport = context.documents.first(where: { $0.category == .passport }), let expiry = passport.expiryDate {
             let f = DateFormatter(); f.dateStyle = .long
             return AIQueryResult(
-                answer: "\(context.childName)'s passport expires \(f.string(from: expiry)).",
+                answer: L10n.format("ai.answer.passportExpires", context.childName, f.string(from: expiry)),
                 sources: [AISource(title: passport.title, category: "Document", date: expiry)],
                 confidence: 0.97
             )
         }
-        return AIQueryResult(answer: "No passport on file for \(context.childName).", confidence: 0.9)
+        return AIQueryResult(answer: L10n.format("ai.answer.noPassport", context.childName), confidence: 0.9)
     }
 
     private static func medicationAnswer(context: AIContext) -> AIQueryResult {
         let active = context.medications.filter(\.isActive)
         if active.isEmpty {
-            return AIQueryResult(answer: "\(context.childName) has no active medications.", confidence: 0.95)
+            return AIQueryResult(answer: L10n.format("ai.answer.noMedications", context.childName), confidence: 0.95)
         }
         let list = active.map { "\($0.name) (\($0.dosage))" }.joined(separator: ", ")
         return AIQueryResult(
-            answer: "Active medications: \(list).",
+            answer: L10n.format("ai.answer.activeMedications", list),
             sources: active.map { AISource(title: $0.name, category: "Medication", date: $0.startDate) },
             confidence: 0.96
         )
@@ -241,11 +248,11 @@ public final class AIAssistantService {
 
     private static func allergyAnswer(context: AIContext) -> AIQueryResult {
         if context.allergies.isEmpty {
-            return AIQueryResult(answer: "No allergies recorded for \(context.childName).", confidence: 0.95)
+            return AIQueryResult(answer: L10n.format("ai.answer.noAllergies", context.childName), confidence: 0.95)
         }
         return AIQueryResult(
-            answer: "\(context.childName)'s allergies: \(context.allergies.joined(separator: ", ")).",
-            sources: [AISource(title: "Allergies", category: "Medical", date: nil)],
+            answer: L10n.format("ai.answer.allergiesList", context.childName, context.allergies.joined(separator: ", ")),
+            sources: [AISource(title: L10n.aiAnswerAllergiesSource, category: "Medical", date: nil)],
             confidence: 0.98
         )
     }
@@ -253,12 +260,12 @@ public final class AIAssistantService {
     private static func schoolAnswer(context: AIContext) -> AIQueryResult {
         if let school = context.schoolName {
             return AIQueryResult(
-                answer: "\(context.childName) attends \(school).",
+                answer: L10n.format("ai.answer.attendsSchool", context.childName, school),
                 sources: [AISource(title: school, category: "School", date: nil)],
                 confidence: 0.95
             )
         }
-        return AIQueryResult(answer: "No school information on file.", confidence: 0.9)
+        return AIQueryResult(answer: L10n.aiAnswerNoSchool, confidence: 0.9)
     }
 
     private static func expenseSearch(lowered: String, context: AIContext) -> AIQueryResult? {
@@ -267,7 +274,13 @@ public final class AIAssistantService {
             let f = DateFormatter(); f.dateStyle = .medium
             let amount = String(format: "%.2f", NSDecimalNumber(decimal: latest.amount).doubleValue)
             return AIQueryResult(
-                answer: "\(latest.paidByName) paid $\(amount) for \(latest.title) on \(f.string(from: latest.date)).",
+                answer: L10n.format(
+                    "ai.answer.paidExpense",
+                    latest.paidByName,
+                    amount,
+                    latest.title,
+                    f.string(from: latest.date)
+                ),
                 sources: [AISource(title: latest.title, category: "Expense", date: latest.date)],
                 confidence: 0.94
             )

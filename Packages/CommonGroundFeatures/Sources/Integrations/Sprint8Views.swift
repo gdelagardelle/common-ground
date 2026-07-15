@@ -23,9 +23,9 @@ public struct CustodyAgreementsListView: View {
         List {
             if agreements.isEmpty {
                 ContentUnavailableView(
-                    "No Agreements",
+                    L10n.agreementEmptyTitle,
                     systemImage: "signature",
-                    description: Text("Create a digital custody agreement for both parents to sign.")
+                    description: Text(L10n.agreementEmptyMessage)
                 )
             } else {
                 ForEach(agreements, id: \.id) { agreement in
@@ -39,7 +39,7 @@ public struct CustodyAgreementsListView: View {
                                 .font(.caption)
                                 .foregroundStyle(statusColor(agreement.status))
                             if let effective = agreement.effectiveDate {
-                                Text("Effective \(effective.formatted(date: .abbreviated, time: .omitted))")
+                                Text(L10n.format("agreement.effective", effective.formatted(date: .abbreviated, time: .omitted)))
                                     .font(.caption2)
                                     .foregroundStyle(.tertiary)
                             }
@@ -49,7 +49,7 @@ public struct CustodyAgreementsListView: View {
                 }
             }
         }
-        .navigationTitle("Custody Agreements")
+        .navigationTitle(L10n.moreCustodyAgreements)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
@@ -79,7 +79,7 @@ public struct CreateCustodyAgreementView: View {
     @Environment(\.dismiss) private var dismiss
     @Query private var families: [Family]
 
-    @State private var title = "Custody & Parenting Agreement"
+    @State private var title = L10n.agreementDefaultTitle
     @State private var bodyText = CustodyAgreementService.defaultTemplate
     @State private var effectiveDate = Date()
     @State private var useEffectiveDate = false
@@ -96,26 +96,26 @@ public struct CreateCustodyAgreementView: View {
     public var body: some View {
         NavigationStack {
             Form {
-                Section("Agreement") {
-                    TextField("Title", text: $title)
-                    Toggle("Effective date", isOn: $useEffectiveDate)
+                Section(L10n.agreementSectionAgreement) {
+                    TextField(L10n.formTitle, text: $title)
+                    Toggle(L10n.agreementEffectiveDate, isOn: $useEffectiveDate)
                     if useEffectiveDate {
-                        DatePicker("Date", selection: $effectiveDate, displayedComponents: .date)
+                        DatePicker(L10n.formDate, selection: $effectiveDate, displayedComponents: .date)
                     }
                 }
 
-                Section("Signing Parties") {
+                Section(L10n.agreementSectionSigningParties) {
                     if members.count < 2 {
-                        Text("Add a co-parent before creating a two-party agreement.")
+                        Text(L10n.agreementNeedCoparent)
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     } else {
-                        Picker("Parent A", selection: $parentAId) {
+                        Picker(L10n.custodyParentA, selection: $parentAId) {
                             ForEach(members, id: \.id) { member in
                                 Text(member.displayName).tag(Optional(member.id))
                             }
                         }
-                        Picker("Parent B", selection: $parentBId) {
+                        Picker(L10n.custodyParentB, selection: $parentBId) {
                             ForEach(members, id: \.id) { member in
                                 Text(member.displayName).tag(Optional(member.id))
                             }
@@ -123,7 +123,7 @@ public struct CreateCustodyAgreementView: View {
                     }
                 }
 
-                Section("Terms") {
+                Section(L10n.agreementSectionTerms) {
                     TextEditor(text: $bodyText)
                         .frame(minHeight: 200)
                 }
@@ -134,14 +134,14 @@ public struct CreateCustodyAgreementView: View {
                     }
                 }
             }
-            .navigationTitle("New Agreement")
+            .navigationTitle(L10n.agreementNewTitle)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") { dismiss() }
+                    Button(L10n.commonCancel) { dismiss() }
                 }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Create") { create() }
+                    Button(L10n.commonCreate) { create() }
                         .disabled(!canCreate)
                 }
             }
@@ -176,7 +176,7 @@ public struct CreateCustodyAgreementView: View {
             )
             dismiss()
         } catch {
-            errorMessage = "Couldn't create agreement."
+            errorMessage = L10n.agreementCreateError
         }
     }
 }
@@ -208,28 +208,28 @@ public struct CustodyAgreementDetailView: View {
     public var body: some View {
         List {
             Section {
-                LabeledContent("Status", value: agreement.status.displayName)
+                LabeledContent(L10n.agreementStatus, value: agreement.status.displayName)
                 if let effective = agreement.effectiveDate {
-                    LabeledContent("Effective", value: effective.formatted(date: .long, time: .omitted))
+                    LabeledContent(L10n.agreementEffectiveLabel, value: effective.formatted(date: .long, time: .omitted))
                 }
                 if let hash = agreement.documentHash {
-                    LabeledContent("Integrity", value: String(hash.prefix(16)) + "…")
+                    LabeledContent(L10n.agreementIntegrity, value: String(hash.prefix(16)) + "…")
                 }
             }
 
-            Section("Terms") {
+            Section(L10n.agreementSectionTerms) {
                 Text(agreement.bodyText)
                     .font(.subheadline)
             }
 
-            Section("Signatures") {
+            Section(L10n.agreementSectionSigningParties) {
                 signatureRow(
-                    name: agreement.parentAName ?? "Parent A",
+                    name: agreement.parentAName ?? L10n.custodyParentA,
                     signedAt: agreement.parentASignedAt,
                     hasSigned: agreement.parentASignatureData != nil
                 )
                 signatureRow(
-                    name: agreement.parentBName ?? "Parent B",
+                    name: agreement.parentBName ?? L10n.custodyParentB,
                     signedAt: agreement.parentBSignedAt,
                     hasSigned: agreement.parentBSignatureData != nil
                 )
@@ -240,7 +240,7 @@ public struct CustodyAgreementDetailView: View {
                     Button {
                         showSign = true
                     } label: {
-                        Label("Sign Agreement", systemImage: "signature")
+                        Label(L10n.agreementSign, systemImage: "signature")
                     }
                 }
             }
@@ -250,7 +250,7 @@ public struct CustodyAgreementDetailView: View {
                     Button {
                         exportPDF()
                     } label: {
-                        Label("Export Signed PDF", systemImage: "doc.richtext")
+                        Label(L10n.agreementExportSignedPDF, systemImage: "doc.richtext")
                     }
                 }
             }
@@ -275,11 +275,11 @@ public struct CustodyAgreementDetailView: View {
                 Text(name)
                     .font(.subheadline.weight(.medium))
                 if let signedAt {
-                    Text("Signed \(signedAt.formatted(date: .abbreviated, time: .shortened))")
+                    Text(L10n.format("agreement.signed", signedAt.formatted(date: .abbreviated, time: .shortened)))
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 } else {
-                    Text("Awaiting signature")
+                    Text(L10n.agreementAwaitingSignature)
                         .font(.caption)
                         .foregroundStyle(.orange)
                 }
@@ -317,18 +317,18 @@ public struct SignCustodyAgreementView: View {
         NavigationStack {
             Form {
                 Section {
-                    Text("By signing, you agree to the terms of \"\(agreement.title)\". Your signature is stored securely on device.")
+                    Text(L10n.format("agreement.signDisclaimer", agreement.title))
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }
 
                 #if canImport(PencilKit)
-                Section("Your Signature") {
+                Section(L10n.agreementYourSignature) {
                     SignaturePadView(signatureData: $signatureData)
                 }
                 #else
                 Section {
-                    Text("Signature capture requires iOS.")
+                    Text(L10n.agreementSignatureRequiresIOS)
                         .foregroundStyle(.secondary)
                 }
                 #endif
@@ -339,14 +339,14 @@ public struct SignCustodyAgreementView: View {
                     }
                 }
             }
-            .navigationTitle("Sign Agreement")
+            .navigationTitle(L10n.agreementSignTitle)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") { dismiss() }
+                    Button(L10n.commonCancel) { dismiss() }
                 }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Sign") { sign() }
+                    Button(L10n.agreementSignAction) { sign() }
                         .disabled(signatureData == nil)
                 }
             }
@@ -388,24 +388,24 @@ public struct ProfessionalPortalView: View {
     public var body: some View {
         List {
             Section {
-                Label("Read-only professional access", systemImage: "eye.fill")
+                Label(L10n.professionalReadOnly, systemImage: "eye.fill")
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
             }
 
             if let summary {
-                Section("Family Overview") {
-                    LabeledContent("Family", value: summary.familyName)
-                    LabeledContent("Members", value: "\(summary.memberCount)")
-                    LabeledContent("Active schedules", value: "\(summary.activeSchedules)")
+                Section(L10n.professionalFamilyOverview) {
+                    LabeledContent(L10n.professionalFamily, value: summary.familyName)
+                    LabeledContent(L10n.professionalMembers, value: "\(summary.memberCount)")
+                    LabeledContent(L10n.professionalActiveSchedules, value: "\(summary.activeSchedules)")
                 }
 
-                Section("Children") {
+                Section(L10n.tabChildren) {
                     ForEach(summary.children, id: \.name) { child in
                         VStack(alignment: .leading, spacing: 2) {
                             Text(child.name)
                                 .font(.subheadline.weight(.medium))
-                            Text("Age \(child.age) · \(child.upcomingEvents) upcoming events · \(child.documentCount) documents")
+                            Text(L10n.format("professional.childSummary", child.age, child.upcomingEvents, child.documentCount))
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                         }
@@ -413,10 +413,10 @@ public struct ProfessionalPortalView: View {
                 }
             }
 
-            Section("Upcoming Custody & Exchanges") {
+            Section(L10n.professionalUpcomingCustody) {
                 let upcoming = events.filter { $0.startDate >= Date() && ($0.category == .custody || $0.category == .exchange) }.prefix(8)
                 if upcoming.isEmpty {
-                    Text("No upcoming events")
+                    Text(L10n.homeNoUpcomingEvents)
                         .foregroundStyle(.secondary)
                 } else {
                     ForEach(Array(upcoming), id: \.id) { event in
@@ -432,23 +432,23 @@ public struct ProfessionalPortalView: View {
             }
 
             if PermissionService.canExportRecords(currentMember) {
-                Section("Records") {
+                Section(L10n.professionalSectionRecords) {
                     NavigationLink {
                         ExportView()
                     } label: {
-                        Label("Court Export", systemImage: "doc.text.magnifyingglass")
+                        Label(L10n.moreCourtExport, systemImage: "doc.text.magnifyingglass")
                     }
                 }
             }
 
-            Section("Messages (read-only)") {
+            Section(L10n.professionalMessagesReadOnly) {
                 if threads.isEmpty {
-                    Text("No message threads")
+                    Text(L10n.professionalNoThreads)
                         .foregroundStyle(.secondary)
                 } else {
                     ForEach(threads.prefix(5), id: \.id) { thread in
                         VStack(alignment: .leading, spacing: 2) {
-                            Text(thread.subject?.trimmingCharacters(in: .whitespacesAndNewlines).nilIfEmpty ?? "Conversation")
+                            Text(thread.subject?.trimmingCharacters(in: .whitespacesAndNewlines).nilIfEmpty ?? L10n.messagesConversation)
                                 .font(.subheadline.weight(.medium))
                             if let last = thread.messages.sorted(by: { $0.sentAt > $1.sentAt }).first {
                                 Text("\(last.senderName): \(last.content)")
@@ -461,7 +461,7 @@ public struct ProfessionalPortalView: View {
                 }
             }
         }
-        .navigationTitle("Professional Portal")
+        .navigationTitle(L10n.moreProfessionalPortal)
     }
 }
 
@@ -529,7 +529,7 @@ public struct CloudSharingView: UIViewControllerRepresentable {
         }
 
         public func itemTitle(for csc: UICloudSharingController) -> String? {
-            "Common Ground Family"
+            L10n.shareFamilyTitle
         }
 
         public func cloudSharingControllerDidSaveShare(_ csc: UICloudSharingController) {}

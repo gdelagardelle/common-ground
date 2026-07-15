@@ -31,10 +31,10 @@ public final class SecurityService {
 
     public var lockMethodDescription: String {
         switch biometricType {
-        case .faceID: "Face ID"
-        case .touchID: "Touch ID"
-        case .opticID: "Optic ID"
-        default: "Device Passcode"
+        case .faceID: L10n.lockMethodFaceID
+        case .touchID: L10n.lockMethodTouchID
+        case .opticID: L10n.lockMethodOpticID
+        default: L10n.lockMethodDevicePasscode
         }
     }
 
@@ -65,7 +65,7 @@ public final class SecurityService {
         do {
             let success = try await context.evaluatePolicy(
                 .deviceOwnerAuthenticationWithBiometrics,
-                localizedReason: "Unlock Common Ground to access your family's information."
+                localizedReason: L10n.securityUnlockReason
             )
             isUnlocked = success
             return success
@@ -103,7 +103,7 @@ public final class SecurityService {
         do {
             let success = try await context.evaluatePolicy(
                 .deviceOwnerAuthentication,
-                localizedReason: "Unlock Common Ground to access your family's information."
+                localizedReason: L10n.securityUnlockReason
             )
             isUnlocked = success
             return success
@@ -187,9 +187,9 @@ public enum KeychainError: Error, LocalizedError {
 
     public var errorDescription: String? {
         switch self {
-        case .storeFailed: "Failed to store secure value."
-        case .retrieveFailed: "Failed to retrieve secure value."
-        case .deleteFailed: "Failed to delete secure value."
+        case .storeFailed: L10n.keychainErrorStore
+        case .retrieveFailed: L10n.keychainErrorRetrieve
+        case .deleteFailed: L10n.keychainErrorDelete
         }
     }
 }

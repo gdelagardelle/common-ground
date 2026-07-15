@@ -54,8 +54,8 @@ public enum MessagingError: Error, LocalizedError {
 
     public var errorDescription: String? {
         switch self {
-        case .emptyMessage: "Message cannot be empty."
-        case .noSender: "Could not identify the sender."
+        case .emptyMessage: L10n.messagingErrorEmpty
+        case .noSender: L10n.messagingErrorNoSender
         }
     }
 }

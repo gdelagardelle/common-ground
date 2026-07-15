@@ -158,14 +158,14 @@ public enum PermissionModule: String, CaseIterable, Identifiable, Sendable {
 
     public var title: String {
         switch self {
-        case .calendar: "Calendar"
-        case .expenses: "Expenses"
-        case .medical: "Medical"
-        case .messages: "Messages"
-        case .timeline: "Daily Updates & Timeline"
-        case .school: "School"
-        case .documents: "Documents"
-        case .emergency: "Emergency Info"
+        case .calendar: L10n.tabCalendar
+        case .expenses: L10n.childrenModuleExpenses
+        case .medical: L10n.childrenModuleMedical
+        case .messages: L10n.tabMessages
+        case .timeline: L10n.childrenModuleTimeline
+        case .school: L10n.childrenModuleSchool
+        case .documents: L10n.childrenModuleDocuments
+        case .emergency: L10n.childrenModuleEmergency
         }
     }
 
