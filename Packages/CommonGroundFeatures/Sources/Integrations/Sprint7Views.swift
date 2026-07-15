@@ -24,6 +24,12 @@ public struct SchoolPortalView: View {
     public var body: some View {
         List {
             Section {
+                Label(L10n.schoolPortalComingSoon, systemImage: "clock.badge.exclamationmark")
+                    .font(.subheadline)
+                    .foregroundStyle(.orange)
+            }
+
+            Section {
                 Text(L10n.schoolPortalIntro)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
@@ -39,6 +45,7 @@ public struct SchoolPortalView: View {
                 Button(L10n.schoolPortalConnect) {
                     SchoolPortalService.connect(selectedPortal)
                 }
+                .disabled(true)
 
                 if SchoolPortalPreferences.connectedPortal != nil {
                     Button(L10n.schoolPortalDisconnect, role: .destructive) {
@@ -62,7 +69,7 @@ public struct SchoolPortalView: View {
                         Spacer()
                     }
                 }
-                .disabled(isSyncing)
+                .disabled(true)
             }
 
             if let syncResult {
@@ -236,17 +243,18 @@ public struct AddSchoolInfoView: View {
 
 public struct ExchangeLocationShareView: View {
     let event: CalendarEvent
+    let memberName: String
 
     @Environment(\.modelContext) private var modelContext
-    @Environment(AppState.self) private var appState
     @Environment(\.dismiss) private var dismiss
 
     @State private var isSharing = false
     @State private var errorMessage: String?
     @State private var mapPosition: MapCameraPosition = .automatic
 
-    public init(event: CalendarEvent) {
+    public init(event: CalendarEvent, memberName: String) {
         self.event = event
+        self.memberName = memberName
     }
 
     public var body: some View {
@@ -338,7 +346,6 @@ public struct ExchangeLocationShareView: View {
     private func shareLocation() {
         isSharing = true
         errorMessage = nil
-        let memberName = appState.currentMemberName ?? "Parent"
 
         Task {
             do {

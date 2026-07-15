@@ -41,6 +41,23 @@ public enum FamilyJoinService {
         }
     }
 
+    public static func findFamilyWithCloudSyncRetry(
+        code: String,
+        context: ModelContext,
+        maxAttempts: Int = 8,
+        delayNanoseconds: UInt64 = 2_000_000_000
+    ) async throws -> Family? {
+        for attempt in 0..<maxAttempts {
+            if let family = try findFamily(code: code, context: context) {
+                return family
+            }
+
+            guard SyncPreferences.isCloudKitEnabled, attempt < maxAttempts - 1 else { break }
+            try await Task.sleep(nanoseconds: delayNanoseconds)
+        }
+        return try findFamily(code: code, context: context)
+    }
+
     @discardableResult
     public static func joinFamily(
         context: ModelContext,
@@ -65,6 +82,35 @@ public enum FamilyJoinService {
         family.updatedAt = Date()
 
         try context.save()
+        try FamilyMessagingBootstrap.ensureCoParentThread(context: context, family: family)
+        return (family, member)
+    }
+
+    @discardableResult
+    public static func joinFamilyWithRetry(
+        context: ModelContext,
+        code: String,
+        memberName: String,
+        email: String? = nil
+    ) async throws -> (Family, FamilyMember) {
+        let trimmedName = memberName.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmedName.isEmpty else { throw FamilyJoinError.emptyName }
+
+        guard let family = try await findFamilyWithCloudSyncRetry(code: code, context: context) else {
+            throw FamilyJoinError.familyNotFound
+        }
+
+        if family.members.contains(where: { $0.displayName.caseInsensitiveCompare(trimmedName) == .orderedSame }) {
+            throw FamilyJoinError.alreadyMember
+        }
+
+        let member = FamilyMember(displayName: trimmedName, role: .parent, email: email?.nilIfEmpty)
+        member.family = family
+        family.members.append(member)
+        family.updatedAt = Date()
+
+        try context.save()
+        try FamilyMessagingBootstrap.ensureCoParentThread(context: context, family: family)
         return (family, member)
     }
 }

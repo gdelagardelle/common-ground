@@ -20,21 +20,30 @@ public final class CloudKitSyncService: SyncServiceProtocol {
     public private(set) var status: SyncStatus = .idle
     public private(set) var lastSyncDate: Date?
 
-    public init() {}
+    public init() {
+        lastSyncDate = SyncPreferences.lastCloudSyncDate
+    }
 
     public func sync() async {
+        guard SyncPreferences.isCloudKitEnabled else {
+            status = .error(L10n.cloudErrorDisabled)
+            return
+        }
+
+        guard CloudKitShareService.isSignedInToiCloud else {
+            status = .error(L10n.cloudErrorNotSignedIn)
+            return
+        }
+
         status = .syncing
-        try? await Task.sleep(nanoseconds: 300_000_000)
+        try? await Task.sleep(nanoseconds: 500_000_000)
         lastSyncDate = Date()
+        SyncPreferences.lastCloudSyncDate = lastSyncDate
         status = .idle
     }
 
     public func resolveConflicts() async {
-        status = .syncing
-        try? await Task.sleep(nanoseconds: 200_000_000)
-        status = .conflict(resolved: 0)
-        try? await Task.sleep(nanoseconds: 100_000_000)
-        status = .idle
+        await sync()
     }
 }
 

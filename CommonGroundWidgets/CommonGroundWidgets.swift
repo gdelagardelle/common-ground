@@ -12,12 +12,21 @@ struct CustodyWidgetEntry: WidgetKit.TimelineEntry {
 
 struct CustodyWidgetProvider: TimelineProvider {
     func placeholder(in context: Context) -> CustodyWidgetEntry {
-        CustodyWidgetEntry(
+        if let snapshot = WidgetDataStore.load() {
+            return CustodyWidgetEntry(
+                date: Date(),
+                childName: snapshot.childName,
+                currentParent: snapshot.currentParent,
+                nextExchange: snapshot.nextExchange ?? Date(),
+                nextEvent: snapshot.nextEvent
+            )
+        }
+        return CustodyWidgetEntry(
             date: Date(),
-            childName: "Emma",
-            currentParent: "Sarah",
+            childName: "—",
+            currentParent: "—",
             nextExchange: Calendar.current.date(byAdding: .day, value: 2, to: Date())!,
-            nextEvent: "Soccer Practice"
+            nextEvent: "—"
         )
     }
 
@@ -27,7 +36,8 @@ struct CustodyWidgetProvider: TimelineProvider {
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<CustodyWidgetEntry>) -> Void) {
         let entry = placeholder(in: context)
-        let timeline = Timeline(entries: [entry], policy: .after(Calendar.current.date(byAdding: .hour, value: 1, to: Date())!))
+        let refresh = Calendar.current.date(byAdding: .hour, value: 1, to: Date()) ?? Date().addingTimeInterval(3600)
+        let timeline = Timeline(entries: [entry], policy: .after(refresh))
         completion(timeline)
     }
 }

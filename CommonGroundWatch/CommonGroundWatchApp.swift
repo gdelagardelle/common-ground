@@ -11,29 +11,36 @@ struct CommonGroundWatchApp: App {
 }
 
 struct WatchHomeView: View {
+    private var snapshot: WidgetSnapshot {
+        WidgetDataStore.load() ?? .placeholder
+    }
+
     var body: some View {
         NavigationStack {
             List {
                 Section(L10n.watchToday) {
-                    Label(L10n.format("custody.withParent", "Sarah"), systemImage: "house.fill")
-                    Label(L10n.watchDemoExchangeIn, systemImage: "arrow.left.arrow.right")
+                    Label(L10n.format("custody.withParent", snapshot.currentParent), systemImage: "house.fill")
+                    if let exchange = snapshot.nextExchange {
+                        Label(
+                            exchange.formatted(.relative(presentation: .named)),
+                            systemImage: "arrow.left.arrow.right"
+                        )
+                    } else {
+                        Label(L10n.homeNoUpcomingEvents, systemImage: "arrow.left.arrow.right")
+                    }
                 }
 
                 Section(L10n.watchReminders) {
-                    Label(L10n.watchDemoSoccer, systemImage: "sportscourt.fill")
-                    Label(L10n.watchDemoMedication, systemImage: "pills.fill")
+                    Label(snapshot.nextEvent, systemImage: "calendar")
                 }
 
                 Section {
-                    NavigationLink {
-                        Text(L10n.watchAskAIHint)
-                            .font(.caption)
-                    } label: {
-                        Label(L10n.homeActionAskAI, systemImage: "sparkles")
-                    }
+                    Text(L10n.watchOpenOnPhone)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
                 }
             }
-            .navigationTitle("Emma")
+            .navigationTitle(snapshot.childName)
         }
     }
 }

@@ -4,6 +4,7 @@ import CommonGroundCore
 import CommonGroundDesign
 
 public struct CalendarView: View {
+    @Environment(AppState.self) private var appState
     @Query(sort: \CalendarEvent.startDate) private var events: [CalendarEvent]
     @Query private var children: [Child]
     @State private var selectedDate = Date()
@@ -56,7 +57,10 @@ public struct CalendarView: View {
                 AddEventView(preselectedDate: selectedDate)
             }
             .sheet(item: $exchangeLocationEvent) { event in
-                ExchangeLocationShareView(event: event)
+                ExchangeLocationShareView(
+                    event: event,
+                    memberName: appState.currentMemberName ?? L10n.commonYou
+                )
             }
         }
     }
@@ -160,7 +164,9 @@ struct MonthGridView: View {
                         DayCell(
                             date: date,
                             isSelected: Calendar.current.isDate(date, inSameDayAs: selectedDate),
-                            hasEvents: events.contains { Calendar.current.isDate($0.startDate, inSameDayAs: date) }
+                            eventAccentColors: events
+                                .filter { Calendar.current.isDate($0.startDate, inSameDayAs: date) }
+                                .map { CGColor.forEventCategory($0.category) }
                         ) {
                             withAnimation(CGAnimation.quick) {
                                 selectedDate = date
@@ -198,8 +204,10 @@ struct MonthGridView: View {
 struct DayCell: View {
     let date: Date
     let isSelected: Bool
-    let hasEvents: Bool
+    let eventAccentColors: [Color]
     let action: () -> Void
+
+    private var hasEvents: Bool { !eventAccentColors.isEmpty }
 
     var body: some View {
         Button(action: action) {
@@ -209,13 +217,16 @@ struct DayCell: View {
                     .foregroundStyle(isSelected ? .white : (Calendar.current.isDateInToday(date) ? Color.accentColor : .primary))
 
                 if hasEvents {
-                    Circle()
-                        .fill(isSelected ? .white : Color.accentColor)
-                        .frame(width: 4, height: 4)
+                    HStack(spacing: 2) {
+                        ForEach(Array(eventAccentColors.prefix(3).enumerated()), id: \.offset) { _, color in
+                            Circle()
+                                .fill(isSelected ? .white : color)
+                                .frame(width: 4, height: 4)
+                        }
+                    }
+                    .frame(height: 4)
                 } else {
-                    Circle()
-                        .fill(.clear)
-                        .frame(width: 4, height: 4)
+                    Color.clear.frame(height: 4)
                 }
             }
             .frame(height: 36)
@@ -234,6 +245,10 @@ struct CalendarEventCard: View {
     let event: CalendarEvent
     var onTap: (() -> Void)?
 
+    private var categoryColor: Color {
+        CGColor.forEventCategory(event.category)
+    }
+
     init(event: CalendarEvent, onTap: (() -> Void)? = nil) {
         self.event = event
         self.onTap = onTap
@@ -250,56 +265,82 @@ struct CalendarEventCard: View {
     }
 
     private var cardContent: some View {
-        CGCard(padding: CGSpacing.sm) {
-            HStack(spacing: CGSpacing.sm) {
-                RoundedRectangle(cornerRadius: 2)
-                    .fill(Color.accentColor)
-                    .frame(width: 4)
+        HStack(spacing: CGSpacing.sm) {
+            RoundedRectangle(cornerRadius: 3, style: .continuous)
+                .fill(
+                    LinearGradient(
+                        colors: [categoryColor, categoryColor.opacity(0.55)],
+                        startPoint: .top,
+                        endPoint: .bottom
+                    )
+                )
+                .frame(width: 5)
 
-                VStack(alignment: .leading, spacing: CGSpacing.xxs) {
-                    HStack {
-                        Image(systemName: event.category.icon)
-                            .font(.caption)
-                        Text(event.category.displayName)
-                            .font(.caption.weight(.medium))
-                            .foregroundStyle(.secondary)
-                        if event.category == .exchange {
-                            Spacer()
-                            if event.hasSharedLocation {
-                                Image(systemName: "location.fill")
-                                    .font(.caption2)
-                                    .foregroundStyle(.blue)
-                            } else {
-                                Text(L10n.calendarTapShareLocation)
-                                    .font(.caption2)
-                                    .foregroundStyle(.tertiary)
-                            }
+            ZStack {
+                RoundedRectangle(cornerRadius: CGRadius.sm, style: .continuous)
+                    .fill(categoryColor.opacity(0.16))
+                    .frame(width: 36, height: 36)
+                Image(systemName: event.category.icon)
+                    .font(.body.weight(.semibold))
+                    .foregroundStyle(categoryColor)
+            }
+
+            VStack(alignment: .leading, spacing: CGSpacing.xxs) {
+                HStack {
+                    Text(event.category.displayName)
+                        .font(.caption.weight(.semibold))
+                        .foregroundStyle(categoryColor)
+                    if event.category == .exchange {
+                        Spacer()
+                        if event.hasSharedLocation {
+                            Label(L10n.commonShare, systemImage: "location.fill")
+                                .font(.caption2.weight(.medium))
+                                .foregroundStyle(CGColor.mint)
+                        } else {
+                            Text(L10n.calendarTapShareLocation)
+                                .font(.caption2.weight(.medium))
+                                .foregroundStyle(categoryColor.opacity(0.75))
                         }
                     }
-
-                    Text(event.title)
-                        .font(.subheadline.weight(.semibold))
-
-                    Text(event.startDate.formatted(date: .abbreviated, time: event.isAllDay ? .omitted : .shortened))
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-
-                    if let location = event.location {
-                        Label(location, systemImage: "mappin")
-                            .font(.caption)
-                            .foregroundStyle(.tertiary)
-                    }
                 }
 
-                Spacer()
+                Text(event.title)
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(.primary)
 
-                if event.category == .exchange, onTap != nil {
-                    Image(systemName: "chevron.right")
-                        .font(.caption.weight(.semibold))
-                        .foregroundStyle(.tertiary)
+                Text(event.startDate.formatted(date: .abbreviated, time: event.isAllDay ? .omitted : .shortened))
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+
+                if let location = event.location {
+                    Label(location, systemImage: "mappin.and.ellipse")
+                        .font(.caption)
+                        .foregroundStyle(categoryColor.opacity(0.8))
                 }
             }
+
+            Spacer(minLength: 0)
+
+            if event.category == .exchange, onTap != nil {
+                Image(systemName: "chevron.right")
+                    .font(.caption.weight(.bold))
+                    .foregroundStyle(categoryColor.opacity(0.7))
+            }
         }
+        .padding(CGSpacing.sm)
+        .background(
+            LinearGradient(
+                colors: [categoryColor.opacity(0.10), CGColor.elevatedSurface],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            ),
+            in: RoundedRectangle(cornerRadius: CGRadius.lg, style: .continuous)
+        )
+        .overlay {
+            RoundedRectangle(cornerRadius: CGRadius.lg, style: .continuous)
+                .strokeBorder(categoryColor.opacity(0.22), lineWidth: 1)
+        }
+        .shadow(color: categoryColor.opacity(0.12), radius: 8, y: 3)
     }
 }
 

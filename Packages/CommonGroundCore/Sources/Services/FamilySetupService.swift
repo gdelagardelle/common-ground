@@ -35,6 +35,7 @@ public enum FamilySetupService {
 
         context.insert(family)
         try context.save()
+        try FamilyMessagingBootstrap.ensureCoParentThread(context: context, family: family)
         return (family, parent, child)
     }
 

@@ -83,7 +83,13 @@ public enum LiveActivityService {
         }
 
         let childName = event.child?.firstName ?? "Child"
-        let withParent = event.child?.family?.members.dropFirst().first?.displayName ?? "Co-parent"
+        let family = event.child?.family
+        let withParent: String
+        if let family {
+            withParent = WidgetSnapshotBuilder.resolveExchangeParent(for: event, family: family)
+        } else {
+            withParent = L10n.custodyParentB
+        }
 
         await updateForUpcomingExchange(
             childName: childName,

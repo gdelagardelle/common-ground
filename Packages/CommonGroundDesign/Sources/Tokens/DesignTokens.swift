@@ -1,4 +1,5 @@
 import SwiftUI
+import CommonGroundCore
 
 public enum CGModuleAccent {
     case medical, school, expenses, documents, timeline, emergency, daily, messages, calendar
@@ -53,6 +54,10 @@ public enum CGColor {
         case "NeutralGray": neutralGray
         default: neutralGray
         }
+    }
+
+    public static func forEventCategory(_ category: EventCategory) -> Color {
+        forEventCategory(category.color)
     }
 
     public static func moduleGradient(_ module: CGModuleAccent) -> LinearGradient {

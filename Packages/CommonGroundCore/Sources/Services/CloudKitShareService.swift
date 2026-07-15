@@ -49,6 +49,8 @@ public enum CloudKitShareService {
         guard SyncPreferences.isCloudKitEnabled else { throw CloudKitShareError.cloudKitDisabled }
         guard CloudKitCapability.isConfigured else { throw CloudKitShareError.sharingUnavailable }
 
+        _ = try? CloudKitMigrationService.migrate(usingLocalContextFromApp: context)
+
         if let existingShare {
             let container = CKContainer(identifier: AppIdentifiers.cloudKitContainer)
             return (existingShare, container)

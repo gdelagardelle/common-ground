@@ -29,6 +29,12 @@ public struct MoreView: View {
         NavigationStack {
             List {
                 Section(L10n.moreFamilyTools) {
+                    if families.first != nil, (families.first?.members.count ?? 0) > 1 {
+                        NavigationLink { ActingAsMemberView() } label: {
+                            Label(L10n.format("more.actingAs", appState.currentMemberName), systemImage: "person.crop.circle.badge.checkmark")
+                        }
+                    }
+
                     Button {
                         showAddExpense = true
                     } label: {
@@ -242,32 +248,81 @@ struct ChecklistsView: View {
 }
 
 struct AuditLogView: View {
-    private var entries: [(String, String, String)] {
-        [
-            (L10n.auditMessageSent, L10n.auditDemoToday234, "Sarah"),
-            (L10n.auditExpenseAdded, L10n.auditDemoToday1015, "Michael"),
-            (L10n.auditCalendarUpdated, L10n.auditDemoYesterday, "Sarah"),
-            (L10n.auditDocumentUploaded, L10n.auditDemoMar10, "Sarah"),
-        ]
+    @Environment(\.modelContext) private var modelContext
+    @Query private var families: [Family]
+
+    private var entries: [AuditEntry] {
+        AuditLogService.recentEntries(context: modelContext, family: families.first)
     }
 
     var body: some View {
-        List(entries, id: \.0) { entry in
-            HStack {
-                VStack(alignment: .leading, spacing: 2) {
-                    Text(entry.0)
-                        .font(.subheadline.weight(.medium))
-                    Text(entry.1)
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
+        Group {
+            if entries.isEmpty {
+                ContentUnavailableView(
+                    L10n.auditEmptyTitle,
+                    systemImage: "list.bullet.rectangle.portrait",
+                    description: Text(L10n.auditEmptyMessage)
+                )
+            } else {
+                List(entries) { entry in
+                    HStack {
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text(entry.title)
+                                .font(.subheadline.weight(.medium))
+                            Text(entry.timestamp.formatted(date: .abbreviated, time: .shortened))
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                        Spacer()
+                        Text(entry.actorName)
+                            .font(.caption)
+                            .foregroundStyle(.tertiary)
+                    }
                 }
-                Spacer()
-                Text(entry.2)
-                    .font(.caption)
-                    .foregroundStyle(.tertiary)
             }
         }
         .navigationTitle(L10n.moreAuditLog)
+    }
+}
+
+struct ActingAsMemberView: View {
+    @Environment(AppState.self) private var appState
+    @Query private var families: [Family]
+
+    private var members: [FamilyMember] {
+        families.first?.members.sorted { $0.displayName < $1.displayName } ?? []
+    }
+
+    var body: some View {
+        List(members, id: \.id) { member in
+            Button {
+                appState.currentMemberId = member.id
+                appState.currentMemberName = member.displayName
+            } label: {
+                HStack {
+                    CGAvatar(
+                        name: member.displayName,
+                        genmojiData: member.genmojiData,
+                        emoji: member.avatarEmoji,
+                        size: 36,
+                        showGradientRing: false
+                    )
+                    VStack(alignment: .leading) {
+                        Text(member.displayName)
+                        Text(member.role.displayName)
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                    Spacer()
+                    if appState.currentMemberId == member.id {
+                        Image(systemName: "checkmark.circle.fill")
+                            .foregroundStyle(.green)
+                    }
+                }
+            }
+            .buttonStyle(.plain)
+        }
+        .navigationTitle(L10n.moreActingAsTitle)
     }
 }
 

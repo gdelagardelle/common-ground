@@ -41,7 +41,27 @@ public struct RootView: View {
                 await LiveActivityService.syncUpcomingExchanges(from: modelContext)
             }
             #endif
+            WidgetSnapshotBuilder.refresh(from: modelContext)
         }
+        .onChange(of: families.count) { _, _ in
+            WidgetSnapshotBuilder.refresh(from: modelContext)
+        }
+        .sheet(isPresented: joinFamilySheetBinding) {
+            JoinFamilyView(prefilledCode: deepLinkInviteCode)
+        }
+    }
+
+    @Environment(DeepLinkCoordinator.self) private var deepLinks
+
+    private var deepLinkInviteCode: String? {
+        deepLinks.pendingInviteCode
+    }
+
+    private var joinFamilySheetBinding: Binding<Bool> {
+        Binding(
+            get: { deepLinks.shouldPresentJoinFamily },
+            set: { deepLinks.shouldPresentJoinFamily = $0 }
+        )
     }
 
     private func performCalendarSyncIfNeeded() async {
@@ -175,8 +195,8 @@ struct LockScreenView: View {
 
 public struct MainTabView: View {
     @Environment(AppState.self) private var appState
+    @Environment(AIAssistantService.self) private var aiService
     @Query private var families: [Family]
-    @State private var aiService = AIAssistantService()
 
     private var currentMember: FamilyMember? {
         PermissionService.currentMember(in: families.first, memberId: appState.currentMemberId)
@@ -213,9 +233,9 @@ public struct MainTabView: View {
                 .tag(AppTab.more)
         }
         .tint(CGColor.primary)
-        .environment(aiService)
         .sheet(isPresented: $state.isAIAssistantPresented) {
-            AIAssistantView()
+            AIAssistantView(aiService: aiService)
+                .environment(appState)
         }
     }
 }

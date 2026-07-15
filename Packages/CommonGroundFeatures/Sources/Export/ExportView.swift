@@ -8,7 +8,7 @@ public struct ExportView: View {
     @Query private var families: [Family]
     @Query private var threads: [MessageThread]
 
-    @State private var dateRange = "Last 12 months"
+    @State private var dateRange: ExportDateRange = .twelveMonths
     @State private var includeMessages = true
     @State private var includeExpenses = true
     @State private var includeCalendar = true
@@ -25,9 +25,9 @@ public struct ExportView: View {
         Form {
             Section(L10n.exportSectionRange) {
                 Picker(L10n.exportRangeLabel, selection: $dateRange) {
-                    Text(L10n.exportRange3months).tag("Last 3 months")
-                    Text(L10n.exportRange12months).tag("Last 12 months")
-                    Text(L10n.exportRangeAllTime).tag("All time")
+                    ForEach(ExportDateRange.allCases) { range in
+                        Text(range.title).tag(range)
+                    }
                 }
             }
 
@@ -93,21 +93,13 @@ public struct ExportView: View {
 
     private var options: CourtExportOptions {
         CourtExportOptions(
-            rangeMonths: rangeMonths,
+            rangeMonths: dateRange.rangeMonths,
             includeMessages: includeMessages,
             includeExpenses: includeExpenses,
             includeCalendar: includeCalendar,
             includeMedical: includeMedical,
             includeDocuments: includeDocuments
         )
-    }
-
-    private var rangeMonths: Int? {
-        switch dateRange {
-        case "Last 3 months": 3
-        case "Last 12 months": 12
-        default: nil
-        }
     }
 
     private func exportPDF() {

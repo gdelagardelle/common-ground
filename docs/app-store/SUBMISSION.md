@@ -1,6 +1,6 @@
 # App Store Submission Checklist
 
-Use this after TestFlight build **2** (HealthKit purpose string fix) is **Ready to Test**.
+Use this after TestFlight build **4** (launch readiness audit fixes) is **Ready to Test**.
 
 ## 1. App Store Connect — App Information
 

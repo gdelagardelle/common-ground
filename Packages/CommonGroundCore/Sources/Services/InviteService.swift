@@ -14,6 +14,28 @@ public enum InviteService {
         URL(string: "https://commonground.app/invite/\(familyId.uuidString)")!
     }
 
+    public static func inviteCode(from url: URL) -> String? {
+        func normalize(_ input: String) -> String {
+            input
+                .trimmingCharacters(in: .whitespacesAndNewlines)
+                .uppercased()
+                .replacingOccurrences(of: "-", with: "")
+        }
+
+        let path = url.path.trimmingCharacters(in: CharacterSet(charactersIn: "/"))
+        let components = path.split(separator: "/").map(String.init)
+
+        if components.count >= 2, components[0].lowercased() == "invite" {
+            return normalize(components[1])
+        }
+
+        if url.scheme == "commonground", url.host == "invite" {
+            return normalize(url.path.trimmingCharacters(in: CharacterSet(charactersIn: "/")))
+        }
+
+        return nil
+    }
+
     public static func mailtoURL(email: String, subject: String, body: String) -> URL? {
         var components = URLComponents()
         components.scheme = "mailto"
@@ -44,5 +66,12 @@ public enum SyncPreferences {
 
     public static var requiresRestartMessage: String {
         L10n.syncRequiresRestart
+    }
+
+    private static let lastCloudSyncKey = "sync.lastCloudSyncDate"
+
+    public static var lastCloudSyncDate: Date? {
+        get { SharedPreferences.defaults.object(forKey: lastCloudSyncKey) as? Date }
+        set { SharedPreferences.defaults.set(newValue, forKey: lastCloudSyncKey) }
     }
 }

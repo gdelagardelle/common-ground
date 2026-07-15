@@ -91,7 +91,10 @@ public struct HomeView: View {
             }
             .sheet(isPresented: $showExchangeLocation) {
                 if let exchange = upcomingExchange {
-                    ExchangeLocationShareView(event: exchange)
+                    ExchangeLocationShareView(
+                        event: exchange,
+                        memberName: appState.currentMemberName ?? L10n.commonYou
+                    )
                 }
             }
             .sheet(isPresented: $showDailyUpdate) {

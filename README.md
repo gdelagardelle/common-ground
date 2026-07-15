@@ -57,7 +57,7 @@ CommonGround/
 | **Expenses** | Split tracking, receipts, outstanding balances |
 | **Medical** | Records, medications, growth, vaccinations |
 | **School** | Teachers, classes, homework, permission slips |
-| **Messages** | Immutable, court-admissible, E2E encrypted |
+| **Messages** | Immutable, court-admissible, tamper-evident audit trail |
 | **Documents** | Passport, insurance, reports — searchable |
 | **Timeline** | Milestones, achievements, firsts |
 | **AI Assistant** | Natural language across all stored data |

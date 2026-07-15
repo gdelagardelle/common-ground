@@ -101,6 +101,8 @@ public enum L10n {
     public static var auditDemoToday234: String { tr("audit.demo.today234") }
     public static var auditDemoYesterday: String { tr("audit.demo.yesterday") }
     public static var auditDocumentUploaded: String { tr("audit.documentUploaded") }
+    public static var auditEmptyMessage: String { tr("audit.empty.message") }
+    public static var auditEmptyTitle: String { tr("audit.empty.title") }
     public static var auditExpenseAdded: String { tr("audit.expenseAdded") }
     public static var auditMessageSent: String { tr("audit.messageSent") }
     public static var avatarChoosePhoto: String { tr("avatar.choosePhoto") }
@@ -468,7 +470,9 @@ public enum L10n {
     public static var inviteSendEmail: String { tr("invite.sendEmail") }
     public static var inviteShareInvite: String { tr("invite.shareInvite") }
     public static var inviteTitle: String { tr("invite.title") }
+    public static var joinCloudSyncHint: String { tr("join.cloudSyncHint") }
     public static var joinCodePlaceholder: String { tr("join.codePlaceholder") }
+    public static var joinIcloudInviteHint: String { tr("join.icloudInviteHint") }
     public static var joinIntro: String { tr("join.intro") }
     public static var joinSectionFamilyCode: String { tr("join.section.familyCode") }
     public static var joinSectionYourInfo: String { tr("join.section.yourInfo") }
@@ -532,6 +536,7 @@ public enum L10n {
     public static var memberSection: String { tr("member.section") }
     public static var messagesAccountError: String { tr("messages.accountError") }
     public static var messagesConversation: String { tr("messages.conversation") }
+    public static var messagesDefaultSubject: String { tr("messages.defaultSubject") }
     public static var messagesEmpty: String { tr("messages.empty") }
     public static var messagesEncryptedBanner: String { tr("messages.encryptedBanner") }
     public static var messagesInviteCoparent: String { tr("messages.inviteCoparent") }
@@ -550,6 +555,8 @@ public enum L10n {
     public static var messagingErrorEmpty: String { tr("messaging.error.empty") }
     public static var messagingErrorNoSender: String { tr("messaging.error.noSender") }
     public static var moreAbout: String { tr("more.about") }
+    public static var moreActingAs: String { tr("more.actingAs") }
+    public static var moreActingAsTitle: String { tr("more.actingAs.title") }
     public static var moreAddCoParent: String { tr("more.addCoParent") }
     public static var moreAddExpense: String { tr("more.addExpense") }
     public static var moreAppleCalendar: String { tr("more.appleCalendar") }
@@ -627,6 +634,9 @@ public enum L10n {
     public static var permissionsTitle: String { tr("permissions.title") }
     public static var permissionsWhatTheyChange: String { tr("permissions.whatTheyChange") }
     public static var permissionsWhatTheySee: String { tr("permissions.whatTheySee") }
+    public static var persistenceRecoveryMessage: String { tr("persistence.recovery.message") }
+    public static var persistenceRecoveryRetry: String { tr("persistence.recovery.retry") }
+    public static var persistenceRecoveryTitle: String { tr("persistence.recovery.title") }
     public static var professionalActiveSchedules: String { tr("professional.activeSchedules") }
     public static var professionalChildSummary: String { tr("professional.childSummary") }
     public static var professionalFamily: String { tr("professional.family") }
@@ -663,6 +673,7 @@ public enum L10n {
     public static var schoolTeachersContacts: String { tr("school.teachersContacts") }
     public static var schoolPortalAnnouncements: String { tr("schoolPortal.announcements") }
     public static var schoolPortalAssignments: String { tr("schoolPortal.assignments") }
+    public static var schoolPortalComingSoon: String { tr("schoolPortal.comingSoon") }
     public static var schoolPortalConnect: String { tr("schoolPortal.connect") }
     public static var schoolPortalDisconnect: String { tr("schoolPortal.disconnect") }
     public static var schoolPortalDue: String { tr("schoolPortal.due") }
@@ -716,6 +727,7 @@ public enum L10n {
     public static var watchDemoExchangeIn: String { tr("watch.demo.exchangeIn") }
     public static var watchDemoMedication: String { tr("watch.demo.medication") }
     public static var watchDemoSoccer: String { tr("watch.demo.soccer") }
+    public static var watchOpenOnPhone: String { tr("watch.openOnPhone") }
     public static var watchReminders: String { tr("watch.reminders") }
     public static var watchToday: String { tr("watch.today") }
     public static var widgetCustodyDescription: String { tr("widget.custody.description") }

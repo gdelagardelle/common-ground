@@ -76,6 +76,46 @@ struct PermissionTests {
     }
 }
 
+@Suite("Widget Snapshot")
+struct WidgetSnapshotTests {
+    @Test("Resolves exchange parent from assignment")
+    func exchangeParentFromAssignment() {
+        let family = Family(name: "Test")
+        let parentA = FamilyMember(displayName: "Alex", role: .parent)
+        let parentB = FamilyMember(displayName: "Jordan", role: .parent)
+        parentA.family = family
+        parentB.family = family
+        family.members = [parentA, parentB]
+
+        let event = CalendarEvent(title: "Exchange", startDate: Date(), endDate: Date(), category: .exchange)
+        event.assignedParentId = parentB.id
+
+        let parent = WidgetSnapshotBuilder.resolveExchangeParent(for: event, family: family)
+        #expect(parent == "Jordan")
+    }
+}
+
+@Suite("Export Date Range")
+struct ExportDateRangeTests {
+    @Test("Maps localized ranges to months")
+    func rangeMonths() {
+        #expect(ExportDateRange.threeMonths.rangeMonths == 3)
+        #expect(ExportDateRange.twelveMonths.rangeMonths == 12)
+        #expect(ExportDateRange.allTime.rangeMonths == nil)
+    }
+}
+
+@Suite("Invite Deep Links")
+struct InviteDeepLinkTests {
+    @Test("Parses invite URL path")
+    func inviteCodeFromURL() {
+        let id = UUID()
+        let url = URL(string: "https://commonground.app/invite/\(id.uuidString)")!
+        let code = InviteService.inviteCode(from: url)
+        #expect(code == FamilyJoinService.normalizedCode(String(id.uuidString.prefix(8))))
+    }
+}
+
 @Suite("AI Assistant")
 struct AIAssistantTests {
     @Test("Finds unpaid expenses")

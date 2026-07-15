@@ -22,7 +22,7 @@ settings:
     SWIFT_VERSION: "6.0"
     ENABLE_USER_SCRIPT_SANDBOXING: NO
     MARKETING_VERSION: "1.0.0"
-    CURRENT_PROJECT_VERSION: "3"
+    CURRENT_PROJECT_VERSION: "4"
 
 targets:
   CommonGround:
@@ -48,7 +48,7 @@ targets:
     entitlements:
       path: CommonGround/CommonGround.entitlements
       properties:
-        aps-environment: development
+        aps-environment: production
         com.apple.developer.healthkit: true
         com.apple.developer.icloud-container-identifiers:
           - iCloud.com.germaind.CommonGround
@@ -73,7 +73,7 @@ targets:
         INFOPLIST_FILE: CommonGroundWidgets/Info.plist
         CODE_SIGN_ENTITLEMENTS: CommonGroundWidgets/CommonGroundWidgets.entitlements
         DEVELOPMENT_TEAM: "3N4Q2GQ558"
-        CURRENT_PROJECT_VERSION: "3"
+        CURRENT_PROJECT_VERSION: "4"
         SKIP_INSTALL: YES
     entitlements:
       path: CommonGroundWidgets/CommonGroundWidgets.entitlements

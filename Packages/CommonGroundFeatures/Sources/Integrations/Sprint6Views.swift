@@ -254,13 +254,17 @@ public struct JoinFamilyView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(AppState.self) private var appState
 
+    private let prefilledCode: String?
+
     @State private var memberName = ""
     @State private var familyCode = ""
     @State private var email = ""
     @State private var isJoining = false
     @State private var errorMessage: String?
 
-    public init() {}
+    public init(prefilledCode: String? = nil) {
+        self.prefilledCode = prefilledCode
+    }
 
     public var body: some View {
         NavigationStack {
@@ -269,6 +273,20 @@ public struct JoinFamilyView: View {
                     Text(L10n.joinIntro)
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
+                }
+
+                if SyncPreferences.isCloudKitEnabled {
+                    Section {
+                        Text(L10n.joinCloudSyncHint)
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                } else {
+                    Section {
+                        Text(L10n.joinIcloudInviteHint)
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
                 }
 
                 Section(L10n.joinSectionYourInfo) {
@@ -319,6 +337,11 @@ public struct JoinFamilyView: View {
                     Button(L10n.commonCancel) { dismiss() }
                 }
             }
+            .onAppear {
+                if let prefilledCode, familyCode.isEmpty {
+                    familyCode = prefilledCode
+                }
+            }
         }
     }
 
@@ -331,21 +354,23 @@ public struct JoinFamilyView: View {
         isJoining = true
         errorMessage = nil
 
-        do {
-            let (family, member) = try FamilyJoinService.joinFamily(
-                context: modelContext,
-                code: familyCode,
-                memberName: memberName,
-                email: email
-            )
-            appState.currentMemberId = member.id
-            appState.currentMemberName = member.displayName
-            appState.selectedChildId = family.children.first?.id
-            appState.isOnboardingComplete = true
-            dismiss()
-        } catch {
-            errorMessage = error.localizedDescription
-            isJoining = false
+        Task {
+            do {
+                let (family, member) = try await FamilyJoinService.joinFamilyWithRetry(
+                    context: modelContext,
+                    code: familyCode,
+                    memberName: memberName,
+                    email: email
+                )
+                appState.currentMemberId = member.id
+                appState.currentMemberName = member.displayName
+                appState.selectedChildId = family.children.first?.id
+                appState.isOnboardingComplete = true
+                dismiss()
+            } catch {
+                errorMessage = error.localizedDescription
+                isJoining = false
+            }
         }
     }
 }

@@ -552,6 +552,20 @@
     "pt": "Documento carregado",
     "lb": "Dokument eropgelueden"
   },
+  "audit.empty.message": {
+    "en": "Messages, expenses, calendar changes, and documents will appear here as you use Common Ground.",
+    "de": "Nachrichten, Ausgaben, Kalenderänderungen und Dokumente erscheinen hier bei Nutzung.",
+    "fr": "Les messages, dépenses, changements de calendrier et documents apparaîtront ici.",
+    "pt": "Mensagens, despesas, alterações de calendário e documentos aparecerão aqui.",
+    "lb": "Noriichten, Ausgaben, Kalennerännerungen an Dokumenter erschéinen hei."
+  },
+  "audit.empty.title": {
+    "en": "No Activity Yet",
+    "de": "Noch keine Aktivität",
+    "fr": "Pas encore d'activité",
+    "pt": "Ainda sem atividade",
+    "lb": "Nach keng Aktivitéit"
+  },
   "audit.expenseAdded": {
     "en": "Expense added",
     "de": "Ausgabe hinzugefügt",
@@ -3121,12 +3135,26 @@
     "pt": "Convidar co-pai/mãe",
     "lb": "Co-Elterendeel invitéieren"
   },
+  "join.cloudSyncHint": {
+    "en": "Looking up your family code — this may take a moment while iCloud syncs.",
+    "de": "Familiencode wird gesucht — iCloud-Synchronisation kann einen Moment dauern.",
+    "fr": "Recherche du code famille — la synchronisation iCloud peut prendre un moment.",
+    "pt": "A procurar o código da família — a sincronização iCloud pode demorar.",
+    "lb": "Familljencode gëtt gesicht — iCloud-Sync kann e Moment daueren."
+  },
   "join.codePlaceholder": {
     "en": "8-character code",
     "de": "8-stelliger Code",
     "fr": "Code à 8 caractères",
     "pt": "Código de 8 caracteres",
     "lb": "8-stellege Code"
+  },
+  "join.icloudInviteHint": {
+    "en": "Family codes work on the same device or after iCloud sync. For a different Apple ID, ask your co-parent to share via More → iCloud Sync → Share Family.",
+    "de": "Familiencodes funktionieren auf demselben Gerät oder nach iCloud-Sync. Bei anderer Apple-ID: Co-Elternteil bittet um Freigabe unter Mehr → iCloud-Sync → Familie teilen.",
+    "fr": "Les codes famille fonctionnent sur le même appareil ou après sync iCloud. Pour un autre identifiant Apple, demandez le partage via Plus → Sync iCloud → Partager la famille.",
+    "pt": "Os códigos funcionam no mesmo dispositivo ou após sync iCloud. Para outro Apple ID, peça partilha em Mais → Sync iCloud → Partilhar família.",
+    "lb": "Familljecoden funktionéieren op deem selwechten Apparat oder no iCloud-Sync. Fir aner Apple-ID: Co-Elterendeel deelt iwwer Méi → iCloud-Sync → Famill deelen."
   },
   "join.intro": {
     "en": "Enter the family code your co-parent shared with you to join their Common Ground family.",
@@ -3569,6 +3597,13 @@
     "pt": "Conversa",
     "lb": "Gespréich"
   },
+  "messages.defaultSubject": {
+    "en": "%@ Co-Parenting",
+    "de": "Co-Elternschaft %@",
+    "fr": "Co-parentalité %@",
+    "pt": "Co-parentalidade %@",
+    "lb": "Co-Elterendeel %@"
+  },
   "messages.empty": {
     "en": "No messages yet",
     "de": "Noch keine Nachrichten",
@@ -3577,11 +3612,11 @@
     "lb": "Nach keng Noriichten"
   },
   "messages.encryptedBanner": {
-    "en": "End-to-end encrypted · Immutable history",
-    "de": "Ende-zu-Ende verschlüsselt · Unveränderlicher Verlauf",
-    "fr": "Chiffré de bout en bout · Historique immuable",
-    "pt": "Encriptação ponta a ponta · Histórico imutável",
-    "lb": "Enn-zu-Enn verschlësselt · Onverännerlechen Historique"
+    "en": "Private on this device · Tamper-evident history",
+    "de": "Privat auf diesem Gerät · Manipulationssicherer Verlauf",
+    "fr": "Privé sur cet appareil · Historique infalsifiable",
+    "pt": "Privado neste dispositivo · Histórico à prova de alteração",
+    "lb": "Privat op dësem Apparat · Manipulatiounssécheren Historique"
   },
   "messages.inviteCoparent": {
     "en": "Invite a co-parent to start secure messaging.",
@@ -3694,6 +3729,20 @@
     "fr": "À propos",
     "pt": "Sobre",
     "lb": "Iwwer"
+  },
+  "more.actingAs": {
+    "en": "Acting as %@",
+    "de": "Als %@ angemeldet",
+    "fr": "Agissant en tant que %@",
+    "pt": "A agir como %@",
+    "lb": "Als %@ ugemellt"
+  },
+  "more.actingAs.title": {
+    "en": "Switch Member",
+    "de": "Mitglied wechseln",
+    "fr": "Changer de membre",
+    "pt": "Mudar membro",
+    "lb": "Member wiesselen"
   },
   "more.addCoParent": {
     "en": "Add Co-Parent",
@@ -4234,6 +4283,27 @@
     "pt": "O que podem ver",
     "lb": "Wat si gesinn kënnen"
   },
+  "persistence.recovery.message": {
+    "en": "Common Ground couldn't load your family data. Your backups are preserved — try again or contact support.",
+    "de": "Common Ground konnte Ihre Familiendaten nicht laden. Ihre Sicherungen sind erhalten — versuchen Sie es erneut.",
+    "fr": "Common Ground n'a pas pu charger vos données. Vos sauvegardes sont préservées — réessayez.",
+    "pt": "O Common Ground não conseguiu carregar os seus dados. As cópias de segurança foram preservadas — tente novamente.",
+    "lb": "Common Ground konnt Är Familljedaten net lueden. Är Backupe sinn erhalen — probéiert nach eng Kéier."
+  },
+  "persistence.recovery.retry": {
+    "en": "Try Again",
+    "de": "Erneut versuchen",
+    "fr": "Réessayer",
+    "pt": "Tentar novamente",
+    "lb": "Nach eng Kéier probéieren"
+  },
+  "persistence.recovery.title": {
+    "en": "Couldn't Open Your Data",
+    "de": "Daten konnten nicht geöffnet werden",
+    "fr": "Impossible d'ouvrir vos données",
+    "pt": "Não foi possível abrir os seus dados",
+    "lb": "Daten konnten net opgemaach ginn"
+  },
   "professional.activeSchedules": {
     "en": "Active schedules",
     "de": "Aktive Pläne",
@@ -4485,6 +4555,13 @@
     "fr": "Devoirs",
     "pt": "Trabalhos",
     "lb": "Aufgaben"
+  },
+  "schoolPortal.comingSoon": {
+    "en": "School portal integrations are coming soon. Demo data below is for preview only.",
+    "de": "Schulportal-Integrationen kommen bald. Demo-Daten unten nur zur Vorschau.",
+    "fr": "Les intégrations portail scolaire arrivent bientôt. Les données de démo sont en aperçu uniquement.",
+    "pt": "Integrações com portais escolares em breve. Os dados de demonstração são apenas para pré-visualização.",
+    "lb": "Schoulportal-Integratiounen kommen geschwënn. Demo-Daten hei nëmmen zur Virschau."
   },
   "schoolPortal.connect": {
     "en": "Connect",
@@ -4856,6 +4933,13 @@
     "fr": "Entraînement de foot",
     "pt": "Treino de futebol",
     "lb": "Foussballtraining"
+  },
+  "watch.openOnPhone": {
+    "en": "Open Common Ground on your iPhone for full features.",
+    "de": "Öffnen Sie Common Ground auf dem iPhone für alle Funktionen.",
+    "fr": "Ouvrez Common Ground sur votre iPhone pour toutes les fonctions.",
+    "pt": "Abra o Common Ground no iPhone para todas as funcionalidades.",
+    "lb": "Maacht Common Ground op Ärem iPhone op fir all Funktiounen."
   },
   "watch.reminders": {
     "en": "Reminders",

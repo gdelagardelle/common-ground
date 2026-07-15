@@ -20,7 +20,9 @@ public struct CGGenmojiPicker: UIViewRepresentable {
     public func makeUIView(context: Context) -> UITextView {
         let textView = UITextView()
         textView.delegate = context.coordinator
-        textView.supportsAdaptiveImageGlyph = true
+        if #available(iOS 18.0, *) {
+            textView.supportsAdaptiveImageGlyph = true
+        }
         textView.allowsEditingTextAttributes = true
         textView.font = .systemFont(ofSize: 72)
         textView.textAlignment = .center
@@ -120,12 +122,18 @@ public struct CGGenmojiPickerSheet: View {
 
                     if let draftContent {
                         CGGenmojiImage(data: draftContent, size: 120)
-                    } else {
+                    } else if GenmojiSupport.isSupported {
                         CGGenmojiPicker(imageContent: $draftContent) { content in
                             hasGlyph = content != nil
                         }
                         .frame(height: 120)
                         .padding(.horizontal, CGSpacing.lg)
+                    } else {
+                        Text(L10n.avatarGenmojiSheetHint)
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                            .multilineTextAlignment(.center)
+                            .padding(.horizontal, CGSpacing.lg)
                     }
                 }
                 .padding(.horizontal, CGSpacing.md)

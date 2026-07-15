@@ -1,7 +1,7 @@
 # Meeting Notes — App fir Elteren
 
 **Date:** 14 Jul 2026, 12:47  
-**Language:** Lëtzebuergesch  
+**Status (Jul 2026):** Build **4** on TestFlight — localization, iCloud migration, widgets/watch App Group data, invite deep links, audit log from real activity.  
 **Context:** Stakeholder discussion on a parent coordination app (now **Common Ground Co-Parent**)
 
 ---

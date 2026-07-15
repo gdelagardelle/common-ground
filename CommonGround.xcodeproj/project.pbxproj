@@ -18,6 +18,7 @@
 		C242822F46F95358A5AA8797 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = DB3EC8EBCAE11D2D4788B2DA /* PrivacyInfo.xcprivacy */; };
 		CDED6A826BD9D696B86BFC31 /* CommonGroundApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1391B1D0495AE821B3224405 /* CommonGroundApp.swift */; };
 		CF7730E7FF5DCB6D2EF84AB2 /* CommonGroundWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD562FC332C6E32F89AB48 /* CommonGroundWatchApp.swift */; };
+		D30ED43D107A45A36BF4EE83 /* CommonGroundAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959FC9B15C1CC1628F8CC6B0 /* CommonGroundAppDelegate.swift */; };
 		DACA728847997DEFF312D6C4 /* CommonGroundIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256056C170993207B318A47 /* CommonGroundIntents.swift */; };
 		EC274062EA8BC80B43303520 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E3CDEC487B1A740B2C6D737 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
@@ -59,6 +60,7 @@
 		8D5EEA171956E404969F2209 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		922A871DD394E56BD66940E3 /* Common Ground */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Common Ground"; path = .; sourceTree = SOURCE_ROOT; };
 		93C480295D7936EF836ED1F0 /* CommonGroundWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CommonGroundWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		959FC9B15C1CC1628F8CC6B0 /* CommonGroundAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonGroundAppDelegate.swift; sourceTree = "<group>"; };
 		9A6B8882BDA13FD10F0B87F0 /* CommonGroundWidgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CommonGroundWidgets.entitlements; sourceTree = "<group>"; };
 		A571674E52588CDACB44FE4F /* CommonGroundWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CommonGroundWatch.entitlements; sourceTree = "<group>"; };
 		A7297C9B452DC88ADFA1152A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				1391B1D0495AE821B3224405 /* CommonGroundApp.swift */,
+				959FC9B15C1CC1628F8CC6B0 /* CommonGroundAppDelegate.swift */,
 				3833E2627C7642BF68C54A20 /* LaunchScreenView.swift */,
 			);
 			path = App;
@@ -327,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDED6A826BD9D696B86BFC31 /* CommonGroundApp.swift in Sources */,
+				D30ED43D107A45A36BF4EE83 /* CommonGroundAppDelegate.swift in Sources */,
 				DACA728847997DEFF312D6C4 /* CommonGroundIntents.swift in Sources */,
 				A1E23B74DDC8296107896EF9 /* LaunchScreenView.swift in Sources */,
 			);
@@ -421,7 +425,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -485,7 +489,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = CommonGroundWidgets/CommonGroundWidgets.entitlements;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 3N4Q2GQ558;
 				INFOPLIST_FILE = CommonGroundWidgets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -504,7 +508,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = CommonGroundWidgets/CommonGroundWidgets.entitlements;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 3N4Q2GQ558;
 				INFOPLIST_FILE = CommonGroundWidgets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -553,7 +557,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;

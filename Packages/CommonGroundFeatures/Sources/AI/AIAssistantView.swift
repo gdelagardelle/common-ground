@@ -4,7 +4,7 @@ import CommonGroundCore
 import CommonGroundDesign
 
 public struct AIAssistantView: View {
-    @Environment(AIAssistantService.self) private var aiService
+    @Bindable var aiService: AIAssistantService
     @Environment(AppState.self) private var appState
     @Query private var children: [Child]
     @Query private var events: [CalendarEvent]
@@ -15,12 +15,7 @@ public struct AIAssistantView: View {
     @State private var aiModeLabel = L10n.aiSearching
 
     private var usesOnDeviceAI: Bool {
-        #if canImport(FoundationModels)
-        if #available(iOS 26.0, *) {
-            return OnDeviceAIService.isAvailable
-        }
-        #endif
-        return false
+        OnDeviceAIAvailability.isSupported
     }
 
     private var suggestions: [String] {
@@ -34,7 +29,9 @@ public struct AIAssistantView: View {
         ]
     }
 
-    public init() {}
+    public init(aiService: AIAssistantService) {
+        self.aiService = aiService
+    }
 
     private var selectedChild: Child? {
         if let id = appState.selectedChildId {
