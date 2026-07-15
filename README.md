@@ -107,6 +107,8 @@ If xcodegen is unavailable, open `Package.swift` in Xcode and add the app target
 
 See [docs/TESTFLIGHT.md](docs/TESTFLIGHT.md) for App Store Connect and TestFlight steps.
 
+See [docs/app-store/SUBMISSION.md](docs/app-store/SUBMISSION.md) for the full App Store submission checklist.
+
 **Privacy policy & support:** [gdelagardelle.github.io/common-ground](https://gdelagardelle.github.io/common-ground/) (GitHub Pages from `/docs`)
 
 ---

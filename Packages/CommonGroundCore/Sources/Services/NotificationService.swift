@@ -6,7 +6,18 @@ import SwiftData
 public enum NotificationService {
     private static let center = UNUserNotificationCenter.current()
 
+    private static var isScreenshotCapture: Bool {
+        ProcessInfo.processInfo.arguments.contains { $0.hasPrefix("-ScreenshotTab=") }
+            || UserDefaults.standard.bool(forKey: "debug.screenshotMode")
+    }
+
+    private static func addRequest(_ request: UNNotificationRequest) {
+        guard !isScreenshotCapture else { return }
+        center.add(request)
+    }
+
     public static func requestAuthorization() async -> Bool {
+        guard !isScreenshotCapture else { return false }
         do {
             return try await center.requestAuthorization(options: [.alert, .badge, .sound])
         } catch {
@@ -38,7 +49,7 @@ public enum NotificationService {
             content: content,
             trigger: trigger
         )
-        center.add(request)
+        addRequest(request)
     }
 
     public static func scheduleMedicationReminder(for medication: Medication, childName: String) {
@@ -52,7 +63,7 @@ public enum NotificationService {
             components.hour = 8
             components.minute = 0
             let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
-            center.add(UNNotificationRequest(
+            addRequest(UNNotificationRequest(
                 identifier: "medication-\(medication.id.uuidString)-default",
                 content: content,
                 trigger: trigger
@@ -63,7 +74,7 @@ public enum NotificationService {
         for (index, time) in medication.reminderTimes.enumerated() {
             let timeComponents = Calendar.current.dateComponents([.hour, .minute], from: time)
             let trigger = UNCalendarNotificationTrigger(dateMatching: timeComponents, repeats: true)
-            center.add(UNNotificationRequest(
+            addRequest(UNNotificationRequest(
                 identifier: "medication-\(medication.id.uuidString)-\(index)",
                 content: content,
                 trigger: trigger
@@ -72,6 +83,7 @@ public enum NotificationService {
     }
 
     public static func syncAll(from context: ModelContext) {
+        guard !isScreenshotCapture else { return }
         let events = (try? context.fetch(FetchDescriptor<CalendarEvent>())) ?? []
         let medications = (try? context.fetch(FetchDescriptor<Medication>())) ?? []
 

@@ -31,15 +31,25 @@ public struct RootView: View {
         }
         .task {
             restoreSessionContext()
+            #if DEBUG
+            applyScreenshotLaunchArguments()
+            #endif
             await configureNotificationsIfNeeded()
             await performCalendarSyncIfNeeded()
             #if canImport(ActivityKit)
-            await LiveActivityService.syncUpcomingExchanges(from: modelContext)
+            if !ScreenshotMode.isEnabled {
+                await LiveActivityService.syncUpcomingExchanges(from: modelContext)
+            }
             #endif
         }
     }
 
     private func performCalendarSyncIfNeeded() async {
+        #if DEBUG
+        if ScreenshotMode.isEnabled {
+            return
+        }
+        #endif
         guard CalendarSyncPreferences.isAutoSyncEnabled, !families.isEmpty else { return }
         guard await CalendarSyncService.requestAccess() else { return }
         let child = families.first?.children.first
@@ -51,6 +61,11 @@ public struct RootView: View {
     }
 
     private func configureNotificationsIfNeeded() async {
+        #if DEBUG
+        if ScreenshotMode.isEnabled {
+            return
+        }
+        #endif
         guard !families.isEmpty else { return }
         let key = "notifications.configured"
         guard !UserDefaults.standard.bool(forKey: key) else {
@@ -76,6 +91,31 @@ public struct RootView: View {
             appState.selectedChildId = family.children.first?.id
         }
     }
+
+    #if DEBUG
+    private func applyScreenshotLaunchArguments() {
+        let arguments = ProcessInfo.processInfo.arguments
+
+        if ScreenshotMode.isEnabled {
+            SampleDataService.seedIfNeeded(context: modelContext)
+            if let family = families.first ?? (try? modelContext.fetch(FetchDescriptor<Family>()))?.first,
+               let parent = family.members.first,
+               let child = family.children.first {
+                appState.currentMemberId = parent.id
+                appState.currentMemberName = parent.displayName
+                appState.selectedChildId = child.id
+                appState.isOnboardingComplete = true
+            }
+        }
+
+        if let tabArgument = arguments.first(where: { $0.hasPrefix("-ScreenshotTab=") }) {
+            let tabName = tabArgument.replacingOccurrences(of: "-ScreenshotTab=", with: "")
+            if let tab = AppTab(rawValue: tabName) {
+                appState.selectedTab = tab
+            }
+        }
+    }
+    #endif
 }
 
 struct LockScreenView: View {

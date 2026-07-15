@@ -26,7 +26,8 @@ xcuserdata/
 # Secrets
 *.pem
 .env
-.env.*
+.env.local
+!.env.local.example
 
 # App packaging
 *.ipa

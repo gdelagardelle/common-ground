@@ -21,7 +21,7 @@
     <key>CFBundleShortVersionString</key>
     <string>1.0</string>
     <key>CFBundleVersion</key>
-    <string>1</string>
+    <string>2</string>
     <key>LSRequiresIPhoneOS</key>
     <true/>
     <key>ITSAppUsesNonExemptEncryption</key>
@@ -36,6 +36,8 @@
     <string>Import events from your Apple Calendar into Common Ground.</string>
     <key>NSHealthShareUsageDescription</key>
     <string>Import height and weight measurements to track your child's growth.</string>
+    <key>NSHealthUpdateUsageDescription</key>
+    <string>Common Ground does not save data to Apple Health. This disclosure is required by iOS when you choose to import height and weight for growth charts.</string>
     <key>NSLocationWhenInUseUsageDescription</key>
     <string>Share your location during custody exchanges so your co-parent knows where to meet.</string>
     <key>NSSupportsLiveActivities</key>

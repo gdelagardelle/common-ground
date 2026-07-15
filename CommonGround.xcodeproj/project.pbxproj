@@ -48,7 +48,7 @@
 		0CFBD1D38E3273A258644D6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1013AD882C26050098572325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1391B1D0495AE821B3224405 /* CommonGroundApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonGroundApp.swift; sourceTree = "<group>"; };
-		15A889688EEDD294984C1EB3 /* CommonGround.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CommonGround.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		15A889688EEDD294984C1EB3 /* CommonGround.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = CommonGround.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3833E2627C7642BF68C54A20 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		3D4618A1C144C394D3400111 /* CommonGround.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CommonGround.entitlements; sourceTree = "<group>"; };
 		8D5EEA171956E404969F2209 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -58,8 +58,8 @@
 		A7D6D492143FD6C7522C70DE /* CommonGroundWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonGroundWidgets.swift; sourceTree = "<group>"; };
 		B0CD562FC332C6E32F89AB48 /* CommonGroundWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonGroundWatchApp.swift; sourceTree = "<group>"; };
 		B256056C170993207B318A47 /* CommonGroundIntents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonGroundIntents.swift; sourceTree = "<group>"; };
-		DB3EC8EBCAE11D2D4788B2DA /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		E87A48240DC02D8FBB42F5ED /* CommonGroundWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CommonGroundWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB3EC8EBCAE11D2D4788B2DA /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		E87A48240DC02D8FBB42F5ED /* CommonGroundWidgets.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = CommonGroundWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECB27E2D7D59AAEF767808AD /* ExchangeLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeLiveActivity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -238,6 +238,11 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					81523FB344992511EC8467E3 = {
+						DevelopmentTeam = "";
+					};
+				};
 			};
 			buildConfigurationList = 629721CEA8D97D2A70A17296 /* Build configuration list for PBXProject "CommonGround" */;
 			developmentRegion = en;
@@ -320,17 +325,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CommonGround/CommonGround.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = 3N4Q2GQ558;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CommonGround/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-weak_framework",
-					FoundationModels,
-				);
+				OTHER_LDFLAGS = "$(inherited) -weak_framework FoundationModels";
 				PRODUCT_BUNDLE_IDENTIFIER = com.germaind.CommonGround;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
@@ -372,7 +373,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -431,7 +432,6 @@
 		62B75071F69F81CDEA982202 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = 3N4Q2GQ558;
 				INFOPLIST_FILE = CommonGroundWidgets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -448,7 +448,6 @@
 		9FBF7641A5FC9328E9FFDAA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = 3N4Q2GQ558;
 				INFOPLIST_FILE = CommonGroundWidgets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -496,7 +495,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -527,17 +526,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CommonGround/CommonGround.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = 3N4Q2GQ558;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CommonGround/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-weak_framework",
-					FoundationModels,
-				);
+				OTHER_LDFLAGS = "$(inherited) -weak_framework FoundationModels";
 				PRODUCT_BUNDLE_IDENTIFIER = com.germaind.CommonGround;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
