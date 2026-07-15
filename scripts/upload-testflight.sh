@@ -56,6 +56,7 @@ xcodebuild \
   MARKETING_VERSION=1.0.0 \
   CURRENT_PROJECT_VERSION="$BUILD_NUMBER" \
   DEVELOPMENT_TEAM="$DEVELOPMENT_TEAM" \
+  -allowProvisioningUpdates \
   clean archive
 
 echo "==> Exporting IPA"
@@ -64,7 +65,8 @@ xcodebuild \
   -archivePath "$ARCHIVE_PATH" \
   -exportPath "$EXPORT_PATH" \
   -exportOptionsPlist "$EXPORT_PLIST" \
-  DEVELOPMENT_TEAM="$DEVELOPMENT_TEAM"
+  DEVELOPMENT_TEAM="$DEVELOPMENT_TEAM" \
+  -allowProvisioningUpdates
 
 IPA=$(find "$EXPORT_PATH" -name '*.ipa' | head -1)
 if [[ -z "$IPA" ]]; then
