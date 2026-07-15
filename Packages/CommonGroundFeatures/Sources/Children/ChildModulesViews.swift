@@ -424,6 +424,17 @@ public struct DocumentsView: View {
 
 public struct TimelineView: View {
     let child: Child
+    @Environment(AppState.self) private var appState
+    @Query private var families: [Family]
+    @State private var showAddDailyUpdate = false
+
+    private var currentMember: FamilyMember? {
+        PermissionService.currentMember(in: families.first, memberId: appState.currentMemberId)
+    }
+
+    private var entries: [TimelineEntry] {
+        child.timelineEntries.sorted { $0.date > $1.date }
+    }
 
     public init(child: Child) {
         self.child = child
@@ -431,15 +442,39 @@ public struct TimelineView: View {
 
     public var body: some View {
         ScrollView {
-            LazyVStack(spacing: 0) {
-                ForEach(child.timelineEntries.sorted(by: { $0.date > $1.date }), id: \.id) { entry in
-                    TimelineEntryView(entry: entry)
+            if entries.isEmpty {
+                CGEmptyState(
+                    icon: "sun.horizon.fill",
+                    title: "No updates yet",
+                    message: "Post daily updates and milestones so everyone stays in the loop.",
+                    actionTitle: PermissionService.canPostDailyUpdate(currentMember) ? "Daily Update" : nil
+                ) {
+                    showAddDailyUpdate = true
                 }
+                .padding(.top, CGSpacing.xxl)
+            } else {
+                LazyVStack(spacing: 0) {
+                    ForEach(entries, id: \.id) { entry in
+                        TimelineEntryView(entry: entry)
+                    }
+                }
+                .padding(CGSpacing.md)
             }
-            .padding(CGSpacing.md)
         }
         .background(Color(.systemGroupedBackground))
         .navigationTitle("Timeline")
+        .toolbar {
+            if PermissionService.canPostDailyUpdate(currentMember) {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button { showAddDailyUpdate = true } label: {
+                        Image(systemName: "plus")
+                    }
+                }
+            }
+        }
+        .sheet(isPresented: $showAddDailyUpdate) {
+            AddDailyUpdateView(child: child)
+        }
     }
 }
 
@@ -461,12 +496,28 @@ struct TimelineEntryView: View {
             }
 
             VStack(alignment: .leading, spacing: CGSpacing.xxs) {
-                Text(entry.date.formatted(date: .abbreviated, time: .omitted))
-                    .font(.caption.weight(.medium))
-                    .foregroundStyle(.secondary)
+                HStack {
+                    Text(entry.date.formatted(date: .abbreviated, time: entry.category == .dailyUpdate ? .shortened : .omitted))
+                        .font(.caption.weight(.medium))
+                        .foregroundStyle(.secondary)
+                    if entry.category == .dailyUpdate {
+                        Text("Daily")
+                            .font(.caption2.weight(.semibold))
+                            .padding(.horizontal, 6)
+                            .padding(.vertical, 2)
+                            .background(Color.orange.opacity(0.15), in: Capsule())
+                            .foregroundStyle(.orange)
+                    }
+                }
 
                 Text(entry.title)
                     .font(.subheadline.weight(.semibold))
+
+                if let author = entry.authorName, entry.category == .dailyUpdate {
+                    Text("by \(author)")
+                        .font(.caption2)
+                        .foregroundStyle(.tertiary)
+                }
 
                 if let detail = entry.detail {
                     Text(detail)

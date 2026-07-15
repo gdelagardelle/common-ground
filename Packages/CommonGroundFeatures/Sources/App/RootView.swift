@@ -175,7 +175,12 @@ struct LockScreenView: View {
 
 public struct MainTabView: View {
     @Environment(AppState.self) private var appState
+    @Query private var families: [Family]
     @State private var aiService = AIAssistantService()
+
+    private var currentMember: FamilyMember? {
+        PermissionService.currentMember(in: families.first, memberId: appState.currentMemberId)
+    }
 
     public init() {}
 
@@ -187,17 +192,21 @@ public struct MainTabView: View {
                 .tabItem { Label(AppTab.home.title, systemImage: AppTab.home.icon) }
                 .tag(AppTab.home)
 
-            CalendarView()
-                .tabItem { Label(AppTab.calendar.title, systemImage: AppTab.calendar.icon) }
-                .tag(AppTab.calendar)
+            if PermissionService.canViewCalendar(currentMember) {
+                CalendarView()
+                    .tabItem { Label(AppTab.calendar.title, systemImage: AppTab.calendar.icon) }
+                    .tag(AppTab.calendar)
+            }
 
             ChildrenListView()
                 .tabItem { Label(AppTab.children.title, systemImage: AppTab.children.icon) }
                 .tag(AppTab.children)
 
-            MessagesView()
-                .tabItem { Label(AppTab.messages.title, systemImage: AppTab.messages.icon) }
-                .tag(AppTab.messages)
+            if PermissionService.canViewMessages(currentMember) {
+                MessagesView()
+                    .tabItem { Label(AppTab.messages.title, systemImage: AppTab.messages.icon) }
+                    .tag(AppTab.messages)
+            }
 
             MoreView()
                 .tabItem { Label(AppTab.more.title, systemImage: AppTab.more.icon) }

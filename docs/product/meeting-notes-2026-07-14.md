@@ -44,8 +44,9 @@ Parents who **no longer talk daily** still need to **organize the child's everyd
 
 ### Should-have (v1.1+)
 
-- [ ] **Grousselteren / Liesaccès** — grandparents: **view only**, configurable what they see, **no messaging**
-- [ ] **Granulär Permissiounen** — per-area toggles (“däerf gesinn / däerf net gesinn”) like Alalux block notes
+- [x] **Grousselteren / Liesaccès** — grandparents: view only, per-module toggles, no messaging
+- [x] **Granulär Permissiounen** — per-area toggles in More → Permissions
+- [x] **Alldag / “wat geschitt ass”** — Daily Update on Home + Timeline
 - [ ] **Kand-Login** — optional child account, limited UI, share photo/info to both parents
 
 ### Business

@@ -115,21 +115,35 @@ public final class TimelineEntry {
     public var category: TimelineCategory
     public var date: Date
     public var photoData: Data?
+    public var authorMemberId: UUID?
+    public var authorName: String?
     public var createdAt: Date
 
     public var child: Child?
 
-    public init(title: String, category: TimelineCategory, date: Date, detail: String? = nil) {
+    public init(
+        title: String,
+        category: TimelineCategory,
+        date: Date,
+        detail: String? = nil,
+        authorMemberId: UUID? = nil,
+        authorName: String? = nil
+    ) {
         self.id = UUID()
         self.title = title
         self.detail = detail
         self.category = category
         self.date = date
+        self.authorMemberId = authorMemberId
+        self.authorName = authorName
         self.createdAt = Date()
     }
+
+    public var isDailyUpdate: Bool { category == .dailyUpdate }
 }
 
 public enum TimelineCategory: String, Codable, CaseIterable, Sendable {
+    case dailyUpdate
     case milestone
     case medical
     case school
@@ -141,6 +155,7 @@ public enum TimelineCategory: String, Codable, CaseIterable, Sendable {
 
     public var displayName: String {
         switch self {
+        case .dailyUpdate: "Daily Update"
         case .milestone: "Milestone"
         case .medical: "Medical"
         case .school: "School"
@@ -154,6 +169,7 @@ public enum TimelineCategory: String, Codable, CaseIterable, Sendable {
 
     public var icon: String {
         switch self {
+        case .dailyUpdate: "sun.horizon.fill"
         case .milestone: "star.fill"
         case .medical: "cross.case.fill"
         case .school: "book.fill"

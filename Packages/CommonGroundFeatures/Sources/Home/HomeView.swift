@@ -16,8 +16,18 @@ public struct HomeView: View {
     @State private var showAddEvent = false
     @State private var showAddExpense = false
     @State private var showExchangeLocation = false
+    @State private var showDailyUpdate = false
 
     public init() {}
+
+    private var currentMember: FamilyMember? {
+        PermissionService.currentMember(in: families.first, memberId: appState.currentMemberId)
+    }
+
+    private var recentDailyUpdates: [TimelineEntry] {
+        guard let child = selectedChild else { return [] }
+        return DailyUpdateService.recentUpdates(for: child, limit: 3)
+    }
 
     private var selectedChild: Child? {
         if let id = appState.selectedChildId {
@@ -61,7 +71,10 @@ public struct HomeView: View {
                     if let child = selectedChild {
                         childSummaryCard(child)
                     }
-                    upcomingSection
+                    dailyUpdatesSection
+                    if PermissionService.canViewCalendar(currentMember) {
+                        upcomingSection
+                    }
                     alertsSection
                 }
                 .padding(.horizontal, CGSpacing.md)
@@ -79,6 +92,11 @@ public struct HomeView: View {
             .sheet(isPresented: $showExchangeLocation) {
                 if let exchange = upcomingExchange {
                     ExchangeLocationShareView(event: exchange)
+                }
+            }
+            .sheet(isPresented: $showDailyUpdate) {
+                if let child = selectedChild {
+                    AddDailyUpdateView(child: child)
                 }
             }
             .onAppear {
@@ -111,17 +129,22 @@ public struct HomeView: View {
 
     private var quickActionsSection: some View {
         LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 4), spacing: CGSpacing.md) {
-            if PermissionService.canEditCalendar(PermissionService.currentMember(in: families.first, memberId: appState.currentMemberId)) {
+            if PermissionService.canEditCalendar(currentMember) {
                 CGQuickAction(icon: "plus.circle.fill", title: "Event") {
                     showAddEvent = true
                 }
             }
-            if PermissionService.canEditExpenses(PermissionService.currentMember(in: families.first, memberId: appState.currentMemberId)) {
+            if PermissionService.canPostDailyUpdate(currentMember), selectedChild != nil {
+                CGQuickAction(icon: "sun.horizon.fill", title: "Update", color: .orange) {
+                    showDailyUpdate = true
+                }
+            }
+            if PermissionService.canEditExpenses(currentMember) {
                 CGQuickAction(icon: "dollarsign.circle.fill", title: "Expense", color: .green) {
                     showAddExpense = true
                 }
             }
-            if PermissionService.canSendMessages(PermissionService.currentMember(in: families.first, memberId: appState.currentMemberId)) {
+            if PermissionService.canSendMessages(currentMember) {
                 CGQuickAction(icon: "bubble.left.fill", title: "Message", color: .blue) {
                     appState.selectedTab = .messages
                 }
@@ -173,6 +196,42 @@ public struct HomeView: View {
         .buttonStyle(.plain)
     }
 
+    private var dailyUpdatesSection: some View {
+        Group {
+            if PermissionService.canViewTimeline(currentMember) {
+                VStack(alignment: .leading, spacing: CGSpacing.sm) {
+                    CGSectionHeader("Today's Updates", action: recentDailyUpdates.isEmpty ? nil : "See All") {
+                        if let child = selectedChild {
+                            appState.selectedChildId = child.id
+                        }
+                        appState.selectedTab = .children
+                    }
+
+                    if recentDailyUpdates.isEmpty {
+                        CGCard {
+                            VStack(alignment: .leading, spacing: CGSpacing.xs) {
+                                Text("No updates yet today")
+                                    .font(.subheadline)
+                                    .foregroundStyle(.secondary)
+                                if PermissionService.canPostDailyUpdate(currentMember) {
+                                    Button("Share what happened") {
+                                        showDailyUpdate = true
+                                    }
+                                    .font(.subheadline.weight(.medium))
+                                }
+                            }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        }
+                    } else {
+                        ForEach(recentDailyUpdates, id: \.id) { entry in
+                            DailyUpdateCard(entry: entry)
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     private var upcomingSection: some View {
         VStack(alignment: .leading, spacing: CGSpacing.sm) {
             CGSectionHeader("Coming Up", action: "See All") {
@@ -196,9 +255,13 @@ public struct HomeView: View {
 
     private var alertsSection: some View {
         VStack(alignment: .leading, spacing: CGSpacing.sm) {
-            CGSectionHeader("Needs Attention")
+            if unpaidTotal > 0 && PermissionService.canViewExpenses(currentMember)
+                || !activeMedications.isEmpty && PermissionService.canViewMedical(currentMember)
+                || selectedChild?.emergencyInfo?.passportExpiry != nil && PermissionService.canViewEmergency(currentMember) {
+                CGSectionHeader("Needs Attention")
+            }
 
-            if unpaidTotal > 0 {
+            if unpaidTotal > 0, PermissionService.canViewExpenses(currentMember) {
                 AlertCard(
                     icon: "dollarsign.circle.fill",
                     color: .green,
@@ -207,7 +270,7 @@ public struct HomeView: View {
                 )
             }
 
-            if !activeMedications.isEmpty {
+            if !activeMedications.isEmpty, PermissionService.canViewMedical(currentMember) {
                 AlertCard(
                     icon: "pills.fill",
                     color: .red,
@@ -216,7 +279,9 @@ public struct HomeView: View {
                 )
             }
 
-            if let child = selectedChild, let expiry = child.emergencyInfo?.passportExpiry, expiry < Calendar.current.date(byAdding: .month, value: 6, to: Date()) ?? Date() {
+            if let child = selectedChild, PermissionService.canViewEmergency(currentMember),
+               let expiry = child.emergencyInfo?.passportExpiry,
+               expiry < Calendar.current.date(byAdding: .month, value: 6, to: Date()) ?? Date() {
                 AlertCard(
                     icon: "person.text.rectangle.fill",
                     color: .orange,

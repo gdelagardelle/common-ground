@@ -258,18 +258,41 @@ struct AuditLogView: View {
 }
 
 struct PermissionsView: View {
+    @Query private var families: [Family]
+
+    private var members: [FamilyMember] {
+        families.first?.members.sorted { $0.displayName < $1.displayName } ?? []
+    }
+
     var body: some View {
         List {
-            Section("Role Permissions") {
-                PermissionRow(role: "Parent", access: "Full access")
-                PermissionRow(role: "Grandparent", access: "View only (no messaging)")
-                PermissionRow(role: "Professional", access: "Read-only export")
+            Section("Family members") {
+                if members.isEmpty {
+                    Text("Add family members from Family Tools.")
+                        .foregroundStyle(.secondary)
+                } else {
+                    ForEach(members, id: \.id) { member in
+                        NavigationLink {
+                            MemberPermissionsEditorView(member: member)
+                        } label: {
+                            HStack {
+                                Text(member.avatarEmoji)
+                                VStack(alignment: .leading) {
+                                    Text(member.displayName)
+                                    Text(member.role.displayName)
+                                        .font(.caption)
+                                        .foregroundStyle(.secondary)
+                                }
+                            }
+                        }
+                    }
+                }
             }
 
-            Section {
-                Text("Invite family members and set granular permissions per module.")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
+            Section("Default roles") {
+                PermissionRow(role: "Parent", access: "Full view & edit")
+                PermissionRow(role: "Grandparent", access: "Calendar, timeline, school — view only")
+                PermissionRow(role: "Professional", access: "Read-only court export")
             }
         }
         .navigationTitle("Permissions")

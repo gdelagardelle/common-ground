@@ -58,6 +58,15 @@ struct PermissionTests {
         #expect(perms.canExportRecords)
     }
 
+    @Test("Grandparent can view timeline but not expenses")
+    func grandparentPermissions() {
+        let perms = MemberPermissions.default(for: .grandparent)
+        #expect(perms.canViewTimeline)
+        #expect(perms.canViewCalendar)
+        #expect(!perms.canViewExpenses)
+        #expect(!perms.canSendMessages)
+    }
+
     @Test("Professional has read-only export")
     func professionalPermissions() {
         let perms = MemberPermissions.default(for: .professional)

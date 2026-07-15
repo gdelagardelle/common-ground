@@ -80,6 +80,11 @@ struct ChildRow: View {
 public struct ChildDetailView: View {
     let child: Child
     @Environment(AppState.self) private var appState
+    @Query private var families: [Family]
+
+    private var currentMember: FamilyMember? {
+        PermissionService.currentMember(in: families.first, memberId: appState.currentMemberId)
+    }
 
     public init(child: Child) {
         self.child = child
@@ -91,28 +96,40 @@ public struct ChildDetailView: View {
                 profileHeader
 
                 LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: CGSpacing.sm) {
-                    ProfileModuleLink(icon: "cross.case.fill", title: "Medical", color: .red, count: child.medicalRecords.count) {
-                        MedicalView(child: child)
+                    if PermissionService.canViewMedical(currentMember) {
+                        ProfileModuleLink(icon: "cross.case.fill", title: "Medical", color: .red, count: child.medicalRecords.count) {
+                            MedicalView(child: child)
+                        }
                     }
-                    ProfileModuleLink(icon: "book.fill", title: "School", color: .green, count: child.schoolInfo != nil ? 1 : 0) {
-                        SchoolView(child: child)
+                    if PermissionService.canViewSchool(currentMember) {
+                        ProfileModuleLink(icon: "book.fill", title: "School", color: .green, count: child.schoolInfo != nil ? 1 : 0) {
+                            SchoolView(child: child)
+                        }
                     }
-                    ProfileModuleLink(icon: "dollarsign.circle.fill", title: "Expenses", color: .mint, count: child.expenses.count) {
-                        ExpensesView(child: child)
+                    if PermissionService.canViewExpenses(currentMember) {
+                        ProfileModuleLink(icon: "dollarsign.circle.fill", title: "Expenses", color: .mint, count: child.expenses.count) {
+                            ExpensesView(child: child)
+                        }
                     }
-                    ProfileModuleLink(icon: "doc.fill", title: "Documents", color: .blue, count: child.documents.count) {
-                        DocumentsView(child: child)
+                    if PermissionService.canViewDocuments(currentMember) {
+                        ProfileModuleLink(icon: "doc.fill", title: "Documents", color: .blue, count: child.documents.count) {
+                            DocumentsView(child: child)
+                        }
                     }
-                    ProfileModuleLink(icon: "clock.arrow.circlepath", title: "Timeline", color: .purple, count: child.timelineEntries.count) {
-                        TimelineView(child: child)
+                    if PermissionService.canViewTimeline(currentMember) {
+                        ProfileModuleLink(icon: "clock.arrow.circlepath", title: "Timeline", color: .purple, count: child.timelineEntries.count) {
+                            TimelineView(child: child)
+                        }
                     }
-                    ProfileModuleLink(icon: "exclamationmark.shield.fill", title: "Emergency", color: .orange, count: child.emergencyInfo != nil ? 1 : 0) {
-                        EmergencyView(child: child)
+                    if PermissionService.canViewEmergency(currentMember) {
+                        ProfileModuleLink(icon: "exclamationmark.shield.fill", title: "Emergency", color: .orange, count: child.emergencyInfo != nil ? 1 : 0) {
+                            EmergencyView(child: child)
+                        }
                     }
                 }
                 .padding(.horizontal, CGSpacing.md)
 
-                if !child.allergies.isEmpty || child.bloodType != nil {
+                if PermissionService.canViewMedical(currentMember), !child.allergies.isEmpty || child.bloodType != nil {
                     vitalsCard
                 }
             }

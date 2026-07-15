@@ -76,6 +76,14 @@ public final class SampleDataService {
         emma.documents = [passport]
 
         let timeline = [
+            TimelineEntry(
+                title: "Soccer practice went well",
+                category: .dailyUpdate,
+                date: Calendar.current.date(byAdding: .hour, value: -3, to: Date()) ?? Date(),
+                detail: "Emma scored a goal. Homework done before dinner.",
+                authorMemberId: parentA.id,
+                authorName: parentA.displayName
+            ),
             TimelineEntry(title: "First day of 2nd grade", category: .school, date: Calendar.current.date(byAdding: .month, value: -2, to: Date()) ?? Date()),
             TimelineEntry(title: "Lost first tooth", category: .first, date: Calendar.current.date(byAdding: .month, value: -6, to: Date()) ?? Date()),
             TimelineEntry(title: "Soccer tournament win", category: .achievement, date: Calendar.current.date(byAdding: .month, value: -1, to: Date()) ?? Date()),
