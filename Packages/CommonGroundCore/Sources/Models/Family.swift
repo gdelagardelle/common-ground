@@ -129,7 +129,7 @@ public struct MemberPermissions: Codable, Sendable {
                 canEditCalendar: false,
                 canEditExpenses: false,
                 canEditMedical: false,
-                canSendMessages: true,
+                canSendMessages: false,
                 canViewDocuments: true,
                 canExportRecords: false
             )

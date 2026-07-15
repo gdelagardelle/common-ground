@@ -262,7 +262,7 @@ struct PermissionsView: View {
         List {
             Section("Role Permissions") {
                 PermissionRow(role: "Parent", access: "Full access")
-                PermissionRow(role: "Grandparent", access: "View only + messaging")
+                PermissionRow(role: "Grandparent", access: "View only (no messaging)")
                 PermissionRow(role: "Professional", access: "Read-only export")
             }
 
