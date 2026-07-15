@@ -47,6 +47,17 @@ targets:
         OTHER_LDFLAGS: $(inherited) -weak_framework FoundationModels
     entitlements:
       path: CommonGround/CommonGround.entitlements
+      properties:
+        aps-environment: development
+        com.apple.developer.healthkit: true
+        com.apple.developer.icloud-container-identifiers:
+          - iCloud.com.germaind.CommonGround
+        com.apple.developer.icloud-services:
+          - CloudKit
+        com.apple.developer.ubiquity-container-identifiers:
+          - iCloud.com.germaind.CommonGround
+        com.apple.security.application-groups:
+          - group.com.germaind.CommonGround
 
   CommonGroundWidgets:
     type: app-extension
@@ -66,6 +77,9 @@ targets:
         SKIP_INSTALL: YES
     entitlements:
       path: CommonGroundWidgets/CommonGroundWidgets.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - group.com.germaind.CommonGround
 
   CommonGroundWatch:
     type: application
@@ -84,6 +98,9 @@ targets:
         SKIP_INSTALL: YES
     entitlements:
       path: CommonGroundWatch/CommonGroundWatch.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - group.com.germaind.CommonGround
 
 schemes:
   CommonGround:
