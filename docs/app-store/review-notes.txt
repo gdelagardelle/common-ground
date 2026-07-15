@@ -1,0 +1,26 @@
+Demo account not required — the app works fully offline after onboarding.
+
+REVIEW STEPS
+1. Launch app → complete onboarding (name, family, child) OR use a TestFlight build with existing data
+2. Home tab — verify dashboard, quick actions, upcoming events
+3. Calendar — view custody schedule and exchange events
+4. Children — open child profile (medical, school, expenses)
+5. Messages — view co-parent thread
+6. More → Court Export — generate PDF
+7. More → Invite Co-Parent — note 8-character family code
+
+CO-PARENT JOIN (single device test)
+1. Note family code from More → Invite Co-Parent
+2. Delete app, reinstall, tap "Join with Family Code" on welcome screen
+3. Enter code (same-device only without iCloud)
+
+OPTIONAL (physical device)
+- Health import: More → Apple Health
+- Live Activity: custody exchange within 24 hours
+- Face ID: More → Privacy & Security
+
+ENCRYPTION
+Uses standard HTTPS for optional invite links only. All other data is local or Apple iCloud. Exempt from export compliance documentation.
+
+SUPPORT
+https://gdelagardelle.github.io/common-ground/support/
