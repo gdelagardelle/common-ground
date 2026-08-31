@@ -17,7 +17,7 @@
     <key>CFBundleVersion</key>
     <string>1</string>
     <key>WKCompanionAppBundleIdentifier</key>
-    <string>com.germaind.CommonGround</string>
+    <string>com.luxxow.commonground</string>
     <key>WKRunsIndependentlyOfCompanionApp</key>
     <false/>
 </dict>

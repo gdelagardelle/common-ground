@@ -1,6 +1,6 @@
 name: CommonGround
 options:
-  bundleIdPrefix: com.germaind
+  bundleIdPrefix: com.luxxow
   deploymentTarget:
     iOS: "18.0"
     watchOS: "11.0"
@@ -37,13 +37,13 @@ targets:
         embed: true
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.germaind.CommonGround
+        PRODUCT_BUNDLE_IDENTIFIER: com.luxxow.commonground
         INFOPLIST_FILE: CommonGround/Info.plist
         CODE_SIGN_ENTITLEMENTS: CommonGround/CommonGround.entitlements
         TARGETED_DEVICE_FAMILY: "1,2"
         SUPPORTS_MACCATALYST: NO
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
-        DEVELOPMENT_TEAM: "3N4Q2GQ558"
+        DEVELOPMENT_TEAM: "CZY6SHVSXB"
         OTHER_LDFLAGS: $(inherited) -weak_framework FoundationModels
     entitlements:
       path: CommonGround/CommonGround.entitlements
@@ -51,13 +51,13 @@ targets:
         aps-environment: production
         com.apple.developer.healthkit: true
         com.apple.developer.icloud-container-identifiers:
-          - iCloud.com.germaind.CommonGround
+          - iCloud.com.luxxow.commonground
         com.apple.developer.icloud-services:
           - CloudKit
         com.apple.developer.ubiquity-container-identifiers:
-          - iCloud.com.germaind.CommonGround
+          - iCloud.com.luxxow.commonground
         com.apple.security.application-groups:
-          - group.com.germaind.CommonGround
+          - group.com.luxxow.commonground
 
   CommonGroundWidgets:
     type: app-extension
@@ -69,17 +69,17 @@ targets:
         product: CommonGroundCore
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.germaind.CommonGround.widgets
+        PRODUCT_BUNDLE_IDENTIFIER: com.luxxow.commonground.widgets
         INFOPLIST_FILE: CommonGroundWidgets/Info.plist
         CODE_SIGN_ENTITLEMENTS: CommonGroundWidgets/CommonGroundWidgets.entitlements
-        DEVELOPMENT_TEAM: "3N4Q2GQ558"
+        DEVELOPMENT_TEAM: "CZY6SHVSXB"
         CURRENT_PROJECT_VERSION: "7"
         SKIP_INSTALL: YES
     entitlements:
       path: CommonGroundWidgets/CommonGroundWidgets.entitlements
       properties:
         com.apple.security.application-groups:
-          - group.com.germaind.CommonGround
+          - group.com.luxxow.commonground
 
   CommonGroundWatch:
     type: application
@@ -91,16 +91,16 @@ targets:
         product: CommonGroundCore
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.germaind.CommonGround.watchkitapp
+        PRODUCT_BUNDLE_IDENTIFIER: com.luxxow.commonground.watchkitapp
         INFOPLIST_FILE: CommonGroundWatch/Info.plist
         CODE_SIGN_ENTITLEMENTS: CommonGroundWatch/CommonGroundWatch.entitlements
-        DEVELOPMENT_TEAM: "3N4Q2GQ558"
+        DEVELOPMENT_TEAM: "CZY6SHVSXB"
         SKIP_INSTALL: YES
     entitlements:
       path: CommonGroundWatch/CommonGroundWatch.entitlements
       properties:
         com.apple.security.application-groups:
-          - group.com.germaind.CommonGround
+          - group.com.luxxow.commonground
 
 schemes:
   CommonGround:

@@ -7,7 +7,7 @@
 | **App Store Name** | **Common Ground Co-Parent** |
 | **Name on device** (`CFBundleDisplayName`) | Common Ground |
 | **Subtitle** | Co-parenting, coordinated |
-| **Bundle ID** | `com.germaind.CommonGround` |
+| **Bundle ID** | `com.luxxow.commonground` |
 
 Use **Common Ground Co-Parent** in App Store Connect → App Information → Name. The shorter **Common Ground** label stays on the home screen under the icon.
 

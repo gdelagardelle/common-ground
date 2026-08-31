@@ -55,10 +55,10 @@
 		19A739E3FBF8A637A204947F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3833E2627C7642BF68C54A20 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		3D4618A1C144C394D3400111 /* CommonGround.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CommonGround.entitlements; sourceTree = "<group>"; };
+		48C1D51030AD333BDDA752BF /* cg-luxxow-bundle-id */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "cg-luxxow-bundle-id"; path = .; sourceTree = SOURCE_ROOT; };
 		6D4AEB446E85F7B900CCD7F6 /* lb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lb; path = lb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8524D757D096EE42FFAE6CE1 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8D5EEA171956E404969F2209 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		922A871DD394E56BD66940E3 /* Common Ground */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Common Ground"; path = .; sourceTree = SOURCE_ROOT; };
 		93C480295D7936EF836ED1F0 /* CommonGroundWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CommonGroundWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		959FC9B15C1CC1628F8CC6B0 /* CommonGroundAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonGroundAppDelegate.swift; sourceTree = "<group>"; };
 		9A6B8882BDA13FD10F0B87F0 /* CommonGroundWidgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CommonGroundWidgets.entitlements; sourceTree = "<group>"; };
@@ -112,13 +112,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2392C2C3FFBFE38B7C41DA35 /* Shared */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Shared;
-			sourceTree = "<group>";
-		};
 		4EB3FD944C92142DC981E217 /* CommonGroundWatch */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,7 +125,7 @@
 		68AF849A76DC669AFB41DB15 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				922A871DD394E56BD66940E3 /* Common Ground */,
+				48C1D51030AD333BDDA752BF /* cg-luxxow-bundle-id */,
 			);
 			path = Packages;
 			sourceTree = "<group>";
@@ -176,7 +169,6 @@
 				940C4DF71E1E2ECAE496CA30 /* App */,
 				2E3CDEC487B1A740B2C6D737 /* InfoPlist.strings */,
 				8E839B3C9255BFD5CA4F6858 /* Intents */,
-				2392C2C3FFBFE38B7C41DA35 /* Shared */,
 			);
 			path = CommonGround;
 			sourceTree = "<group>";
@@ -265,13 +257,13 @@
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					32BF7546AFAEA678068BA19A = {
-						DevelopmentTeam = 3N4Q2GQ558;
+						DevelopmentTeam = CZY6SHVSXB;
 					};
 					5382F54E7127F1BBC8FF0C4A = {
-						DevelopmentTeam = 3N4Q2GQ558;
+						DevelopmentTeam = CZY6SHVSXB;
 					};
 					81523FB344992511EC8467E3 = {
-						DevelopmentTeam = 3N4Q2GQ558;
+						DevelopmentTeam = CZY6SHVSXB;
 					};
 				};
 			};
@@ -377,14 +369,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CommonGround/CommonGround.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = 3N4Q2GQ558;
+				DEVELOPMENT_TEAM = CZY6SHVSXB;
 				INFOPLIST_FILE = CommonGround/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				OTHER_LDFLAGS = "$(inherited) -weak_framework FoundationModels";
-				PRODUCT_BUNDLE_IDENTIFIER = com.germaind.CommonGround;
+				PRODUCT_BUNDLE_IDENTIFIER = com.luxxow.commonground;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -425,7 +417,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -462,9 +454,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CommonGroundWatch/CommonGroundWatch.entitlements;
-				DEVELOPMENT_TEAM = 3N4Q2GQ558;
+				DEVELOPMENT_TEAM = CZY6SHVSXB;
 				INFOPLIST_FILE = CommonGroundWatch/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.germaind.CommonGround.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.luxxow.commonground.watchkitapp;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -476,9 +468,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CommonGroundWatch/CommonGroundWatch.entitlements;
-				DEVELOPMENT_TEAM = 3N4Q2GQ558;
+				DEVELOPMENT_TEAM = CZY6SHVSXB;
 				INFOPLIST_FILE = CommonGroundWatch/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.germaind.CommonGround.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.luxxow.commonground.watchkitapp;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -489,15 +481,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = CommonGroundWidgets/CommonGroundWidgets.entitlements;
-				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = 3N4Q2GQ558;
+				CURRENT_PROJECT_VERSION = 7;
+				DEVELOPMENT_TEAM = CZY6SHVSXB;
 				INFOPLIST_FILE = CommonGroundWidgets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.germaind.CommonGround.widgets;
+				PRODUCT_BUNDLE_IDENTIFIER = com.luxxow.commonground.widgets;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -508,15 +500,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = CommonGroundWidgets/CommonGroundWidgets.entitlements;
-				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = 3N4Q2GQ558;
+				CURRENT_PROJECT_VERSION = 7;
+				DEVELOPMENT_TEAM = CZY6SHVSXB;
 				INFOPLIST_FILE = CommonGroundWidgets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.germaind.CommonGround.widgets;
+				PRODUCT_BUNDLE_IDENTIFIER = com.luxxow.commonground.widgets;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -557,7 +549,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -588,14 +580,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CommonGround/CommonGround.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = 3N4Q2GQ558;
+				DEVELOPMENT_TEAM = CZY6SHVSXB;
 				INFOPLIST_FILE = CommonGround/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				OTHER_LDFLAGS = "$(inherited) -weak_framework FoundationModels";
-				PRODUCT_BUNDLE_IDENTIFIER = com.germaind.CommonGround;
+				PRODUCT_BUNDLE_IDENTIFIER = com.luxxow.commonground;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";

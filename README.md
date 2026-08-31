@@ -101,8 +101,8 @@ If xcodegen is unavailable, open `Package.swift` in Xcode and add the app target
 ### Configuration
 
 1. Set your Development Team in Signing & Capabilities
-2. Optional: Enable CloudKit container `iCloud.com.germaind.CommonGround`
-3. Optional: Enable App Group `group.com.germaind.CommonGround`
+2. Optional: Enable CloudKit container `iCloud.com.luxxow.commonground`
+3. Optional: Enable App Group `group.com.luxxow.commonground`
 4. Run on simulator — use onboarding or DEBUG demo data
 
 See [docs/TESTFLIGHT.md](docs/TESTFLIGHT.md) for App Store Connect and TestFlight steps.

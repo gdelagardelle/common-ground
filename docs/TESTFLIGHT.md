@@ -6,12 +6,12 @@ Use this guide to ship **Common Ground** build 1.0 to TestFlight.
 
 - Apple Developer Program membership
 - Xcode 16+ with iOS 18 SDK (iOS 26 SDK for on-device AI features)
-- Bundle ID: `com.germaind.CommonGround` registered in App Store Connect
+- Bundle ID: `com.luxxow.commonground` registered in App Store Connect
 
 ## 1. App Store Connect setup
 
 1. Create a new app in [App Store Connect](https://appstoreconnect.apple.com)
-2. Set **Bundle ID** to `com.germaind.CommonGround`
+2. Set **Bundle ID** to `com.luxxow.commonground`
 3. Fill in metadata:
    - **Name:** Common Ground Co-Parent
    - **Subtitle:** Co-parenting, coordinated
@@ -25,8 +25,8 @@ Use this guide to ship **Common Ground** build 1.0 to TestFlight.
 2. Select the **CommonGround** target → **Signing & Capabilities**
 3. Set your **Team**
 4. Capabilities are preconfigured in the repo (regenerate after `project.yml` changes):
-   - **iCloud** → CloudKit → container `iCloud.com.germaind.CommonGround`
-   - **App Groups** → `group.com.germaind.CommonGround`
+   - **iCloud** → CloudKit → container `iCloud.com.luxxow.commonground`
+   - **App Groups** → `group.com.luxxow.commonground`
    - In Xcode, open **Signing & Capabilities** and confirm both appear without errors
 5. Optional for Apple Health:
    - Add **HealthKit** capability → enable read for Height and Body Mass
@@ -115,6 +115,6 @@ Capture on iPhone 15 Pro Max or 16 Pro Max simulator:
 
 | Target | Bundle ID |
 |--------|-----------|
-| App | `com.germaind.CommonGround` |
-| Widgets | `com.germaind.CommonGround.widgets` |
-| Watch | `com.germaind.CommonGround.watchkitapp` |
+| App | `com.luxxow.commonground` |
+| Widgets | `com.luxxow.commonground.widgets` |
+| Watch | `com.luxxow.commonground.watchkitapp` |
